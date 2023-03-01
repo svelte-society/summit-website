@@ -15,8 +15,6 @@
 
 	export let data;
 
-	$: console.log(data);
-
 	const { form, constraints, errors, enhance } = superForm(data.form);
 </script>
 

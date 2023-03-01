@@ -9,10 +9,8 @@ const emailSchema = z.object({
 })
 
 export const load = (async (event) => {
-    const res = await event.fetch('/api/speakers')
-    const speakers = await res.json()
     const form = await superValidate(event, emailSchema)
-    return { form, speakers };
+    return { form };
 }) satisfies PageServerLoad;
 
 export const actions: Actions = {
