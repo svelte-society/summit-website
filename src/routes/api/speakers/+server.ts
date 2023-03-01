@@ -1,10 +1,11 @@
+import { API_URL } from '$env/static/private';
 import { error } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
 export const prerender = true
 
 export const GET = (async ({ url, fetch }) => {
-    const res = await fetch('https://summit-api.sveltesociety.dev/api/collections/sponsor_packages/records')
+    const res = await fetch(`${API_URL}/collections/speakers/records`)
    
   console.log('IM RUNNING!!')
 
