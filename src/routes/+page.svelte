@@ -35,7 +35,8 @@
 			</div>
 		</h1>
 	</div>
-	<form class="mx-auto" method="POST" action="?/subscribe" use:enhance>
+	<form class="mx-auto flex flex-col gap-2" method="POST" action="?/subscribe" use:enhance>
+		<span class="mx-auto text-xl">Sign up to the newsletter</span>
 		<label class="flex flex-col md:flex-row w-full gap-3 px-4">
 			<input
 				{...$constraints.email}

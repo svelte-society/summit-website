@@ -59,7 +59,9 @@
 			{/each}
 		</dl>
 		<div class="mx-auto">
-			<Button primary>Got more questions? Join the Discord!</Button>
+			<Button external primary href="https://svelte.dev/chat"
+				>Got more questions? Join the Discord!</Button
+			>
 		</div>
 	</div>
 </article>

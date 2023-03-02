@@ -14,7 +14,9 @@
 				voluptatem ipsam. Aspernatur iste laboriosam nemo iusto!
 			</p>
 			<div class="w-full sm:w-56 mx-auto text-center">
-				<Button secondary wide href="/">Call For Proposals</Button>
+				<Button external secondary wide href="https://sessionize.com/svelte-summit-spring-2023/"
+					>Call For Proposals</Button
+				>
 			</div>
 		</div>
 	</div>
