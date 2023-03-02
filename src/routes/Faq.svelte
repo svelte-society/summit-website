@@ -4,7 +4,7 @@
 		{
 			question: 'What is this?',
 			answer:
-				"Svelte Summit is an event dedicated to Svelte and everything that is happening in the community. This is the first time we're going in-person. Don't miss it! It's going to be an absolute blast!"
+				"Svelte Summit is an event dedicated to Svelte and everything that is happening in the community. Don't miss it! It's going to be an absolute blast!"
 		},
 		{
 			question: 'What is this?',
@@ -48,12 +48,12 @@
 	<div class="grid gap-4 w-full sm:w-4/5 md:w-3/5 mx-auto px-4 md:py-16 py-8 max-w-6xl">
 		<h2 class="font-semibold text-2xl text-center">Frequently Asked Questions (FAQ)</h2>
 		<hr class="border-black border-2 rounded-lg w-52 mx-auto" />
-		<dl class="grid grid-cols-1 auto-cols-fr md:grid-cols-2 gap-8 w-full">
+		<dl class="columns-1 lg:columns-2 column-gap-2 w-full">
 			{#each questions as { question, answer }}
-				<div class="grid gap-2">
+				<div class="question grid gap-0">
 					<dt class="text-xl font-semibold">{question}</dt>
 					<dd class="m-0">
-						{answer}
+						{@html answer}
 					</dd>
 				</div>
 			{/each}
@@ -65,3 +65,9 @@
 		</div>
 	</div>
 </article>
+
+<style lang="postcss">
+	.question {
+		@apply pb-4;
+	}
+</style>

@@ -9,8 +9,14 @@ const emailSchema = z.object({
 })
 
 export const load = (async (event) => {
+    const [questionRes] = await Promise.all([
+        event.fetch('/api/questions')
+    ])
+    const [questions] = await Promise.all([
+        questionRes.json()
+    ])
     const form = await superValidate(event, emailSchema)
-    return { form };
+    return { form, questions: questions.items };
 }) satisfies PageServerLoad;
 
 export const actions: Actions = {

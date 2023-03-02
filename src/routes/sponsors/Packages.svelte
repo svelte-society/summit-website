@@ -9,6 +9,7 @@
 	};
 
 	export let packages: Package[];
+	console.log(packages);
 </script>
 
 <article id="intro" class="bg-gray-800 text-gray-100 py-16">
@@ -18,11 +19,7 @@
 	</div>
 	<ul class="grid grid-cols-2 gap-3 max-w-3xl mx-auto px-2">
 		{#each packages as item}
-			<li
-				class="grid grid-cols-1 gap-2 bg-slate-900 rounded-lg p-2  transition-all elevation-2 hover:elevation-5 hover:scale-[1.02]"
-			>
-				<Package {...item} />
-			</li>
+			<Package {...item} />
 		{/each}
 	</ul>
 </article>

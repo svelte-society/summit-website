@@ -9,9 +9,9 @@
 		>
 			<h2 class="font-semibold text-xl">Want to speak at the conference?</h2>
 			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam explicabo rem mollitia
-				consectetur libero dolore iusto architecto veniam temporibus, dolorum molestias modi ipsum
-				voluptatem ipsam. Aspernatur iste laboriosam nemo iusto!
+				We're super stoked to see what kind of talks that will be submitted this year! If you're
+				interested in speaking at the conference, please head on over to our submission link below!
+				This event is all online and all talks should be pre-recorded.
 			</p>
 			<div class="w-full sm:w-56 mx-auto text-center">
 				<Button external secondary wide href="https://sessionize.com/svelte-summit-spring-2023/"

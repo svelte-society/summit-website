@@ -56,7 +56,7 @@
 
 <Sponsors />
 <CTA />
-<Faq />
+<Faq questions={data.questions} />
 
 <style>
 	.cover {
