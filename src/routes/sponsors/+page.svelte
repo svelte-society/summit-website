@@ -18,16 +18,20 @@
 	</div>
 	<div class="mx-auto">
 		<div class="grid place-items-center md:flex-row w-full gap-3 px-">
-			<p>The only Svelte focused conference on the planet.</p>
+			<!-- <p>The only Svelte focused conference on the planet.</p> -->
+			<p>
+				Under construction. Please come back soon. In the meantime, please send a message using the
+				email link below.
+			</p>
 			<Button wide secondary href="mailto:sponsors@sveltesummit.com">Contact Us</Button>
 		</div>
 	</div>
 </div>
 
+<!-- 
 <Intro />
 <WhySponsor />
-<Packages packages={data.packages} />
-
+<Packages packages={data.packages} /> -->
 <style>
 	.cover {
 		display: flex;
