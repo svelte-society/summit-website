@@ -2,7 +2,7 @@
 	import Button from '$lib/components/Button.svelte';
 </script>
 
-<article class="bg-crystal-600 text-black">
+<article id="speakers" class="bg-crystal-600 text-black">
 	<div class="mx-auto px-4 md:py-14 py-8 max-w-6xl">
 		<div
 			class="flex flex-col gap-4 w-full sm:w-3/5 md:w-4/5 mx-auto p-6 rounded-md bg-gray-800 text-white "

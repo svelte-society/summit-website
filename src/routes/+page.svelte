@@ -19,6 +19,7 @@
 </script>
 
 <div
+	id="intro"
 	class="cover accent-ring bg-center bg-no-repeat lg:bg-[length:700px] md:bg-[length:500px] bg-[length:300px]"
 >
 	<div class="cover-center grid place-items-center gap-12">
