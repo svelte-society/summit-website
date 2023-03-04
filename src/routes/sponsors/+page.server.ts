@@ -1,10 +1,20 @@
-import { API_URL } from '$env/static/private';
+
+import { PUBLIC_API_URL } from '$env/static/public';
 import type { PageServerLoad } from './$types';
 
 export const prerender = true
 
 export const load = (async ({ fetch }) => {
-    const res = await fetch(`${API_URL}/collections/sponsor_packages/records`)
-    const { items } = await res.json()
-    return { packages: items};
+    const [packages_res, stats_res, svelte_stats_res] = await Promise.all([
+        fetch('/api/packages'),
+        fetch('/api/stats'),
+        fetch('/api/svelte-stats')
+    ])
+    const [packages, stats, svelte_stats] = await Promise.all([
+        packages_res.json(),
+        stats_res.json(),
+        svelte_stats_res.json()
+    ])
+
+    return { packages: packages.items, stats: stats.items, svelte_stats: svelte_stats.items};
 }) satisfies PageServerLoad;

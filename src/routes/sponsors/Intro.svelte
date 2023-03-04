@@ -1,57 +1,15 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
+	import SocietyStatistic from './SocietyStatistic.svelte';
 
 	type Stat = {
 		value: string;
-		modifier: string;
-		text: string;
+		unit: string;
+		description: string;
 		color: string;
 	};
 
-	export let stats: Stat[] = [
-		{
-			value: '2.5',
-			modifier: 'k',
-			text: 'live attendees',
-			color: '#d9cfff'
-		},
-		{
-			value: '21',
-			modifier: 'k',
-			text: 'async attendees',
-			color: '#f83b3b'
-		},
-		{
-			value: '50',
-			modifier: '+',
-			text: 'countries reached',
-			color: '#f83b3b'
-		},
-		{
-			value: '15',
-			modifier: '+',
-			text: 'talks from around the world',
-			color: '#f83b3b'
-		},
-		{
-			value: '15.5',
-			modifier: 'k',
-			text: 'twitter followers',
-			color: '#f83b3b'
-		},
-		{
-			value: '200',
-			modifier: 'k+',
-			text: 'YouTube views',
-			color: '#f83b3b'
-		},
-		{
-			value: '15.7',
-			modifier: 'k',
-			text: 'YouTube subscribers',
-			color: '#f83b3b'
-		}
-	];
+	export let stats: Stat[];
 </script>
 
 <article id="intro" class="bg-gray-800 text-gray-100 py-16">
@@ -69,15 +27,8 @@
 			<p>Below you'll find some stats on earlier events as well as our Social media accounts.</p>
 		</div>
 		<ul class="grid grid-stat-card-cols gap-2 w-full font-body">
-			{#each stats as { value, modifier, text, color }}
-				<li
-					class="flex flex-col place-content-center place-items-center gap-0 h-32 bg-slate-900 rounded-lg text-slate-100 transition-all elevation-2 hover:elevation-5 hover:scale-[1.02]"
-				>
-					<span class="text-5xl font-bold" style="color: {color}"
-						>{value}<small class="text-2xl">{modifier}</small></span
-					>
-					<span>{text}</span>
-				</li>
+			{#each stats as { value, color, unit, description }}
+				<SocietyStatistic {value} {unit} {color} {description} />
 			{/each}
 		</ul>
 	</div>

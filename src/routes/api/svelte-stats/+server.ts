@@ -6,7 +6,7 @@ export const prerender = true
 
 export const GET = (async ({ url, fetch }) => {
   
-    const res = await fetch(`${PUBLIC_API_URL}/collections/sponsor_packages/records`)
+    const res = await fetch(`${PUBLIC_API_URL}/collections/svelte_stats/records`)
 
     return new Response(res.body);
   }) satisfies RequestHandler;

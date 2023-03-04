@@ -6,10 +6,11 @@
 		title: string;
 		value: number;
 		prose: string;
+		full_width: boolean;
+		sponsors: string[];
 	};
 
 	export let packages: Package[];
-	console.log(packages);
 </script>
 
 <article id="intro" class="bg-gray-800 text-gray-100 py-16">
@@ -17,9 +18,9 @@
 		<h2 class="font-semibold text-4xl text-center">Packages</h2>
 		<hr class="border-gray-100 border-2 rounded-lg w-52 mx-auto" />
 	</div>
-	<ul class="grid grid-cols-2 gap-3 max-w-3xl mx-auto px-2">
-		{#each packages as item}
-			<Package {...item} />
+	<ul class="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-3xl mx-auto px-2">
+		{#each packages as { title, value, prose, full_width, sponsors }}
+			<Package {title} {value} {prose} {full_width} {sponsors} />
 		{/each}
 	</ul>
 </article>

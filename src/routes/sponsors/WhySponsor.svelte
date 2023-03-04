@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
+	import SvelteStatistic from './SvelteStatistic.svelte';
 
 	type Survey = {
 		img: string;
@@ -7,33 +8,7 @@
 		href: string;
 	};
 
-	export let surveys: Survey[] = [
-		{
-			img: 'https://picsum.photos/200/300',
-			text: 'SvelteKit has the highest satisfaction score of newcomer frameworks',
-			href: 'https://picsum.photos/200/300'
-		},
-		{
-			img: 'https://picsum.photos/200/300',
-			text: 'SvelteKit has the highest satisfaction score of newcomer frameworks',
-			href: 'https://picsum.photos/200/300'
-		},
-		{
-			img: 'https://picsum.photos/200/300',
-			text: 'SvelteKit has the highest satisfaction score of newcomer frameworks',
-			href: 'https://picsum.photos/200/300'
-		},
-		{
-			img: 'https://picsum.photos/200/300',
-			text: 'SvelteKit has the highest satisfaction score of newcomer frameworks',
-			href: 'https://picsum.photos/200/300'
-		},
-		{
-			img: 'https://picsum.photos/200/300',
-			text: 'SvelteKit has the highest satisfaction score of newcomer frameworks',
-			href: 'https://picsum.photos/200/300'
-		}
-	];
+	export let svelte_stats: Survey[];
 </script>
 
 <article id="intro" class="bg-gray-800 text-gray-100 py-16">
@@ -54,21 +29,8 @@
 		</p>
 	</div>
 	<ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full max-w-5xl mx-auto px-2">
-		{#each surveys as { img, text, href }}
-			<li>
-				<a
-					class="grid grid-cols-1 gap-2 bg-slate-900 rounded-lg p-2  transition-all elevation-2 hover:elevation-5 hover:scale-[1.02]"
-					href="/"
-				>
-					<img
-						class="w-0 sm:w-full h-20 md:h-64 rounded-md object-cover"
-						aria-hidden="true"
-						src={img}
-						alt=""
-					/>
-					<h3 class="px-1">{text}</h3></a
-				>
-			</li>
+		{#each svelte_stats as { id, img, text, href }}
+			<SvelteStatistic {id} {img} {text} {href} />
 		{/each}
 	</ul>
 </article>

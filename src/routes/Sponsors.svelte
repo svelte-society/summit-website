@@ -1,50 +1,8 @@
-<script>
-	export let sponsors = {
-		platinum: [
-			{
-				name: '💎 Platinum',
-				href: '/sponsors',
-				snippet: ''
-			},
-			{
-				name: '💎 Platinum',
-				href: '/sponsors',
-				snippet: ''
-			},
-			{
-				name: '💎 Platinum',
-				href: '/sponsors',
-				snippet: ''
-			}
-		],
-		gold: [
-			{
-				name: '🥇 Gold',
-				href: '/sponsors',
-				snippet: ''
-			},
-			{
-				name: '🥇 Gold',
-				href: '/sponsors',
-				snippet: ''
-			},
-			{
-				name: '🥇 Gold',
-				href: '/sponsors',
-				snippet: ''
-			},
-			{
-				name: '🥇 Gold',
-				href: '/sponsors',
-				snippet: ''
-			},
-			{
-				name: '🥇 Gold',
-				href: '/sponsors',
-				snippet: ''
-			}
-		]
-	};
+<script lang="ts">
+	import { PUBLIC_API_URL } from '$env/static/public';
+	import Sponsor from './Sponsor.svelte';
+
+	export let sponsors: Sponsor;
 </script>
 
 <article id="sponsors" class="bg-papaya-400 text-black">
@@ -53,21 +11,13 @@
 		<hr class="border-black border-2 rounded-lg w-52 mx-auto" />
 		<div class="grid gap-3">
 			<ul class="grid grid-cols-1 gap-3">
-				{#each sponsors.platinum as { name, href, snippet }}
-					<li
-						class="bg-slate-900 rounded-md p-8 text-white gap-3 hover:scale-[1.02] transition-transform"
-					>
-						<a {href}>{name}</a>
-					</li>
+				{#each sponsors.platinum as sponsor}
+					<Sponsor {...sponsor} is_platinum={true} />
 				{/each}
 			</ul>
 			<ul class="grid lg:grid-cols-3 grid-cols-2 gap-3">
-				{#each sponsors.gold as { name, href, snippet }}
-					<li
-						class="bg-slate-900 rounded-md p-8 text-white gap-3 hover:scale-[1.02] transition-transform"
-					>
-						<a {href}>{name}</a>
-					</li>
+				{#each sponsors.gold as sponsor}
+					<Sponsor {...sponsor} />
 				{/each}
 			</ul>
 		</div>

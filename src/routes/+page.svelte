@@ -1,4 +1,5 @@
-<script>
+<script lang="ts">
+	import type { PageData, ActionData } from './$types';
 	// Packages
 	import SuperDebug from 'sveltekit-superforms/client/SuperDebug.svelte';
 	import { superForm } from 'sveltekit-superforms/client';
@@ -13,16 +14,16 @@
 	import Button from '$lib/components/Button.svelte';
 	import logo from './logo.svg';
 
-	export let data;
+	export let data: PageData;
 
-	const { form, constraints, errors, enhance } = superForm(data.form);
+	const { form, constraints, errors, enhance, valid } = superForm(data.form);
 </script>
 
 <div
 	id="intro"
 	class="cover accent-ring bg-center bg-no-repeat lg:bg-[length:700px] md:bg-[length:500px] bg-[length:300px]"
 >
-	<div class="cover-center grid place-items-center gap-12">
+	<div class="relative cover-center grid place-items-center gap-12">
 		<img class="w-20 md:w-36" src={logo} alt="Svelte Society Logo" />
 		<h1 class="font-display gap-2 grid md:grid-cols-2 place-content-center">
 			<div class="text-center md:text-right lg:text-8xl text-7xl title">
@@ -36,26 +37,47 @@
 			</div>
 		</h1>
 	</div>
-	<!-- <form class="mx-auto flex flex-col gap-2" method="POST" action="?/subscribe" use:enhance>
-		<span class="mx-auto text-xl">Sign up to the newsletter</span>
-		<label class="flex flex-col md:flex-row w-full gap-3 px-4">
-			<input
-				{...$constraints.email}
-				bind:value={$form.email}
-				class="rounded-lg border-hidden px-4 py-3 sm:w-96 placeholder-slate-500 text-black"
-				placeholder="Your e-mail address..."
-				name="email"
-				type="email"
-			/>
-			<Button secondary>Sign up</Button>
-		</label>
-		{#if $errors.email}
-			YO!!! You got an error going for ya
-		{/if}
-	</form> -->
+	{#if !$valid}
+		<form class="mx-auto flex flex-col gap-2" method="POST" action="?/subscribe" use:enhance>
+			<span class="mx-auto text-xl">Sign up to the newsletter</span>
+			<label class="flex flex-col md:flex-row w-full gap-3 px-4">
+				<input
+					{...$constraints.email}
+					bind:value={$form.email}
+					class="rounded-lg border-hidden px-4 py-3 sm:w-96 placeholder-slate-500 text-black"
+					placeholder="Your e-mail address..."
+					name="email"
+					type="email"
+				/>
+				<Button secondary>Sign up</Button>
+			</label>
+			{#if $errors.email}
+				Something went wrong.
+			{/if}
+		</form>
+	{:else}
+		<dialog class="bottom-5 text-xl bg-slate-900 rounded-md text-slate-100" open>
+			<form class="relative p-6" method="dialog">
+				<span class="px-4">Thanks for signing up!</span>
+				<button class="absolute right-0 top-0" aria-label="Close">
+					<svg
+						class="fill-slate-100 h-8 w-8 hover:fill-papaya-400"
+						fill="none"
+						viewBox="0 0 24 24"
+						xmlns="http://www.w3.org/2000/svg"
+						><g stroke="#292d32" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+							><path d="m12 22c5.5 0 10-4.5 10-10s-4.5-10-10-10-10 4.5-10 10 4.5 10 10 10z" /><path
+								d="m9.16998 14.83 5.66002-5.65996"
+							/><path d="m14.83 14.83-5.66002-5.65996" /></g
+						></svg
+					></button
+				>
+			</form>
+		</dialog>
+	{/if}
 </div>
 
-<Sponsors />
+<Sponsors sponsors={data.sponsors} />
 <CTA />
 <Faq questions={data.questions} />
 
@@ -81,9 +103,6 @@
 
 	.cover > .cover-center {
 		margin-block: auto;
-	}
-	main {
-		background-image: url('./accent_ring.svg');
 	}
 	.title {
 		word-spacing: 9999px;
