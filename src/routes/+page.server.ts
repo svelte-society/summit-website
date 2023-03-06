@@ -46,6 +46,9 @@ export const actions: Actions = {
             },
             body: JSON.stringify({
                 'data': {
+                    'data': {
+                        verified: false,
+                    },
                     'email': form.data.email
                 }
             })
