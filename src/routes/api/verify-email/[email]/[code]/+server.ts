@@ -1,8 +1,6 @@
 import { MARKETING_API_KEY, MARKETING_API_URL } from '$env/static/private';
 import type { RequestHandler } from './$types';
 
-export const prerender = true
-
 export const GET = (async ({ fetch, params }) => {
   
     console.log(params)
