@@ -14,7 +14,7 @@
 
 <li
 	class:col-span-full={full_width}
-	class="grid grid-cols-1 place-content-start gap-2 bg-slate-900 rounded-md p-6 elevation-2"
+	class="grid grid-cols-1 place-content-start gap-3 bg-slate-900 rounded-md p-6 elevation-2"
 >
 	<div class="flex place-content-between">
 		<h3 class="text-3xl font-semibold">{title}</h3>
@@ -28,5 +28,7 @@
 	<div class="prose prose-p:text-slate-200 prose-li:text-slate-200 prose-strong:text-slate-100">
 		{@html prose}
 	</div>
-	<div class="ml-auto"><Button primary>I'm interested!</Button></div>
+	<div class="ml-auto">
+		<Button primary href="mailto:sponsors@sveltesummit.com">I'm interested!</Button>
+	</div>
 </li>
