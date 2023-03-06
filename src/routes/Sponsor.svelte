@@ -5,7 +5,6 @@
 	export let id: string;
 	export let logo: string;
 	export let href: string;
-	export let snippet: string;
 	export let is_platinum = false;
 
 	const height = is_platinum ? 300 : 150;
