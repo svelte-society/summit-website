@@ -7,8 +7,6 @@
 	export let href: string;
 	export let is_platinum = false;
 
-	console.log(is_platinum);
-
 	const height = is_platinum ? 300 : 150;
 	const fallback = is_platinum ? '💎 Platinum' : '🏆 Gold';
 </script>
