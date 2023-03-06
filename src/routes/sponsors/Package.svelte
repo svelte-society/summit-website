@@ -7,18 +7,25 @@
 	export let prose: string;
 	export let full_width: boolean = false;
 	export let sponsors: string[];
+	export let type: string;
+
+	const number_of_packages = type === 'gold' ? 6 : 3;
 </script>
 
 <li
 	class:col-span-full={full_width}
-	class="grid grid-cols-1 gap-2 bg-slate-900 rounded-md p-6 elevation-2"
+	class="grid grid-cols-1 place-content-start gap-2 bg-slate-900 rounded-md p-6 elevation-2"
 >
 	<div class="flex place-content-between">
 		<h3 class="text-3xl font-semibold">{title}</h3>
 		<span class="text-2xl font-semibold">€<data {value}>{value}</data></span>
 	</div>
-	<div class="text-slate-400 text-sm font-semibold">({3 - (sponsors?.length || 0)} of 3 left)</div>
-	<div class="prose prose-p:text-slate-200 prose-li:text-slate-200">
+	{#if type !== 'other'}
+		<div class="text-slate-400 text-sm font-semibold">
+			({number_of_packages - (sponsors?.length || 0)} of {number_of_packages} left)
+		</div>
+	{/if}
+	<div class="prose prose-p:text-slate-200 prose-li:text-slate-200 prose-strong:text-slate-100">
 		{@html prose}
 	</div>
 	<div class="ml-auto"><Button primary>I'm interested!</Button></div>

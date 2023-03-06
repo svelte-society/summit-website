@@ -8,6 +8,7 @@
 		prose: string;
 		full_width: boolean;
 		sponsors: string[];
+		type: string;
 	};
 
 	export let packages: Package[];
@@ -19,8 +20,8 @@
 		<hr class="border-gray-100 border-2 rounded-lg w-52 mx-auto" />
 	</div>
 	<ul class="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-3xl mx-auto px-2">
-		{#each packages as { title, value, prose, full_width, sponsors }}
-			<Package {title} {value} {prose} {full_width} {sponsors} />
+		{#each packages as { title, value, prose, full_width, sponsors, type }}
+			<Package {title} {value} {prose} {full_width} {sponsors} {type} />
 		{/each}
 	</ul>
 </article>
