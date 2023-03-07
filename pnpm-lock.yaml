@@ -29,7 +29,7 @@ specifiers:
   typescript: ^4.9.5
   vite: ^4.1.4
   vitest: ^0.25.8
-  zod: ^3.21.2
+  zod: ^3.21.4
 
 devDependencies:
   '@playwright/test': 1.31.2
@@ -53,14 +53,14 @@ devDependencies:
   svelte: 3.55.1
   svelte-check: 3.0.4_gqx7lw3sljhsd4bstor5m2aa2u
   svelte-preprocess: 4.10.7_b25a55hc532q56kmuqlrolam2i
-  sveltekit-superforms: 0.5.17_tisxub7tnsmydh7qildior2sfq
+  sveltekit-superforms: 0.5.17_plqwprvqqbbmysahtgouqoofyi
   tailwindcss: 3.2.7_postcss@8.4.21
   tailwindcss-elevation: 2.0.0_tailwindcss@3.2.7
   tslib: 2.5.0
   typescript: 4.9.5
   vite: 4.1.4
   vitest: 0.25.8
-  zod: 3.21.2
+  zod: 3.21.4
 
 packages:
 
@@ -797,7 +797,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.21.5
-      caniuse-lite: 1.0.30001460
+      caniuse-lite: 1.0.30001462
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -839,8 +839,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001460
-      electron-to-chromium: 1.4.320
+      caniuse-lite: 1.0.30001462
+      electron-to-chromium: 1.4.322
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10_browserslist@4.21.5
     dev: true
@@ -866,8 +866,8 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
-  /caniuse-lite/1.0.30001460:
-    resolution: {integrity: sha512-Bud7abqjvEjipUkpLs4D7gR0l8hBYBHoa+tGtKJHvT2AYzLp1z7EmVkUT4ERpVUfca8S2HGIVs883D8pUH1ZzQ==}
+  /caniuse-lite/1.0.30001462:
+    resolution: {integrity: sha512-PDd20WuOBPiasZ7KbFnmQRyuLE7cFXW2PVd7dmALzbkUXEP46upAuCDm9eY9vho8fgNMGmbAX92QBZHzcnWIqw==}
     dev: true
 
   /chai/4.3.7:
@@ -1041,8 +1041,8 @@ packages:
       esutils: 2.0.3
     dev: true
 
-  /electron-to-chromium/1.4.320:
-    resolution: {integrity: sha512-h70iRscrNluMZPVICXYl5SSB+rBKo22XfuIS1ER0OQxQZpKTnFpuS6coj7wY9M/3trv7OR88rRMOlKmRvDty7Q==}
+  /electron-to-chromium/1.4.322:
+    resolution: {integrity: sha512-KovjizNC9XB7dno/2GjxX8VS0SlfPpCjtyoKft+bCO+UfD8bFy16hY4Sh9s0h9BDxbRH2U0zX5VBjpM1LTcNlg==}
     dev: true
 
   /emoji-regex/8.0.0:
@@ -2407,7 +2407,7 @@ packages:
     engines: {node: '>= 8'}
     dev: true
 
-  /sveltekit-superforms/0.5.17_tisxub7tnsmydh7qildior2sfq:
+  /sveltekit-superforms/0.5.17_plqwprvqqbbmysahtgouqoofyi:
     resolution: {integrity: sha512-7iz//Yrk9xm16uVdVRUqoey1lWIycfoM5hFkcTizwxY3hOpNH1uI0gemSWMiX5m4gMjEmNV9AdRtsWkkawjfTA==}
     peerDependencies:
       '@sveltejs/kit': 1.x
@@ -2416,7 +2416,7 @@ packages:
     dependencies:
       '@sveltejs/kit': 1.10.0_svelte@3.55.1+vite@4.1.4
       svelte: 3.55.1
-      zod: 3.21.2
+      zod: 3.21.4
     dev: true
 
   /tailwindcss-elevation/2.0.0_tailwindcss@3.2.7:
@@ -2765,6 +2765,6 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /zod/3.21.2:
-    resolution: {integrity: sha512-0Ygy2/IZNIxHterZdHjE5Vb8hp1fUHJD/BGvSHj8QJx+UipEVNvo9WLchoyBpz5JIaN6KmdGDGYdloGzpFK98g==}
+  /zod/3.21.4:
+    resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
     dev: true
