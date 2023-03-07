@@ -1,4 +1,4 @@
-import { MARKETING_API_URL, MARKETING_API_KEY, HASH_SECRET } from '$env/static/private';
+import { MARKETING_API_URL, MARKETING_API_KEY, HASH_SECRET, MAILERSEND_KEY } from '$env/static/private';
 import { fail } from '@sveltejs/kit';
 import { z } from 'zod';
 import { superValidate } from 'sveltekit-superforms/server';
@@ -38,6 +38,8 @@ export const actions: Actions = {
             return fail(400, { form })
         }
 
+        const hash = await getSHA1Hash(form.data.email + HASH_SECRET)
+
         const res = await event.fetch(`${MARKETING_API_URL}/contacts`, {
             method: 'POST',
             headers: {
@@ -47,7 +49,7 @@ export const actions: Actions = {
             body: JSON.stringify({
                 'data': {
                     'data': {
-                        hash: await getSHA1Hash(form.data.email + HASH_SECRET), // used to look up the email for email confirmation,
+                        hash,
                         verified: false
                     },
                     'email': form.data.email
@@ -57,9 +59,53 @@ export const actions: Actions = {
 
         const data = await res.json()
 
-        // if successful, send confirmation email via mailersend
+        if (data.errors) {
+            const res = await event.fetch(`${MARKETING_API_URL}/contacts?filter=${JSON.stringify({"data.hash": hash})}`, {
+                headers: {
+                    'Authorization': 'Bearer ' + MARKETING_API_KEY,
+                    'Content-Type': 'application/json'
+                },
+            })
 
-        // Send email
+            const user_results = await res.json()
+            const user = user_results.data[0]
+
+            if (user?.data?.verified) {
+                return { form }
+            }
+
+            const send_email_res = await fetch('https://api.mailersend.com/v1/email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Authorization': 'Bearer ' + MAILERSEND_KEY
+                },
+                body: JSON.stringify({
+                    'to': [
+                        {
+                            'email': user.email
+                        }
+                    ],
+                    'variables': [
+                        {
+                            'email': user.email,
+                            'substitutions': [
+                                {
+                                    'var': 'email.hash',
+                                    'value': hash
+                                }
+                            ]
+                        }
+                    ],
+                    'template_id': 'v69oxl5895rl785k'
+                })
+            });
+
+            const send_email = await send_email_res.json()
+
+        }
+
 
         return { form }
     }

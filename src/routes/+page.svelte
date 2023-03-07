@@ -37,7 +37,7 @@
 			</div>
 		</h1>
 	</div>
-	<!-- {#if !$valid}
+	{#if !$valid}
 		<form class="mx-auto flex flex-col gap-2" method="POST" action="?/subscribe" use:enhance>
 			<span class="mx-auto text-xl">Sign up to the newsletter</span>
 			<label class="flex flex-col md:flex-row w-full gap-3 px-4">
@@ -74,7 +74,7 @@
 				>
 			</form>
 		</dialog>
-	{/if} -->
+	{/if}
 </div>
 
 <Sponsors sponsors={data.sponsors} />
