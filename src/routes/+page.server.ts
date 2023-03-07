@@ -1,4 +1,4 @@
-import { MARKETING_API_URL, MARKETING_API_KEY } from '$env/static/private';
+import { MARKETING_API_URL, MARKETING_API_KEY, HASH_SECRET } from '$env/static/private';
 import { fail } from '@sveltejs/kit';
 import { z } from 'zod';
 import { superValidate } from 'sveltekit-superforms/server';
@@ -47,7 +47,8 @@ export const actions: Actions = {
             body: JSON.stringify({
                 'data': {
                     'data': {
-                        verified: false,
+                        hash: await getSHA1Hash(form.data.email + HASH_SECRET), // used to look up the email for email confirmation,
+                        verified: false
                     },
                     'email': form.data.email
                 }
@@ -55,8 +56,21 @@ export const actions: Actions = {
         })
 
         const data = await res.json()
-        
+
+        // if successful, send confirmation email via mailersend
+
+        // Send email
 
         return { form }
     }
 };
+
+async function getSHA1Hash(input: string) {
+    const textAsBuffer = new TextEncoder().encode(input);
+    const hashBuffer = await crypto.subtle.digest("SHA-1", textAsBuffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hash = hashArray
+      .map((item) => item.toString(16).padStart(2, "0"))
+      .join("");
+    return hash;
+  };
