@@ -1,12 +1,11 @@
 <script lang="ts">
 	import type { PageData, ActionData } from './$types';
 	// Packages
-	import SuperDebug from 'sveltekit-superforms/client/SuperDebug.svelte';
 	import { superForm } from 'sveltekit-superforms/client';
 
 	// Sections
 	import Sponsors from './Sponsors.svelte';
-	import Speakers from './Speakers.svelte';
+	// import Speakers from './Speakers.svelte';
 	import CTA from './CTA.svelte';
 	import Faq from './Faq.svelte';
 
