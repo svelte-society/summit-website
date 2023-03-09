@@ -6,8 +6,6 @@ export const prerender = true
 
 export const GET = (async ({ url, fetch }) => {
     const res = await fetch(`${PUBLIC_API_URL}/collections/speakers/records`)
-   
-  console.log('IM RUNNING!!')
 
     return new Response(res.body);
   }) satisfies RequestHandler;

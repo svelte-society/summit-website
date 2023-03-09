@@ -9,10 +9,10 @@ export const GET = (async ({ fetch, params }) => {
       const update_result = await verifyEmail(id)
 
     } catch (e) {
-
+      throw redirect(302, '/')
     }
     
-    throw redirect(302, '/')
+    throw redirect(302, '/email-confirmed')
 }) satisfies RequestHandler;
 
 async function getIDFromHash(hash: string): Promise<string> {

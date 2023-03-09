@@ -40,71 +40,78 @@ export const actions: Actions = {
 
         const hash = await getSHA1Hash(form.data.email + HASH_SECRET)
 
-        const res = await event.fetch(`${MARKETING_API_URL}/contacts`, {
-            method: 'POST',
-            headers: {
-                'Authorization': 'Bearer ' + MARKETING_API_KEY,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                'data': {
-                    'data': {
-                        hash,
-                        verified: false
-                    },
-                    'email': form.data.email
-                }
-            })
-        })
-
-        const data = await res.json()
-
-        if (data.errors) {
-            const res = await event.fetch(`${MARKETING_API_URL}/contacts?filter=${JSON.stringify({"data.hash": hash})}`, {
+        try {
+            const res = await event.fetch(`${MARKETING_API_URL}/contacts`, {
+                method: 'POST',
                 headers: {
                     'Authorization': 'Bearer ' + MARKETING_API_KEY,
                     'Content-Type': 'application/json'
                 },
+                body: JSON.stringify({
+                    'data': {
+                        'data': {
+                            hash,
+                            verified: false
+                        },
+                        'email': form.data.email
+                    }
+                })
             })
 
-            const user_results = await res.json()
-            const user = user_results.data[0]
+            const data = await res.json()
 
-            if (user?.data?.verified) {
-                return { form }
-            }
-
-            const send_email_res = await fetch('https://api.mailersend.com/v1/email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-Requested-With': 'XMLHttpRequest',
-                    'Authorization': 'Bearer ' + MAILERSEND_KEY
-                },
-                body: JSON.stringify({
-                    'to': [
-                        {
-                            'email': user.email
-                        }
-                    ],
-                    'variables': [
-                        {
-                            'email': user.email,
-                            'substitutions': [
-                                {
-                                    'var': 'email.hash',
-                                    'value': hash
-                                }
-                            ]
-                        }
-                    ],
-                    'template_id': 'v69oxl5895rl785k'
+            if (!data.errors) {
+                const res = await event.fetch(`${MARKETING_API_URL}/contacts?filter=${JSON.stringify({"data.hash": hash})}`, {
+                    headers: {
+                        'Authorization': 'Bearer ' + MARKETING_API_KEY,
+                        'Content-Type': 'application/json'
+                    },
                 })
-            });
+    
+                const user_results = await res.json()
+                const user = user_results.data[0]
+    
+                if (user?.data?.verified) {
+                    return { form }
+                }
 
-            const send_email = await send_email_res.json()
-
+                const send_email_res = await fetch('https://api.mailersend.com/v1/email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Authorization': 'Bearer ' + MAILERSEND_KEY
+                    },
+                    body: JSON.stringify({
+                        'to': [
+                            {
+                                'email': user.email
+                            }
+                        ],
+                        'variables': [
+                            {
+                                'email': user.email,
+                                'substitutions': [
+                                    {
+                                        'var': 'email.hash',
+                                        'value': hash
+                                    }
+                                ]
+                            }
+                        ],
+                        'template_id': 'v69oxl5895rl785k'
+                    })
+                });
+    
+                const send_email = await send_email_res.json()
+    
+            }
+        } catch (error) {
+            console.error(error)
         }
+
+
+
 
 
         return { form }

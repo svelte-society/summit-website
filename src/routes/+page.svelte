@@ -57,7 +57,9 @@
 	{:else}
 		<dialog class="bottom-5 text-xl bg-slate-900 rounded-md text-slate-100" open>
 			<form class="relative p-6" method="dialog">
-				<span class="px-4">Thanks for signing up!</span>
+				<span class="px-4"
+					>Thanks for signing up! If you can't find the email, make sure you check your spam folder.</span
+				>
 				<button class="absolute right-0 top-0" aria-label="Close">
 					<svg
 						class="fill-slate-100 h-8 w-8 hover:fill-papaya-400"

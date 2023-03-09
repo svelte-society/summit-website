@@ -13,3 +13,28 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.cover {
+		display: flex;
+		flex-direction: column;
+		min-block-size: 100vh;
+		padding: 3rem;
+	}
+
+	.cover > * {
+		margin-block: 1rem;
+	}
+
+	.cover > :first-child:not(.cover-center) {
+		margin-block-start: 0;
+	}
+
+	.cover > :last-child:not(.cover-center) {
+		margin-block-end: 0;
+	}
+
+	.cover > .cover-center {
+		margin-block: auto;
+	}
+</style>
