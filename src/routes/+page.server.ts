@@ -5,7 +5,7 @@ import { z } from 'zod';
 import { superValidate } from 'sveltekit-superforms/server';
 import type { SpeakersResponse, TalksResponse, QuestionsResponse, SponsorsResponse } from '$lib/pocketbase-types';
 
-type Texpand = {
+type SpeakerEexpand = {
     speakers: SpeakersResponse[];
 };
 
@@ -19,7 +19,7 @@ export const load = (async ({ fetch, request }) => {
         fetch('/api/sponsors'),
         fetch('/api/sessions'),
     ])
-    const [questions, allSponsors, sessions]: [QuestionsResponse[], SponsorsResponse[], TalksResponse[]] = await Promise.all([
+    const [questions, allSponsors, sessions]: [QuestionsResponse[], SponsorsResponse[], TalksResponse<SpeakerEexpand>[]] = await Promise.all([
         questionRes.json(),
         sponsorsRes.json(),
         sessionsRes.json(),
