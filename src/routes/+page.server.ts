@@ -32,8 +32,8 @@ export const load = (async (event) => {
 }) satisfies PageServerLoad;
 
 export const actions: Actions = {
-    subscribe: async (event) => {
-        const form = await superValidate(event, emailSchema)
+    subscribe: async ({request, fetch}) => {
+        const form = await superValidate(request, emailSchema)
         if (!form.valid) {
             return fail(400, { form })
         }
@@ -41,7 +41,7 @@ export const actions: Actions = {
         const hash = await getSHA1Hash(form.data.email + HASH_SECRET)
 
         try {
-            const res = await event.fetch(`${MARKETING_API_URL}/contacts`, {
+            const res = await fetch(`${MARKETING_API_URL}/contacts`, {
                 method: 'POST',
                 headers: {
                     'Authorization': 'Bearer ' + MARKETING_API_KEY,
@@ -61,7 +61,7 @@ export const actions: Actions = {
             const data = await res.json()
 
             if (!data.errors) {
-                const res = await event.fetch(`${MARKETING_API_URL}/contacts?filter=${JSON.stringify({"data.hash": hash})}`, {
+                const res = await fetch(`${MARKETING_API_URL}/contacts?filter=${JSON.stringify({"data.hash": hash})}`, {
                     headers: {
                         'Authorization': 'Bearer ' + MARKETING_API_KEY,
                         'Content-Type': 'application/json'
@@ -102,8 +102,6 @@ export const actions: Actions = {
                         'template_id': 'v69oxl5895rl785k'
                     })
                 });
-    
-                const send_email = await send_email_res.json()
     
             }
         } catch (error) {
