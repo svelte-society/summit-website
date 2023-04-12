@@ -1,11 +1,13 @@
 import { PUBLIC_API_URL } from '$env/static/public';
-import { error } from '@sveltejs/kit';
+import { json } from '@sveltejs/kit'
 import type { RequestHandler } from './$types';
 
 export const prerender = true
 
 export const GET = (async ({ url, fetch }) => {
-    const res = await fetch(`${PUBLIC_API_URL}/collections/speakers/records`)
+    const res = await fetch(`${PUBLIC_API_URL}/collections/talks/records?expand=speakers`)
 
-    return new Response(res.body);
+    const data = await res.json()
+
+    return json(data.items);
   }) satisfies RequestHandler;

@@ -1,11 +1,10 @@
 <script lang="ts">
-	import type { PageData, ActionData } from './$types';
 	// Packages
 	import { superForm } from 'sveltekit-superforms/client';
 
 	// Sections
 	import Sponsors from './Sponsors.svelte';
-	// import Speakers from './Speakers.svelte';
+	import Sessions from './Sessions.svelte';
 	import CTA from './CTA.svelte';
 	import Faq from './Faq.svelte';
 
@@ -13,7 +12,7 @@
 	import Button from '$lib/components/Button.svelte';
 	import logo from './logo.svg';
 
-	export let data: PageData;
+	export let data;
 
 	const { form, constraints, errors, enhance, valid } = superForm(data.form);
 </script>
@@ -78,7 +77,8 @@
 	{/if}
 </div>
 
-<Sponsors sponsors={data.sponsors} />
+<Sponsors gold={data.sponsors.gold} platinum={data.sponsors.platinum} />
+<Sessions sessions={data.sessions} />
 <CTA />
 <Faq questions={data.questions} />
 

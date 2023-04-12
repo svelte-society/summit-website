@@ -1,34 +1,42 @@
+import type { PageServerLoad, Actions } from './$types';
 import { MARKETING_API_URL, MARKETING_API_KEY, HASH_SECRET, MAILERSEND_KEY } from '$env/static/private';
 import { fail } from '@sveltejs/kit';
 import { z } from 'zod';
 import { superValidate } from 'sveltekit-superforms/server';
+import type { SpeakersResponse, TalksResponse, QuestionsResponse, SponsorsResponse } from '$lib/pocketbase-types';
 
-import type { PageServerLoad, Actions } from './$types';
+type Texpand = {
+    speakers: SpeakersResponse[];
+};
 
 const emailSchema = z.object({
     email: z.string().email()
 })
 
-export const load = (async (event) => {
-    const [questionRes, sponsorsRes] = await Promise.all([
-        event.fetch('/api/questions'),
-        event.fetch('/api/sponsors')
+export const load = (async ({ fetch, request }) => {
+    const [questionRes, sponsorsRes, sessionsRes] = await Promise.all([
+        fetch('/api/questions'),
+        fetch('/api/sponsors'),
+        fetch('/api/sessions'),
     ])
-    const [questions, allSponsors] = await Promise.all([
+    const [questions, allSponsors, sessions]: [QuestionsResponse[], SponsorsResponse[], TalksResponse[]] = await Promise.all([
         questionRes.json(),
-        sponsorsRes.json()
+        sponsorsRes.json(),
+        sessionsRes.json(),
     ])
 
-    const platinum = allSponsors.items.filter(sponsor => sponsor.type === 'platinum')
-    const gold = allSponsors.items.filter(sponsor => sponsor.type === 'gold')
+    
+
+    const platinum = allSponsors.filter(sponsor => sponsor.type === 'platinum')
+    const gold = allSponsors.filter(sponsor => sponsor.type === 'gold')
 
     const sponsors = {
-        platinum: [...platinum, ...new Array(3 - platinum.length)],
-        gold: [...gold, ...new Array(6 - gold.length)]
+        platinum: [...platinum, ...new Array(3 - platinum.length)] as (SponsorsResponse | undefined)[],
+        gold: [...gold, ...new Array(6 - gold.length)] as (SponsorsResponse | undefined)[]
     }
 
-    const form = await superValidate(event, emailSchema)
-    return { form, questions: questions.items, sponsors: sponsors };
+    const form = await superValidate(request, emailSchema)
+    return { form, questions, sponsors, sessions };
 }) satisfies PageServerLoad;
 
 export const actions: Actions = {
