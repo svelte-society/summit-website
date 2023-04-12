@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { PUBLIC_API_URL } from '$env/static/public';
+	import type { SponsorsResponse } from '$lib/pocketbase-types';
 	import Sponsor from './Sponsor.svelte';
 
-	export let sponsors: Sponsor;
+	export let platinum: SponsorsResponse[];
+	export let gold: SponsorsResponse[];
 </script>
 
 <article id="sponsors" class="bg-papaya-400 text-black">
@@ -11,13 +12,13 @@
 		<hr class="border-black border-2 rounded-lg w-52 mx-auto" />
 		<div class="grid gap-3">
 			<ul class="grid grid-cols-1 gap-3">
-				{#each sponsors.platinum as sponsor}
-					<Sponsor {...sponsor} is_platinum={true} />
+				{#each platinum as sponsor}
+					<Sponsor {sponsor} is_platinum={true} />
 				{/each}
 			</ul>
 			<ul class="grid lg:grid-cols-3 grid-cols-2 gap-3">
-				{#each sponsors.gold as sponsor}
-					<Sponsor {...sponsor} />
+				{#each gold as sponsor}
+					<Sponsor {sponsor} />
 				{/each}
 			</ul>
 		</div>
