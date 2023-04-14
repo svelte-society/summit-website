@@ -14,18 +14,18 @@ const emailSchema = z.object({
 })
 
 export const load = (async ({ fetch, request }) => {
-    const [questionRes, sponsorsRes, sessionsRes] = await Promise.all([
+    const [questionRes, sponsorsRes, sessionsRes, mcRes] = await Promise.all([
         fetch('/api/questions'),
         fetch('/api/sponsors'),
         fetch('/api/sessions'),
+        fetch('/api/mcs'),
     ])
-    const [questions, allSponsors, sessions]: [QuestionsResponse[], SponsorsResponse[], TalksResponse<SpeakerEexpand>[]] = await Promise.all([
+    const [questions, allSponsors, sessions, mcs]: [QuestionsResponse[], SponsorsResponse[], TalksResponse<SpeakerEexpand>[], SpeakersResponse[]] = await Promise.all([
         questionRes.json(),
         sponsorsRes.json(),
         sessionsRes.json(),
+        mcRes.json()
     ])
-
-    
 
     const platinum = allSponsors.filter(sponsor => sponsor.type === 'platinum')
     const gold = allSponsors.filter(sponsor => sponsor.type === 'gold')
@@ -36,7 +36,7 @@ export const load = (async ({ fetch, request }) => {
     }
 
     const form = await superValidate(request, emailSchema)
-    return { form, questions, sponsors, sessions };
+    return { form, questions, sponsors, sessions, mcs };
 }) satisfies PageServerLoad;
 
 export const actions: Actions = {

@@ -51,6 +51,7 @@ export type QuestionsRecord = {
 
 export type SpeakersRecord = {
 	name: string
+	isMc?: boolean
 	tagline?: string
 	twitter?: string
 	bio: HTMLString

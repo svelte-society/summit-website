@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { SponsorsResponse } from '$lib/pocketbase-types';
+	import type { SponsorsResponse } from '../lib/pocketbase-types';
 	import Sponsor from './Sponsor.svelte';
 
-	export let platinum: SponsorsResponse[];
-	export let gold: SponsorsResponse[];
+	export let platinum: (SponsorsResponse | undefined)[];
+	export let gold: (SponsorsResponse | undefined)[];
 </script>
 
 <article id="sponsors" class="bg-papaya-400 text-black">

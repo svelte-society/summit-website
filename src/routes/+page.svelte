@@ -5,12 +5,12 @@
 	// Sections
 	import Sponsors from './Sponsors.svelte';
 	import Sessions from './Sessions.svelte';
-	import CTA from './CTA.svelte';
 	import Faq from './Faq.svelte';
 
 	// Components and assets
 	import Button from '$lib/components/Button.svelte';
 	import logo from './logo.svg';
+	import MCs from './MCs.svelte';
 
 	export let data;
 
@@ -78,8 +78,8 @@
 </div>
 
 <Sponsors gold={data.sponsors.gold} platinum={data.sponsors.platinum} />
+<MCs mcs={data.mcs} />
 <Sessions sessions={data.sessions} />
-<CTA />
 <Faq questions={data.questions} />
 
 <style>

@@ -1,47 +1,7 @@
-<script>
+<script lang="ts">
 	import Button from '$lib/components/Button.svelte';
-	export let questions = [
-		{
-			question: 'What is this?',
-			answer:
-				"Svelte Summit is an event dedicated to Svelte and everything that is happening in the community. Don't miss it! It's going to be an absolute blast!"
-		},
-		{
-			question: 'What is this?',
-			answer:
-				"Svelte Summit is an event dedicated to Svelte and everything that is happening in the community. This is the first time we're going in-person. Don't miss it! It's going to be an absolute blast!"
-		},
-		{
-			question: 'What is this?',
-			answer:
-				"Svelte Summit is an event dedicated to Svelte and everything that is happening in the community. This is the first time we're going in-person. Don't miss it! It's going to be an absolute blast!"
-		},
-		{
-			question: 'What is this?',
-			answer:
-				"Svelte Summit is an event dedicated to Svelte and everything that is happening in the community. This is the first time we're going in-person. Don't miss it! It's going to be an absolute blast!"
-		},
-		{
-			question: 'What is this?',
-			answer:
-				"Svelte Summit is an event dedicated to Svelte and everything that is happening in the community. This is the first time we're going in-person. Don't miss it! It's going to be an absolute blast!"
-		},
-		{
-			question: 'What is this?',
-			answer:
-				"Svelte Summit is an event dedicated to Svelte and everything that is happening in the community. This is the first time we're going in-person. Don't miss it! It's going to be an absolute blast!"
-		},
-		{
-			question: 'What is this?',
-			answer:
-				"Svelte Summit is an event dedicated to Svelte and everything that is happening in the community. This is the first time we're going in-person. Don't miss it! It's going to be an absolute blast!"
-		},
-		{
-			question: 'What is this?',
-			answer:
-				"Svelte Summit is an event dedicated to Svelte and everything that is happening in the community. This is the first time we're going in-person. Don't miss it! It's going to be an absolute blast!"
-		}
-	];
+	import type { QuestionsResponse } from '$lib/pocketbase-types';
+	export let questions: QuestionsResponse[];
 </script>
 
 <article id="faq" class="bg-gray-100 text-black">
