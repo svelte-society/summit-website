@@ -8,7 +8,7 @@
 	export let sessions: TalksResponse<SpeakerExpand>[];
 </script>
 
-<article class="bg-crystal-600 text-blac">
+<article id="speakers" class="bg-crystal-600 text-blac">
 	<div class="grid gap-4 w-full sm:w-4/5 md:w-3/5 mx-auto px-4 py-24 text-center">
 		<h2 class="font-semibold text-2xl">Speakers</h2>
 		<hr class="border-black border-2 rounded-lg w-52 mx-auto" />
