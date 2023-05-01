@@ -7,7 +7,7 @@ export const prerender = true
 export const GET = (async ({ url, fetch }) => {
     const res = await fetch(`${PUBLIC_API_URL}/collections/talks/records?expand=speakers`)
 
-    const data = await res.json()
+    const { items } = await res.json()
 
-    return json(data.items);
+    return json(items.sort((a, b) => b.priority - a.priority));
   }) satisfies RequestHandler;
