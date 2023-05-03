@@ -8,14 +8,15 @@
 
 <picture>
 	<source
-		srcset="//wsrv.nl/?url={PUBLIC_API_URL}/files/speakers/{id}/{file}&w={size * 2}&output=webp"
+		srcset="//wsrv.nl/?url={PUBLIC_API_URL}/files/speakers/{id}/{file}&w={size *
+			2}&output=webp&q=70"
 		type="image/webp"
 	/>
 	<img
 		class="rounded-full"
 		width={size}
 		height={size}
-		src="//wsrv.nl/?url={PUBLIC_API_URL}/files/speakers/{id}/{file}&w={size * 2}"
+		src="//wsrv.nl/?url={PUBLIC_API_URL}/files/speakers/{id}/{file}&w={size * 2}&q=70"
 		alt="{name} logo"
 	/>
 </picture>
