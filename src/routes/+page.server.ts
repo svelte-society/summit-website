@@ -31,8 +31,8 @@ export const load = (async ({ fetch, request }) => {
     const gold = allSponsors.filter(sponsor => sponsor.type === 'gold')
 
     const sponsors = {
-        platinum: [...platinum, ...new Array(3 - platinum.length)] as (SponsorsResponse | undefined)[],
-        gold: [...gold, ...new Array(6 - gold.length)] as (SponsorsResponse | undefined)[]
+        platinum,
+        gold: []
     }
 
     const form = await superValidate(request, emailSchema)
