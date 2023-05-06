@@ -14,14 +14,23 @@
 
 	export let data;
 
-	const { form, constraints, errors, enhance, valid } = superForm(data.form);
+	// const { form, constraints, errors, enhance, valid } = superForm(data.form);
 </script>
 
 <div
 	id="intro"
-	class="cover accent-ring bg-center bg-no-repeat lg:bg-[length:700px] md:bg-[length:500px] bg-[length:300px]"
+	class="cover bg-center bg-no-repeat lg:bg-[length:700px] md:bg-[length:500px] bg-[length:300px]"
 >
-	<div class="relative cover-center grid place-items-center gap-12">
+	<div class="cover-center aspect-w-16 aspect-h-9">
+		<iframe
+			title="Svelte Summit YouTube Stream"
+			src="https://www.youtube.com/embed/0bog8-Ay7CU"
+			frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			allowfullscreen
+		/>
+	</div>
+	<!-- <div class="relative cover-center grid place-items-center gap-12">
 		<img class="w-20 md:w-36" src={logo} alt="Svelte Society Logo" />
 		<h1 class="font-display gap-2 grid md:grid-cols-2 place-content-center">
 			<div class="text-center md:text-right lg:text-8xl text-7xl title">
@@ -74,7 +83,7 @@
 				>
 			</form>
 		</dialog>
-	{/if}
+	{/if} -->
 </div>
 
 <Sponsors gold={data.sponsors.gold} platinum={data.sponsors.platinum} />
