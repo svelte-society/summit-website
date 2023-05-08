@@ -35,8 +35,13 @@ export const load = (async ({ fetch, request }) => {
         gold: []
     }
 
+    const meta = {
+        title: 'Svelte Summit Spring 2023: The worlds biggest Svelte Conference',
+        description: 'The worlds largest Svelte conference'
+    }
+
     const form = await superValidate(request, emailSchema)
-    return { form, questions, sponsors, sessions, mcs };
+    return { form, questions, sponsors, sessions, mcs, meta };
 }) satisfies PageServerLoad;
 
 export const actions: Actions = {
