@@ -102,7 +102,7 @@
 				profilePos
 			);
 
-			// downloadCanvasAsPng(canvas, `Thumbnail - ${title}.png`);
+			downloadCanvasAsPng(canvas, `Thumbnail - ${title}.png`);
 		});
 	}
 </script>
@@ -117,13 +117,7 @@
 
 	<ul class="flex flex-wrap gap-1">
 		{#each data.sessions as { title }, idx}
-			<canvas
-				on:click={() => downloadCanvasAsPng(canvases[idx], `Thumbnail: ${title}.png`)}
-				class="border-2 border-secondary m-4 max-w-md"
-				width="448"
-				height="252"
-				bind:this={canvases[idx]}
-			/>
+			<canvas class="max-w-md" width="448" height="252" bind:this={canvases[idx]} />
 		{/each}
 	</ul>
 </div>
