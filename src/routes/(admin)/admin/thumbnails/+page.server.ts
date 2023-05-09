@@ -16,7 +16,7 @@ export const load = async ({ fetch }) => {
     })
     
     const meta = {
-        title: 'Admin Page - Thumbnails',
+        title: 'Admin Page - Thumbnail Generator',
         description: 'Svelte Summit Spring 2023 Admin Page'
     }
     
