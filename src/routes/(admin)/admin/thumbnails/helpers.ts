@@ -17,7 +17,7 @@ type TextSize = {
   
     context.font = font;
     context.textBaseline = "top";
-    const lineHeight = context.measureText("M").width * 1.2; // Approximate line height based on the width of the letter "M"
+    const lineHeight = context.measureText("M").width * 1.4; // Approximate line height based on the width of the letter "M"
   
     for (const word of words) {
       const testLine = line + word + " ";
@@ -85,7 +85,9 @@ export function wrapTextToFit(
     y: number,
     radius: number,
     overlayColor: string,
-    overlayOpacity: number
+    overlayOpacity: number,
+    strokeColor: string,
+    strokeWidth: number
   ): void {
     // Create an off-screen canvas
     const offscreenCanvas = new OffscreenCanvas(radius * 2, radius * 2);
@@ -137,5 +139,14 @@ export function wrapTextToFit(
   
     // Draw the resulting image on the main canvas
     context.drawImage(offscreenCanvas, x, y);
+
+    // Draw stroke around the profile image
+    context.restore();
+    context.beginPath();
+    context.arc(x + radius, y + radius, radius, 0, Math.PI * 2, false);
+    context.lineWidth = strokeWidth;
+    context.strokeStyle = strokeColor;
+    context.stroke();
+    context.closePath();
   }
   

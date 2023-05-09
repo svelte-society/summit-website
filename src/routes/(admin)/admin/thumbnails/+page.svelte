@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { wrapTextToFit, downloadCanvasAsPng, drawCircularImage } from './helpers.js';
 	export let data;
 
@@ -52,11 +53,13 @@
 			drawCircularImage(
 				context,
 				img,
-				profilePos.x + profileRadius * i * 2.5,
+				profilePos.x + profileRadius * i * 1.3,
 				profilePos.y,
 				profileRadius,
 				'#FF6C6C',
-				0.5
+				0.5,
+				'#3B006A',
+				8
 			);
 		});
 
@@ -70,7 +73,7 @@
 		// Draw the wrapped text line by line
 		context.font = `500 ${fontSize}px Overpass`; // Use the adjusted font size
 		text.lines.forEach((line, index) => {
-			context.fillText(line, text2Pos.x, text2Pos.y + context.measureText('M').width * 1.2 * index);
+			context.fillText(line, text2Pos.x, text2Pos.y + context.measureText('M').width * 1.4 * index);
 		});
 	}
 
@@ -98,23 +101,29 @@
 				title_pos,
 				profilePos
 			);
-		});
 
-		// downloadCanvasAsPng(canvas, 'test_file.png');
+			// downloadCanvasAsPng(canvas, `Thumbnail - ${title}.png`);
+		});
 	}
 </script>
 
-<h1>Generate Thumbnails from Sessions</h1>
-<button on:click={generateImages}>Generate</button>
+<div class="m-4">
+	<div class="flex flex-wrap gap-2 place-items-center">
+		<h1 class="text-2xl font-bold">Generate Thumbnails from Sessions</h1>
+		<button class="px-4 py-2 bg-secondary text-gray-50 rounded-md" on:click={generateImages}
+			>Generate</button
+		>
+	</div>
 
-<ul class="flex flex-wrap gap-1">
-	{#each data.sessions as { title }, idx}
-		<canvas
-			on:click={() => downloadCanvasAsPng(canvases[idx], `Thumbnail: ${title}.png`)}
-			class="border-2 border-secondary m-4 max-w-md"
-			width="448"
-			height="252"
-			bind:this={canvases[idx]}
-		/>
-	{/each}
-</ul>
+	<ul class="flex flex-wrap gap-1">
+		{#each data.sessions as { title }, idx}
+			<canvas
+				on:click={() => downloadCanvasAsPng(canvases[idx], `Thumbnail: ${title}.png`)}
+				class="border-2 border-secondary m-4 max-w-md"
+				width="448"
+				height="252"
+				bind:this={canvases[idx]}
+			/>
+		{/each}
+	</ul>
+</div>
