@@ -40,4 +40,12 @@
 			<Speaker {speaker} />
 		{/each}
 	</div>
+	{#if data.talk.transcript}
+		<h2 class="text-center text-xl font-semibold underline underline-offset-4 underline-4">
+			Transcript
+		</h2>
+		<div class="prose prose-lg grid prose-p:text-slate-200">
+			{@html data.talk.transcript}
+		</div>
+	{/if}
 </div>
