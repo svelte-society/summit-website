@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { wrapTextToFit, downloadCanvasAsPng, drawCircularImage } from './helpers.js';
 	export let data;
 
