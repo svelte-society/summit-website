@@ -20,7 +20,7 @@
 
 <style lang="postcss">
 	.primary {
-		@apply bg-crystal-500 hover:bg-crystal-400;
+		@apply bg-yellow-500 hover:bg-yellow-400;
 	}
 	.secondary {
 		@apply bg-papaya-500 hover:bg-papaya-600;

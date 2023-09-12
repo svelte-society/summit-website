@@ -5,6 +5,7 @@
 	// Sections
 	import Sponsors from './Sponsors.svelte';
 	import Sessions from './Sessions.svelte';
+	import CTA from './CTA.svelte';
 	import Faq from './Faq.svelte';
 
 	// Components and assets
@@ -14,14 +15,14 @@
 
 	export let data;
 
-	// const { form, constraints, errors, enhance, valid } = superForm(data.form);
+	const { form, constraints, errors, enhance, valid } = superForm(data.form);
 </script>
 
 <div
 	id="intro"
 	class="cover bg-center bg-no-repeat lg:bg-[length:700px] md:bg-[length:500px] bg-[length:300px]"
 >
-	<div class="cover-center aspect-w-16 aspect-h-9">
+	<!-- <div class="cover-center aspect-w-16 aspect-h-9">
 		<iframe
 			title="Svelte Summit YouTube Stream"
 			src="https://www.youtube.com/embed/0bog8-Ay7CU"
@@ -29,18 +30,18 @@
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 			allowfullscreen
 		/>
-	</div>
-	<!-- <div class="relative cover-center grid place-items-center gap-12">
+	</div> -->
+	<div class="relative cover-center grid place-items-center gap-12">
 		<img class="w-20 md:w-36" src={logo} alt="Svelte Society Logo" />
 		<h1 class="font-display gap-2 grid md:grid-cols-2 place-content-center">
 			<div class="text-center md:text-right lg:text-8xl text-7xl title">
-				SVELTE SUMMIT <span class="text-papaya-400">SPRING</span>
+				SVELTE SUMMIT <span class="text-yellow-400">FALL</span>
 			</div>
 			<div
 				class="text-center md:text-left md:flex md:flex-col lg:pt-0.5 lg:text-4xl text-3xl w-full md:w-32"
 			>
-				<div class="text-papaya-400">MAY 6 2023</div>
-				<div>THE 6TH VIRTUAL SVELTE CONFERENCE</div>
+				<div class="text-yellow-400">NOV 11 2023</div>
+				<div>THE 7TH VIRTUAL SVELTE CONFERENCE</div>
 			</div>
 		</h1>
 	</div>
@@ -56,7 +57,7 @@
 					name="email"
 					type="email"
 				/>
-				<Button secondary>Sign up</Button>
+				<Button primary>Sign up</Button>
 			</label>
 			{#if $errors.email}
 				Something went wrong.
@@ -83,12 +84,13 @@
 				>
 			</form>
 		</dialog>
-	{/if} -->
+	{/if}
 </div>
 
 <Sponsors gold={data.sponsors.gold} platinum={data.sponsors.platinum} />
 <MCs mcs={data.mcs} />
-<Sessions sessions={data.sessions} />
+<CTA />
+<!-- <Sessions sessions={data.sessions} /> -->
 <Faq questions={data.questions} />
 
 <style>
