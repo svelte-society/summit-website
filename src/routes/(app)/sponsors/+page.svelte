@@ -14,7 +14,7 @@
 <div class="cover">
 	<div class="cover-center grid place-items-center gap-6">
 		<h1 class="font-display text-5xl text-center">Sponsorship Opportunities</h1>
-		<div class="text-3xl text-slate-300">May 6th, Online</div>
+		<div class="text-3xl text-slate-300">Nov 11th, Online</div>
 	</div>
 	<div class="mx-auto">
 		<div class="grid place-items-center md:flex-row w-full gap-3 px-">
