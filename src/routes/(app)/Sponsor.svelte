@@ -11,7 +11,7 @@
 </script>
 
 {#if sponsor}
-	<li class="bg-slate-900 p-10 rounded-md text-white gap-3 hover:scale-[1.02] transition-transform">
+	<li class="bg-blue-800 p-10 rounded-md text-white gap-3 hover:scale-[1.02] transition-transform">
 		<a href={sponsor.href} target="_blank" rel="noreferrer">
 			<picture>
 				<!-- load webp if supported -->

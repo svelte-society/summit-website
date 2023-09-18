@@ -31,8 +31,8 @@ export const load = (async ({ fetch, request }) => {
     const gold = allSponsors.filter(sponsor => sponsor.type === 'gold')
 
     const sponsors = {
-        platinum,
-        gold: []
+        platinum ,
+        gold
     }
 
     const meta = {

@@ -14,7 +14,7 @@
 				This event is all online and all talks should be pre-recorded.
 			</p>
 			<div class="w-full sm:w-56 mx-auto text-center">
-				<Button external primary wide href="https://sessionize.com/svelte-summit-spring-2023/"
+				<Button external primary wide href="https://sessionize.com/svelte-summit-fall-2023/"
 					>Call For Proposals</Button
 				>
 			</div>

@@ -9,6 +9,6 @@ export const GET = (async ({ url, fetch }) => {
     const res = await fetch(`${PUBLIC_API_URL}/collections/sponsors/records`)
 
     const data = await res.json()
-
+    
     return json(data.items);
   }) satisfies RequestHandler;
