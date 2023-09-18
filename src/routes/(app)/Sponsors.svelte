@@ -12,12 +12,12 @@
 		<hr class="border-black border-2 rounded-lg w-52 mx-auto" />
 		<div class="grid gap-3">
 			<ul class="grid grid-cols-1 gap-3">
-				{#each platinum as sponsor}
+				{#each platinum.concat(Array(3 - platinum.length).fill(undefined)) as sponsor}
 					<Sponsor {sponsor} is_platinum={true} />
 				{/each}
 			</ul>
 			<ul class="grid lg:grid-cols-3 grid-cols-2 gap-3">
-				{#each gold as sponsor}
+				{#each gold.concat(Array(6 - gold.length).fill(undefined)) as sponsor}
 					<Sponsor {sponsor} />
 				{/each}
 			</ul>

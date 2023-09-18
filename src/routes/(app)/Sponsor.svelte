@@ -35,7 +35,7 @@
 {:else}
 	<li
 		class:py-12={is_platinum}
-		class="bg-slate-900 rounded-md p-8 text-white gap-3 hover:scale-[1.02] transition-transform"
+		class="bg-blue-800 rounded-md p-8 text-white gap-3 hover:scale-[1.02] transition-transform grid place-items-center"
 	>
 		<a href="/sponsors">{fallback}</a>
 	</li>
