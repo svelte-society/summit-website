@@ -56,6 +56,9 @@ devDependencies:
   prettier-plugin-svelte:
     specifier: ^2.10.1
     version: 2.10.1(prettier@2.8.8)(svelte@4.2.0)
+  super-sitemap:
+    specifier: ^0.12.0
+    version: 0.12.0(svelte@4.2.0)
   svead:
     specifier: ^0.0.4
     version: 0.0.4
@@ -2582,6 +2585,14 @@ packages:
       mz: 2.7.0
       pirates: 4.0.6
       ts-interface-checker: 0.1.13
+    dev: true
+
+  /super-sitemap@0.12.0(svelte@4.2.0):
+    resolution: {integrity: sha512-3C7ew+WCaPaKyM0eg/GfmwOx/6k9dnbyceVpRtSxwnOAYepAR6G8wy6j+RU5hetx38IFdvHJBcfW0/6bAm4dWw==}
+    peerDependencies:
+      svelte: ^4.0.0
+    dependencies:
+      svelte: 4.2.0
     dev: true
 
   /supports-color@7.2.0:
