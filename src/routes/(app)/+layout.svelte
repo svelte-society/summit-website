@@ -21,8 +21,6 @@
 			text: 'FAQ'
 		}
 	];
-
-	$: console.log($page.url.origin);
 </script>
 
 <base href="{$page.url.origin}/{$page.params.year}/{$page.params.season}" />

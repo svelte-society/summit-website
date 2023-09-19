@@ -15,11 +15,10 @@ export const load = (async ({ fetch }) => {
         stats_res.json(),
         svelte_stats_res.json()
     ])
-
     const meta = {
         title: 'Sponsor Deck',
         description: 'Sponsor deck for Svelte Summit Spring 2023'
     }
 
-    return { packages: packages.items, stats: stats.items, svelte_stats: svelte_stats.items, meta};
+    return { packages: packages.items, stats: stats.items, svelte_stats: svelte_stats.items, meta };
 }) satisfies PageServerLoad;

@@ -87,7 +87,6 @@
 		canvases.forEach(async (canvas, i) => {
 			const session = data.sessions[i];
 			const profileUrls = data.sessions[i].speakers.map(({ profile_url }) => profile_url);
-			console.log(profileUrls);
 			const name_text = data.sessions[i].speakers.map(({ name }) => name).join(' & ');
 			const { title } = session;
 			await createCombinedImage(
