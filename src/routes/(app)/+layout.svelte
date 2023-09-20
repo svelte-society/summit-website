@@ -23,8 +23,6 @@
 	];
 </script>
 
-<base href="{$page.url.origin}/{$page.params.year}/{$page.params.season}" />
-
 <Head
 	title={$page.data.meta.title}
 	description={$page.data.meta.description}
