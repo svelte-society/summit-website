@@ -2,7 +2,7 @@ import type { PageServerLoad, Actions } from './$types';
 import { MARKETING_API_URL, MARKETING_API_KEY, HASH_SECRET, MAILERSEND_KEY } from '$env/static/private';
 import { fail } from '@sveltejs/kit';
 import { z } from 'zod';
-import { superValidate } from 'sveltekit-superforms/server';
+import { superValidate, message } from 'sveltekit-superforms/server';
 import type { SpeakersResponse, TalksResponse, QuestionsResponse, SponsorsResponse } from '$lib/pocketbase-types';
 
 type SpeakerEexpand = {
@@ -125,7 +125,7 @@ export const actions: Actions = {
 
 
 
-        return { form }
+        return message(form, 'valid')
     }
 };
 

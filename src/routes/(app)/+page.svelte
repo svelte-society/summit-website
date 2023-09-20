@@ -15,7 +15,7 @@
 
 	export let data;
 
-	const { form, constraints, errors, enhance, valid } = superForm(data.form);
+	const { form, constraints, errors, enhance, message } = superForm(data.form);
 </script>
 
 <div
@@ -45,7 +45,7 @@
 			</div>
 		</h1>
 	</div>
-	{#if !$valid}
+	{#if !$message}
 		<form class="mx-auto flex flex-col gap-2" method="POST" action="?/subscribe" use:enhance>
 			<span class="mx-auto text-xl">Sign up to the newsletter</span>
 			<label class="flex flex-col md:flex-row w-full gap-3 px-4">
