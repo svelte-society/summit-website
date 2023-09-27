@@ -13,7 +13,7 @@ export const load = (async ({ fetch, params }) => {
     }
 
     const meta = {
-        title: 'Svelte Summit Spring 2023 - ' + title,
+        title: 'Svelte Summit Fall 2023 - ' + title,
         description: meta_description
     }
 

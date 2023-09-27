@@ -15,7 +15,7 @@
 
 	export let data;
 
-	const { form, constraints, errors, enhance, message } = superForm(data.form);
+	const { form, constraints, errors, enhance, message, submitting } = superForm(data.form);
 </script>
 
 <div
@@ -57,7 +57,7 @@
 					name="email"
 					type="email"
 				/>
-				<Button primary>Sign up</Button>
+				<Button disabled={$submitting} primary>Sign up</Button>
 			</label>
 			{#if $errors.email}
 				Something went wrong.

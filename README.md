@@ -1,6 +1,6 @@
-# Svelte Summit Spring 2023
+# Svelte Summit Fall 2023
 
-The site for Svelte Summit Spring 2023
+The site for Svelte Summit Fall 2023
 
 ## How to contribute
 
