@@ -1,6 +1,4 @@
 
-import { PUBLIC_API_URL } from '$env/static/public';
-import type { PageServerLoad } from './$types';
 
 export const prerender = true
 
@@ -17,8 +15,8 @@ export const load = (async ({ fetch }) => {
     ])
     const meta = {
         title: 'Sponsor Deck',
-        description: 'Sponsor deck for Svelte Summit Spring 2023'
+        description: 'Sponsor deck for Svelte Summit Fall 2023'
     }
 
     return { packages: packages.items, stats: stats.items, svelte_stats: svelte_stats.items, meta };
-}) satisfies PageServerLoad;
+});

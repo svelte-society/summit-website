@@ -1,6 +1,4 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-
 	// Sections
 	import Intro from './Intro.svelte';
 	import WhySponsor from './WhySponsor.svelte';
@@ -8,7 +6,7 @@
 
 	import Button from '$lib/components/Button.svelte';
 
-	export let data: PageData;
+	export let data;
 </script>
 
 <div class="cover">

@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
-	import type { HtmlTag } from 'svelte/internal';
 
 	export let title: string;
 	export let value: number;
