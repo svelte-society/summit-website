@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Button from '$lib/components/Button.svelte';
 	import SocietyStatistic from './SocietyStatistic.svelte';
 
 	type Stat = {
