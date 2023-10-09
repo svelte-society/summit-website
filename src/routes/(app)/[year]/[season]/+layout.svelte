@@ -2,6 +2,7 @@
 	import Link from './NavLink.svelte';
 	import { Head } from 'svead';
 	import { page } from '$app/stores';
+	import { PUBLIC_API_URL } from '$env/static/public';
 
 	let nav_links = [
 		{
@@ -27,8 +28,8 @@
 	title={$page.data.meta.title}
 	description={$page.data.meta.description}
 	url={$page.url.toString()}
-	image="//wsrv.nl/?url=https://summit-api-v2.sveltesociety.dev/api/files/{$page.data.meta
-		.collectionId}/{$page.data.meta.recordId}/{$page.data.meta.image}&output=png"
+	image="//wsrv.nl/?url={PUBLIC_API_URL}/files/{$page.data.meta.collectionId}/{$page.data.meta
+		.recordId}/{$page.data.meta.image}&output=png"
 />
 
 <nav class="fixed inset-x-0 w-full bg-black/75 p-6 z-50">

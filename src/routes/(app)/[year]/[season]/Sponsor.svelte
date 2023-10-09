@@ -4,6 +4,8 @@
 
 	export let sponsor: SponsorsResponse | undefined;
 
+	console.log(sponsor);
+
 	export let is_platinum = false;
 
 	const height = is_platinum ? 100 : 75;
@@ -17,7 +19,7 @@
 				{#if !sponsor.logo.endsWith('.svg')}
 					<!-- load webp if supported -->
 					<source
-						srcset="//wsrv.nl/?url={PUBLIC_API_URL}/files/sponsors/{sponsor.id}/{sponsor.logo}&h={height *
+						srcset="//wsrv.nl/?url={PUBLIC_API_URL}/files/{sponsor.collectionId}/{sponsor.id}/{sponsor.logo}&h={height *
 							2}&output=webp"
 						type="image/webp"
 					/>
@@ -26,14 +28,14 @@
 					<img
 						height="{height}px max-h-28"
 						class="mx-auto"
-						src="//wsrv.nl/?url={PUBLIC_API_URL}/files/sponsors/{sponsor.id}/{sponsor.logo}&h={height *
+						src="//wsrv.nl/?url={PUBLIC_API_URL}/files/{sponsor.collectionId}/{sponsor.id}/{sponsor.logo}&h={height *
 							2}"
 						alt="{sponsor.name} logo"
 					/>
 				{:else}
 					<img
 						class="mx-auto max-h-28"
-						src="{PUBLIC_API_URL}/files/sponsors/{sponsor.id}/{sponsor.logo}"
+						src="{PUBLIC_API_URL}/files/{sponsor.collectionId}/{sponsor.id}/{sponsor.logo}"
 						alt="{sponsor.name} logo"
 					/>
 				{/if}
