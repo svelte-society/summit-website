@@ -21,8 +21,11 @@ export const load = (async ({ fetch, request }) => {
     }
 
     const meta = {
-        title: 'Svelte Summit Fall 2023: The worlds biggest Svelte Conference',
-        description: 'The worlds largest Svelte conference'
+        title: conference.meta_title,
+        description: conference.meta_description,
+        image: conference.meta_img,
+        collectionId: conference.collectionId,
+        recordId: conference.id
     }
 
     const form = await superValidate(request, emailSchema)

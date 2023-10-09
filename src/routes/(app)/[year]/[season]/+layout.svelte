@@ -27,7 +27,8 @@
 	title={$page.data.meta.title}
 	description={$page.data.meta.description}
 	url={$page.url.toString()}
-	image="https://sveltesummit.com/metaimg.png?2382234234623234843"
+	image="//wsrv.nl/?url=https://summit-api-v2.sveltesociety.dev/api/files/{$page.data.meta
+		.collectionId}/{$page.data.meta.recordId}/{$page.data.meta.image}&output=png"
 />
 
 <nav class="fixed inset-x-0 w-full bg-black/75 p-6 z-50">
