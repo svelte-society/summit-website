@@ -10,10 +10,10 @@
 		<h2 class="font-semibold text-2xl">Masters of Ceremony</h2>
 		<hr class="border-black border-2 rounded-lg w-52 mx-auto" />
 		<ul class="grid gap-4 max-w-4xl lg:grid-cols-2 text-left mx-auto">
-			{#each mcs as { name, tagline, id, profile }}
+			{#each mcs as { name, tagline, collectionId, id, picture }}
 				<li class="flex flex-col place-items-center gap-2 bg-sky-600 p-4 rounded-lg">
-					{#if profile}
-						<Avatar {name} {id} file={profile} size={80} />
+					{#if picture}
+						<Avatar {name} {collectionId} {id} file={picture} size={80} />
 					{/if}
 					<span class="text-lg font-bold">{name}</span>
 					<span class="text-center w-10/12">{tagline}</span>

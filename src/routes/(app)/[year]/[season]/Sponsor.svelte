@@ -4,8 +4,6 @@
 
 	export let sponsor: SponsorsResponse | undefined;
 
-	console.log(sponsor);
-
 	export let is_platinum = false;
 
 	const height = is_platinum ? 100 : 75;

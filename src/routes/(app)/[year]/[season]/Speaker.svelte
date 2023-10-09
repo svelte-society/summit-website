@@ -3,12 +3,12 @@
 	import Avatar from '$lib/components/Avatar.svelte';
 
 	export let speaker: SpeakersResponse;
-	const { id, profile, name, tagline, twitter } = speaker;
+	const { id, picture, name, tagline, twitter, collectionId } = speaker;
 </script>
 
 <li class="grid grid-cols-[auto_1fr] gap-2 max-w-xs">
-	{#if profile}
-		<Avatar {name} {id} file={profile} />
+	{#if picture}
+		<Avatar {name} {id} {collectionId} file={picture} />
 	{/if}
 	<div class="flex flex-col">
 		<a
