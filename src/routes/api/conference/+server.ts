@@ -21,8 +21,6 @@ export const GET = (async ({ url, fetch, request }) => {
         expand: 'sponsors,talks,mc,questions,statistics,highlights',
     });
 
-    console.log(conf)
-
     const expandedConf = {...conf, ...conf.expand}
     delete expandedConf.expand
 
