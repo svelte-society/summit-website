@@ -3,13 +3,13 @@
 */
 
 export enum Collections {
-	ConferenceStats = "conference_stats",
-	Questions = "questions",
-	Speakers = "speakers",
-	SponsorPackages = "sponsor_packages",
-	Sponsors = "sponsors",
-	SvelteStats = "svelte_stats",
-	Talks = "talks",
+	Conference = "Conference",
+	Questions = "Questions",
+	Speaker = "Speaker",
+	Sponsor = "Sponsor",
+	Statistics = "Statistics",
+	SvelteHighlights = "Svelte_Highlights",
+	Talk = "Talk",
 	Users = "users",
 }
 
@@ -37,103 +37,117 @@ export type AuthSystemFields<T = never> = {
 
 // Record types for each collection
 
-export type ConferenceStatsRecord = {
-	value: string
-	unit?: string
-	description: string
-	color: string
+export enum ConferenceSeasonOptions {
+	"spring" = "spring",
+	"summer" = "summer",
+	"fall" = "fall",
+	"winter" = "winter",
+}
+export type ConferenceRecord = {
+	accent_color?: string
+	date?: IsoDateString
+	highlights?: RecordIdString[]
+	mc?: RecordIdString[]
+	meta_description?: string
+	meta_img?: string
+	meta_title?: string
+	primary_color?: string
+	questions?: RecordIdString[]
+	season?: ConferenceSeasonOptions
+	sponsors?: RecordIdString[]
+	statistics?: RecordIdString[]
+	subtitle: string
+	talks?: RecordIdString[]
+	title: string
+	year: number
 }
 
 export type QuestionsRecord = {
-	question: string
 	answer?: HTMLString
+	question?: string
 }
 
-export type SpeakersRecord = {
+export type SpeakerRecord = {
+	bio?: HTMLString
 	name: string
-	isMc?: boolean
-	tagline?: string
+	picture: string
+	tagline: string
 	twitter?: string
-	bio: HTMLString
-	profile?: string
 }
 
-export enum SponsorPackagesTypeOptions {
-	"platinum" = "platinum",
-	"gold" = "gold",
-	"other" = "other",
-}
-export type SponsorPackagesRecord = {
-	title: string
-	type?: SponsorPackagesTypeOptions
-	value: number
-	prose: HTMLString
-	full_width?: boolean
-	sponsors?: RecordIdString[]
-}
-
-export enum SponsorsTypeOptions {
+export enum SponsorTypeOptions {
 	"platinum" = "platinum",
 	"gold" = "gold",
 	"silver" = "silver",
+	"meetball" = "meetball",
 }
-export type SponsorsRecord = {
-	name: string
+export type SponsorRecord = {
 	href: string
+	logo: string
+	name: string
 	snippet?: string
-	type: SponsorsTypeOptions
-	logo?: string
-	active?: boolean
+	type: SponsorTypeOptions
 }
 
-export type SvelteStatsRecord = {
-	text: string
-	img?: string
-	href?: string
+export type StatisticsRecord = {
+	Color?: string
+	Title?: string
+	Unit?: string
+	Value?: number
 }
 
-export type TalksRecord = {
-	title?: string
-	href?: string
-	speakers?: RecordIdString[]
-	description?: HTMLString
+export type SvelteHighlightsRecord = {
+	Image?: string
+	Link?: string
+	Text?: string
+	Title?: string
+}
+
+export type TalkRecord = {
+	Description?: HTMLString
+	Priority?: number
+	Slug: string
+	Speakers: RecordIdString[]
+	Title: string
+	Transcript?: HTMLString
+	Youtube_ID?: string
 }
 
 export type UsersRecord = {
-	name?: string
 	avatar?: string
+	name?: string
 }
 
 // Response types include system fields and match responses from the PocketBase API
-export type ConferenceStatsResponse = ConferenceStatsRecord & BaseSystemFields
-export type QuestionsResponse = QuestionsRecord & BaseSystemFields
-export type SpeakersResponse = SpeakersRecord & BaseSystemFields
-export type SponsorPackagesResponse<Texpand = unknown> = SponsorPackagesRecord & BaseSystemFields<Texpand>
-export type SponsorsResponse = SponsorsRecord & BaseSystemFields
-export type SvelteStatsResponse = SvelteStatsRecord & BaseSystemFields
-export type TalksResponse<Texpand = unknown> = TalksRecord & BaseSystemFields<Texpand>
-export type UsersResponse = UsersRecord & AuthSystemFields
+export type ConferenceResponse<Texpand = unknown> = Required<ConferenceRecord> & BaseSystemFields<Texpand>
+export type QuestionsResponse<Texpand = unknown> = Required<QuestionsRecord> & BaseSystemFields<Texpand>
+export type SpeakerResponse<Texpand = unknown> = Required<SpeakerRecord> & BaseSystemFields<Texpand>
+export type SponsorResponse<Texpand = unknown> = Required<SponsorRecord> & BaseSystemFields<Texpand>
+export type StatisticsResponse<Texpand = unknown> = Required<StatisticsRecord> & BaseSystemFields<Texpand>
+export type SvelteHighlightsResponse<Texpand = unknown> = Required<SvelteHighlightsRecord> & BaseSystemFields<Texpand>
+export type TalkResponse<Texpand = unknown> = Required<TalkRecord> & BaseSystemFields<Texpand>
+export type UsersResponse<Texpand = unknown> = Required<UsersRecord> & AuthSystemFields<Texpand>
 
 // Types containing all Records and Responses, useful for creating typing helper functions
 
 export type CollectionRecords = {
-	conference_stats: ConferenceStatsRecord
-	questions: QuestionsRecord
-	speakers: SpeakersRecord
-	sponsor_packages: SponsorPackagesRecord
-	sponsors: SponsorsRecord
-	svelte_stats: SvelteStatsRecord
-	talks: TalksRecord
+	Conference: ConferenceRecord
+	Questions: QuestionsRecord
+	Speaker: SpeakerRecord
+	Sponsor: SponsorRecord
+	Statistics: StatisticsRecord
+	Svelte_Highlights: SvelteHighlightsRecord
+	Talk: TalkRecord
 	users: UsersRecord
 }
 
 export type CollectionResponses = {
-	conference_stats: ConferenceStatsResponse
-	questions: QuestionsResponse
-	speakers: SpeakersResponse
-	sponsor_packages: SponsorPackagesResponse
-	sponsors: SponsorsResponse
-	svelte_stats: SvelteStatsResponse
-	talks: TalksResponse
+	Conference: ConferenceResponse
+	Questions: QuestionsResponse
+	Speaker: SpeakerResponse
+	Sponsor: SponsorResponse
+	Statistics: StatisticsResponse
+	Svelte_Highlights: SvelteHighlightsResponse
+	Talk: TalkResponse
 	users: UsersResponse
 }
