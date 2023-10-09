@@ -34,7 +34,7 @@
 	<ul class="flex flex-wrap flex-row place-content-center place-items-center gap-5 md:gap-5 center">
 		{#each nav_links as { href, text }}
 			<li>
-				<Link {href}>{text}</Link>
+				<Link href="/{$page.params.year}/{$page.params.season}{href}">{text}</Link>
 			</li>
 		{/each}
 	</ul>
