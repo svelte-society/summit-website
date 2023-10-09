@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SponsorsResponse } from '../lib/pocketbase-types';
+	import type { SponsorsResponse } from '$lib/pocketbase-types';
 	import Sponsor from './Sponsor.svelte';
 	import { page } from '$app/stores';
 
