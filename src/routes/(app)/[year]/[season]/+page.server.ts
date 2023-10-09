@@ -29,7 +29,7 @@ export const load = (async ({ fetch, request }) => {
     }
 
     const form = await superValidate(request, emailSchema)
-    return { form, questions: conference.questions, sponsors, sessions: conference.talks, mcs: conference.mc, meta };
+    return { form, questions: conference.questions, sponsors, sessions: conference.talks, mcs: conference.mc, meta, subtitle: conference.title, date: formatDate(new Date(conference.date)) };
 }) satisfies PageServerLoad;
 
 export const actions: Actions = {
@@ -126,3 +126,17 @@ async function getSHA1Hash(input: string) {
       .join("");
     return hash;
   };
+
+/**
+ * Converts a JS date object to a custom formatted string.
+ *
+ * @param {Date} date - The date object to format.
+ * @returns {string} - The formatted date string.
+ */
+function formatDate(date: Date): string {
+    const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];    const day = date.getUTCDate();
+    const monthIndex = date.getUTCMonth();
+    const year = date.getUTCFullYear();
+  
+    return `${months[monthIndex]} ${day} ${year}`;
+}

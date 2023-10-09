@@ -1,4 +1,7 @@
 <script lang="ts">
+	// SvelteKit
+	import { page } from '$app/stores';
+
 	// Packages
 	import { superForm } from 'sveltekit-superforms/client';
 
@@ -35,13 +38,13 @@
 		<img class="w-20 md:w-36" src={logo} alt="Svelte Society Logo" />
 		<h1 class="font-display gap-2 grid md:grid-cols-2 place-content-center">
 			<div class="text-center md:text-right lg:text-8xl text-7xl title">
-				SVELTE SUMMIT <span class="text-yellow-400">FALL</span>
+				SVELTE SUMMIT <span class="text-yellow-400">{$page.params.season.toUpperCase()}</span>
 			</div>
 			<div
 				class="text-center md:text-left md:flex md:flex-col lg:pt-0.5 lg:text-4xl text-3xl w-full md:w-32"
 			>
-				<div class="text-yellow-400">NOV 11 2023</div>
-				<div>THE 7TH VIRTUAL SVELTE CONFERENCE</div>
+				<div class="text-yellow-400">{data.date}</div>
+				<div>{data.subtitle.toUpperCase()}</div>
 			</div>
 		</h1>
 	</div>
