@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SponsorsResponse } from '../lib/pocketbase-types';
+	import type { SponsorsResponse } from '$lib/pocketbase-types';
 	import { PUBLIC_API_URL } from '$env/static/public';
 
 	export let sponsor: SponsorsResponse | undefined;
