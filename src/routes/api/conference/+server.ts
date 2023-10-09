@@ -17,9 +17,11 @@ export const GET = (async ({ url, fetch, request }) => {
     const pb = new PocketBase('https://summit-api-v2.sveltesociety.dev');
     await pb.admins.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD)
 
-    const conf = await pb.collection('Conference').getFirstListItem(`Year='${year}' && Season='${season}'`, {
-        expand: 'Sponsors,Talks,MC,Questions,Statistics,Highlights',
+    const conf = await pb.collection('Conference').getFirstListItem(`year='${year}' && season='${season}'`, {
+        expand: 'sponsors,talks,mc,questions,statistics,highlights',
     });
+
+    console.log(conf)
 
     const expandedConf = {...conf, ...conf.expand}
     delete expandedConf.expand

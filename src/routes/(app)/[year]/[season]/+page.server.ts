@@ -3,32 +3,17 @@ import { MARKETING_API_URL, MARKETING_API_KEY, HASH_SECRET, MAILERSEND_KEY } fro
 import { fail } from '@sveltejs/kit';
 import { z } from 'zod';
 import { superValidate, message } from 'sveltekit-superforms/server';
-import type { SpeakersResponse, TalksResponse, QuestionsResponse, SponsorsResponse } from '$lib/pocketbase-types';
-
-type SpeakerEexpand = {
-    speakers: SpeakersResponse[];
-};
 
 const emailSchema = z.object({
     email: z.string().email()
 })
 
 export const load = (async ({ fetch, request }) => {
-    const [questionRes, sponsorsRes, sessionsRes, mcRes] = await Promise.all([
-        fetch('/api/questions'),
-        fetch('/api/sponsors'),
-        fetch('/api/sessions'),
-        fetch('/api/mcs'),
-    ])
-    const [questions, allSponsors, sessions, mcs]: [QuestionsResponse[], SponsorsResponse[], TalksResponse<SpeakerEexpand>[], SpeakersResponse[]] = await Promise.all([
-        questionRes.json(),
-        sponsorsRes.json(),
-        sessionsRes.json(),
-        mcRes.json()
-    ])
+    const res = await fetch('/api/conference?year=2023&season=fall')
+    const conference = await res.json()
 
-    const platinum = allSponsors.filter(sponsor => sponsor.type === 'platinum')
-    const gold = allSponsors.filter(sponsor => sponsor.type === 'gold')
+    const platinum = conference.sponsors.filter(sponsor => sponsor.type === 'platinum')
+    const gold = conference.sponsors.filter(sponsor => sponsor.type === 'gold')
 
     const sponsors = {
         platinum ,
@@ -41,7 +26,7 @@ export const load = (async ({ fetch, request }) => {
     }
 
     const form = await superValidate(request, emailSchema)
-    return { form, questions, sponsors, sessions, mcs, meta };
+    return { form, questions: conference.questions, sponsors, sessions: conference.talks, mcs: conference.mc, meta };
 }) satisfies PageServerLoad;
 
 export const actions: Actions = {
