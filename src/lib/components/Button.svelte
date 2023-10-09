@@ -1,4 +1,5 @@
 <script lang="ts">
+	export let submitting: boolean = false;
 	export let wide: boolean = false;
 	export let href: string = '';
 	export let primary: boolean = false;
@@ -14,6 +15,7 @@
 	class:secondary
 	class:wide
 	class="transition-colors px-4 py-3 rounded-lg text-white font-semibold"
+	disabled={submitting}
 	{href}
 	><slot />
 </svelte:element>
@@ -27,5 +29,9 @@
 	}
 	.wide {
 		@apply px-10;
+	}
+
+	*:disabled {
+		@apply bg-yellow-700;
 	}
 </style>

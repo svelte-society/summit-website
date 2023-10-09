@@ -40,3 +40,9 @@
 	</ul>
 </nav>
 <main><slot /></main>
+
+<style>
+	:global(body) {
+		@apply bg-blue-800 text-crystal-50 font-body;
+	}
+</style>

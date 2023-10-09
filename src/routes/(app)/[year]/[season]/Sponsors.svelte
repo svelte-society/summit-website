@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { SponsorsResponse } from '../lib/pocketbase-types';
 	import Sponsor from './Sponsor.svelte';
+	import { page } from '$app/stores';
 
 	export let platinum: (SponsorsResponse | undefined)[];
 	export let gold: (SponsorsResponse | undefined)[];
@@ -24,7 +25,7 @@
 		</div>
 		<a
 			class="bg-blue-800 hover:bg-blue-700 transition-colors px-4 py-3 rounded-lg text-white font-semibold w-full sm:w-56 mx-auto"
-			href="/sponsors">Become a sponsor</a
+			href="/{$page.params.year}/{$page.params.season}/sponsors">Become a sponsor</a
 		>
 	</div>
 </article>
