@@ -7,6 +7,7 @@ export const GET: RequestHandler = async () => {
     excludePatterns: [
         '.*\\[slug\\].*',
         '.*\\[year\\].*',
+        '.*\\[season\\].*',
         '/admin.*',
         '/email-confirmed'
     ]
