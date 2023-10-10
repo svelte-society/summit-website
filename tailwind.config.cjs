@@ -8,8 +8,8 @@ const config = {
     },
     extend: {
       colors: {
-        primary: '#3b0069',
-        secondary: '#FF3F3F',
+        primary: 'rgb(var(--color-primary) / <alpha-value>)',
+      secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
         'crystal': {
           '50': '#ebe5ff',
           '100': '#d9cfff',
