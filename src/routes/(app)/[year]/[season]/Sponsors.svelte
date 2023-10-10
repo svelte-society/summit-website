@@ -7,7 +7,7 @@
 	export let gold: (SponsorsResponse | undefined)[];
 </script>
 
-<article id="sponsors" class="bg-yellow-400 text-black">
+<article id="sponsors" class="bg-secondary text-black">
 	<div class="grid gap-4 w-full sm:w-4/5 md:w-3/5 mx-auto px-4 md:py-16 py-8 text-center max-w-4xl">
 		<h2 class="font-semibold text-2xl">Sponsor</h2>
 		<hr class="border-black border-2 rounded-lg w-52 mx-auto" />
@@ -24,7 +24,7 @@
 			</ul>
 		</div>
 		<a
-			class="bg-blue-800 hover:bg-blue-700 transition-colors px-4 py-3 rounded-lg text-white font-semibold w-full sm:w-56 mx-auto"
+			class="bg-primary hover:brightness-110 transition-colors px-4 py-3 rounded-lg text-white font-semibold w-full sm:w-56 mx-auto"
 			href="/{$page.params.year}/{$page.params.season}/sponsors">Become a sponsor</a
 		>
 	</div>
