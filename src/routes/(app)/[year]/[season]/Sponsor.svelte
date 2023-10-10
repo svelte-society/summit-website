@@ -11,7 +11,7 @@
 </script>
 
 {#if sponsor}
-	<li class="bg-blue-800 p-10 rounded-md text-white gap-3 hover:scale-[1.02] transition-transform">
+	<li class="bg-primary p-10 rounded-md text-white gap-3 hover:scale-[1.02] transition-transform">
 		<a href={sponsor.href} target="_blank" rel="noreferrer">
 			<picture>
 				{#if !sponsor.logo.endsWith('.svg')}
@@ -43,7 +43,7 @@
 {:else}
 	<li
 		class:py-12={is_platinum}
-		class="bg-blue-800 rounded-md p-8 text-white gap-3 hover:scale-[1.02] transition-transform grid place-items-center"
+		class="bg-primary rounded-md p-8 text-white gap-3 hover:scale-[1.02] transition-transform grid place-items-center"
 	>
 		<a href="/sponsors">{fallback}</a>
 	</li>
