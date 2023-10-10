@@ -14,11 +14,11 @@ export const GET = (async ({ url, fetch, request }) => {
         throw fail(404)
     }
 
-    const pb = new PocketBase('https://summit-api-v2.sveltesociety.dev');
+    const pb = new PocketBase(PUBLIC_API_URL);
     await pb.admins.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD)
 
     const conf = await pb.collection('Conference').getFirstListItem(`year='${year}' && season='${season}'`, {
-        expand: 'sponsors,talks,mc,questions,statistics,highlights',
+        expand: 'sponsors,talks,mc,questions,statistics,highlights,packages,highlights',
     });
 
     const expandedConf = {...conf, ...conf.expand}

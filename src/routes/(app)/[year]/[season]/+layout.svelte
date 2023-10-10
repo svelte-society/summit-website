@@ -52,7 +52,10 @@
 		</ul>
 	</nav>
 	<main><slot /></main>
+	<footer class="bg-primary text-white py-4 text-center">
+		Svelte Summit is a conference made possible by <span class="font-semibold"
+			>Svelte School AB</span
+		>
+		and <a class="font-semibold underline" href="https://sveltesociety.dev">Svelte Society</a>.
+	</footer>
 </div>
-
-<style>
-</style>

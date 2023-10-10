@@ -4,7 +4,7 @@
 	type Stat = {
 		value: string;
 		unit: string;
-		description: string;
+		title: string;
 		color: string;
 	};
 
@@ -26,8 +26,8 @@
 			<p>Below you'll find some stats on earlier events as well as our Social media accounts.</p>
 		</div>
 		<ul class="grid grid-stat-card-cols gap-2 w-full font-body">
-			{#each stats as { value, color, unit, description }}
-				<SocietyStatistic {value} {unit} {color} {description} />
+			{#each stats as { value, color, unit, title }}
+				<SocietyStatistic {value} {unit} {color} {title} />
 			{/each}
 		</ul>
 	</div>

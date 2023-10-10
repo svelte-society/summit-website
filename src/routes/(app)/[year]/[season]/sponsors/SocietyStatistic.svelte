@@ -2,7 +2,7 @@
 	export let color: string;
 	export let value: string;
 	export let unit: string;
-	export let description: string;
+	export let title: string;
 </script>
 
 <li
@@ -11,5 +11,5 @@
 	<span class="text-5xl font-bold" style="color: {color}"
 		>{value}<small class="text-2xl">{unit}</small></span
 	>
-	<span>{description}</span>
+	<span>{title}</span>
 </li>

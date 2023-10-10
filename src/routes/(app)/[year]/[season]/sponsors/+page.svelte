@@ -9,7 +9,7 @@
 	export let data;
 </script>
 
-<div class="cover">
+<div class="cover bg-primary">
 	<div class="cover-center grid place-items-center gap-6">
 		<h1 class="font-display text-5xl text-center">Sponsorship Opportunities</h1>
 		<div class="text-3xl text-slate-300">Nov 11th, Online</div>
@@ -22,8 +22,10 @@
 	</div>
 </div>
 
-<Intro stats={data.stats} />
-<WhySponsor svelte_stats={data.svelte_stats} />
+<Intro stats={data.statistics} />
+
+<WhySponsor svelte_stats={data.highlights} />
+
 <Packages packages={data.packages} />
 
 <style>
