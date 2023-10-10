@@ -14,7 +14,7 @@
 	class:primary
 	class:secondary
 	class:wide
-	class="transition-colors px-4 py-3 rounded-lg text-white font-semibold"
+	class="transition-colors px-4 py-3 rounded-lg text-white font-semibold hover:brightness-110 disabled:hover:brightness-75"
 	disabled={submitting}
 	{href}
 	><slot />
@@ -22,16 +22,12 @@
 
 <style lang="postcss">
 	.primary {
-		@apply bg-yellow-500 hover:bg-yellow-400;
+		@apply bg-primary;
 	}
 	.secondary {
-		@apply bg-papaya-500 hover:bg-papaya-600;
+		@apply bg-secondary;
 	}
 	.wide {
 		@apply px-10;
-	}
-
-	*:disabled {
-		@apply bg-yellow-700;
 	}
 </style>
