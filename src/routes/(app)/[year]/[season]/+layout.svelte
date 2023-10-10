@@ -22,29 +22,37 @@
 			text: 'FAQ'
 		}
 	];
+
+	export let data;
 </script>
 
-<Head
-	title={$page.data.meta.title}
-	description={$page.data.meta.description}
-	url={$page.url.toString()}
-	image="//wsrv.nl/?url={PUBLIC_API_URL}/files/{$page.data.meta.collectionId}/{$page.data.meta
-		.recordId}/{$page.data.meta.image}&output=png"
-/>
+<div
+	style:--color-primary={data.primary_color}
+	style:--color-secondary={data.secondary_color}
+	style:--color-text={data.text_color}
+	class="bg-primary text-crystal-50 font-body"
+>
+	<Head
+		title={$page.data.meta.title}
+		description={$page.data.meta.description}
+		url={$page.url.toString()}
+		image="//wsrv.nl/?url={PUBLIC_API_URL}/files/{$page.data.meta.collectionId}/{$page.data.meta
+			.recordId}/{$page.data.meta.image}&output=png"
+	/>
 
-<nav class="fixed inset-x-0 w-full bg-black/75 p-6 z-50">
-	<ul class="flex flex-wrap flex-row place-content-center place-items-center gap-5 md:gap-5 center">
-		{#each nav_links as { href, text }}
-			<li>
-				<Link href="/{$page.params.year}/{$page.params.season}{href}">{text}</Link>
-			</li>
-		{/each}
-	</ul>
-</nav>
-<main><slot /></main>
+	<nav class="fixed inset-x-0 w-full bg-black/75 p-6 z-50">
+		<ul
+			class="flex flex-wrap flex-row place-content-center place-items-center gap-5 md:gap-5 center"
+		>
+			{#each nav_links as { href, text }}
+				<li>
+					<Link href="/{$page.params.year}/{$page.params.season}{href}">{text}</Link>
+				</li>
+			{/each}
+		</ul>
+	</nav>
+	<main><slot /></main>
+</div>
 
 <style>
-	:global(body) {
-		@apply bg-blue-800 text-crystal-50 font-body;
-	}
 </style>
