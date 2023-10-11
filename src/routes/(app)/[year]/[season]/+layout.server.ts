@@ -5,8 +5,9 @@ export const config: Config = {
   regions: 'all'
 };
 
-export const load = (async ({ fetch, request }) => {
-  const res = await fetch('/api/conference?year=2023&season=fall')
+export const load = (async ({ fetch, params }) => {
+  const { year, season } = params
+  const res = await fetch(`/api/conference/${year}/${season}`)
   const conference = await res.json()
 
   const platinum = conference.sponsors.filter(sponsor => sponsor.type === 'platinum')
