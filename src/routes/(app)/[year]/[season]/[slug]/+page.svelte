@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import Speaker from '../Speaker.svelte';
 	export let data;
 </script>
@@ -8,7 +9,7 @@
 		<iframe
 			title="{data.talk.title} YouTube video"
 			class="rounded-lg overflow-auto aspect-video w-full h-96"
-			src="https://www.youtube.com/embed/{data.talk.yt_id}"
+			src="https://www.youtube.com/embed/{data.talk.youtube_ID}"
 			frameborder="0"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 			allowfullscreen
@@ -19,7 +20,7 @@
 	<div class="flex flex-wrap place-content-between">
 		<a
 			class="flex gap-2 text-md hover:underline underline-offset-4 decoration-2 decoration-slate-200 font-semibold"
-			href="/"
+			href="/{$page.params.year}/{$page.params.season}"
 			><svg
 				class="h-6 w-6"
 				xmlns="http://www.w3.org/2000/svg"

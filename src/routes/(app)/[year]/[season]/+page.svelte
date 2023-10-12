@@ -25,29 +25,32 @@
 	id="intro"
 	class="cover bg-center bg-no-repeat lg:bg-[length:700px] md:bg-[length:500px] bg-[length:300px]"
 >
-	<!-- <div class="cover-center aspect-w-16 aspect-h-9">
-		<iframe
-			title="Svelte Summit YouTube Stream"
-			src="https://www.youtube.com/embed/0bog8-Ay7CU"
-			frameborder="0"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-			allowfullscreen
-		/>
-	</div> -->
-	<div class="relative cover-center grid place-items-center gap-12">
-		<img class="w-20 md:w-36" src={logo} alt="Svelte Society Logo" />
-		<h1 class="font-display gap-2 grid md:grid-cols-2 place-content-center">
-			<div class="text-center md:text-right lg:text-8xl text-7xl title">
-				SVELTE SUMMIT <span class="text-secondary">{$page.params.season.toUpperCase()}</span>
-			</div>
-			<div
-				class="text-center md:text-left md:flex md:flex-col lg:pt-0.5 lg:text-4xl text-3xl w-full md:w-32"
-			>
-				<div class="text-secondary">{data.date}</div>
-				<div>{data.subtitle.toUpperCase()}</div>
-			</div>
-		</h1>
-	</div>
+	{#if data.is_old}
+		<div class="cover-center aspect-w-16 aspect-h-9">
+			<iframe
+				title="Svelte Summit YouTube Stream"
+				src="https://www.youtube.com/embed/{data.youtube_id}"
+				frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				allowfullscreen
+			/>
+		</div>
+	{:else}
+		<div class="relative cover-center grid place-items-center gap-12">
+			<img class="w-20 md:w-36" src={logo} alt="Svelte Society Logo" />
+			<h1 class="font-display gap-2 grid md:grid-cols-2 place-content-center">
+				<div class="text-center md:text-right lg:text-8xl text-7xl title">
+					SVELTE SUMMIT <span class="text-secondary">{$page.params.season.toUpperCase()}</span>
+				</div>
+				<div
+					class="text-center md:text-left md:flex md:flex-col lg:pt-0.5 lg:text-4xl text-3xl w-full md:w-32"
+				>
+					<div class="text-secondary">{data.date}</div>
+					<div>{data.subtitle.toUpperCase()}</div>
+				</div>
+			</h1>
+		</div>
+	{/if}
 	{#if !$message}
 		<form class="mx-auto flex flex-col gap-2" method="POST" action="?/subscribe" use:enhance>
 			<span class="mx-auto text-xl">Sign up to the newsletter</span>
@@ -90,10 +93,21 @@
 	{/if}
 </div>
 
-<Sponsors gold={data.sponsors.gold} platinum={data.sponsors.platinum} />
+<Sponsors
+	gold={data.sponsors.gold}
+	platinum={data.sponsors.platinum}
+	is_open_to_sponsorships={!data.is_old}
+/>
 <MCs mcs={data.mcs} />
-<CTA />
-<!-- <Sessions sessions={data.sessions} /> -->
+{#if data.speaker_status === 'cfp_open'}
+	<CTA />
+{:else if data.speaker_status === 'cfp_closed'}
+	<CTA />
+{:else if data.speaker_status === 'show_speakers'}
+	<Sessions sessions={data.sessions} />
+{:else if data.speaker_status === 'videos_ready'}
+	<Sessions sessions={data.sessions} />
+{/if}
 <Faq questions={data.questions} />
 
 <style>

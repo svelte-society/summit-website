@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import Speaker from './Speaker.svelte';
 	import type { TalksResponse, SpeakersResponse } from '$lib/pocketbase-types';
 
@@ -19,8 +20,8 @@
 	</div>
 	{#if slug}
 		<a
-			class="absolute gap-1 flex bottom-2 right-2 place-content-center rounded-md text-xs px-2 py-2 line bg-secondary font-bold hover:bg-primary"
-			href="/{slug}"
+			class="absolute gap-1 flex bottom-2 right-2 place-content-center rounded-md text-xs px-2 py-2 line bg-secondary font-bold hover:brightness-110"
+			href="/{$page.params.year}/{$page.params.season}/{slug}"
 			><svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"

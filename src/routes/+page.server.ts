@@ -1,12 +1,19 @@
+import PocketBase from 'pocketbase';
+import { PUBLIC_API_URL } from '$env/static/public';
+import { POCKETBASE_PASSWORD, POCKETBASE_USERNAME } from '$env/static/private';
+import { formatDate } from '$lib/utils.js';
+import type { ConferenceRecord } from '$lib/pocketbase-types.js';
 
+export const prerender = true
 
 export const load = (async ({ fetch }) => {
-    const res = await fetch('/api/conference')
-    const conferences = await res.json()
+    const pb = new PocketBase(PUBLIC_API_URL);
+    await pb.admins.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD)
+    const resultList = await pb.collection('Conference').getList<ConferenceRecord>(1, 50, {
+      fields: 'primary_color,secondary_color,year,season,title,subtitle,date'
+    });
+
+    const conferences = resultList.items.map(conf => ({...conf, date: formatDate(new Date(conf.date)) }))
   
-    const meta = {
-        title: 'Test'
-    }
-  
-    return { conferences: conferences.items };
+    return { conferences };
   })

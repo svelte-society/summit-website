@@ -7,6 +7,12 @@
 	<div class="bg-yellow-400 past">Past</div>
 </div>
 
+<ul>
+	{#each data.conferences as { title, year, season }}
+		<li><a href="/{year}/{season}">{title}</a></li>
+	{/each}
+</ul>
+
 <style>
 	:global(body) {
 		@apply bg-black text-white;

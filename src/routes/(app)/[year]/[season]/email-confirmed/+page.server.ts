@@ -1,5 +1,3 @@
-export let prerender = true
-
 export const load = (async () => {
     const meta = {
         title: 'Email Confirmed',

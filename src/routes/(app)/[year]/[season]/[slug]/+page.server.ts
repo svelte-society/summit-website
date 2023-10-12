@@ -1,23 +1,23 @@
+import PocketBase from 'pocketbase';
 import { PUBLIC_API_URL } from '$env/static/public';
+import { POCKETBASE_PASSWORD, POCKETBASE_USERNAME } from '$env/static/private';
+
+export const prerender = true
 
 export const load = (async ({ fetch, params }) => {
-    const res = await fetch(`${PUBLIC_API_URL}/collections/talks/records?filter=(slug='${params.slug}')&expand=speakers`)
-    const { items } = await res.json()
-    const {description, expand, yt_id, title, meta_description, transcript} = items[0]
-    const talk = {
-        description,
-        speakers: expand.speakers,
-        yt_id,
-        title,
-        transcript
-    }
+    const { slug } = params
+    const pb = new PocketBase(PUBLIC_API_URL);
+    await pb.admins.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD)
 
-    const meta = {
-        title: 'Svelte Summit Fall 2023 - ' + title,
-        description: meta_description
-    }
+    const res = await pb.collection('Talk').getFirstListItem(`slug='${slug}'`, {
+        expand: 'speakers',
+        fields: 'description,expand.speakers,youtube_ID,title,transcript'
+    });
+
+    const talk = {...res, ...res.expand}
+    delete talk.expand
 
     return {
-        talk, meta
+        talk
     };
 })
