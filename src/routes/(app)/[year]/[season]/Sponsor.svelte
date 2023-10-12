@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { SponsorsResponse } from '$lib/pocketbase-types';
 	import { PUBLIC_API_URL } from '$env/static/public';
+	import { page } from '$app/stores';
 
 	export let sponsor: SponsorsResponse | undefined;
 
@@ -45,6 +46,6 @@
 		class:py-12={is_platinum}
 		class="bg-primary rounded-md p-8 text-white gap-3 hover:scale-[1.02] transition-transform grid place-items-center"
 	>
-		<a href="/sponsors">{fallback}</a>
+		<a href="/{$page.params.year}/{$page.params.season}/sponsors">{fallback}</a>
 	</li>
 {/if}

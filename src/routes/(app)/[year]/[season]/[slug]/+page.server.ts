@@ -4,7 +4,7 @@ import { POCKETBASE_PASSWORD, POCKETBASE_USERNAME } from '$env/static/private';
 
 export const prerender = true
 
-export const load = (async ({ fetch, params }) => {
+export const load = (async ({ params }) => {
     const { slug } = params
     const pb = new PocketBase(PUBLIC_API_URL);
     await pb.admins.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD)

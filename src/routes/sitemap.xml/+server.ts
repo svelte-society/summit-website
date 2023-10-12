@@ -26,7 +26,8 @@ export const GET: RequestHandler = async () => {
     excludePatterns: [
         '/admin.*',
         '/email-confirmed',
-        '.*sponsors.*'
+        '.*sponsors.*',
+        '.*signup'
     ],
     paramValues: {
       '/[year]/[season]': conference_slugs,
