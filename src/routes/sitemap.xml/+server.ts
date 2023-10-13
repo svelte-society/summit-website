@@ -3,7 +3,6 @@ import PocketBase from 'pocketbase';
 import type { RequestHandler } from '@sveltejs/kit';
 import { PUBLIC_API_URL } from '$env/static/public';
 import { POCKETBASE_PASSWORD, POCKETBASE_USERNAME } from '$env/static/private';
-import type { ConferenceRecord } from '$lib/pocketbase-types';
 
 export const prerender = true
 
@@ -39,10 +38,10 @@ export const GET: RequestHandler = async () => {
 
 /**
  * Convert the given data structure to a desired format.
- * @param {Array} data - The data array to process.
+ * @param {Array} ConferenceRecord[] - The data array to process.
  * @returns {Array} - An array containing arrays with ['year', 'season', 'slug'] format.
  */
-function convertConferencesToTalkSlugs(data) {
+function convertConferencesToTalkSlugs(data: any) {
   let result = [];
   
   for (let item of data) {
