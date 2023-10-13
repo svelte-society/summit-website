@@ -4,6 +4,7 @@
 
 export enum Collections {
 	Conference = "Conference",
+	Packages = "Packages",
 	Questions = "Questions",
 	Speaker = "Speaker",
 	Sponsor = "Sponsor",
@@ -43,23 +44,55 @@ export enum ConferenceSeasonOptions {
 	"fall" = "fall",
 	"winter" = "winter",
 }
+
+export enum ConferenceTypeOptions {
+	"virtual" = "virtual",
+	"in-person" = "in-person",
+}
+
+export enum ConferenceSpeakerStatusOptions {
+	"cfp_open" = "cfp_open",
+	"cfp_closed" = "cfp_closed",
+	"show_speakers" = "show_speakers",
+	"videos_ready" = "videos_ready",
+}
 export type ConferenceRecord = {
-	accent_color?: string
 	date?: IsoDateString
 	highlights?: RecordIdString[]
+	is_active?: boolean
 	mc?: RecordIdString[]
 	meta_description?: string
 	meta_img?: string
 	meta_title?: string
+	open_to_sponsor?: boolean
+	packages?: RecordIdString[]
 	primary_color?: string
 	questions?: RecordIdString[]
 	season?: ConferenceSeasonOptions
+	secondary_color?: string
+	speaker_status?: ConferenceSpeakerStatusOptions
 	sponsors?: RecordIdString[]
 	statistics?: RecordIdString[]
 	subtitle: string
 	talks?: RecordIdString[]
+	text_color?: string
 	title: string
+	type: ConferenceTypeOptions
 	year: number
+	youtube_id?: string
+}
+
+export enum PackagesTypeOptions {
+	"platinum" = "platinum",
+	"gold" = "gold",
+	"silver" = "silver",
+}
+export type PackagesRecord = {
+	full_width?: boolean
+	prose?: HTMLString
+	title: string
+	type: PackagesTypeOptions
+	value: string
 }
 
 export type QuestionsRecord = {
@@ -90,10 +123,10 @@ export type SponsorRecord = {
 }
 
 export type StatisticsRecord = {
-	Color?: string
-	Title?: string
-	Unit?: string
-	Value?: number
+	color?: string
+	title?: string
+	unit?: string
+	value?: number
 }
 
 export type SvelteHighlightsRecord = {
@@ -104,13 +137,14 @@ export type SvelteHighlightsRecord = {
 }
 
 export type TalkRecord = {
-	Description?: HTMLString
-	Priority?: number
-	Slug: string
-	Speakers: RecordIdString[]
-	Title: string
-	Transcript?: HTMLString
-	Youtube_ID?: string
+	description?: HTMLString
+	meta_description?: string
+	priority?: number
+	slug: string
+	speakers: RecordIdString[]
+	title: string
+	transcript?: HTMLString
+	youtube_ID?: string
 }
 
 export type UsersRecord = {
@@ -120,6 +154,7 @@ export type UsersRecord = {
 
 // Response types include system fields and match responses from the PocketBase API
 export type ConferenceResponse<Texpand = unknown> = Required<ConferenceRecord> & BaseSystemFields<Texpand>
+export type PackagesResponse<Texpand = unknown> = Required<PackagesRecord> & BaseSystemFields<Texpand>
 export type QuestionsResponse<Texpand = unknown> = Required<QuestionsRecord> & BaseSystemFields<Texpand>
 export type SpeakerResponse<Texpand = unknown> = Required<SpeakerRecord> & BaseSystemFields<Texpand>
 export type SponsorResponse<Texpand = unknown> = Required<SponsorRecord> & BaseSystemFields<Texpand>
@@ -132,6 +167,7 @@ export type UsersResponse<Texpand = unknown> = Required<UsersRecord> & AuthSyste
 
 export type CollectionRecords = {
 	Conference: ConferenceRecord
+	Packages: PackagesRecord
 	Questions: QuestionsRecord
 	Speaker: SpeakerRecord
 	Sponsor: SponsorRecord
@@ -143,6 +179,7 @@ export type CollectionRecords = {
 
 export type CollectionResponses = {
 	Conference: ConferenceResponse
+	Packages: PackagesResponse
 	Questions: QuestionsResponse
 	Speaker: SpeakerResponse
 	Sponsor: SponsorResponse
