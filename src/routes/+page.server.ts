@@ -11,7 +11,7 @@ export const load = (async ({ fetch }) => {
     await pb.admins.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD)
     const resultList = await pb.collection('Conference').getList<ConferenceRecord>(1, 50, {
         filter: 'is_active = true',
-        fields: 'primary_color,secondary_color,year,season,title,subtitle,date'
+        fields: 'primary_color,secondary_color,text_color,year,season,subtitle,date'
     });
 
     const conferences = resultList.items.map(conf => ({...conf, date: formatDate(new Date(conf.date)) }))
