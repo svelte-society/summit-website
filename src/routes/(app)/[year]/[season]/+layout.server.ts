@@ -19,7 +19,7 @@ export const config: Config = {
   regions: 'all'
 };
 
-export const load = (async ({ fetch, params }) => {
+export const load = (async ({ params }) => {
   const { year, season } = params
     
     const pb = new PocketBase(PUBLIC_API_URL);
@@ -57,9 +57,7 @@ export const load = (async ({ fetch, params }) => {
   const meta = {
       title: conference.meta_title,
       description: conference.meta_description,
-      image: conference.meta_img,
-      collectionId: conference.collectionId,
-      recordId: conference.id
+      image: pb.getFileUrl(conference, conference.meta_img)
   }
 
   return { questions: conference.questions, sponsors, sessions: conference.talks, mcs: conference.mc, meta, subtitle: conference.title, date: formatDate(new Date(conference.date)), primary_color: conference.primary_color, secondary_color: conference.secondary_color, text_color: conference.text_color, packages: conference.packages, statistics: conference.statistics, highlights: conference.highlights, is_old, speaker_status: conference.speaker_status, youtube_id: conference.youtube_id };
