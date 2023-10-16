@@ -3,6 +3,16 @@ import { PUBLIC_API_URL } from '$env/static/public';
 import { POCKETBASE_PASSWORD, POCKETBASE_USERNAME } from '$env/static/private';
 import type { Config } from '@sveltejs/adapter-vercel';
 import { hasDatePassed, formatDate } from '$lib/utils.js';
+import type { ConferenceResponse, PackagesResponse, QuestionsResponse, SponsorResponse, StatisticsResponse, SvelteHighlightsResponse, TalkResponse } from '$lib/pocketbase-types.js';
+
+type Texpand = {
+  sponsors: SponsorRecord,
+  talks: TalkResponse,
+  questions: QuestionsResponse,
+  statistics: StatisticsResponse,
+  highlights: SvelteHighlightsResponse,
+  packages: PackagesResponse,
+}
 
 export const config: Config = {
   runtime: 'edge',
@@ -15,18 +25,24 @@ export const load = (async ({ fetch, params }) => {
     const pb = new PocketBase(PUBLIC_API_URL);
     await pb.admins.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD)
 
-    const conf = await pb.collection('Conference').getFirstListItem(`year='${year}' && season='${season}'`, {
-        expand: 'sponsors,talks, talks.speakers,mc,questions,statistics,highlights,packages,highlights',
-        fields: 'title,subtitle,year,season,date,meta_title,meta_description,_meta_img,sponsors,expand.sponsors,talks,expand.talks.title,expand.talks.description,expand.talks.meta_description,expand.talks.priority,expand.talks.slug,expand.talks.expand.speakers,mc,expand.mc,questions,expand.questions,statistics,expand.statistics,highlights,expand.highlights,packages,expand.packages,primary_color,secondary_color,text_color,type,speaker_status,open_to_sponsor,youtube_id'
+    const conf = await pb.collection('Conference').getFirstListItem<ConferenceResponse<Texpand>>(`year='${year}' && season='${season}'`, {
+        expand: 'sponsors,talks, talks.speakers,mc,questions,statistics,highlights,packages',
+        fields: 'title,subtitle,year,season,date,meta_title,meta_description,meta_img,sponsors,expand.sponsors,talks,expand.talks.title,expand.talks.description,expand.talks.meta_description,expand.talks.priority,expand.talks.slug,expand.talks.expand.speakers,mc,expand.mc,questions,expand.questions,statistics,expand.statistics,highlights,expand.highlights,packages,expand.packages,primary_color,secondary_color,text_color,type,speaker_status,open_to_sponsor,youtube_id'
     });
 
     const conference = {...conf, ...conf.expand}
-    delete conference.expand
 
   const is_old = hasDatePassed(conference.date)
 
-  let platinum = conference.sponsors.filter(sponsor => sponsor.type === 'platinum')
-  let gold = conference.sponsors.filter(sponsor => sponsor.type === 'gold')
+  let platinum = []
+  let gold = []
+
+  if (typeof conference.sponsors !== 'string') {
+    platinum = conference.expand?.sponsors.filter((sponsor: SponsorResponse) => sponsor.type === 'platinum')
+    gold = conference.expand?.sponsors.filter((sponsor: SponsorResponse) => sponsor.type === 'gold')
+  }
+
+  delete conference.expand
   
   if (conference.open_to_sponsor) {
     platinum = platinum.concat(Array(3 - platinum.length).fill(undefined))

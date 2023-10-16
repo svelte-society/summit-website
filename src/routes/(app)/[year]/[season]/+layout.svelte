@@ -1,8 +1,6 @@
 <script>
 	import Link from './NavLink.svelte';
-	import { Head } from 'svead';
 	import { page } from '$app/stores';
-	import { PUBLIC_API_URL } from '$env/static/public';
 
 	let nav_links = [
 		{
@@ -32,14 +30,6 @@
 	style:--color-text={data.text_color}
 	class="bg-primary text-crystal-50 font-body"
 >
-	<Head
-		title={$page.data.meta.title}
-		description={$page.data.meta.description}
-		url={$page.url.toString()}
-		image="//wsrv.nl/?url={PUBLIC_API_URL}/files/{$page.data.meta.collectionId}/{$page.data.meta
-			.recordId}/{$page.data.meta.image}&output=png"
-	/>
-
 	<nav class="fixed inset-x-0 w-full bg-black/75 p-6 z-50">
 		<ul
 			class="flex flex-wrap flex-row place-content-center place-items-center gap-5 md:gap-5 center"
