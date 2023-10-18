@@ -14,7 +14,7 @@
 	}
 </script>
 
-<ul class="grid content-center w-full grid-cols-1 md:grid-cols-2 text-white">
+<ul class="grid content-center w-full grid-cols-1 md:grid-cols-2 text-white overflow-hidden">
 	{#each latest_two as { subtitle, year, season, primary_color, secondary_color, text_color, date }}
 		<li
 			style:--color-primary={primary_color}
