@@ -11,7 +11,7 @@ export const load = (async ({ params, request }) => {
 
     const res = await pb.collection('Talk').getFirstListItem(`slug='${slug}'`, {
         expand: 'speakers',
-        fields: 'description,expand.speakers,youtube_ID,title,transcript'
+        fields: 'meta_description,description,expand.speakers,youtube_ID,title,transcript'
     });
 
     const talk = {...res, ...res.expand}
@@ -20,8 +20,8 @@ export const load = (async ({ params, request }) => {
     return {
         talk,
         meta: {
-            title: talk.title,
-            description: talk.description,
+            title: 'Svelte Summit - ' + talk.title,
+            description: talk.meta_description,
             image: 'https://'
         }
     };
