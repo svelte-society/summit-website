@@ -18,7 +18,22 @@ export function formatDate(date: Date): string {
  * @param date - The date to check against.
  * @returns true if the date has passed, false otherwise.
  */
-export function hasDatePassed(date: Date): boolean {
+export function hasDatePassed(date: string): boolean {
     const now = new Date();
     return new Date(date) < now;
   }
+
+	export function convertToHex(rgbStr: string) {
+		// Split the string by space, map each value to its hex representation, and join them.
+		return (
+			'#' +
+			rgbStr
+				.split(' ')
+				.map((value) => {
+					// Convert the value to a hexadecimal string and pad with zeros if necessary.
+					const hex = parseInt(value).toString(16);
+					return hex.length === 1 ? '0' + hex : hex;
+				})
+				.join('')
+		);
+	}

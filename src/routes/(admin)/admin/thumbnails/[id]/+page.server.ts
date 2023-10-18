@@ -11,7 +11,7 @@ export const load = async ({ fetch, params }) => {
         fields: 'title,expand.talks,expand.talks.speakers,primary_color,secondary_color,text_color'
     });
 
-    const { talks } = conf?.expand
+    const talks = conf.expand?.talks || []
 
     let mappedTalks = talks.map((talk: TalkRecord) => {
         const speakers = talk.expand.speakers.map((speaker) => {

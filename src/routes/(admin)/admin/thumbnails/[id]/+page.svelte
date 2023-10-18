@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { convertToHex } from '$lib/utils.js';
 	import { wrapTextToFit, downloadCanvasAsPng, drawCircularImage } from './helpers.js';
 	export let data;
 
@@ -8,21 +9,6 @@
 		x: number;
 		y: number;
 	};
-
-	function convertToHex(rgbStr) {
-		// Split the string by space, map each value to its hex representation, and join them.
-		return (
-			'#' +
-			rgbStr
-				.split(' ')
-				.map((value) => {
-					// Convert the value to a hexadecimal string and pad with zeros if necessary.
-					const hex = parseInt(value).toString(16);
-					return hex.length === 1 ? '0' + hex : hex;
-				})
-				.join('')
-		);
-	}
 
 	async function createCombinedImage(
 		canvas: HTMLCanvasElement,
