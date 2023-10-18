@@ -24,7 +24,7 @@ export const load = (async ({ params, url }) => {
         meta: {
             title: 'Svelte Summit - ' + talk.title,
             description: talk.meta_description,
-            image: `${url.origin}/api/satori/${talk.id}.png`
+            image: `https://svelte-summit-git-multi-site-setup-sveltesociety.vercel.app/api/satori/${talk.id}.png`
         }
     };
 })
