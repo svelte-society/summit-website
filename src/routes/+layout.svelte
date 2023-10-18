@@ -8,7 +8,7 @@
 	title={$page.data.meta.title}
 	description={$page.data.meta.description}
 	url={$page.url.toString()}
-	image="//wsrv.nl/?url={$page.data.meta.image}&output=png"
+	image="//wsrv.nl/?url={$page.data.meta.image}&output=png&maxage=7d"
 />
 
 <slot />
