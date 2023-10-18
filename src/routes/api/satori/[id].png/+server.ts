@@ -21,6 +21,6 @@ export const GET = async ({ params }) => {
     delete expandedTalk.expand
 
 	const width = 1200;
-	const height = 600;
+	const height = 630;
 	return componentToPng(OG, { conference, talk: expandedTalk }, height, width);
 };
