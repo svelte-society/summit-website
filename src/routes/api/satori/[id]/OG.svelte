@@ -1,7 +1,6 @@
 <script lang="ts">
 	import PocketBase from 'pocketbase';
 	import { PUBLIC_API_URL } from '$env/static/public';
-	import { POCKETBASE_PASSWORD, POCKETBASE_USERNAME } from '$env/static/private';
 	import { convertToHex } from '$lib/utils.js';
 
 	export let conference;

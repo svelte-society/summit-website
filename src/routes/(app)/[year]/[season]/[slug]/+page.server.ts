@@ -4,7 +4,8 @@ import { POCKETBASE_PASSWORD, POCKETBASE_USERNAME } from '$env/static/private';
 
 export const prerender = true
 
-export const load = (async ({ params }) => {
+export const load = (async ({ params, request }) => {
+    console.log(request)
     const { slug } = params
     const pb = new PocketBase(PUBLIC_API_URL);
     await pb.admins.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD)
@@ -18,6 +19,11 @@ export const load = (async ({ params }) => {
     delete talk.expand
 
     return {
-        talk
+        talk,
+        meta: {
+            title: talk.title,
+            description: talk.description,
+            image: 'https://'
+        }
     };
 })

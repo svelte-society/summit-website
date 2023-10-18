@@ -1,7 +1,7 @@
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import { html as toReactNode } from 'satori-html';
-import { findLargestUsableFontSize, type Font } from "@altano/satori-fit-text";
+import { findLargestUsableFontSize } from "@altano/satori-fit-text";
 
 
 import type { SvelteComponent } from 'svelte';

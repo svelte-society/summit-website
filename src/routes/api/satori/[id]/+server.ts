@@ -17,8 +17,6 @@ export const GET = async ({ params }) => {
 
     const [talk] = expandedConf.talks.filter(talk => talk.id === params.id)
 
-    console.log(talk)
-
     const expandedTalk = {...talk, ...talk.expand}
     delete expandedTalk.expand
 
