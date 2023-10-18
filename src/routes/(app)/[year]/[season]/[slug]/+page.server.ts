@@ -17,14 +17,12 @@ export const load = (async ({ params, url }) => {
     const talk = {...res, ...res.expand}
     delete talk.expand
 
-    console.log(`${url.origin}/api/satori/${talk.id}.png`)
-
     return {
         talk,
         meta: {
             title: 'Svelte Summit - ' + talk.title,
             description: talk.meta_description,
-            image: `https://svelte-summit-git-multi-site-setup-sveltesociety.vercel.app/api/satori/${talk.id}.png`
+            image: `https://sveltesummit.com/api/satori/${talk.id}.png`
         }
     };
 })
