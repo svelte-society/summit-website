@@ -106,8 +106,6 @@
 <MCs mcs={data.mcs} />
 {#if data.speaker_status === 'cfp_open'}
 	<CTA />
-{:else if data.speaker_status === 'cfp_closed'}
-	<CTA />
 {:else if data.speaker_status === 'show_speakers'}
 	<Sessions sessions={data.sessions} />
 {:else if data.speaker_status === 'videos_ready'}
