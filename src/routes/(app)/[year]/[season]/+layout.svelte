@@ -1,4 +1,5 @@
 <script>
+	import ConferencePicker from '$lib/components/ConferencePicker.svelte';
 	import Link from './NavLink.svelte';
 	import { page } from '$app/stores';
 
@@ -39,6 +40,7 @@
 					<Link href="/{$page.params.year}/{$page.params.season}{href}">{text}</Link>
 				</li>
 			{/each}
+			<ConferencePicker conferences={data.conferences} />
 		</ul>
 	</nav>
 	<main><slot /></main>

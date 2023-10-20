@@ -1,5 +1,5 @@
 <script>
-	export let conferences = ['Fall 2023', ' Spring 2023', 'Fall 2022'];
+	export let conferences = [];
 </script>
 
 <li class=" bg-slate-950 border-2 border-slate-900 rounded-lg py-2 px-4">
@@ -8,10 +8,11 @@
 		class="absolute left-0 top-10 bg-slate-950 border-2 border-slate-900 rounded-lg grid grid-cols-1 gap-2 w-full py-2"
 		aria-label="submenu"
 	>
-		{#each conferences as conference}
+		{#each conferences as { year, season }}
 			<li>
-				<a class="py-2 px-4 text-xs font-semibold hover:text-secondary transition-all" href="#"
-					>{conference}</a
+				<a
+					class="capitalize py-2 px-4 text-xs font-semibold hover:text-secondary transition-all"
+					href="/{year}/{season}">{season} {year}</a
 				>
 			</li>
 		{/each}
