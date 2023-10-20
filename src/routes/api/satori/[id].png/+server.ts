@@ -5,6 +5,17 @@ import { POCKETBASE_PASSWORD, POCKETBASE_USERNAME } from '$env/static/private';
 import { componentToPng } from './renderImage';
 import OG from './OG.svelte'
 
+export const prerender = true
+
+export const entries = async () => {
+    const pb = new PocketBase(PUBLIC_API_URL);
+    await pb.admins.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD)
+    const talks = await pb.collection('Talk').getFullList({
+        fields: 'id'
+    })
+    return talks
+}
+
 export const GET = async ({ params }) => {
     const pb = new PocketBase(PUBLIC_API_URL);
     await pb.admins.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD)
