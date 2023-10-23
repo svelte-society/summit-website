@@ -19,7 +19,8 @@ export const entries = async () => {
 export const GET = async ({ params }) => {
     const pb = new PocketBase(PUBLIC_API_URL);
     await pb.admins.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD)
-    const conference = await pb.collection('Conference').getFirstListItem(`talks ~ "${params.id}"`, {
+    const filter = pb.filter('talks ~ {:id}', { id: params.id })
+    const conference = await pb.collection('Conference').getFirstListItem(filter, {
         expand: 'talks,talks.speakers',
         fields: 'expand.talks.title,expand.talks.expand,expand.talks.id.speakers,primary_color,secondary_color,title,subtitle,year,season'
     });

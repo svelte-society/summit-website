@@ -14,9 +14,9 @@ export const prerender = true
 export const GET: RequestHandler = async () => {
   const pb = new PocketBase(PUBLIC_API_URL);
   await pb.admins.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD)
-
+  const filter = 'is_active = true'
   const { items } = await pb.collection('Conference').getList<Partial<ConferenceResponse<Texpand>>>(1, 50, {
-    filter: 'is_active = true',
+    filter,
     expand: 'talks',
     fields: 'year,season,talks,expand.talks'
   });
