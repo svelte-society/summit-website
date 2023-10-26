@@ -1,13 +1,8 @@
-import PocketBase from 'pocketbase';
-import { PUBLIC_API_URL } from '$env/static/public';
-import { POCKETBASE_PASSWORD, POCKETBASE_USERNAME } from '$env/static/private';
-
 export const prerender = true
 
-export const load = (async ({ params, url }) => {
+export const load = (async ({ params, locals }) => {
     const { slug } = params
-    const pb = new PocketBase(PUBLIC_API_URL);
-    await pb.admins.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD)
+    const pb = locals.pb
 
     const res = await pb.collection('Talk').getFirstListItem(`slug='${slug}'`, {
         expand: 'speakers',

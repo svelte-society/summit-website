@@ -1,8 +1,5 @@
 import * as sitemap from 'super-sitemap';
-import PocketBase from 'pocketbase';
 import type { RequestHandler } from '@sveltejs/kit';
-import { PUBLIC_API_URL } from '$env/static/public';
-import { POCKETBASE_PASSWORD, POCKETBASE_USERNAME } from '$env/static/private';
 import type { ConferenceResponse, TalkResponse } from '$lib/pocketbase-types';
 
 type Texpand = {
@@ -11,9 +8,8 @@ type Texpand = {
 
 export const prerender = true
 
-export const GET: RequestHandler = async () => {
-  const pb = new PocketBase(PUBLIC_API_URL);
-  await pb.admins.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD)
+export const GET: RequestHandler = async ({ locals }) => {
+  const pb = locals.pb
   const filter = 'is_active = true'
   const { items } = await pb.collection('Conference').getList<Partial<ConferenceResponse<Texpand>>>(1, 50, {
     filter,
@@ -31,7 +27,8 @@ export const GET: RequestHandler = async () => {
         '/admin.*',
         '/email-confirmed',
         '.*sponsors.*',
-        '.*signup'
+        '.*signup',
+        '.*submit'
     ],
     paramValues: {
       '/[year]/[season]': conference_slugs,

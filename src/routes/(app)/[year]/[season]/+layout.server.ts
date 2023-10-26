@@ -1,6 +1,3 @@
-import PocketBase from 'pocketbase';
-import { PUBLIC_API_URL } from '$env/static/public';
-import { POCKETBASE_PASSWORD, POCKETBASE_USERNAME } from '$env/static/private';
 import type { Config } from '@sveltejs/adapter-vercel';
 import { hasDatePassed, formatDate } from '$lib/utils.js';
 import type { ConferenceResponse, PackagesResponse, QuestionsResponse, SponsorResponse, StatisticsResponse, SvelteHighlightsResponse, TalkResponse, TypedPocketBase } from '$lib/pocketbase-types.js';
@@ -19,11 +16,10 @@ export const config: Config = {
   regions: 'all'
 };
 
-export const load = (async ({ params }) => {
+export const load = (async ({ params, locals }) => {
   const { year, season } = params
     
-    const pb = new PocketBase(PUBLIC_API_URL) as TypedPocketBase;
-    await pb.admins.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD)
+    const pb = locals.pb
     const filter = pb.filter('year = {:year} && season = {:season}', {
       year, season
     })

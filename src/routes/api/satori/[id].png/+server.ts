@@ -1,24 +1,18 @@
-import PocketBase from 'pocketbase';
-import { PUBLIC_API_URL } from '$env/static/public';
-import { POCKETBASE_PASSWORD, POCKETBASE_USERNAME } from '$env/static/private';
-
 import { componentToPng } from './renderImage';
 import OG from './OG.svelte'
 
 export const prerender = true
 
-export const entries = async () => {
-    const pb = new PocketBase(PUBLIC_API_URL);
-    await pb.admins.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD)
+export const entries = async ({ locals }) => {
+    const pb = locals.pb
     const talks = await pb.collection('Talk').getFullList({
         fields: 'id'
     })
     return talks
 }
 
-export const GET = async ({ params }) => {
-    const pb = new PocketBase(PUBLIC_API_URL);
-    await pb.admins.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD)
+export const GET = async ({ params, locals }) => {
+    const pb = locals.pb
     const filter = pb.filter('talks ~ {:id}', { id: params.id })
     const conference = await pb.collection('Conference').getFirstListItem(filter, {
         expand: 'talks,talks.speakers',
