@@ -1,9 +1,6 @@
-export const load = (async () => {
-    return {};
-});
+export const load = async ({ locals }) => {
+    const pb = locals.pb
+    const auth_methods = pb.collection('users').listAuthMethods();
 
-export const actions = {
-    default: () => {
-
-    }
+    return { auth_methods}
 };
