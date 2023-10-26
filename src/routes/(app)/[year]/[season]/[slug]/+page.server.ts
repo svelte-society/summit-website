@@ -2,7 +2,7 @@ export const prerender = true
 
 export const load = (async ({ params, locals }) => {
     const { slug } = params
-    const pb = locals.pb
+    const { pb } = locals
 
     const res = await pb.collection('Talk').getFirstListItem(`slug='${slug}'`, {
         expand: 'speakers',

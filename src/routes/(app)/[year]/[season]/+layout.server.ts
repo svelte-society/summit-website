@@ -17,9 +17,8 @@ export const config: Config = {
 };
 
 export const load = (async ({ params, locals }) => {
-  const { year, season } = params
-    
-    const pb = locals.pb
+    const { year, season } = params
+    const { pb } = locals
     const filter = pb.filter('year = {:year} && season = {:season}', {
       year, season
     })

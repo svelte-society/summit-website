@@ -9,7 +9,7 @@ type Texpand = {
 export const prerender = true
 
 export const GET: RequestHandler = async ({ locals }) => {
-  const pb = locals.pb
+  const { pb } = locals
   const filter = 'is_active = true'
   const { items } = await pb.collection('Conference').getList<Partial<ConferenceResponse<Texpand>>>(1, 50, {
     filter,

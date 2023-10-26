@@ -4,7 +4,7 @@ import OG from './OG.svelte'
 export const prerender = true
 
 export const entries = async ({ locals }) => {
-    const pb = locals.pb
+    const { pb } = locals
     const talks = await pb.collection('Talk').getFullList({
         fields: 'id'
     })
@@ -12,7 +12,7 @@ export const entries = async ({ locals }) => {
 }
 
 export const GET = async ({ params, locals }) => {
-    const pb = locals.pb
+    const { pb } = locals
     const filter = pb.filter('talks ~ {:id}', { id: params.id })
     const conference = await pb.collection('Conference').getFirstListItem(filter, {
         expand: 'talks,talks.speakers',

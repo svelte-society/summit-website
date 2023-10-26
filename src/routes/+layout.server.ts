@@ -2,7 +2,7 @@ import { formatDate } from '$lib/utils.js';
 import type { ConferenceRecord } from '$lib/pocketbase-types.js';
 
 export const load = (async ({ locals }) => {
-    const pb = locals.pb
+    const { pb } = locals
     const filter = pb.filter('is_active = true')
     const resultList = await pb.collection('Conference').getList<ConferenceRecord>(1, 50, {
         filter,
