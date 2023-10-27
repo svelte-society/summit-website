@@ -1,9 +1,9 @@
 import type { Config } from '@sveltejs/adapter-vercel';
 import { hasDatePassed, formatDate } from '$lib/utils.js';
-import type { ConferenceResponse, PackagesResponse, QuestionsResponse, SponsorResponse, StatisticsResponse, SvelteHighlightsResponse, TalkResponse, TypedPocketBase } from '$lib/pocketbase-types.js';
+import type { ConferenceResponse, PackagesResponse, QuestionsResponse, SponsorRecord, SponsorResponse, StatisticsResponse, SvelteHighlightsResponse, TalkResponse, TypedPocketBase } from '$lib/pocketbase-types.js';
 
 type Texpand = {
-  sponsors: SponsorRecord,
+  sponsors: SponsorRecord[],
   talks: TalkResponse,
   questions: QuestionsResponse,
   statistics: StatisticsResponse,
@@ -31,13 +31,11 @@ export const load = (async ({ params, locals }) => {
 
   const is_old = hasDatePassed(conference.date)
 
-  let platinum = []
-  let gold = []
+  let platinum: SponsorRecord[] = []
+  let gold: SponsorRecord[] = []
 
-  if (typeof conference.sponsors !== 'string') {
-    platinum = conference.expand?.sponsors.filter((sponsor: SponsorResponse) => sponsor.type === 'platinum')
-    gold = conference.expand?.sponsors.filter((sponsor: SponsorResponse) => sponsor.type === 'gold')
-  }
+  platinum = conference.expand?.sponsors.filter((sponsor: SponsorRecord) => sponsor.type === 'platinum') || []
+  gold = conference.expand?.sponsors.filter((sponsor: SponsorRecord) => sponsor.type === 'gold') || []
 
   delete conference.expand
   

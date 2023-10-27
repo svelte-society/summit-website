@@ -7,6 +7,7 @@
 <div class="grid gap-8 py-28 mx-auto w-full max-w-2xl">
 	<div class="rounded-xl bg-secondary shadow-xl sm:p-4">
 		<iframe
+			loading="lazy"
 			title="{data.talk.title} YouTube video"
 			class="rounded-lg aspect-video w-full sm:h-96"
 			src="https://www.youtube.com/embed/{data.talk.youtube_ID}"
