@@ -8,7 +8,6 @@ export const prerender = true
 
 export const entries = async () => {
     const pb = new PocketBase(PUBLIC_API_URL)
-    await pb.admins.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD)
     const talks = await pb.collection('Talk').getFullList({
         fields: 'id'
     })
