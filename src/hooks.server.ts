@@ -1,16 +1,58 @@
 import PocketBase from 'pocketbase';
 import { PUBLIC_API_URL } from '$env/static/public';
-import { POCKETBASE_PASSWORD, POCKETBASE_USERNAME } from '$env/static/private';
-const pb = new PocketBase(PUBLIC_API_URL);
-await pb.admins.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD)
+import { sequence } from '@sveltejs/kit/hooks';
+import type { TypedPocketBase } from '$lib/pocketbase-types';
+import type { Handle } from '@sveltejs/kit';
+const pb: TypedPocketBase = new PocketBase(PUBLIC_API_URL);
 
-export async function handle({ event, resolve }) {
-    event.setHeaders({
-        'X-Frame-Options': 'SAMEORIGIN',
-        'X-Content-Type-Options': 'nosniff',
-        'Content-Security-Policy': 'frame-src youtube.com https://www.youtube.com'
-    })
+const add_pocketbase_client: Handle = async ({ event, resolve }) => {
     event.locals.pb = pb
+
+    let auth = event.cookies.get('pb_auth')
+
+    if (auth) {
+        pb.authStore.loadFromCookie('pb_auth=' + auth)
+    }
     
-    return await resolve(event);
+    return resolve(event);
   }
+
+const oauth: Handle = async ({ event, resolve }) => {
+    const { url, locals } = event
+
+    if (url.pathname.endsWith('submit')) {
+        const { code, codeVerifier } = Object.fromEntries(url.searchParams)
+        if (!code) {
+            return resolve(event)
+        }
+
+        const pb: TypedPocketBase = locals.pb
+
+        const authData = await pb.collection('users').authWithOAuth2Code(
+            'github',
+            code,
+            codeVerifier,
+            'http://localhost:5173'
+        )
+
+        const name = authData?.meta?.name ?? '';
+        const avatarUrl = authData?.meta?.avatarUrl ?? '';
+        const bio = authData?.meta?.bio ?? '';
+        const twitter = authData?.meta?.twitter ?? '';
+
+        pb.collection('users').update(authData.record.id, {
+            name,
+            avatarUrl,
+            bio,
+            twitter
+        });
+
+        const cookie = JSON.stringify({ token: pb.authStore.token, model: pb.authStore.model })
+        event.cookies.set('pb_auth', cookie)
+    }
+    
+
+    return resolve(event)
+}
+
+export const handle = sequence(add_pocketbase_client, oauth)

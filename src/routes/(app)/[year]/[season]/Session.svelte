@@ -1,26 +1,26 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import Speaker from './Speaker.svelte';
-	import type { TalksResponse, SpeakersResponse } from '$lib/pocketbase-types';
+	import type { TalkResponse, SpeakerResponse } from '$lib/pocketbase-types';
 
 	type SpeakerExpand = {
-		speakers: SpeakersResponse[];
+		speakers: SpeakerResponse[];
 	};
 
-	export let session: TalksResponse<SpeakerExpand>;
-	const { title, description, expand, slug } = session;
+	export let session: TalkResponse<SpeakerExpand>;
+	const { title, description, expand, slug, youtube_ID } = session;
 </script>
 
 <li
-	class="relative grid gap-4 grid-rows-[auto_1fr_auto] bg-violet-800 shadow-lg rounded-md p-6 text-white"
+	class="relative grid gap-4 grid-rows-[auto_1fr_auto] bg-secondary shadow-lg rounded-md p-6 text-black"
 >
 	<h3 class="text-2xl font-semibold leading-8">{title}</h3>
 	<div class="text-sm">
 		{@html description}
 	</div>
-	{#if slug}
+	{#if slug && youtube_ID}
 		<a
-			class="absolute gap-1 flex bottom-2 right-2 place-content-center rounded-md text-xs px-2 py-2 line bg-secondary font-bold hover:brightness-110"
+			class="absolute gap-1 flex bottom-2 right-2 place-content-center rounded-md text-xs px-2 py-2 line bg-secondary border-2 border-black font-bold hover:brightness-110"
 			href="/{$page.params.year}/{$page.params.season}/{slug}"
 			><svg
 				xmlns="http://www.w3.org/2000/svg"
