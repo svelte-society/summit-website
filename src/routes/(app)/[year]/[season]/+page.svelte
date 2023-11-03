@@ -83,7 +83,7 @@
 				>
 				<button class="absolute right-0 top-0" aria-label="Close">
 					<svg
-						class="fill-slate-100 h-8 w-8 hover:fill-papaya-400"
+						class="fill-slate-100 h-8 w-8 hover:fill-secondary/90"
 						fill="none"
 						viewBox="0 0 24 24"
 						xmlns="http://www.w3.org/2000/svg"
