@@ -45,3 +45,14 @@ test('can go to a talks page', async ({ page }) => {
 
 	await expect(page.getByRole('link', { name: 'Go Back'})).toBeVisible()
 });
+
+test('check that sitemap.xml exists', async ({ page }) => {
+	const sitemapUrl = '/sitemap.xml';
+  
+	const response = await page.goto(sitemapUrl);
+  
+	await expect(response.status()).toBe(200);
+  
+	const contentType = response.headers()['content-type'];
+	await expect(contentType).toMatch(/xml/);
+  });
