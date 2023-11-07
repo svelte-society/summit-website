@@ -1,11 +1,8 @@
 import PocketBase from 'pocketbase';
-import { PUBLIC_API_URL } from '$env/static/public';
-import { POCKETBASE_PASSWORD, POCKETBASE_USERNAME } from '$env/static/private';
 import type { ConferenceRecord } from '$lib/pocketbase-types.js';
 
-export const load = async () => {
-    const pb = new PocketBase(PUBLIC_API_URL);
-    await pb.admins.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD)
+export const load = async ({ locals }) => {
+    const { pb } = locals
     const filter = 'is_active = true'
     const { items } = await pb.collection('Conference').getList<ConferenceRecord>(1, 50, {
         filter,

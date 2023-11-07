@@ -1,11 +1,9 @@
 import PocketBase from 'pocketbase';
 import { PUBLIC_API_URL } from '$env/static/public';
-import { POCKETBASE_PASSWORD, POCKETBASE_USERNAME } from '$env/static/private';
 import type { TalkRecord } from '$lib/pocketbase-types.js';
 
-export const load = async ({ fetch, params }) => {
-    const pb = new PocketBase(PUBLIC_API_URL);
-    await pb.admins.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD)
+export const load = async ({ params, locals }) => {
+    const { pb } = locals
     const conf = await pb.collection('Conference').getOne(params.id, {
         expand: 'talks,talks.speakers',
         fields: 'title,expand.talks,expand.talks.speakers,primary_color,secondary_color,text_color'
