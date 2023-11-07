@@ -3,9 +3,9 @@ import { PUBLIC_API_URL } from '$env/static/public';
 import { sequence } from '@sveltejs/kit/hooks';
 import type { TypedPocketBase } from '$lib/pocketbase-types';
 import type { Handle } from '@sveltejs/kit';
-const pb: TypedPocketBase = new PocketBase(PUBLIC_API_URL);
 
 const add_pocketbase_client: Handle = async ({ event, resolve }) => {
+    const pb: TypedPocketBase = new PocketBase(PUBLIC_API_URL);
     event.locals.pb = pb
 
     let auth = event.cookies.get('pb_auth')
