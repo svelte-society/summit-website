@@ -24,7 +24,7 @@ export const load = (async ({ params, locals }) => {
     })
     const conf = await pb.collection('Conference').getFirstListItem<ConferenceResponse<Texpand>>(filter, {
         expand: 'sponsors,talks, talks.speakers,mc,questions,statistics,highlights,packages',
-        fields: 'title,subtitle,year,season,date,meta_title,meta_description,meta_img,sponsors,expand.sponsors,talks,expand.talks.title,expand.talks.description,expand.talks.youtube_ID,expand.talks.meta_description,expand.talks.priority,expand.talks.slug,expand.talks.expand.speakers,mc,expand.mc,questions,expand.questions,statistics,expand.statistics,highlights,expand.highlights,packages,expand.packages,primary_color,secondary_color,text_color,type,speaker_status,open_to_sponsor,youtube_id'
+        fields: 'id,title,subtitle,year,season,date,meta_title,meta_description,meta_img,sponsors,expand.sponsors,talks,expand.talks.title,expand.talks.description,expand.talks.youtube_ID,expand.talks.meta_description,expand.talks.priority,expand.talks.slug,expand.talks.expand.speakers,mc,expand.mc,questions,expand.questions,statistics,expand.statistics,highlights,expand.highlights,packages,expand.packages,primary_color,secondary_color,text_color,type,speaker_status,open_to_sponsor,youtube_id'
     });
 
     const conference = {...conf, ...conf.expand}
@@ -48,11 +48,10 @@ export const load = (async ({ params, locals }) => {
       platinum ,
       gold
   }
-
   const meta = {
       title: conference.meta_title,
       description: conference.meta_description,
-      image: pb.getFileUrl(conference, conference.meta_img)
+      image: pb.getFileUrl(conf, conference.meta_img)
   }
 
   const sortedSessions = conference.talks.sort((a, b) => { return a.priority > b.priority})
