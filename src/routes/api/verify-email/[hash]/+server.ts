@@ -7,10 +7,7 @@ export const GET: RequestHandler = async ({ url, locals, params }) => {
 
     try {
         const id = await getIDFromHash(params.hash)
-        console.log(id)
         const update_result = await verifyEmail(id)
-
-        console.log(update_result)
 
     } catch (e) {
         console.error(e)
@@ -20,7 +17,6 @@ export const GET: RequestHandler = async ({ url, locals, params }) => {
 };
 
 async function getIDFromHash(hash: string): Promise<string> {
-    console.log('getting id')
   const res = await fetch(`${MARKETING_API_URL}/contacts?filter=${JSON.stringify({"data.hash": hash})}`, {
     headers: {
         'Authorization': 'Bearer ' + MARKETING_API_KEY,
