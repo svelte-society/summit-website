@@ -1,4 +1,5 @@
 <script lang="ts">
+	import ring_svg from './ring_svg_summit.svg?raw';
 	import { convertToHex } from '$lib/utils.js';
 	import { wrapTextToFit, downloadCanvasAsPng, drawCircularImage } from './helpers.js';
 	export let data;
@@ -40,13 +41,11 @@
 		]);
 
 		// Set canvas size to match the background image
-		canvas.width = bgImage.width;
-		canvas.height = bgImage.height;
-
-		// Draw the background image
-		context.drawImage(bgImage, 0, 0);
-
-		// Draw the clipped profile picture
+		canvas.width = 1920;
+		canvas.height = 1080;
+		context.fillStyle = convertToHex(data.primary_color);
+		context.fillRect(0, 0, 1920, 1080);
+		drawColoredSVGOnCanvas('ring', convertToHex(data.secondary_color), context);
 
 		const profileRadius = 286 / 2; // Set the desired radius for the profile picture
 		profileImages.forEach((img, i) => {
@@ -65,7 +64,7 @@
 
 		// Draw the text
 		context.font = '500 98px Overpass';
-		context.fillStyle = '#FF6C6C';
+		context.fillStyle = convertToHex(data.secondary_color);
 		context.fillText(text1, text1Pos.x, text1Pos.y);
 		context.fillStyle = 'white';
 		const { text, fontSize } = wrapTextToFit(context, text2, 1557, 279, 2, 'bold 200px Overpass');
@@ -104,6 +103,37 @@
 			// downloadCanvasAsPng(canvas, `Thumbnail - ${title}.png`);
 		});
 	}
+	async function downloadImages() {
+		canvases.forEach(async (canvas, i) => {
+			const session = data.talks[i];
+			const { title } = session;
+			await downloadCanvasAsPng(canvas, `Thumbnail - ${title}.png`);
+		});
+	}
+
+	function drawColoredSVGOnCanvas(svgId, color, ctx) {
+		// Clone the original SVG element to avoid modifying it directly
+		const node = document.getElementById(svgId);
+		const clonedSvgElement = node.cloneNode(true);
+
+		// Find all the path elements in the SVG and change their fill
+		const paths = clonedSvgElement.querySelectorAll('path');
+		paths.forEach((path) => {
+			path.setAttribute('fill', color);
+		});
+
+		// Serialize the cloned SVG with the new color
+		const xml = new XMLSerializer().serializeToString(clonedSvgElement);
+
+		// Create an Image to load the SVG into
+		const img = new Image();
+		img.onload = function () {
+			// Draw the SVG image onto the canvas
+			ctx.drawImage(img, 1920 / 2 - img.width + 250, -170, img.width * 2, img.height * 2);
+		};
+		// Convert the SVG XML to a data URL and set it as the source of the image
+		img.src = 'data:image/svg+xml;base64,' + btoa(xml);
+	}
 </script>
 
 <div class="m-4">
@@ -112,6 +142,9 @@
 		<button class="px-4 py-2 bg-secondary text-gray-50 rounded-md" on:click={generateImages}
 			>Generate</button
 		>
+		<button class="px-4 py-2 bg-primary text-gray-50 rounded-md" on:click={downloadImages}
+			>Download</button
+		>
 	</div>
 
 	<ul class="flex flex-wrap gap-1">
@@ -119,4 +152,8 @@
 			<canvas class="max-w-md" width="448" height="252" bind:this={canvases[idx]} />
 		{/each}
 	</ul>
+</div>
+
+<div class="hidden">
+	{@html ring_svg}
 </div>
