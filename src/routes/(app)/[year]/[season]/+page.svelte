@@ -25,7 +25,7 @@
 	id="intro"
 	class="cover bg-center bg-no-repeat lg:bg-[length:700px] md:bg-[length:500px] bg-[length:300px]"
 >
-	{#if data.is_old}
+	{#if data.youtube_id}
 		<div class="cover-center aspect-w-16 aspect-h-9">
 			<iframe
 				title="Svelte Summit YouTube Stream"
