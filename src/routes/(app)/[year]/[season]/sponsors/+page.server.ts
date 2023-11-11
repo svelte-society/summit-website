@@ -1,6 +1,6 @@
 
 
-export const prerender = true
+export const prerender = 'auto'
 
 export const load = (async ({ fetch }) => {
     const meta = {
