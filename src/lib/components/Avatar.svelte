@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { PUBLIC_API_URL } from '$env/static/public';
-	export let collectionId: string;
-	export let id: string;
-	export let file: string;
-	export let name: string;
-	export let size: number = 40;
+	const {
+		collectionId,
+		id,
+		file,
+		name,
+		size = 40
+	} = $props<{ collectionId: string; id: string; file: string; name: string; size: number }>();
 </script>
 
 <picture>

@@ -5,7 +5,7 @@
 	type SpeakerExpand = {
 		speakers: SpeakerResponse[];
 	};
-	export let sessions: TalkResponse<SpeakerExpand>[];
+	const { sessions } = $props<{ sessions: TalkResponse<SpeakerExpand>[] }>();
 </script>
 
 <article id="speakers" class="bg-primary text-white">

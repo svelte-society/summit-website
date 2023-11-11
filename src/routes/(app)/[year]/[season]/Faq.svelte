@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
 	import type { QuestionsResponse } from '$lib/pocketbase-types';
-	export let questions: QuestionsResponse[];
+	const { questions } = $props<{ questions: QuestionsResponse[] }>();
 </script>
 
 <article id="faq" class="bg-gray-100 text-black">

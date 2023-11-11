@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { SpeakersResponse } from '$lib/pocketbase-types';
+	import type { SpeakerResponse } from '$lib/pocketbase-types';
 	import Avatar from '$lib/components/Avatar.svelte';
 
-	export let speaker: SpeakersResponse;
+	const { speaker } = $props<{ speaker: SpeakerResponse }>();
 	const { id, picture, name, tagline, twitter, collectionId } = speaker;
 </script>
 

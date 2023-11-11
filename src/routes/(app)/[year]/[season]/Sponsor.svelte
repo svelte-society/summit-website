@@ -1,11 +1,12 @@
 <script lang="ts">
-	import type { SponsorsResponse } from '$lib/pocketbase-types';
+	import type { SponsorResponse } from '$lib/pocketbase-types';
 	import { PUBLIC_API_URL } from '$env/static/public';
 	import { page } from '$app/stores';
 
-	export let sponsor: SponsorsResponse | undefined;
-
-	export let is_platinum = false;
+	const { is_platinum = false, sponsor } = $props<{
+		sponsor: SponsorResponse | undefined;
+		is_platinum: boolean;
+	}>();
 
 	const height = is_platinum ? 100 : 75;
 	const fallback = is_platinum ? '💎 Platinum' : '🏆 Gold';

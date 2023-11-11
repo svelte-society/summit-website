@@ -1,11 +1,12 @@
 <script lang="ts">
 	import type { SponsorResponse } from '$lib/pocketbase-types';
 	import Sponsor from './Sponsor.svelte';
-	import { page } from '$app/stores';
 
-	export let platinum: (SponsorResponse | undefined)[];
-	export let gold: (SponsorResponse | undefined)[];
-	export let is_open_to_sponsorships: boolean;
+	const { platinum, gold, is_open_to_sponsorships } = $props<{
+		platinum: (SponsorResponse | undefined)[];
+		gold: (SponsorResponse | undefined)[];
+		is_open_to_sponsorships: boolean;
+	}>();
 </script>
 
 <article id="sponsors" class="bg-secondary text-black">
