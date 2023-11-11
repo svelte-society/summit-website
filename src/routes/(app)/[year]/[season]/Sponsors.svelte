@@ -24,11 +24,11 @@
 				{/each}
 			</ul>
 		</div>
-		{#if is_open_to_sponsorships}
+		<!-- {#if is_open_to_sponsorships}
 			<a
 				class="bg-primary hover:brightness-110 transition-colors px-4 py-3 rounded-lg text-white font-semibold w-full sm:w-56 mx-auto"
 				href="/{$page.params.year}/{$page.params.season}/sponsors">Become a sponsor</a
 			>
-		{/if}
+		{/if} -->
 	</div>
 </article>
