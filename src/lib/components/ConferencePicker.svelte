@@ -1,5 +1,5 @@
 <script>
-	export let conferences = [];
+	const { conferences = [] } = $props();
 </script>
 
 <li class=" bg-slate-950 border-2 border-slate-900 rounded-lg py-2 px-4">

@@ -1,10 +1,11 @@
 <script>
 	import Button from '$lib/components/Button.svelte';
-	export let title = 'Want to speak at the conference?';
-	export let text = `We're super stoked to see what kind of talks that will be submitted this year! If you're
-				interested in speaking at the conference, please head on over to our submission link below!
-				This event is all online and all talks should be pre-recorded.`;
-	export let href = 'https://sessionize.com/svelte-summit-fall-2023/';
+	const { title, text, href } = $props();
+	// export let title = 'Want to speak at the conference?';
+	// export let text = `We're super stoked to see what kind of talks that will be submitted this year! If you're
+	// 			interested in speaking at the conference, please head on over to our submission link below!
+	// 			This event is all online and all talks should be pre-recorded.`;
+	// export let href = 'https://sessionize.com/svelte-summit-fall-2023/';
 </script>
 
 <article id="speakers" class="bg-primary">

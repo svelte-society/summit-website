@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let data;
+	const { data } = $props();
 	const [latest_two] = splitArray(data.conferences);
 
 	function splitArray<T>(arr: T[]): [T[], T[]] {
