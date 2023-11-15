@@ -8,7 +8,7 @@
 		color: string;
 	};
 
-	export let stats: Stat[];
+	const { stats } = $props<{ stats: Stat[] }>();
 </script>
 
 <article id="intro" class="bg-gray-800 text-gray-100 py-16">

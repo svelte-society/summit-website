@@ -1,10 +1,12 @@
 <script lang="ts">
-	export let submitting: boolean = false;
-	export let wide: boolean = false;
-	export let href: string = '';
-	export let primary: boolean = false;
-	export let secondary: boolean = false;
-	export let external: boolean = false;
+	const { submitting, wide, href, primary, secondary, external } = $props<{
+		submitting: boolean;
+		wide: boolean;
+		href: string;
+		primary: boolean;
+		secondary: boolean;
+		external: boolean;
+	}>();
 </script>
 
 <svelte:element

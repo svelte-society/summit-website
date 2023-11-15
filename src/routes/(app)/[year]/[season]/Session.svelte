@@ -7,7 +7,7 @@
 		speakers: SpeakerResponse[];
 	};
 
-	export let session: TalkResponse<SpeakerExpand>;
+	const { session } = $props<{ session: TalkResponse<SpeakerExpand> }>();
 	const { title, description, expand, slug, youtube_ID } = session;
 </script>
 

@@ -1,12 +1,21 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
 
-	export let title: string;
-	export let value: number;
-	export let prose: string;
-	export let full_width: boolean = false;
-	export let sponsors: string[];
-	export let type: string;
+	const {
+		title,
+		value,
+		prose,
+		full_width = false,
+		sponsors,
+		type
+	} = $props<{
+		title: string;
+		value: number;
+		prose: string;
+		full_width: boolean;
+		sponsors: string[];
+		type: string;
+	}>();
 
 	const number_of_packages = type === 'gold' ? 6 : 3;
 </script>
