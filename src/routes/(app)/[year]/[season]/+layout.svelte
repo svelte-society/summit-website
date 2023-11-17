@@ -31,7 +31,7 @@
 	style:--color-text={data.text_color}
 	class="bg-primary text-crystal-50 font-body"
 >
-	<nav class="fixed inset-x-0 w-full bg-black/75 p-6 z-50">
+	<nav class="fixed inset-x-0 w-full bg-black/75 p-6 z-50 text-white">
 		<ul
 			class="flex flex-wrap flex-row place-content-center place-items-center gap-5 md:gap-5 center"
 		>
