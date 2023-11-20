@@ -2,6 +2,8 @@
 	import { page } from '$app/stores';
 	import Speaker from '../Speaker.svelte';
 	export let data;
+
+	$: console.log(data.meta);
 </script>
 
 <div class="grid gap-8 py-28 mx-auto w-full max-w-2xl">

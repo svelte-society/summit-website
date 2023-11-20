@@ -22,7 +22,7 @@
 		}
 	];
 
-	const { data } = $props();
+	export let data;
 </script>
 
 <div

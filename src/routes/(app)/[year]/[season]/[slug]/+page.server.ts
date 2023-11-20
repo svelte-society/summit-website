@@ -15,7 +15,7 @@ export const load = (async ({ params, locals }) => {
     return {
         talk,
         meta: {
-            title: 'Svelte Summit - ' + talk.title,
+            title: `Svelte Summit ${params.year} ${params.season.to} - ` + talk.title,
             description: talk.meta_description,
             image: `https://sveltesummit.com/api/satori/${talk.id}.png`
         }
