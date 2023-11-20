@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 
-	export let data;
+	let { data } = $props();
 </script>
 
 <div class="p-8 bg-white rounded-xl shadow-lg relative max-w-3xl mx-auto">
