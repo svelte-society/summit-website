@@ -45,34 +45,42 @@
 		canvas.height = 1080;
 		context.fillStyle = convertToHex(data.primary_color);
 		context.fillRect(0, 0, 1920, 1080);
-		drawColoredSVGOnCanvas('ring', convertToHex(data.secondary_color), context);
 
-		const profileRadius = 286 / 2; // Set the desired radius for the profile picture
-		profileImages.forEach((img, i) => {
-			drawCircularImage(
-				context,
-				img,
-				profilePos.x + profileRadius * i * 1.3,
-				profilePos.y,
-				profileRadius,
-				convertToHex(data.primary_color),
-				0.5,
-				convertToHex(data.secondary_color),
-				8
-			);
-		});
+		// Draw background SVG Circle
+		drawColoredSVGOnCanvas('ring', convertToHex(data.secondary_color), context, () => {
+			// Draw the text
+			context.font = '500 98px Overpass';
+			context.fillStyle = convertToHex(data.secondary_color);
+			context.fillText(text1, text1Pos.x, text1Pos.y);
+			context.fillStyle = 'white';
+			const { text, fontSize } = wrapTextToFit(context, text2, 1557, 279, 2, 'bold 200px Overpass');
 
-		// Draw the text
-		context.font = '500 98px Overpass';
-		context.fillStyle = convertToHex(data.secondary_color);
-		context.fillText(text1, text1Pos.x, text1Pos.y);
-		context.fillStyle = 'white';
-		const { text, fontSize } = wrapTextToFit(context, text2, 1557, 279, 2, 'bold 200px Overpass');
+			// Draw the wrapped text line by line
+			context.font = `500 ${fontSize}px Overpass`; // Use the adjusted font size
+			text.lines.forEach((line, index) => {
+				context.fillText(
+					line,
+					text2Pos.x,
+					text2Pos.y + context.measureText('M').width * 1.4 * index
+				);
+			});
 
-		// Draw the wrapped text line by line
-		context.font = `500 ${fontSize}px Overpass`; // Use the adjusted font size
-		text.lines.forEach((line, index) => {
-			context.fillText(line, text2Pos.x, text2Pos.y + context.measureText('M').width * 1.4 * index);
+			const profileRadius = 286 / 2; // Set the desired radius for the profile picture
+			profileImages.forEach((img, i) => {
+				drawCircularImage(
+					context,
+					img,
+					profilePos.x + profileRadius * i * 1.3,
+					profilePos.y,
+					profileRadius,
+					convertToHex(data.primary_color),
+					0.5,
+					convertToHex(data.secondary_color),
+					8
+				);
+			});
+
+			drawSvelteSummitText(context, 1700, 50, 'FALL');
 		});
 	}
 
@@ -103,15 +111,8 @@
 			// downloadCanvasAsPng(canvas, `Thumbnail - ${title}.png`);
 		});
 	}
-	async function downloadImages() {
-		canvases.forEach(async (canvas, i) => {
-			const session = data.talks[i];
-			const { title } = session;
-			await downloadCanvasAsPng(canvas, `Thumbnail - ${title}.png`);
-		});
-	}
 
-	function drawColoredSVGOnCanvas(svgId, color, ctx) {
+	function drawColoredSVGOnCanvas(svgId, color, ctx, callback) {
 		// Clone the original SVG element to avoid modifying it directly
 		const node = document.getElementById(svgId);
 		const clonedSvgElement = node.cloneNode(true);
@@ -119,7 +120,7 @@
 		// Find all the path elements in the SVG and change their fill
 		const paths = clonedSvgElement.querySelectorAll('path');
 		paths.forEach((path) => {
-			path.setAttribute('fill', color);
+			path.setAttribute('fill', color + '99');
 		});
 
 		// Serialize the cloned SVG with the new color
@@ -129,10 +130,43 @@
 		const img = new Image();
 		img.onload = function () {
 			// Draw the SVG image onto the canvas
-			ctx.drawImage(img, 1920 / 2 - img.width + 250, -170, img.width * 2, img.height * 2);
+			ctx.drawImage(img, 500 - img.width + 250, -170, img.width * 2, img.height * 2);
+
+			if (callback) {
+				callback();
+			}
 		};
 		// Convert the SVG XML to a data URL and set it as the source of the image
 		img.src = 'data:image/svg+xml;base64,' + btoa(xml);
+	}
+
+	function drawSvelteSummitText(ctx, x, y, dynamicText) {
+		const lineHeight = 100; // Adjust line height as needed
+
+		// Set text style for 'SVELTE'
+		ctx.font = '500 90px Anton';
+		ctx.fillStyle = 'white'; // Text color
+		ctx.textAlign = 'center'; // Right align text
+		ctx.fillText('SVELTE', x, y);
+
+		// Set text style for 'SUMMIT'
+		ctx.fillText('SUMMIT', x, y + lineHeight);
+
+		// Set text style for the dynamic text (e.g., 'FALL')
+		ctx.fillStyle = convertToHex(data.secondary_color); // Text color for the dynamic text
+		ctx.fillText(dynamicText, x, y + 2 * lineHeight);
+	}
+
+	function downloadImage(title, canvas) {
+		const dataUrl = canvas.toDataURL('image/png');
+
+		// Create a temporary anchor element
+		const a = document.createElement('a');
+		a.href = dataUrl;
+		a.download = title + 'png' || 'canvas-image.png'; // Default filename if none is provided
+
+		// Trigger the download
+		a.click();
 	}
 </script>
 
@@ -142,14 +176,13 @@
 		<button class="px-4 py-2 bg-secondary text-gray-50 rounded-md" on:click={generateImages}
 			>Generate</button
 		>
-		<button class="px-4 py-2 bg-primary text-gray-50 rounded-md" on:click={downloadImages}
-			>Download</button
-		>
 	</div>
 
 	<ul class="flex flex-wrap gap-1">
 		{#each data.talks as { title }, idx}
-			<canvas class="max-w-md" width="448" height="252" bind:this={canvases[idx]} />
+			<button on:click={() => downloadImage(title, canvases[idx])}>
+				<canvas class="max-w-md" width="448" height="252" bind:this={canvases[idx]} />
+			</button>
 		{/each}
 	</ul>
 </div>
