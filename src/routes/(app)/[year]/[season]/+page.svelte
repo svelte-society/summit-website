@@ -16,7 +16,7 @@
 	import logo from './logo.svg';
 	import MCs from './MCs.svelte';
 
-	const { data } = $props();
+	export let data;
 
 	const { form, constraints, errors, enhance, message, submitting } = superForm(data.form);
 </script>
