@@ -16,11 +16,16 @@
 			allowfullscreen
 		/>
 	</div>
-	<h1 class="text-4xl font-semibold text-center">{data.talk.title}</h1>
+	<h1 class="text-4xl font-semibold text-center text-white">{data.talk.title}</h1>
+	<ul class="rounded-lg flex flex-wrap gap-4 place-content-between">
+		{#each data.talk.speakers as speaker}
+			<li class="bg-secondary rounded-md p-2"><Speaker {speaker} /></li>
+		{/each}
+	</ul>
 	<div class="prose prose-p:text-slate-100 prose-p:text-lg">{@html data.talk.description}</div>
 	<div class="flex flex-wrap place-content-between">
 		<a
-			class="flex gap-2 text-md hover:underline underline-offset-4 decoration-2 decoration-slate-200 font-semibold"
+			class="flex gap-2 text-md hover:underline underline-offset-4 decoration-2 decoration-slate-200 font-semibold bg-secondary rounded-md p-2"
 			href="/{$page.params.year}/{$page.params.season}"
 			><svg
 				class="h-6 w-6"
@@ -38,12 +43,11 @@
 			</svg>
 			Go Back</a
 		>
-		{#each data.talk.speakers as speaker}
-			<Speaker {speaker} />
-		{/each}
 	</div>
 	{#if data.talk.transcript}
-		<h2 class="text-center text-xl font-semibold underline underline-offset-4 underline-4">
+		<h2
+			class="text-center text-xl font-semibold underline underline-offset-4 underline-4 text-white"
+		>
 			Transcript
 		</h2>
 		<div class="prose prose-lg grid prose-p:text-slate-200">
