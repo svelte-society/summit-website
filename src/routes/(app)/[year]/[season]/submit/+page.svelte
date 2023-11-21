@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import type { PageData } from './$types';
 
-	let { data } = $props();
+	let { data } = $props<{ data: PageData }>();
 </script>
 
 <div class="p-8 bg-white rounded-xl shadow-lg relative max-w-3xl mx-auto">

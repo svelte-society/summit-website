@@ -23,7 +23,7 @@
 
 <div
 	id="intro"
-	class="cover bg-center bg-no-repeat lg:bg-[length:700px] md:bg-[length:500px] bg-[length:300px]"
+	class="-mt-32 cover bg-center bg-no-repeat lg:bg-[length:700px] md:bg-[length:500px] bg-[length:300px]"
 >
 	{#if data.youtube_id}
 		<div class="cover-center aspect-w-16 aspect-h-9">

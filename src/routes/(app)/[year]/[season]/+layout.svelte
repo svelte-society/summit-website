@@ -2,6 +2,7 @@
 	import ConferencePicker from '$lib/components/ConferencePicker.svelte';
 	import Link from './NavLink.svelte';
 	import { page } from '$app/stores';
+	import Button from '$lib/components/Button.svelte';
 
 	let nav_links = [
 		{
@@ -29,11 +30,11 @@
 	style:--color-primary={data.primary_color}
 	style:--color-secondary={data.secondary_color}
 	style:--color-text={data.text_color}
-	class="bg-primary text-crystal-50 font-body"
+	class="bg-primary text-crystal-50 font-body min-h-screen"
 >
 	<nav class="fixed inset-x-0 w-full bg-black/75 p-6 z-50 text-white">
 		<ul
-			class="flex flex-wrap flex-row place-content-center place-items-center gap-5 md:gap-5 center"
+			class="w-full flex flex-wrap flex-row place-content-center place-items-center gap-5 md:gap-5 center"
 		>
 			{#each nav_links as { href, text }}
 				<li>
@@ -41,9 +42,13 @@
 				</li>
 			{/each}
 			<ConferencePicker conferences={data.conferences} />
+			{#if data.speaker_status === 'cfp_open'}
+				<Button href="/{$page.params.year}/{$page.params.season}/submit" primary thin>Submit</Button
+				>
+			{/if}
 		</ul>
 	</nav>
-	<main><slot /></main>
+	<main class="pt-32"><slot /></main>
 	<footer class="bg-primary text-white py-4 text-center">
 		Svelte Summit is a conference made possible by <span class="font-semibold"
 			>Svelte School AB</span

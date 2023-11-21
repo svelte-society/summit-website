@@ -1,11 +1,12 @@
 <script lang="ts">
-	const { submitting, wide, href, primary, secondary, external } = $props<{
+	const { submitting, wide, href, primary, secondary, external, thin } = $props<{
 		submitting: boolean;
-		wide: boolean;
-		href: string;
-		primary: boolean;
-		secondary: boolean;
-		external: boolean;
+		wide?: boolean;
+		href?: string;
+		primary?: boolean;
+		secondary?: boolean;
+		external?: boolean;
+		thin?: boolean;
 	}>();
 </script>
 
@@ -16,6 +17,7 @@
 	class:primary
 	class:secondary
 	class:wide
+	class:thin
 	class="transition-colors px-4 py-3 rounded-lg text-white font-semibold hover:brightness-110 disabled:hover:brightness-75"
 	disabled={submitting}
 	{href}
@@ -31,5 +33,8 @@
 	}
 	.wide {
 		@apply px-10;
+	}
+	.thin {
+		@apply py-2;
 	}
 </style>

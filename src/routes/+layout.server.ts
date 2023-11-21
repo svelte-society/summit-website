@@ -1,10 +1,10 @@
 import { formatDate } from '$lib/utils.js';
-import type { ConferenceRecord } from '$lib/pocketbase-types.js';
+import type { ConferenceResponse } from '$lib/pocketbase-types.js';
 
 export const load = (async ({ locals }) => {
     const { pb } = locals
     const filter = pb.filter('is_active = true')
-    const resultList = await pb.collection('Conference').getList<ConferenceRecord>(1, 50, {
+    const resultList = await pb.collection('Conference').getList<ConferenceResponse>(1, 50, {
         filter,
         fields: 'primary_color,secondary_color,text_color,year,season,subtitle,date,meta_img,id,collectionId',
         sort: 'date'
