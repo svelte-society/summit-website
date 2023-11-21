@@ -1,8 +1,6 @@
 <script lang="ts">
 	import type { ConferenceResponse } from '$lib/pocketbase-types';
 	const { conferences = [] } = $props<{ conferences: ConferenceResponse[] }>();
-
-	console.log(conferences);
 </script>
 
 <li class=" bg-slate-950 border-2 border-slate-900 rounded-lg py-2 px-4">
