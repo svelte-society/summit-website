@@ -4,12 +4,12 @@
 	export let data;
 </script>
 
-<div class="grid gap-8 py-28 mx-auto w-full max-w-2xl">
-	<div class="rounded-xl bg-secondary shadow-xl sm:p-4">
+<div class="grid gap-8 py-28 mx-auto w-full max-w-2xl px-2">
+	<div class="rounded-xl bg-secondary shadow-xl xs:mx-auto xs:p-4">
 		<iframe
 			loading="lazy"
 			title="{data.talk.title} YouTube video"
-			class="rounded-lg aspect-video w-full sm:h-96"
+			class="rounded-lg aspect-video sm:h-96 w-full md:p-4"
 			src="https://www.youtube.com/embed/{data.talk.youtube_ID}"
 			frameborder="0"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
