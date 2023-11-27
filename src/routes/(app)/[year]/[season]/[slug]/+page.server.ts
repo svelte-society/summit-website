@@ -15,9 +15,13 @@ export const load = (async ({ params, locals }) => {
     return {
         talk,
         meta: {
-            title: `Svelte Summit ${params.year} ${params.season} - ${talk.title}`,
+            title: `Svelte Summit ${params.year} ${capitalizeFirstLetter(params.season)} - ${talk.title}`,
             description: talk.meta_description,
             image: `https://sveltesummit.com/api/satori/${talk.id}.png`
         }
     };
 })
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
