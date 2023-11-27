@@ -2,7 +2,6 @@ import { componentToPng } from './renderImage';
 import OG from './OG.svelte'
 import PocketBase from 'pocketbase';
 import { PUBLIC_API_URL, } from '$env/static/public';
-import { IS_DEV } from '$env/static/private'
 
 export const prerender = true
 
