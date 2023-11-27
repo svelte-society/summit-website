@@ -2,6 +2,7 @@ import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import { html as toReactNode } from 'satori-html';
 import { findLargestUsableFontSize } from "@altano/satori-fit-text";
+import { render } from 'svelte/server'
 
 
 import type { SvelteComponent } from 'svelte';
@@ -13,7 +14,6 @@ import anton from './fonts/Anton-Regular.ttf'
 export async function componentToPng(component: SvelteComponent, props: any, height: number, width: number) {
 	const overpassBuffer = Buffer.from(overpass)
 	const antonBuffer = Buffer.from(anton)
-	
 	const largestUsableFontSize = await findLargestUsableFontSize({
 		lineHeight: 1,
 		font: await {
@@ -25,9 +25,10 @@ export async function componentToPng(component: SvelteComponent, props: any, hei
 		maxWidth: 900,
 		maxHeight: 300,
 	});
+	
 
-	const result = component.render({...props, title_font_size: largestUsableFontSize});
-	const markup = toReactNode(`${result.html}<style>${result.css.code}</style>`);
+	const result = render(component, { props: {...props, title_font_size: largestUsableFontSize}});
+	const markup = toReactNode(result.html);
 
 	const svg = await satori(markup, {
 		fonts: [
