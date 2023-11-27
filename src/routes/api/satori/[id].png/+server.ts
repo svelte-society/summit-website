@@ -4,7 +4,7 @@ import PocketBase from 'pocketbase';
 import { PUBLIC_API_URL, } from '$env/static/public';
 import { IS_DEV } from '$env/static/private'
 
-export const prerender = !IS_DEV
+export const prerender = true
 
 export const entries = async () => {
     const pb = new PocketBase(PUBLIC_API_URL)
