@@ -7,10 +7,10 @@
 </script>
 
 <Head
-	title={data.meta.title}
-	description={data.meta.description}
+	title={$page.data.meta.title}
+	description={$page.data.meta.description}
 	url={$page.url.toString()}
-	image="//wsrv.nl/?url={data.meta.image}&output=png&maxage=7d"
+	image="//wsrv.nl/?url={$page.data.meta.image}&output=png&maxage=7d"
 />
 
 <slot />
