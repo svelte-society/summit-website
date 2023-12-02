@@ -6,7 +6,7 @@ export const load = (async ({ locals }) => {
     const filter = pb.filter('is_active = true')
     const resultList = await pb.collection('Conference').getList<ConferenceResponse>(1, 50, {
         filter,
-        fields: 'primary_color,secondary_color,text_color,year,season,subtitle,date,meta_img,id,collectionId',
+        fields: 'primary_color,secondary_color,text_color,year,season,subtitle,date,meta_img,id,collectionId,talks',
         sort: 'date'
     });
 
