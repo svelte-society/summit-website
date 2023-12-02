@@ -50,7 +50,7 @@
 		>
 			Transcript
 		</h2>
-		<div class="prose prose-lg grid prose-p:text-slate-200">
+		<div class="prose prose-md prose-p:text-slate-200 prose-p:my-2">
 			{@html data.talk.transcript}
 		</div>
 	{/if}
