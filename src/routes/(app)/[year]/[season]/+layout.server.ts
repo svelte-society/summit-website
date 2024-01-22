@@ -1,6 +1,6 @@
 import type { Config } from '@sveltejs/adapter-vercel';
 import { hasDatePassed, formatDate } from '$lib/utils.js';
-import type { ConferenceResponse, PackagesResponse, QuestionsResponse, SponsorRecord, SponsorResponse, StatisticsResponse, SvelteHighlightsResponse, TalkResponse, TypedPocketBase } from '$lib/pocketbase-types.js';
+import type { ConferenceResponse, PackagesResponse, QuestionsResponse, SponsorRecord, SponsorResponse, StatisticsResponse, SvelteHighlightsResponse, TalkResponse } from '$lib/pocketbase-types.js';
 
 type Texpand = {
   sponsors: SponsorRecord[],
@@ -54,7 +54,7 @@ export const load = (async ({ params, locals }) => {
       image: pb.getFileUrl(conf, conference.meta_img)
   }
 
-  const sortedSessions = conference.talks.sort((a, b) => { return a.priority > b.priority})
+  const sortedSessions = conference.talks.sort((a: TalkResponse, b: TalkResponse) => { return a.priority > b.priority})
 
   return { questions: conference.questions, sponsors, sessions: sortedSessions, mcs: conference.mc, meta, subtitle: conference.title, date: formatDate(new Date(conference.date)), primary_color: conference.primary_color, secondary_color: conference.secondary_color, text_color: conference.text_color, packages: conference.packages, statistics: conference.statistics, highlights: conference.highlights, is_old, speaker_status: conference.speaker_status, youtube_id: conference.youtube_id };
 })

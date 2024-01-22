@@ -5,7 +5,7 @@
 	const { mcs } = $props<{ mcs: SpeakerResponse[] }>();
 </script>
 
-<article class="bg-primary">
+<article class="bg-primary text-white">
 	<div class="grid gap-4 w-full sm:w-4/5 md:w-3/5 mx-auto px-4 pt-24 text-center">
 		<h2 class="font-semibold text-2xl">Masters of Ceremony</h2>
 		<hr class="border-white border-2 rounded-lg w-52 mx-auto" />

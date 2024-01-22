@@ -23,7 +23,7 @@
 
 <div
 	id="intro"
-	class="-mt-32 cover bg-center bg-no-repeat lg:bg-[length:700px] md:bg-[length:500px] bg-[length:300px]"
+	class="-mt-32 cover bg-center bg-no-repeat lg:bg-[length:700px] md:bg-[length:500px] bg-[length:300px] text-white"
 >
 	{#if data.youtube_id}
 		<div class="cover-center aspect-w-16 aspect-h-9">
@@ -37,7 +37,7 @@
 			/>
 		</div>
 	{:else}
-		<div class="relative cover-center grid place-items-center gap-12">
+		<div class="relative cover-center grid place-items-center gap-12 text-white">
 			<img class="w-20 md:w-36" src={logo} alt="Svelte Society Logo" />
 			<h1 class="font-display gap-2 grid md:grid-cols-2 place-content-center">
 				<div class="text-center md:text-right lg:text-8xl text-7xl title">
