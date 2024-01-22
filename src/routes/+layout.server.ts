@@ -7,7 +7,7 @@ export const load = (async ({ locals }) => {
     const resultList = await pb.collection('Conference').getList<ConferenceResponse>(1, 50, {
         filter,
         fields: 'primary_color,secondary_color,text_color,year,season,subtitle,date,meta_img,id,collectionId,talks',
-        sort: 'date'
+        sort: '-date'
     });
 
     const conferences = resultList.items.map(conf => ({...conf, date: formatDate(new Date(conf.date)) }))

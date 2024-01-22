@@ -2,7 +2,20 @@ import PocketBase from 'pocketbase';
 import { PUBLIC_API_URL } from '$env/static/public';
 import { sequence } from '@sveltejs/kit/hooks';
 import type { TypedPocketBase } from '$lib/pocketbase-types';
-import type { Handle } from '@sveltejs/kit';
+import { redirect, type Handle } from '@sveltejs/kit';
+
+const protect_routes: Handle = async ({ event, resolve }) => {
+    const { url, locals } = event
+
+    if (url.pathname.startsWith('/admin')) {
+        if (!locals.user) throw(redirect(302, '/'))
+        if (locals.user.role !== 'admin') {
+            throw redirect(302, '/')
+        }
+    }
+
+    return resolve(event)
+}
 
 const add_pocketbase_client: Handle = async ({ event, resolve }) => {
     const pb: TypedPocketBase = new PocketBase(PUBLIC_API_URL);
@@ -12,6 +25,7 @@ const add_pocketbase_client: Handle = async ({ event, resolve }) => {
 
     if (auth) {
         pb.authStore.loadFromCookie('pb_auth=' + auth)
+        event.locals.user = pb.authStore.model
     }
     
     return resolve(event);
@@ -48,11 +62,13 @@ const oauth: Handle = async ({ event, resolve }) => {
         });
 
         const cookie = JSON.stringify({ token: pb.authStore.token, model: pb.authStore.model })
-        event.cookies.set('pb_auth', cookie)
+        event.cookies.set('pb_auth', cookie, {
+            path: '/'
+        })
     }
     
 
     return resolve(event)
 }
 
-export const handle = sequence(add_pocketbase_client, oauth)
+export const handle = sequence(add_pocketbase_client, oauth, protect_routes)
