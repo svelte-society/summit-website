@@ -3,7 +3,7 @@
 */
 
 import type PocketBase from 'pocketbase'
-import { type RecordService } from 'pocketbase'
+import type { RecordService } from 'pocketbase'
 
 export enum Collections {
 	Conference = "Conference",
@@ -89,10 +89,13 @@ export enum PackagesTypeOptions {
 	"platinum" = "platinum",
 	"gold" = "gold",
 	"silver" = "silver",
+	"main" = "main",
+	"other" = "other",
 }
 export type PackagesRecord = {
 	full_width?: boolean
 	prose?: HTMLString
+	slots: number
 	title: string
 	type: PackagesTypeOptions
 	value: string
@@ -140,6 +143,7 @@ export type SvelteHighlightsRecord = {
 }
 
 export type TalkRecord = {
+	conference?: RecordIdString
 	description?: HTMLString
 	meta_description?: string
 	priority?: number
@@ -150,9 +154,20 @@ export type TalkRecord = {
 	youtube_ID?: string
 }
 
+export enum UsersRoleOptions {
+	"user" = "user",
+	"speaker" = "speaker",
+	"owner" = "owner",
+	"admin" = "admin",
+}
 export type UsersRecord = {
 	avatar?: string
+	bio?: HTMLString
 	name?: string
+	role: UsersRoleOptions
+	tagline?: string
+	talks?: RecordIdString[]
+	twitter?: string
 }
 
 // Response types include system fields and match responses from the PocketBase API
