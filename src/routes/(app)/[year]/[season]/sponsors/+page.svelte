@@ -5,18 +5,21 @@
 	import Packages from './Packages.svelte';
 
 	import Button from '$lib/components/Button.svelte';
+	import { page } from '$app/stores';
 
-	export let data;
+	let { data } = $props();
 </script>
 
 <div class="cover bg-primary">
-	<div class="cover-center grid place-items-center gap-6">
+	<div class="cover-center grid place-items-center gap-6 text-white">
 		<h1 class="font-display text-5xl text-center">Sponsorship Opportunities</h1>
-		<div class="text-3xl text-slate-300">Nov 11th, Online</div>
+		<div class="text-3xl text-slate-300">
+			{$page.params.year} <span class="capitalize">{$page.params.season}</span>, Online
+		</div>
 	</div>
 	<div class="mx-auto">
 		<div class="grid place-items-center md:flex-row w-full gap-3 px-">
-			<p>The only Svelte focused conference on the planet.</p>
+			<p class="text-white">The only Svelte focused conference on the planet.</p>
 			<Button wide secondary href="mailto:sponsors@sveltesummit.com">Contact Us</Button>
 		</div>
 	</div>

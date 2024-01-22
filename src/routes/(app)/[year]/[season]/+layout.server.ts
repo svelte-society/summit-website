@@ -31,22 +31,26 @@ export const load = (async ({ params, locals }) => {
 
   const is_old = hasDatePassed(conference.date)
 
+  let main: SponsorRecord[] = []
   let platinum: SponsorRecord[] = []
   let gold: SponsorRecord[] = []
 
-  platinum = conference.expand?.sponsors.filter((sponsor: SponsorRecord) => sponsor.type === 'platinum') || []
-  gold = conference.expand?.sponsors.filter((sponsor: SponsorRecord) => sponsor.type === 'gold') || []
+  main = conference.expand?.sponsors?.filter((sponsor: SponsorRecord) => sponsor.type === 'main') || []
+  platinum = conference.expand?.sponsors?.filter((sponsor: SponsorRecord) => sponsor.type === 'platinum') || []
+  gold = conference.expand?.sponsors?.filter((sponsor: SponsorRecord) => sponsor.type === 'gold') || []
 
   delete conference.expand
   
   if (conference.open_to_sponsor) {
     platinum = platinum.concat(Array(3 - platinum.length).fill(undefined))
     gold = gold.concat(Array(6 - gold.length).fill(undefined))
+    main = main.concat(Array(1 - main.length).fill(undefined))
   }
 
   const sponsors = {
-      platinum ,
-      gold
+      platinum,
+      gold,
+      main
   }
   const meta = {
       title: conference.meta_title,

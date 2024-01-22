@@ -2,14 +2,15 @@
 	import type { SponsorResponse } from '$lib/pocketbase-types';
 	import { PUBLIC_API_URL } from '$env/static/public';
 	import { page } from '$app/stores';
+	import type { Snippet } from 'svelte';
 
-	const { is_platinum = false, sponsor } = $props<{
+	const { is_platinum = false, sponsor, children } = $props<{
 		sponsor: SponsorResponse | undefined;
 		is_platinum: boolean;
+		children: Snippet;
 	}>();
 
 	const height = is_platinum ? 100 : 75;
-	const fallback = is_platinum ? '💎 Platinum' : '🏆 Gold';
 </script>
 
 {#if sponsor}
@@ -47,6 +48,6 @@
 		class:py-12={is_platinum}
 		class="bg-primary rounded-md p-8 text-white gap-3 hover:scale-[1.02] transition-transform grid place-items-center"
 	>
-		<a href="/{$page.params.year}/{$page.params.season}/sponsors">{fallback}</a>
+		<a href="/{$page.params.year}/{$page.params.season}/sponsors">{@render children()}</a>
 	</li>
 {/if}

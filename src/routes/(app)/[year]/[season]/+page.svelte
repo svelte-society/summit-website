@@ -100,6 +100,7 @@
 </div>
 
 <Sponsors
+	main={data.sponsors.main}
 	gold={data.sponsors.gold}
 	platinum={data.sponsors.platinum}
 	is_open_to_sponsorships={!data.is_old}

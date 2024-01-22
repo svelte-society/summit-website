@@ -7,6 +7,7 @@
 		prose,
 		full_width = false,
 		sponsors,
+		slots,
 		type
 	} = $props<{
 		title: string;
@@ -14,10 +15,9 @@
 		prose: string;
 		full_width: boolean;
 		sponsors: string[];
+		slots: number;
 		type: string;
 	}>();
-
-	const number_of_packages = type === 'gold' ? 6 : 3;
 </script>
 
 <li
@@ -30,7 +30,7 @@
 	</div>
 	{#if type !== 'other'}
 		<div class="text-slate-400 text-sm font-semibold">
-			({number_of_packages - (sponsors?.length || 0)} of {number_of_packages} left)
+			({slots - (sponsors?.length || 0)} of {slots} left)
 		</div>
 	{/if}
 	<div class="prose prose-p:text-slate-200 prose-li:text-slate-200 prose-strong:text-slate-100">

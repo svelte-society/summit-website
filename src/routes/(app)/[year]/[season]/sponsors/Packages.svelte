@@ -18,8 +18,8 @@
 		<hr class="border-gray-100 border-2 rounded-lg w-52 mx-auto" />
 	</div>
 	<ul class="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-3xl mx-auto px-2">
-		{#each packages as { title, value, prose, full_width, type }}
-			<Package {title} {value} {prose} {full_width} {type} />
+		{#each packages as { title, value, prose, full_width, type, slots }}
+			<Package {title} {value} {prose} {full_width} {type} {slots} />
 		{/each}
 	</ul>
 </article>
