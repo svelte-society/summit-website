@@ -13,7 +13,7 @@ export const GET: RequestHandler = async ({ url, locals, params }) => {
         console.error(e)
     }
 
-    throw redirect(302, '/email-confirmed')
+    redirect(302, '/email-confirmed');
 };
 
 async function getIDFromHash(hash: string): Promise<string> {

@@ -10,7 +10,7 @@ const protect_routes: Handle = async ({ event, resolve }) => {
     if (url.pathname.startsWith('/admin')) {
         if (!locals.user) throw(redirect(302, '/'))
         if (locals.user.role !== 'admin') {
-            throw redirect(302, '/')
+            redirect(302, '/');
         }
     }
 
