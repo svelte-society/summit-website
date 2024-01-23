@@ -107,7 +107,11 @@
 />
 <MCs mcs={data.mcs} />
 {#if data.speaker_status === 'cfp_open'}
-	<CTA />
+	<CTA
+		title="Want to speak at the conference?"
+		href="/{$page.params.year}/{$page.params.season}/submit"
+		text="We're super stoked to see what kind of talks that will be submitted this year! If you're interested in speaking at the conference, please head on over to our submission link below! This event is all online and all talks should be pre-recorded."
+	/>
 {:else if data.speaker_status === 'show_speakers'}
 	<Sessions sessions={data.sessions} />
 {:else if data.speaker_status === 'videos_ready'}

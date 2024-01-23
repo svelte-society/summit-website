@@ -1,5 +1,7 @@
 <script lang="ts">
-	const { submitting, wide, href, primary, secondary, external, thin } = $props<{
+	import type { Snippet } from "svelte";
+
+	const { submitting, wide, href, primary, secondary, external, thin, children } = $props<{
 		submitting: boolean;
 		wide?: boolean;
 		href?: string;
@@ -7,6 +9,7 @@
 		secondary?: boolean;
 		external?: boolean;
 		thin?: boolean;
+		children: Snippet;
 	}>();
 </script>
 
@@ -21,7 +24,8 @@
 	class="transition-colors px-4 py-3 rounded-lg text-white font-semibold hover:brightness-110 disabled:hover:brightness-75"
 	disabled={submitting}
 	{href}
-	><slot />
+	>
+{@render children()}
 </svelte:element>
 
 <style lang="postcss">
