@@ -3,7 +3,7 @@ import { Resvg } from '@resvg/resvg-js';
 import { html as toReactNode } from 'satori-html';
 import { findLargestUsableFontSize } from "@altano/satori-fit-text";
 import { render } from 'svelte/server'
-
+import { read } from '$app/server';
 
 import type { SvelteComponent } from 'svelte';
 
@@ -12,8 +12,9 @@ import overpass from './fonts/Overpass-Bold.ttf';
 import anton from './fonts/Anton-Regular.ttf'
 
 export async function componentToPng(component: SvelteComponent, props: any, height: number, width: number) {
-	const overpassBuffer = Buffer.from(overpass)
-	const antonBuffer = Buffer.from(anton)
+	const overpassBuffer = read(overpass).arrayBuffer();
+	const antonBuffer = read(anton).arrayBuffer();
+
 	const largestUsableFontSize = await findLargestUsableFontSize({
 		lineHeight: 1,
 		font: await {
