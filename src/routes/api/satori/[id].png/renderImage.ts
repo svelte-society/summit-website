@@ -8,18 +8,18 @@ import { read } from '$app/server';
 import type { SvelteComponent } from 'svelte';
 
 // we use a Vite plugin to turn this import into the result of fs.readFileSync during build
-import overpass from './fonts/Overpass-Bold.ttf';
-import anton from './fonts/Anton-Regular.ttf'
+import overpass from './fonts/Overpass-Bold.ttf?url';
+import anton from './fonts/Anton-Regular.ttf?url'
+const overpassBuffer = read(overpass).arrayBuffer();
+const antonBuffer = read(anton).arrayBuffer();
 
 export async function componentToPng(component: SvelteComponent, props: any, height: number, width: number) {
-	const overpassBuffer = read(overpass).arrayBuffer();
-	const antonBuffer = read(anton).arrayBuffer();
 
 	const largestUsableFontSize = await findLargestUsableFontSize({
 		lineHeight: 1,
-		font: await {
+		font: {
 			name: "Anton",
-			data: antonBuffer,
+			data: await antonBuffer,
 			weight: 600,
 		},
 		text: props.talk.title,
@@ -35,12 +35,12 @@ export async function componentToPng(component: SvelteComponent, props: any, hei
 		fonts: [
 			{
 				name: 'Overpass',
-				data: overpassBuffer,
+				data: await overpassBuffer,
 				style: 'normal'
 			},
 			{
 				name: 'Anton',
-				data: antonBuffer,
+				data: await antonBuffer,
 				style: 'normal'
 			},
 
