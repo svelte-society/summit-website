@@ -110,16 +110,16 @@
 				</div>
 			</div>
 			<div class="w-1/2 space-y-8">
-				<p class="text-zinc-500 dark:text-zinc-400">
-					Please include the following in your submission:
-				</p>
+				<p class="font-semibold">Please include the following in your submission:</p>
 				<ul class="list-disc list-inside space-y-2">
 					<li>A clear and concise title</li>
-					<li>A brief description of your talk</li>
+					<li>
+						A description of your talk. This will show up on the website if your talk is approved
+					</li>
 					<li>The format of your talk (Regular or Lightning)</li>
 					<li>The level of your talk (Beginner, Intermediate, Advanced)</li>
 					<li>Any additional notes or comments</li>
-					<li>Co-Speakers' Email Addresses if any</li>
+					<li>You can login and update the information later</li>
 				</ul>
 			</div>
 		</form>

@@ -29,8 +29,11 @@ export const load = async ({ locals }) => {
 };
 
 export const actions = {
-    default: async ({ request }) => {
+    default: async ({ request, locals }) => {
         const form = await superValidate(request, schema);
+        const { pb } = locals
+
+        console.log(pb.authStore.id)
 
         console.log('Form submitted...')
 
