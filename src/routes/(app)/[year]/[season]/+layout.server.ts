@@ -60,5 +60,5 @@ export const load = (async ({ params, locals }) => {
 
   const sortedSessions = conference.talks.sort((a: TalkResponse, b: TalkResponse) => { return a.priority > b.priority})
 
-  return { questions: conference.questions, sponsors, sessions: sortedSessions, mcs: conference.mc, meta, subtitle: conference.title, date: formatDate(new Date(conference.date)), primary_color: conference.primary_color, secondary_color: conference.secondary_color, text_color: conference.text_color, packages: conference.packages, statistics: conference.statistics, highlights: conference.highlights, is_old, speaker_status: conference.speaker_status, youtube_id: conference.youtube_id };
+  return { questions: conference.questions, sponsors, sessions: sortedSessions, mcs: conference.mc, meta, subtitle: conference.subtitle, date: formatDate(new Date(conference.date)), primary_color: conference.primary_color, secondary_color: conference.secondary_color, text_color: conference.text_color, packages: conference.packages, statistics: conference.statistics, highlights: conference.highlights, is_old, speaker_status: conference.speaker_status, youtube_id: conference.youtube_id };
 })
