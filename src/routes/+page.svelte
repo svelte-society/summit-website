@@ -26,7 +26,7 @@
 				<h1
 					class="font-display gap-2 grid md:grid-cols-[3fr,2fr] place-content-center hover:scale-[1.01] transition-transform p-4"
 				>
-					<div class="text-center md:text-right lg:text-8xl text-7xl break-words">
+					<div class="title text-center md:text-right lg:text-8xl text-7xl break-words">
 						SVELTE SUMMIT <span class="text-secondary">{season.toUpperCase()}</span>
 					</div>
 					<div
@@ -66,3 +66,9 @@
 		{/each}
 	</div>
 </ul>
+
+<style>
+	.title {
+		word-spacing: 9999px;
+	}
+</style>
