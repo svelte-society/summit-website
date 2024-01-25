@@ -16,7 +16,7 @@
 	import logo from './logo.svg';
 	import MCs from './MCs.svelte';
 
-	export let data;
+	let { data } = $props();
 
 	const { form, constraints, errors, enhance, message, submitting } = superForm(data.form);
 </script>
@@ -52,11 +52,11 @@
 			</h1>
 		</div>
 	{/if}
-	{#if !$message}
+	<!-- {#if !$message}
 		<form
 			class="mx-auto flex flex-col gap-2"
 			method="POST"
-			action="/{$page.params.year}/{$page.params.seasons}/signup?/subscribe"
+			action="/{$page.params.year}/{$page.params.season}/signup?/subscribe"
 			use:enhance
 		>
 			<span class="mx-auto text-xl">Sign up to the newsletter</span>
@@ -96,7 +96,7 @@
 				>
 			</form>
 		</dialog>
-	{/if}
+	{/if} -->
 </div>
 
 <Sponsors
