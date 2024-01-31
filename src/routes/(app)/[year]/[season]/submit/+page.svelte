@@ -8,6 +8,8 @@
 	const { form, errors, constraints, enhance } = superForm(data.form, {
 		clearOnSubmit: 'errors-and-message'
 	});
+
+	$inspect(data.talks);
 </script>
 
 <div class="p-8 bg-white rounded-xl shadow-lg relative max-w-3xl mx-auto">
@@ -26,6 +28,7 @@
 						><input
 							class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
 							id="title"
+							name="title"
 							aria-invalid={$errors.title ? 'true' : undefined}
 							bind:value={$form.title}
 							{...$constraints.title}
@@ -40,6 +43,7 @@
 						><textarea
 							class="flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 min-h-[100px]"
 							id="description"
+							name="description"
 							placeholder="Enter a brief description of your talk"
 							aria-invalid={$errors.description ? 'true' : undefined}
 							bind:value={$form.description}
@@ -84,6 +88,7 @@
 						><textarea
 							class="flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 min-h-[100px]"
 							id="notes"
+							name="notes"
 							placeholder="Enter any additional notes or comments"
 							aria-invalid={$errors.notes ? 'true' : undefined}
 							bind:value={$form.notes}
@@ -101,6 +106,7 @@
 							placeholder="Enter co-speakers' email addresses"
 						/>
 					</div> -->
+					<input hidden name="conference" type="text" value={$page.data.id} />
 					<button
 						class="text-white inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-primary-foreground hover:bg-secondary/90 h-10 px-4 py-2 w-full"
 						type="submit"
@@ -110,6 +116,14 @@
 				</div>
 			</div>
 			<div class="w-1/2 space-y-8">
+				<h2 class="text-lg font-semibold">Your talks</h2>
+				<ul>
+					{#each data.talks as talk}
+						<li>
+							<a href="{$page.params.year}/{$page.params.season}/submit/{talk.id}">{talk.title}</a>
+						</li>
+					{/each}
+				</ul>
 				<p class="font-semibold">Please include the following in your submission:</p>
 				<ul class="list-disc list-inside space-y-2">
 					<li>A clear and concise title</li>
