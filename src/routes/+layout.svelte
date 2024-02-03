@@ -4,6 +4,13 @@
 	import '../app.postcss';
 
 	let { data } = $props();
+
+	$effect(() => {
+		const url = new URL(window.location);
+		url.search = '';
+
+		window.history.replaceState({}, '', url);
+	});
 </script>
 
 <Head
