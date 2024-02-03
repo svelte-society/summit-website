@@ -66,8 +66,7 @@ const oauth: Handle = async ({ event, resolve }) => {
             path: '/'
         })
     }
-    
-
+  
     return resolve(event)
 }
 
