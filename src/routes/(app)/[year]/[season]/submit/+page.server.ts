@@ -2,53 +2,46 @@ import { fail } from '@sveltejs/kit';
 import { z } from 'zod';
 import { superValidate } from 'sveltekit-superforms/server';
 
-const schema = z.object({
+const create_talk_schema = z.object({
     conference: z.string(),
     title: z.string(),
     description: z.string(),
-    format: z.enum(['regular', 'lightning']),
-    level: z.enum(['beginner', 'intermediate', 'advanced']),
+    format: z.enum(['regular', 'lightning']).default(''),
+    level: z.enum(['beginner', 'intermediate', 'advanced']).default(''),
     notes: z.string()
+  });
+
+const delete_talk_schema = z.object({
+    id: z.string()
   });
   
 
 export const load = async ({ locals }) => {
-    const form = await superValidate(schema);
+    const createForm = await superValidate(create_talk_schema);
+    const deleteForm = await superValidate(delete_talk_schema);
     const { pb } = locals
 
-    let authProviders
-    let user;
-    let talks;
-
     if (pb.authStore.isValid) {
-        user = pb.authStore.model
-
-        const filter = pb.filter(`speaker ~ {:id}`, { id: user.id })
+        const { id } = pb.authStore.model
+        const filter = pb.filter(`speaker ~ {:id}`, { id: id })
 
         const { items } = await pb.collection('Talk').getList(1, 100, {
             filter
         });
 
-        talks = items
-    } else {
-        authProviders = (await pb.collection('users').listAuthMethods()).authProviders;
+        return { talks: items, createForm, deleteForm }
     }
-
-    return { authProviders, user, form, talks }
-
+    return {}
 };
 
 export const actions = {
-    default: async ({ request, locals }) => {
-        const form = await superValidate(request, schema, {
+    submit: async ({ request, locals }) => {
+        const form = await superValidate(request, create_talk_schema, {
             
         });
         const { pb } = locals
 
-        // Convenient validation check:
         if (!form.valid) {
-            console.log('Invalid...')
-            // Again, return { form } and things will just work.
             return fail(400, { form });
         }
 
@@ -59,6 +52,20 @@ export const actions = {
         }
 
         const record = await pb.collection('Talk').create(data)
+
+        return { form };
+    },
+    delete: async ({ request, locals }) => {
+        const form = await superValidate(request, delete_talk_schema, {
+            
+        });
+        const { pb } = locals
+
+        if (!form.valid) {
+            return fail(400, { form });
+        }
+
+        const record = await pb.collection('Talk').delete(form.data.id)
 
         return { form };
     }
