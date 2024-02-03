@@ -3,7 +3,7 @@
 	import { page } from '$app/stores';
 	import '../app.postcss';
 
-	export let data;
+	let { data } = $props();
 </script>
 
 <Head
