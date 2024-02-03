@@ -17,8 +17,6 @@
 	import MCs from './MCs.svelte';
 
 	let { data } = $props();
-
-	const { form, constraints, errors, enhance, message, submitting } = superForm(data.form);
 </script>
 
 <div
@@ -52,51 +50,14 @@
 			</h1>
 		</div>
 	{/if}
-	<!-- {#if !$message}
-		<form
-			class="mx-auto flex flex-col gap-2"
-			method="POST"
-			action="/{$page.params.year}/{$page.params.season}/signup?/subscribe"
-			use:enhance
+	<p class="mb-2 mx-auto text-center max-w-64">
+		Stay up to date with the latest Svelte Summit news
+	</p>
+	<div class="mx-auto">
+		<Button href="https://marketing.sveltesociety.dev/forms/nfrm_2yLDNVbQ" external secondary
+			>Sign up to the newsletter</Button
 		>
-			<span class="mx-auto text-xl">Sign up to the newsletter</span>
-			<label class="flex flex-col md:flex-row w-full gap-3 px-4">
-				<input
-					{...$constraints.email}
-					bind:value={$form.email}
-					class="rounded-lg border-hidden px-4 py-3 sm:w-96 placeholder-slate-500 text-black"
-					placeholder="Your e-mail address..."
-					name="email"
-					type="email"
-				/>
-				<Button submitting={$submitting} secondary>Sign up</Button>
-			</label>
-			{#if $errors.email}
-				Something went wrong.
-			{/if}
-		</form>
-	{:else}
-		<dialog class="bottom-5 text-xl bg-slate-900 rounded-md text-slate-100" open>
-			<form class="relative p-6" method="dialog">
-				<span class="px-4"
-					>Thanks for signing up! If you can't find the email, make sure you check your spam folder.</span
-				>
-				<button class="absolute right-0 top-0" aria-label="Close">
-					<svg
-						class="fill-slate-100 h-8 w-8 hover:fill-secondary/90"
-						fill="none"
-						viewBox="0 0 24 24"
-						xmlns="http://www.w3.org/2000/svg"
-						><g stroke="#292d32" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-							><path d="m12 22c5.5 0 10-4.5 10-10s-4.5-10-10-10-10 4.5-10 10 4.5 10 10 10z" /><path
-								d="m9.16998 14.83 5.66002-5.65996"
-							/><path d="m14.83 14.83-5.66002-5.65996" /></g
-						></svg
-					></button
-				>
-			</form>
-		</dialog>
-	{/if} -->
+	</div>
 </div>
 
 <Sponsors
