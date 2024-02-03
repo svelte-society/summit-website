@@ -46,7 +46,7 @@ const oauth: Handle = async ({ event, resolve }) => {
             'github',
             code,
             codeVerifier,
-            'http://localhost:5173'
+            'https://sveltesummit.com'
         )
 
         const name = authData?.meta?.name ?? '';
