@@ -173,14 +173,14 @@
 <div class="m-4">
 	<div class="flex flex-wrap gap-2 place-items-center">
 		<h1 class="text-2xl font-bold">Generate Thumbnails from Sessions</h1>
-		<button class="px-4 py-2 bg-secondary text-gray-50 rounded-md" on:click={generateImages}
+		<button class="px-4 py-2 bg-secondary text-gray-50 rounded-md" onclick={generateImages}
 			>Generate</button
 		>
 	</div>
 
 	<ul class="flex flex-wrap gap-1">
 		{#each data.talks as { title }, idx}
-			<button on:click={() => downloadImage(title, canvases[idx])}>
+			<button onclick={() => downloadImage(title, canvases[idx])}>
 				<canvas class="max-w-md" width="448" height="252" bind:this={canvases[idx]} />
 			</button>
 		{/each}
