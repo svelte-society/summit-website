@@ -7,11 +7,13 @@
 
 	$effect(() => {
 		const url = new URL(window.location);
-		url.search = '';
+		if (url.searchParams.has('code')) {
+			url.search = '';
 
-		window.history.replaceState({}, '', url);
+			window.history.replaceState({}, '', url);
 
-		window.location.reload();
+			window.location.reload();
+		}
 	});
 </script>
 
