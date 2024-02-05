@@ -54,7 +54,7 @@
 		Stay up to date with the latest Svelte Summit news
 	</p>
 	<div class="mx-auto">
-		<Button href="https://marketing.sveltesociety.dev/forms/nfrm_2yLDNVbQ" external secondary
+		<Button href="https://marketing.sveltesociety.dev/forms/nfrm_weLJnLY5" external secondary
 			>Sign up to the newsletter</Button
 		>
 	</div>
