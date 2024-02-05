@@ -1,5 +1,5 @@
 import PocketBase from 'pocketbase';
-import { PUBLIC_API_URL } from '$env/static/public';
+import { PUBLIC_API_URL, GITHUB_AUTH_URL } from '$env/static/public';
 import { sequence } from '@sveltejs/kit/hooks';
 import type { TypedPocketBase } from '$lib/pocketbase-types';
 import { redirect, type Handle } from '@sveltejs/kit';
@@ -46,8 +46,7 @@ const oauth: Handle = async ({ event, resolve }) => {
             'github',
             code,
             codeVerifier,
-            'https://sveltesummit.com',
-            // 'http://localhost:5173',
+            GITHUB_AUTH_URL,
             {
                 role: 'user'
             }
