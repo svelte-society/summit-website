@@ -47,14 +47,24 @@ const oauth: Handle = async ({ event, resolve }) => {
             code,
             codeVerifier,
             'https://sveltesummit.com',
+            // 'http://localhost:5173',
             {
-                name: authData?.meta?.name ?? '',
-                avatarUrl: authData?.meta?.avatarUrl ?? '',
-                bio: authData?.meta?.bio ?? '',
-                twitter: authData?.meta?.twitter ?? '',
                 role: 'user'
             }
         )
+
+        const name = authData?.meta?.name ?? '';
+        const avatarUrl = authData?.meta?.avatarUrl ?? '';
+        const bio = authData?.meta?.bio ?? '';
+        const twitter = authData?.meta?.twitter ?? '';
+
+        pb.collection('users').update(authData.record.id, {
+            name,
+            avatarUrl,
+            bio,
+            twitter,
+            role: 'user'
+        });
 
         const cookie = JSON.stringify({ token: pb.authStore.token, model: pb.authStore.model })
         event.cookies.set('pb_auth', cookie, {
