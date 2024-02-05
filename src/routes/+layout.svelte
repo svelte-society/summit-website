@@ -10,6 +10,8 @@
 		url.search = '';
 
 		window.history.replaceState({}, '', url);
+
+		window.location.reload();
 	});
 </script>
 
