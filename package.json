@@ -46,7 +46,7 @@
     "satori-html": "^0.3.2",
     "super-sitemap": "^0.12.0",
     "svead": "^0.0.4",
-    "svelte": "5.0.0-next.45",
+    "svelte": "5.0.0-next.48",
     "svelte-check": "^3.6.3",
     "svelte-preprocess": "^5.1.3",
     "sveltekit-superforms": "^1.13.4",
