@@ -40,7 +40,6 @@ export const actions = {
         const { pb } = locals
 
         if (!form.valid) {
-            console.log('Invalid...')
             return fail(400, { form });
         }
 
