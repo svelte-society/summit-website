@@ -43,7 +43,7 @@
 			{/each}
 			<ConferencePicker conferences={data.conferences} />
 			{#if data.speaker_status === 'cfp_open'}
-				<Button href="/{$page.params.year}/{$page.params.season}/submit" primary thin
+				<Button href="/{$page.params.year}/{$page.params.season}/submit" secondary thin
 					>Submit Talk</Button
 				>
 			{/if}
