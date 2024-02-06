@@ -3,9 +3,9 @@
 	const { conferences = [] } = $props<{ conferences: ConferenceResponse[] }>();
 </script>
 
-<li class=" bg-slate-950 border-2 border-slate-900 rounded-lg py-2 px-4">
+<li class="bg-slate-950 border-2 border-slate-900 rounded-lg py-2 px-4">
 	<!-- svelte-ignore a11y-invalid-attribute -->
-	<a class="text-sm font-semibol d" href="#" aria-haspopup="true">Select Conference</a>
+	<a class="text-sm font-semibold" href="#" aria-haspopup="true">Select Conference</a>
 	<ul
 		class="absolute left-0 top-10 bg-slate-950 border-2 border-slate-900 rounded-lg grid grid-cols-1 gap-2 w-full py-2"
 		aria-label="submenu"
