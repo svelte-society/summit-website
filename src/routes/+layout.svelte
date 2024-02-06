@@ -1,4 +1,5 @@
 <script>
+	import { img_url } from '$lib/utils';
 	import { Head } from 'svead';
 	import { page } from '$app/stores';
 	import '../app.postcss';
@@ -10,7 +11,7 @@
 	title={$page.data.meta.title}
 	description={$page.data.meta.description}
 	url={$page.url.toString()}
-	image="https://wsrv.nl/?url={$page.data.meta.image}&output=png&maxage=7d"
+	image={img_url($page.data.meta.image)}
 />
 
 <slot />
