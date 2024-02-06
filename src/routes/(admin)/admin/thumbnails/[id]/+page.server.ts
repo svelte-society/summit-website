@@ -17,7 +17,7 @@ export const load = async ({ params, locals }) => {
             let url = pb.getFileUrl(speaker, speaker.picture)
             return {
                 name: speaker.name,
-                picture: img_url(url, { width: 200, height: 200, format: 'png' }
+                picture: img_url(url, { width: 200, height: 200, format: 'png' })
             }
         })
         return {
