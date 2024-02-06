@@ -24,7 +24,7 @@
 </div>
 {#if data.user}
 	<div class="flex items-start space-x-8 mt-4">
-		<div class="w-1/2">
+		<div class="w-2/3">
 			{#if data.talks.length < 2}
 				<TalkForm {enhance} {errors} {form} {constraints} action="?/submit" />
 			{:else}
@@ -34,7 +34,7 @@
 				</p>
 			{/if}
 		</div>
-		<div class="w-1/2 space-y-8">
+		<div class="w-1/3 space-y-8">
 			{#if data.talks?.length > 0}
 				<div class="grid space-y-2">
 					<h2 class="text-xl font-semibold">Your talks</h2>
@@ -79,21 +79,6 @@
 					</ul>
 				</div>
 			{/if}
-			<div class="grid space-y-2">
-				<p class="text-xl font-semibold">Instructions</p>
-				<ul class="list-disc list-inside space-y-2">
-					<li>A clear and concise title</li>
-					<li>A description of your talk. This will be displayed on the website.</li>
-					<li>The format of your talk (Regular (25 min) or Lightning (10 min))</li>
-					<li>The level of your talk (Beginner, Intermediate, Advanced)</li>
-					<li>Any additional notes or comments. This is for the organizers.</li>
-					<li>You can login and update the information later</li>
-					<li>
-						You can submit at most two talks. You can delete talks and create new ones before the
-						deadline.
-					</li>
-				</ul>
-			</div>
 		</div>
 	</div>
 {:else}

@@ -2,7 +2,7 @@
     const { children, data } = $props()
 </script>
 
-<div class="p-8 bg-white rounded-xl shadow-lg relative max-w-3xl mx-auto">
+<div class="p-8 bg-white rounded-xl shadow-lg relative max-w-4xl mx-auto">
     {@render children()}
 
     {#if data.user}
