@@ -4,17 +4,6 @@
 	import '../app.postcss';
 
 	let { data } = $props();
-
-	$effect(() => {
-		const url = new URL(window.location);
-		if (url.searchParams.has('code')) {
-			url.search = '';
-
-			window.history.replaceState({}, '', url);
-
-			window.location.reload();
-		}
-	});
 </script>
 
 <Head
