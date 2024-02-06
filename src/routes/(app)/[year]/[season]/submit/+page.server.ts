@@ -31,7 +31,7 @@ export const load = async ({ locals }) => {
 
         return { talks: items, createForm, deleteForm }
     }
-    return {}
+    return { createForm, deleteForm }
 };
 
 export const actions = {
