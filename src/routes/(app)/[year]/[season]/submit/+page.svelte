@@ -8,18 +8,14 @@
 	let { data } = $props<{ data: PageData }>();
 
 	const { form, errors, constraints, enhance, submitting } = superForm(data.createForm, {
-		clearOnSubmit: 'errors-and-message',
-		multipleSubmits: 'prevent'
+		resetForm: true
 	});
 
 	const {
 		form: deleteForm,
 		enhance: deleteEnhance,
 		submitting: deleteSubmitting
-	} = superForm(data.deleteForm, {
-		clearOnSubmit: 'errors-and-message',
-		multipleSubmits: 'prevent'
-	});
+	} = superForm(data.deleteForm);
 </script>
 
 <div class="space-y-2">

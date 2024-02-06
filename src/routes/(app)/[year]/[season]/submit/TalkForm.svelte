@@ -8,7 +8,7 @@
 		action,
 		submitting,
 		submit_text = 'Submit',
-		submitting_Text = 'Submitting...'
+		submitting_text = 'Submitting...'
 	} = $props();
 </script>
 
