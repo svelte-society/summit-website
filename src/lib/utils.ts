@@ -1,3 +1,5 @@
+import { dev } from "$app/environment";
+
 /**
  * Converts a JS date object to a custom formatted string.
  *
@@ -23,17 +25,26 @@ export function hasDatePassed(date: string): boolean {
     return new Date(date) < now;
   }
 
-	export function convertToHex(rgbStr: string) {
-		// Split the string by space, map each value to its hex representation, and join them.
-		return (
-			'#' +
-			rgbStr
-				.split(' ')
-				.map((value) => {
-					// Convert the value to a hexadecimal string and pad with zeros if necessary.
-					const hex = parseInt(value).toString(16);
-					return hex.length === 1 ? '0' + hex : hex;
-				})
-				.join('')
-		);
+export function convertToHex(rgbStr: string) {
+	// Split the string by space, map each value to its hex representation, and join them.
+	return (
+		'#' +
+		rgbStr
+			.split(' ')
+			.map((value) => {
+				// Convert the value to a hexadecimal string and pad with zeros if necessary.
+				const hex = parseInt(value).toString(16);
+				return hex.length === 1 ? '0' + hex : hex;
+			})
+			.join('')
+	);
+}
+
+export function img_url(url: string, opts: { width?: number; height?: number; quality?: number; format?: string; }) {
+	if (dev) {
+		return url
+	} else {
+		const { width, height, quality, format } = opts;
+		return `//wsrv.nl/?url=${url}&w=${width}&height=${height}&output=${format}&q=${quality}`
 	}
+}
