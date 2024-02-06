@@ -44,7 +44,7 @@ export function img_url(url: string, opts: { width?: number; height?: number; qu
 	if (dev) {
 		return url
 	} else {
-		const { width, height, quality, format } = opts;
+		const { width, height, quality, format = 'png' } = opts;
 		return `//wsrv.nl/?url=${url}&w=${width}&height=${height}&output=${format}&q=${quality}`
 	}
 }
