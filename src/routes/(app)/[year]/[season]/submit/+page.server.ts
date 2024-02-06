@@ -1,6 +1,6 @@
 import { fail } from '@sveltejs/kit';
 import { z } from 'zod';
-import { superValidate } from 'sveltekit-superforms/server';
+import { message, superValidate } from 'sveltekit-superforms/server';
 
 const create_talk_schema = z.object({
     conference: z.string(),
@@ -36,37 +36,37 @@ export const load = async ({ locals }) => {
 
 export const actions = {
     submit: async ({ request, locals }) => {
-        const form = await superValidate(request, create_talk_schema, {
+        const createForm = await superValidate(request, create_talk_schema, {
             
         });
         const { pb } = locals
 
-        if (!form.valid) {
-            return fail(400, { form });
+        if (!createForm.valid) {
+            return fail(400, { createForm });
         }
 
         const data = {
-            ...form.data,
+            ...createForm.data,
             speaker: [pb.authStore.baseModel.id],
             status: 'reviewing'
         }
 
         const record = await pb.collection('Talk').create(data)
 
-        return { form };
+        return message(createForm, 'Talk submitted successfully!')
     },
     delete: async ({ request, locals }) => {
-        const form = await superValidate(request, delete_talk_schema, {
+        const deleteForm = await superValidate(request, delete_talk_schema, {
             
         });
         const { pb } = locals
 
-        if (!form.valid) {
-            return fail(400, { form });
+        if (!deleteForm.valid) {
+            return fail(400, { deleteForm });
         }
 
-        const record = await pb.collection('Talk').delete(form.data.id)
+        const record = await pb.collection('Talk').delete(deleteForm.data.id)
 
-        return { form };
+        return message(deleteForm, 'Talk deleted successfully!')
     }
 };

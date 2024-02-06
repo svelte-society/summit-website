@@ -38,15 +38,10 @@
 			{#if data.talks?.length > 0}
 				<div class="grid space-y-2">
 					<h2 class="text-xl font-semibold">Your talks</h2>
-					<ul class="grid space-y-1">
-						{#each data.talks as talk}
-							<li>
-								<form
-									class="grid grid-cols-[1fr_auto]"
-									action="?/delete"
-									method="post"
-									use:deleteEnhance
-								>
+					<form action="?/delete" method="post" use:deleteEnhance>
+						<ul class="grid space-y-1">
+							{#each data.talks as talk}
+								<li class="grid grid-cols-[1fr_auto]">
 									<a
 										class="text-primary font-semibold hover:underline transition-colors"
 										href="/{$page.params.year}/{$page.params.season}/submit/{talk.id}"
@@ -73,10 +68,10 @@
 											/>
 										</svg>
 									</button>
-								</form>
-							</li>
-						{/each}
-					</ul>
+								</li>
+							{/each}
+						</ul>
+					</form>
 				</div>
 			{/if}
 		</div>
