@@ -24,7 +24,16 @@
 </div>
 {#if data.user}
 	<div class="flex items-start space-x-8 mt-4">
-		<TalkForm {enhance} {errors} {form} {constraints} action="?/submit" />
+		<div class="w-1/2">
+			{#if data.talks.length < 2}
+				<TalkForm {enhance} {errors} {form} {constraints} action="?/submit" />
+			{:else}
+				<p class="py-8">
+					You have already submitted two talks. If you want to submit a new one, please delete an
+					old one first.
+				</p>
+			{/if}
+		</div>
 		<div class="w-1/2 space-y-8">
 			{#if data.talks?.length > 0}
 				<div class="grid space-y-2">
@@ -79,6 +88,10 @@
 					<li>The level of your talk (Beginner, Intermediate, Advanced)</li>
 					<li>Any additional notes or comments. This is for the organizers.</li>
 					<li>You can login and update the information later</li>
+					<li>
+						You can submit at most two talks. You can delete talks and create new ones before the
+						deadline.
+					</li>
 				</ul>
 			</div>
 		</div>

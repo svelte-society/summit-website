@@ -3,7 +3,7 @@
 	let { enhance, errors, form, constraints, action } = $props();
 </script>
 
-<form method="POST" {action} use:enhance class="w-1/2 space-y-8">
+<form method="POST" {action} use:enhance class="space-y-8">
 	<div class="space-y-4">
 		<div class="space-y-2">
 			<label
