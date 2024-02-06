@@ -45,6 +45,8 @@ export const actions = {
         }
 
         const record = await pb.collection('Talk').update(params.id, form.data)
+
+        redirect(302, `/${params.year}/${params.season}/submit/`)
         
         return { form }
     }
