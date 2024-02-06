@@ -35,41 +35,45 @@ const add_pocketbase_client: Handle = async ({ event, resolve }) => {
 const oauth: Handle = async ({ event, resolve }) => {
     const { url, locals } = event
 
-    if (url.pathname.endsWith('submit')) {
-        const { code, codeVerifier } = Object.fromEntries(url.searchParams)
-        if (!code) {
-            return resolve(event)
-        }
-
-        const pb: TypedPocketBase = locals.pb
-
-        const authData = await pb.collection('users').authWithOAuth2Code(
-            'github',
-            code,
-            codeVerifier,
-            GITHUB_AUTH_URL,
-            {
-                role: 'user'
+    try {
+        if (url.pathname.endsWith('submit')) {
+            const { code, codeVerifier } = Object.fromEntries(url.searchParams)
+            if (!code) {
+                return resolve(event)
             }
-        )
-
-        const name = authData?.meta?.name ?? '';
-        const avatarUrl = authData?.meta?.avatarUrl ?? '';
-        const bio = authData?.meta?.bio ?? '';
-        const twitter = authData?.meta?.twitter ?? '';
-
-        pb.collection('users').update(authData.record.id, {
-            name,
-            avatarUrl,
-            bio,
-            twitter,
-            role: 'user'
-        });
-
-        const cookie = JSON.stringify({ token: pb.authStore.token, model: pb.authStore.model })
-        event.cookies.set('pb_auth', cookie, {
-            path: '/'
-        })
+    
+            const pb: TypedPocketBase = locals.pb
+    
+            const authData = await pb.collection('users').authWithOAuth2Code(
+                'github',
+                code,
+                codeVerifier,
+                GITHUB_AUTH_URL,
+                {
+                    role: 'user'
+                }
+            )
+    
+            const name = authData?.meta?.name ?? '';
+            const avatarUrl = authData?.meta?.avatarUrl ?? '';
+            const bio = authData?.meta?.bio ?? '';
+            const twitter = authData?.meta?.twitter ?? '';
+    
+            pb.collection('users').update(authData.record.id, {
+                name,
+                avatarUrl,
+                bio,
+                twitter,
+                role: 'user'
+            });
+    
+            const cookie = JSON.stringify({ token: pb.authStore.token, model: pb.authStore.model })
+            event.cookies.set('pb_auth', cookie, {
+                path: '/'
+            })
+        }
+    } catch (error) {
+        return resolve(event)
     }
   
     return resolve(event)
