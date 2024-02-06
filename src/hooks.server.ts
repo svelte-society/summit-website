@@ -26,6 +26,11 @@ const add_pocketbase_client: Handle = async ({ event, resolve }) => {
 
     if (auth) {
         pb.authStore.loadFromCookie('pb_auth=' + auth)
+
+        if (!pb.authStore.isValid) {
+            await pb.collection('users').authRefresh() 
+        }
+
         event.locals.user = pb.authStore.model
     }
     
