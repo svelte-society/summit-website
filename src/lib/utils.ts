@@ -40,7 +40,14 @@ export function convertToHex(rgbStr: string) {
 	);
 }
 
-export function img_url(url: string, opts: { width?: number; height?: number; quality?: number; format?: string; }) {
+type ImageOptions = {
+	width?: number;
+	height?: number;
+	quality?: number;
+	format?: string;
+};
+
+export function img_url(url: string, opts: ImageOptions = {}) {
 	if (dev) {
 		return url
 	} else {
