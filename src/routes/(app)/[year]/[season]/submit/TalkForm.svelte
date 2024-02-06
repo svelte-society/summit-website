@@ -1,6 +1,15 @@
 <script>
 	import { page } from '$app/stores';
-	let { enhance, errors, form, constraints, action } = $props();
+	let {
+		enhance,
+		errors,
+		form,
+		constraints,
+		action,
+		submitting,
+		submit_text = 'Submit',
+		submitting_Text = 'Submitting...'
+	} = $props();
 </script>
 
 <div class="space-y-4">
@@ -124,10 +133,11 @@
 			</div>
 			<input hidden name="conference" type="text" value={$page.data.id} />
 			<button
+				disabled={$submitting}
 				class="text-white inline-flex items-center justify-center rounded-md text-sm font-bold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-primary-foreground hover:bg-secondary/90 h-10 px-4 py-2 w-full"
 				type="submit"
 			>
-				Submit Talk
+				{$submitting ? submitting_text : submit_text}
 			</button>
 		</div>
 	</form>

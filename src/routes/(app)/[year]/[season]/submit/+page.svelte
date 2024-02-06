@@ -7,12 +7,16 @@
 
 	let { data } = $props<{ data: PageData }>();
 
-	const { form, errors, constraints, enhance } = superForm(data.createForm, {
+	const { form, errors, constraints, enhance, submitting } = superForm(data.createForm, {
 		clearOnSubmit: 'errors-and-message',
 		multipleSubmits: 'prevent'
 	});
 
-	const { form: deleteForm, enhance: deleteEnhance } = superForm(data.deleteForm, {
+	const {
+		form: deleteForm,
+		enhance: deleteEnhance,
+		submitting: deleteSubmitting
+	} = superForm(data.deleteForm, {
 		clearOnSubmit: 'errors-and-message',
 		multipleSubmits: 'prevent'
 	});
@@ -26,7 +30,15 @@
 	<div class="flex items-start space-x-8 mt-4">
 		<div class="w-2/3">
 			{#if data.talks.length < 2}
-				<TalkForm {enhance} {errors} {form} {constraints} action="?/submit" />
+				<TalkForm
+					{enhance}
+					{errors}
+					{form}
+					{constraints}
+					{submitting}
+					submit_text="Submit talk"
+					action="?/submit"
+				/>
 			{:else}
 				<p class="py-8">
 					You have already submitted two talks. If you want to submit a new one, please delete an
