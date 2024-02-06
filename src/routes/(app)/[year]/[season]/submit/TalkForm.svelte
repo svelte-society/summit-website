@@ -13,12 +13,13 @@
 </script>
 
 <div class="space-y-4">
-	<h2 class="text-xl font-semibold">Instructions</h2>
-	<p class="font-md">
-		Read the instructions carefully before submitting your talk. You can submit at most two talks.
-		You can edit your talk after submitting it but once the CFP is closed you won't be able to make
-		any changes.
-	</p>
+	<div class="space-y-4 -ml-8 p-4 pl-8 rounded-md rounded-l-none bg-red-200 font-md">
+		<h2 class="text-xl font-semibold">Instructions</h2>
+		<p>
+			You can submit at most two talks. You can edit your talk after submitting it but once the CFP
+			is closed you won't be able to make any changes.
+		</p>
+	</div>
 	<form method="POST" {action} use:enhance class="space-y-8">
 		<div class="space-y-4">
 			<div class="space-y-2">
