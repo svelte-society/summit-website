@@ -1,6 +1,7 @@
 import PocketBase from 'pocketbase';
 import { PUBLIC_API_URL } from '$env/static/public';
 import type { TalkRecord } from '$lib/pocketbase-types.js';
+import { img_url } from '$lib/utils.js';
 
 export const load = async ({ params, locals }) => {
     const { pb } = locals
@@ -16,7 +17,7 @@ export const load = async ({ params, locals }) => {
             let url = pb.getFileUrl(speaker, speaker.picture)
             return {
                 name: speaker.name,
-                picture: `//wsrv.nl/?url=${url}&h=200&w=200&output=png`
+                picture: img_url(url, { width: 200, height: 200, format: 'png' })
             }
         })
         return {

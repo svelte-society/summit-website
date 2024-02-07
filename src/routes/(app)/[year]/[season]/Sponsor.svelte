@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { img_url } from '$lib/utils';
 	import type { SponsorResponse } from '$lib/pocketbase-types';
 	import { PUBLIC_API_URL } from '$env/static/public';
 	import { page } from '$app/stores';
@@ -20,8 +21,11 @@
 				{#if !sponsor.logo.endsWith('.svg')}
 					<!-- load webp if supported -->
 					<source
-						srcset="//wsrv.nl/?url={PUBLIC_API_URL}/api/files/{sponsor.collectionId}/{sponsor.id}/{sponsor.logo}&h={height *
-							2}&output=webp"
+						srcset={img_url(`${PUBLIC_API_URL}/api/files/${sponsor.collectionId}/${sponsor.id}/${sponsor.logo}`, {
+							width: height * 2,
+							format: 'webp',
+							quality: 70
+						})}
 						type="image/webp"
 					/>
 					<!-- load in case no `source` format applies 
@@ -29,8 +33,10 @@
 					<img
 						height="{height}px max-h-28"
 						class="mx-auto"
-						src="//wsrv.nl/?url={PUBLIC_API_URL}/api/files/{sponsor.collectionId}/{sponsor.id}/{sponsor.logo}&h={height *
-							2}"
+						src={img_url(`${PUBLIC_API_URL}/api/files/${sponsor.collectionId}/${sponsor.id}/${sponsor.logo}`, {
+							width: height * 2,
+							quality: 70
+						})}
 						alt="{sponsor.name} logo"
 					/>
 				{:else}

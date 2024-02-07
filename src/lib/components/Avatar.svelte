@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { img_url } from '$lib/utils';
 	import { PUBLIC_API_URL } from '$env/static/public';
 	const {
 		collectionId,
@@ -11,15 +12,21 @@
 
 <picture>
 	<source
-		srcset="//wsrv.nl/?url={PUBLIC_API_URL}/api/files/{collectionId}/{id}/{file}&w={size *
-			2}&output=webp&q=70"
+		srcset={img_url(`${PUBLIC_API_URL}/api/files/${collectionId}/${id}/${file}`, {
+			width: size * 2,
+			format: 'webp',
+			quality: 70
+		})}
 		type="image/webp"
 	/>
 	<img
 		class="rounded-full"
 		width={size}
 		height={size}
-		src="//wsrv.nl/?url={PUBLIC_API_URL}/api/files/{collectionId}/{id}/{file}&w={size * 2}&q=70"
+		src={img_url(`${PUBLIC_API_URL}/api/files/${collectionId}/${id}/${file}`, {
+			width: size * 2,
+			quality: 70
+		})}
 		alt="{name} logo"
 	/>
 </picture>

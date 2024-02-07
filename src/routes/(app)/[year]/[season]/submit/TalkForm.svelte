@@ -21,7 +21,7 @@
 		</p>
 	</div>
 	<form method="POST" {action} use:enhance class="space-y-8">
-		<div class="space-y-4">
+		<div class="space-y-8">
 			<div class="space-y-2">
 				<label
 					class="text-md font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
