@@ -15,9 +15,14 @@
 <div class="space-y-4">
 	<div class="space-y-4 -ml-8 p-4 pl-8 rounded-md rounded-l-none bg-red-200 font-md">
 		<h2 class="text-xl font-semibold">Instructions</h2>
+		<p>For the virtual Svelte Summit your talk should be pre-recorded. This is NOT a live talk.</p>
 		<p>
 			You can submit at most two talks. You can edit your talk after submitting it but once the CFP
 			is closed you won't be able to make any changes.
+		</p>
+		<p>
+			Once the CFP closes we will review the talks and decide which ones get to selected. Expect an
+			email a week or so after the CFP is closed.
 		</p>
 	</div>
 	<form method="POST" {action} use:enhance class="space-y-8">
