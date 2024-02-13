@@ -12,8 +12,6 @@
 	}>();
 
 	const height = is_platinum ? 100 : 75;
-
-	$inspect(sponsor)
 </script>
 
 {#if sponsor}
