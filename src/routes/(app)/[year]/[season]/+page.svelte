@@ -2,9 +2,6 @@
 	// SvelteKit
 	import { page } from '$app/stores';
 
-	// Packages
-	import { superForm } from 'sveltekit-superforms/client';
-
 	// Sections
 	import Sponsors from './Sponsors.svelte';
 	import Sessions from './Sessions.svelte';

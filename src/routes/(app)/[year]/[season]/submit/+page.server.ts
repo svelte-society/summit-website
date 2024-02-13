@@ -1,6 +1,7 @@
 import { fail } from '@sveltejs/kit';
 import { z } from 'zod';
-import { message, superValidate } from 'sveltekit-superforms/server';
+import { superValidate, message } from 'sveltekit-superforms';
+import { zod } from 'sveltekit-superforms/adapters';
 
 const create_talk_schema = z.object({
     conference: z.string(),
@@ -17,8 +18,8 @@ const delete_talk_schema = z.object({
   
 
 export const load = async ({ locals }) => {
-    const createForm = await superValidate(create_talk_schema);
-    const deleteForm = await superValidate(delete_talk_schema);
+    const createForm = await superValidate(zod(create_talk_schema));
+    const deleteForm = await superValidate(zod(delete_talk_schema));
     const { pb } = locals
 
     if (pb.authStore.isValid) {
@@ -36,7 +37,7 @@ export const load = async ({ locals }) => {
 
 export const actions = {
     submit: async ({ request, locals }) => {
-        const createForm = await superValidate(request, create_talk_schema, {
+        const createForm = await superValidate(request, zod(create_talk_schema), {
             
         });
         const { pb } = locals

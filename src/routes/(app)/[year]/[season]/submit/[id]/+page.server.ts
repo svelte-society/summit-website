@@ -1,6 +1,7 @@
 import { fail, redirect } from '@sveltejs/kit';
 import { z } from 'zod';
-import { superValidate } from 'sveltekit-superforms/server';
+import { superValidate } from 'sveltekit-superforms';
+import { zod } from 'sveltekit-superforms/adapters';
 import type { TalkResponse } from '$lib/pocketbase-types.js'
 
 const schema = z.object({
@@ -26,7 +27,7 @@ export const load = async ({ params, locals }) => {
         redirect(302, '/')
     }
 
-    const form = await superValidate(talk, schema);
+    const form = await superValidate(talk, zod(schema));
 
     return { talk, form }
 
@@ -34,7 +35,7 @@ export const load = async ({ params, locals }) => {
 
 export const actions = {
     default: async ({ request, locals, params }) => {
-        const form = await superValidate(request, schema, {
+        const form = await superValidate(request, zod(schema), {
             
         });
         const { pb } = locals
