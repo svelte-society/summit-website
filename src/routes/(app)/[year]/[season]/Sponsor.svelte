@@ -34,7 +34,7 @@
 						{height}
 						class="mx-auto max-h-28 w-full"
 						src={img_url(`${PUBLIC_API_URL}/api/files/${sponsor.collectionId}/${sponsor.id}/${sponsor.logo}`, {
-							width: height * 2,
+							width: height * 3.5,
 							quality: 70
 						})}
 						alt="{sponsor.name} logo"
