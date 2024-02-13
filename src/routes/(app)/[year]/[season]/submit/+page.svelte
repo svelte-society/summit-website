@@ -7,9 +7,7 @@
 
 	let { data } = $props<{ data: PageData }>();
 
-	const { form, errors, constraints, enhance, submitting } = superForm(data.createForm, {
-		resetForm: true
-	});
+	const { form, errors, constraints, enhance, submitting } = superForm(data.createForm);
 
 	const {
 		form: deleteForm,
@@ -51,7 +49,7 @@
 							{#each data.talks as talk}
 								<li class="grid grid-cols-[1fr_auto]">
 									<a
-										class="text-primary font-semibold hover:underline transition-colors"
+										class="text-primary font-semibold hover:underline transition-colors truncate"
 										href="/{$page.params.year}/{$page.params.season}/submit/{talk.id}"
 										>{talk.title}</a
 									>
