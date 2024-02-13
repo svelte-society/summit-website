@@ -31,8 +31,8 @@
 					<!-- load in case no `source` format applies 
 									  and use attributes for presentation -->
 					<img
-						{height}
-						class="mx-auto max-h-28 w-full"
+						height="112"
+						class="mx-auto max-h-28 w-full h-full"
 						src={img_url(`${PUBLIC_API_URL}/api/files/${sponsor.collectionId}/${sponsor.id}/${sponsor.logo}`, {
 							width: height * 6
 						})}
@@ -40,6 +40,7 @@
 					/>
 				{:else}
 					<img
+						height="112"
 						class="mx-auto max-h-28"
 						src="{PUBLIC_API_URL}/api/files/{sponsor.collectionId}/{sponsor.id}/{sponsor.logo}"
 						alt="{sponsor.name} logo"
