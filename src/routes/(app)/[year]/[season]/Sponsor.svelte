@@ -31,7 +31,7 @@
 					<!-- load in case no `source` format applies 
 									  and use attributes for presentation -->
 					<img
-						height="{height}px"
+						{height}
 						class="mx-auto max-h-28"
 						src={img_url(`${PUBLIC_API_URL}/api/files/${sponsor.collectionId}/${sponsor.id}/${sponsor.logo}`, {
 							width: height * 2,
