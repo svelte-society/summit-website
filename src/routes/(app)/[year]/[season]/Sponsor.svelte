@@ -22,7 +22,7 @@
 					<!-- load webp if supported -->
 					<source
 						srcset={img_url(`${PUBLIC_API_URL}/api/files/${sponsor.collectionId}/${sponsor.id}/${sponsor.logo}`, {
-							width: height * 2,
+							width: height * 6,
 							format: 'webp'
 						})}
 						type="image/webp"
