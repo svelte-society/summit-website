@@ -23,8 +23,7 @@
 					<source
 						srcset={img_url(`${PUBLIC_API_URL}/api/files/${sponsor.collectionId}/${sponsor.id}/${sponsor.logo}`, {
 							width: height * 2,
-							format: 'webp',
-							quality: 70
+							format: 'webp'
 						})}
 						type="image/webp"
 					/>
