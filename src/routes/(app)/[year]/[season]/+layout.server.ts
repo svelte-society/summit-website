@@ -31,8 +31,6 @@ export const load = (async ({ params, locals }) => {
     fields: 'logo'
   })
 
-  console.log(allSponsors)
-
   const conference = {...conf, ...conf.expand}
 
   const is_old = hasDatePassed(conference.date)
