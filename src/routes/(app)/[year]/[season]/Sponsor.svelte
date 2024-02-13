@@ -32,7 +32,7 @@
 									  and use attributes for presentation -->
 					<img
 						{height}
-						class="mx-auto max-h-28"
+						class="mx-auto max-h-28 w-full"
 						src={img_url(`${PUBLIC_API_URL}/api/files/${sponsor.collectionId}/${sponsor.id}/${sponsor.logo}`, {
 							width: height * 2,
 							quality: 70
