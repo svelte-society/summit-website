@@ -14,9 +14,6 @@ const config = {
 		adapter: adapter(),
 		files: {
 			lib: 'src/lib'
-		},
-		output: {
-			preloadStrategy: 'preload-mjs'
 		}
 	}
 };
