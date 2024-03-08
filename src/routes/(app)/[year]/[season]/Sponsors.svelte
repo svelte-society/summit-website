@@ -11,7 +11,7 @@
 	}>();
 </script>
 
-{#if main}
+{#if is_open_to_sponsorships || (main && main.length > 1)}
 	<article id="sponsors" class="bg-secondary text-black">
 		<div
 			class="grid gap-4 w-full sm:w-4/5 md:w-3/5 mx-auto px-4 md:py-16 py-8 text-center max-w-4xl"
