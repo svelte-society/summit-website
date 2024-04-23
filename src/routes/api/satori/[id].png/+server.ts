@@ -14,7 +14,8 @@ export const prerender = true
 export const entries = async () => {
     const pb = new PocketBase(PUBLIC_API_URL)
     const talks = await pb.collection('Talk').getFullList({
-        fields: 'id'
+        fields: 'id',
+        filter: 'youtube_ID != ""'
     })
     return talks
 }
