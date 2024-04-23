@@ -39,8 +39,8 @@
 			Watch</a
 		>
 	{/if}
-	<ul class="grid mb-2 grid-cols-{expand?.speakers.length === 1 ? '1' : '2'}">
-		{#each expand?.speakers || [] as speaker}
+	<ul class="grid mb-2 grid-cols-{expand?.speakers?.length === 1 ? '1' : '2'}">
+		{#each expand?.speakers || expand?.speaker || [] as speaker}
 			<Speaker {speaker} />
 		{/each}
 	</ul>

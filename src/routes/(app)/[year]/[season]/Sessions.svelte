@@ -3,7 +3,8 @@
 	import type { TalkResponse, SpeakerResponse } from '$lib/pocketbase-types';
 
 	type SpeakerExpand = {
-		speakers: SpeakerResponse[];
+		speakers?: SpeakerResponse[];
+		speaker?: SpeakerResponse[];
 	};
 	const { sessions } = $props<{ sessions: TalkResponse<SpeakerExpand>[] }>();
 </script>

@@ -1,6 +1,7 @@
 import type { Config } from '@sveltejs/adapter-vercel';
 import { hasDatePassed, formatDate } from '$lib/utils.js';
 import type { ConferenceResponse, PackagesResponse, QuestionsResponse, SponsorRecord, SponsorResponse, StatisticsResponse, SvelteHighlightsResponse, TalkResponse } from '$lib/pocketbase-types.js';
+import { POCKETBASE_PASSWORD, POCKETBASE_USERNAME } from '$env/static/private';
 
 type Texpand = {
   sponsors: SponsorRecord[],
@@ -22,16 +23,20 @@ export const load = (async ({ params, locals }) => {
   const filter = pb.filter('year = {:year} && season = {:season}', {
     year, season
   })
+
+  await pb.admins.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD)
+
   const conf = await pb.collection('Conference').getFirstListItem<ConferenceResponse<Texpand>>(filter, {
-      expand: 'sponsors,talks, talks.speakers,mc,questions,statistics,highlights,packages',
-      fields: 'id,title,subtitle,year,season,date,meta_title,meta_description,meta_img,sponsors,expand.sponsors,talks,expand.talks.title,expand.talks.description,expand.talks.youtube_ID,expand.talks.meta_description,expand.talks.priority,expand.talks.slug,expand.talks.expand.speakers,mc,expand.mc,questions,expand.questions,statistics,expand.statistics,highlights,expand.highlights,packages,expand.packages,primary_color,secondary_color,text_color,type,speaker_status,open_to_sponsor,youtube_id'
-  });
+      expand: 'sponsors,talks,talks.speakers,talks.speaker,mc,questions,statistics,highlights,packages',
+       });
 
   const allSponsors = await pb.collection('Sponsor').getFullList({
     fields: 'logo'
   })
 
   const conference = {...conf, ...conf.expand}
+
+  console.log(conference.talks[0].expand.speaker)
 
   const is_old = hasDatePassed(conference.date)
 
