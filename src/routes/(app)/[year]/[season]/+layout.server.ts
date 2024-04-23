@@ -36,8 +36,6 @@ export const load = (async ({ params, locals }) => {
 
   const conference = {...conf, ...conf.expand}
 
-  console.log(conference.talks[0].expand.speaker)
-
   const is_old = hasDatePassed(conference.date)
 
   let main: SponsorRecord[] = []
