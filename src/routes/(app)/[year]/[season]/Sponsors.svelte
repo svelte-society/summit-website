@@ -17,7 +17,7 @@
 		<div class="grid gap-4 w-full sm:w-4/5 md:w-3/5 mx-auto px-4 md:py-16 py-8 text-center max-w-4xl">
 			<h2 class="font-semibold text-2xl">Main Partner</h2>
 			<hr class="border-black border-2 rounded-lg w-52 mx-auto" />
-			<div class="grid gap-3">
+			<ul class="grid gap-3">
 				{#each partner as sponsor}
 					<Sponsor {sponsor} is_platinum={true}>👑 Main Partner</Sponsor>
 					{#if sponsor.snippet}
@@ -32,7 +32,7 @@
 						href="/{$page.params.year}/{$page.params.season}/sponsors">Become the main partner</a
 					>
 				{/if}
-			</div>
+			</ul>
 		</div>
 	</article>
 {/if}
