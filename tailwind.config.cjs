@@ -11,6 +11,18 @@ const config = {
         primary: 'rgb(var(--color-primary) / <alpha-value>)',
         secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
       }
+    },
+    typography: {
+      DEFAULT: {
+        css: {
+          'prose': {
+            'max-width': '100ch'
+          },
+          'max-w-prose': {
+            'max-width': '100ch'
+          },
+        }
+      }
     }
   },
 

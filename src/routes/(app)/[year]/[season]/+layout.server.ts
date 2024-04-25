@@ -30,34 +30,34 @@ export const load = (async ({ params, locals }) => {
       expand: 'sponsors,talks,talks.speakers,talks.speaker,mc,questions,statistics,highlights,packages',
        });
 
-  const allSponsors = await pb.collection('Sponsor').getFullList({
-    fields: 'logo'
-  })
-
   const conference = {...conf, ...conf.expand}
 
   const is_old = hasDatePassed(conference.date)
 
-  let main: SponsorRecord[] = []
+  let partner: SponsorRecord[] = []
   let platinum: SponsorRecord[] = []
   let gold: SponsorRecord[] = []
 
-  main = conference.expand?.sponsors?.filter((sponsor: SponsorRecord) => sponsor.type === 'main') || []
+  partner = conference.expand?.sponsors?.filter((sponsor: SponsorRecord) => sponsor.type === 'partner') || []
   platinum = conference.expand?.sponsors?.filter((sponsor: SponsorRecord) => sponsor.type === 'platinum') || []
   gold = conference.expand?.sponsors?.filter((sponsor: SponsorRecord) => sponsor.type === 'gold') || []
 
   delete conference.expand
+
+  console.log(conference.sponsors)
   
   if (conference.open_to_sponsor) {
     platinum = platinum.concat(Array(3 - platinum.length).fill(undefined))
     gold = gold.concat(Array(6 - gold.length).fill(undefined))
-    main = main.concat(Array(1 - main.length).fill(undefined))
+    partner = partner.concat(Array(1 - partner.length).fill(undefined))
   }
+
+  console.log(partner)
 
   const sponsors = {
       platinum,
       gold,
-      main
+      partner
   }
   const meta = {
       title: conference.meta_title,
