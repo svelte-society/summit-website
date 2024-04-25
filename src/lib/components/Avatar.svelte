@@ -6,13 +6,14 @@
 		id,
 		file,
 		name,
-		size = 40
+		size = 40,
+		url
 	} = $props<{ collectionId: string; id: string; file: string; name: string; size: number }>();
 </script>
 
 <picture>
 	<source
-		srcset={img_url(`${PUBLIC_API_URL}/api/files/${collectionId}/${id}/${file}`, {
+		srcset={url || img_url(`${PUBLIC_API_URL}/api/files/${collectionId}/${id}/${file}`, {
 			width: size * 2,
 			format: 'webp',
 			quality: 70
@@ -23,7 +24,7 @@
 		class="rounded-full"
 		width={size}
 		height={size}
-		src={img_url(`${PUBLIC_API_URL}/api/files/${collectionId}/${id}/${file}`, {
+		src={url || img_url(`${PUBLIC_API_URL}/api/files/${collectionId}/${id}/${file}`, {
 			width: size * 2,
 			quality: 70
 		})}
