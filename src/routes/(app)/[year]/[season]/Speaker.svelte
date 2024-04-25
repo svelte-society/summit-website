@@ -3,14 +3,14 @@
 	import Avatar from '$lib/components/Avatar.svelte';
 
 	const { speaker } = $props<{ speaker: SpeakerResponse }>();
-	const { id, picture, name, tagline, twitter, collectionId, username } = speaker;
+	const { id, avatar, name, tagline, twitter, collectionId, username } = speaker;
 
 	console.log(username)
 </script>
 
 <li class="grid grid-cols-[auto_1fr] gap-2 max-w-xs">
-	{#if picture}
-		<Avatar {name} {id} {collectionId} file={picture} />
+	{#if avatar}
+		<Avatar {name} {id} {collectionId} url={avatar} />
 	{/if}
 	<div class="flex flex-col">
 		{#if !username}
