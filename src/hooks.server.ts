@@ -60,13 +60,13 @@ const oauth: Handle = async ({ event, resolve }) => {
             )
     
             const name = authData?.meta?.name ?? '';
-            const avatarUrl = authData?.meta?.avatarUrl ?? '';
+            const avatar = authData?.meta?.avatarUrl ?? '';
             const bio = authData?.meta?.bio ?? '';
             const twitter = authData?.meta?.twitter ?? '';
     
             pb.collection('users').update(authData.record.id, {
                 name,
-                avatarUrl,
+                avatar,
                 bio,
                 twitter,
                 role: 'user'
