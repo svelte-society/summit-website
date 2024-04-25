@@ -43,16 +43,12 @@ export const load = (async ({ params, locals }) => {
   gold = conference.expand?.sponsors?.filter((sponsor: SponsorRecord) => sponsor.type === 'gold') || []
 
   delete conference.expand
-
-  console.log(conference.sponsors)
   
   if (conference.open_to_sponsor) {
     platinum = platinum.concat(Array(3 - platinum.length).fill(undefined))
     gold = gold.concat(Array(6 - gold.length).fill(undefined))
     partner = partner.concat(Array(1 - partner.length).fill(undefined))
   }
-
-  console.log(partner)
 
   const sponsors = {
       platinum,
