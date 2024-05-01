@@ -14,11 +14,11 @@
 			frameborder="0"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 			allowfullscreen
-		/>
+		></iframe>
 	</div>
 	<h1 class="text-4xl font-semibold text-center text-white">{data.talk.title}</h1>
 	<ul class="rounded-lg flex flex-wrap gap-4 place-content-between">
-		{#each data.talk.speakers as speaker}
+		{#each data.talk.speakers || data.talk.speaker as speaker}
 			<li class="bg-secondary rounded-md p-2"><Speaker {speaker} /></li>
 		{/each}
 	</ul>
