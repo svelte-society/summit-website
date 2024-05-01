@@ -80,7 +80,7 @@
 				);
 			});
 
-			drawSvelteSummitText(context, 1700, 50, 'FALL');
+			drawSvelteSummitText(context, 1700, 50, 'SPRING');
 		});
 	}
 
