@@ -1,12 +1,17 @@
+import { POCKETBASE_PASSWORD, POCKETBASE_USERNAME } from '$env/static/private';
+
 export const prerender = true
 
 export const load = (async ({ params, locals }) => {
     const { slug } = params
     const { pb } = locals
 
+    pb.autoCancellation(false);
+    await pb.admins.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD)
+
     const res = await pb.collection('Talk').getFirstListItem(`slug='${slug}'`, {
-        expand: 'speakers',
-        fields: 'id,meta_description,description,expand.speakers,youtube_ID,title,transcript'
+        expand: 'speakers,speaker',
+        fields: 'id,meta_description,description,expand.speakers,expand.speaker,youtube_ID,title,transcript'
     });
 
     const talk = {...res, ...res.expand}
