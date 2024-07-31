@@ -20,7 +20,7 @@
 			<ul class="grid gap-3">
 				{#each partner as sponsor}
 					<Sponsor {sponsor} is_platinum={true}>👑 Main Partner</Sponsor>
-					{#if sponsor.snippet}
+					{#if sponsor?.snippet}
 						<div class="bg-primary rounded-md py-6 px-8 text-left prose text-gray-100 prose-sm">
 							{@html sponsor.snippet}
 						</div>
