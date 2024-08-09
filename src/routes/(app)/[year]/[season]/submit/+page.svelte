@@ -23,7 +23,7 @@
 {#if data.user}
 	<div class="flex items-start space-x-8 mt-4">
 		<div class="w-2/3">
-			{#if data.talks.filter((t) => t.conference === $page.data.id) < 2}
+			{#if data.talks.filter((t) => t.conference === $page.data.id).length < 2}
 				<TalkForm
 					{enhance}
 					{errors}
