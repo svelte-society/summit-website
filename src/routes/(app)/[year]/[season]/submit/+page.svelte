@@ -18,7 +18,7 @@
 	const deadline = new Date();
 </script>
 
-{#if deadline.getMonth() === 8 && deadline.getDate() === 15}
+{#if deadline.getMonth() >= 8 && deadline.getDate() >= 15}
 	<div class="space-y-2">
 		<h2 class="text-3xl font-bold">Submissions closed</h2>
 	</div>
