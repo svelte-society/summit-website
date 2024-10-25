@@ -12,7 +12,7 @@
 		"test": "npm run test:e2e"
 	},
 	"devDependencies": {
-		"biome": "^0.3.3",
+		"@biomejs/biome": "^1.9.4",
 		"@playwright/test": "^1.45.3",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.0.0",
