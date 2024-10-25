@@ -7,6 +7,11 @@ node_modules
 /.svelte-kit
 /build
 
+# Local Dev DB
+local.db
+local.db-shm
+local.db-wal
+
 # OS
 .DS_Store
 Thumbs.db
