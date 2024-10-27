@@ -1,4 +1,4 @@
-import { schemas } from "$lib/schemas";
+import { querySchema } from "$lib/schemas";
 import { db } from "$lib/server/db";
 import { error } from "@sveltejs/kit";
 import { zod } from "sveltekit-superforms/adapters";
@@ -11,7 +11,7 @@ export async function load({ params, url }) {
 		error(404, "Table not found");
 	}
 
-	const form = await superValidate(url, zod(schemas.query));
+	const form = await superValidate(url, zod(querySchema));
 	const { page, perPage, sort, order, search } = form.data;
 
 	const offset = (page - 1) * perPage;

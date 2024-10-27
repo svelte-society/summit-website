@@ -1,19 +1,24 @@
-import { schemas } from "$lib/schemas";
+import { tableDefinitions } from "$lib/schemas";
 import { db } from "$lib/server/db";
-import { error, fail } from "@sveltejs/kit";
+import { error } from "@sveltejs/kit";
 import { redirect } from "@sveltejs/kit";
 import { zod } from "sveltekit-superforms/adapters";
 import { superValidate } from "sveltekit-superforms/server";
-import type { Actions, PageServerLoad } from "./$types";
 
-const VALID_TABLES = ["users", "conferences", "talks", "sponsors"] as const;
+const VALID_TABLES = [
+	"users",
+	"conferences",
+	"talks",
+	"sponsors",
+	"roles",
+] as const;
 type TableName = (typeof VALID_TABLES)[number];
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load({ params, platform }) {
+export async function load({ params }) {
 	const { table, id } = params;
 
-	if (!schemas[table]) {
+	if (!tableDefinitions[table].schema || !VALID_TABLES.includes(table)) {
 		error(404, "Table not found");
 	}
 
@@ -28,12 +33,12 @@ export async function load({ params, platform }) {
 			error(404, "Item not found");
 		}
 
-		form = await superValidate(item, zod(schemas[table]));
+		form = await superValidate(item, zod(tableDefinitions[table].schema));
 	} else {
-		form = await superValidate(zod(schemas[table]));
+		form = await superValidate(zod(tableDefinitions[table].schema));
 	}
 
-	return { form };
+	return { form, fields: tableDefinitions[table].fields };
 }
 
 /** @type {import('./$types').Actions} */
