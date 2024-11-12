@@ -1,0 +1,13 @@
+{
+	"databaseUri": "./local.db",
+	"sqlDir": "./src/lib/server/sql",
+	"client": "bun:sqlite",
+	"includeCrudTables": [
+		"conferences",
+		"talks",
+		"sponsors",
+		"roles",
+		"users",
+		"sessions"
+	]
+}

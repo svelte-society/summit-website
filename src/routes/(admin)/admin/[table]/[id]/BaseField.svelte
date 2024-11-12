@@ -5,11 +5,11 @@ let { label = "", error = "", helpText = "", children } = $props();
 <div class="space-y-1">
   {#if label}
     <label class="block text-sm font-medium text-gray-700">
-      {label}
+    {label}
+      {@render children()}
     </label>
   {/if}
 
-  {@render children()}
 
   {#if helpText}
     <p class="text-sm text-gray-500">{helpText}</p>

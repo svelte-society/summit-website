@@ -4,13 +4,7 @@ import { error } from "@sveltejs/kit";
 import { zod } from "sveltekit-superforms/adapters";
 import { superValidate } from "sveltekit-superforms/server";
 
-const VALID_TABLES = ["users", "conferences", "talks", "sponsors", "roles"];
-
 export async function load({ params, url }) {
-	if (!VALID_TABLES.includes(params.table)) {
-		error(404, "Table not found");
-	}
-
 	const form = await superValidate(url, zod(querySchema));
 	const { page, perPage, sort, order, search } = form.data;
 
@@ -45,3 +39,18 @@ export async function load({ params, url }) {
 		error(500, "Database error");
 	}
 }
+
+export const actions = {
+	delete: async ({ request, params }) => {
+		const formData = await request.formData();
+		const id = formData.get("id");
+
+		try {
+			db.prepare(`DELETE FROM ${params.table} WHERE id = ?`).run(id);
+			return { success: true };
+		} catch (e) {
+			console.error(e);
+			error(500, "Failed to delete record");
+		}
+	},
+};

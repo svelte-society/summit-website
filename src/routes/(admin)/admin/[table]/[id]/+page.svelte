@@ -1,19 +1,20 @@
 <script lang="ts">
 import { page } from "$app/stores";
-import { conferenceFields } from "$lib/schemas";
 import { superForm } from "sveltekit-superforms/client";
 import DynamicForm from "./DynamicForm.svelte";
 
-const { data } = $props();
+let { data } = $props();
 
-const { form, errors, constraints, enhance } = superForm(data.form, {
+let { form, errors, enhance } = superForm(data.form, {
 	taintedMessage: null,
 	dataType: "json",
 });
+
+let isEditing = !$page.url.pathname.endsWith("/new");
 </script>
 
 <div class="max-w-2xl mx-auto p-6">
-    <h1 class="text-2xl font-semibold mb-6">Add New {$page.params.table}</h1>
+    <h1 class="text-2xl font-semibold mb-6">{isEditing ? 'Edit' : 'Add'} {$page.params.table}</h1>
 
     <form method="POST" use:enhance class="space-y-4">
         <DynamicForm {form} {errors} fields={data.fields} />
@@ -29,7 +30,7 @@ const { form, errors, constraints, enhance } = superForm(data.form, {
                 type="submit"
                 class="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600"
             >
-                Create
+                {isEditing ? 'Update' : 'Create'}
             </button>
         </div>
     </form>

@@ -1,5 +1,6 @@
 import BooleanInput from "./BooleanInput.svelte";
 import DateInput from "./DateInput.svelte";
+import MultiSelect from "./MultiSelect.svelte";
 import NumberInput from "./NumberInput.svelte";
 import SelectInput from "./SelectInput.svelte";
 import TextArea from "./TextArea.svelte";
@@ -13,5 +14,6 @@ export const fieldComponents = new Map([
 	["date", DateInput],
 	["url", URLInput],
 	["select", SelectInput],
-	["boolean", BooleanInput],
+	["checkbox", BooleanInput],
+	["multiselect", MultiSelect],
 ]);

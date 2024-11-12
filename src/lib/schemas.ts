@@ -1,343 +1,280 @@
+import { db } from "$lib/server/db";
 import { z } from "zod";
 
-export const conferenceSchema = z.object({
-	name: z.string().min(1, "Name is required"),
-	slug: z
-		.string()
-		.min(1, "Slug is required")
-		.regex(
-			/^[a-z0-9-]+$/,
-			"Slug must contain only lowercase letters, numbers, and hyphens",
-		),
-	description: z.string().optional(),
-	start_date: z.string().min(1, "Start date is required"),
-	end_date: z.string().min(1, "End date is required"),
-	venue: z.string().optional(),
-	address: z.string().optional(),
-	city: z.string().optional(),
-	country: z.string().optional(),
-	timezone: z.string().optional(),
-	website: z.string().url().optional().or(z.literal("")),
-	logo_url: z.string().url().optional().or(z.literal("")),
-	banner_url: z.string().url().optional().or(z.literal("")),
-	max_attendees: z.number().int().positive().optional(),
-});
+interface ColumnInfo {
+	name: string;
+	type: string;
+	notnull: number;
+	dflt_value: string | null;
+	pk: number;
+}
 
-export const conferenceFields = {
-	name: {
-		type: "text",
-		label: "Conference Name",
-		placeholder: "Enter conference name",
-	},
-	slug: {
-		type: "text",
-		label: "URL Slug",
-		placeholder: "conference-name-2024",
-		helpText: "Used in the URL, must be lowercase with hyphens",
-	},
-	description: {
-		type: "textarea",
-		label: "Description",
-		placeholder: "Enter conference description",
-		rows: 4,
-	},
-	start_date: {
-		type: "date",
-		label: "Start Date",
-	},
-	end_date: {
-		type: "date",
-		label: "End Date",
-	},
-	venue: {
-		type: "text",
-		label: "Venue Name",
-		placeholder: "Convention Center",
-	},
-	address: {
-		type: "text",
-		label: "Address",
-		placeholder: "Street address",
-	},
-	city: {
-		type: "text",
-		label: "City",
-	},
-	country: {
-		type: "select",
-		label: "Country",
-		options: [
-			{ value: "US", label: "United States" },
-			{ value: "UK", label: "United Kingdom" },
-			// Add more as needed
-		],
-	},
-	timezone: {
-		type: "select",
-		label: "Timezone",
-		options: [
-			{ value: "UTC", label: "UTC" },
-			{ value: "America/New_York", label: "Eastern Time" },
-			// Add more as needed
-		],
-	},
-	website: {
-		type: "url",
-		label: "Website URL",
-		placeholder: "https://",
-	},
-	logo_url: {
-		type: "url",
-		label: "Logo URL",
-		placeholder: "https://",
-	},
-	banner_url: {
-		type: "url",
-		label: "Banner URL",
-		placeholder: "https://",
-	},
-	max_attendees: {
-		type: "number",
-		label: "Maximum Attendees",
-		min: 1,
-	},
-};
+export function getSchema(table: string) {
+	const tableSQLQuery = db.prepare(
+		`SELECT sql FROM sqlite_master WHERE type="table" AND name = ?`,
+	);
 
-export const userSchema = z.object({
-	email: z.string().email("Invalid email address"),
-	username: z.string().min(3, "Username must be at least 3 characters"),
-	name: z.string().min(1, "Name is required"),
-	bio: z.string().optional(),
-	location: z.string().optional(),
-	twitter: z.string().optional(),
-	company: z.string().optional(),
-	website: z.string().url().optional().or(z.literal("")),
-});
+	const { sql: tableSQL } = tableSQLQuery.get(table);
 
-export const userFields = {
-	email: {
-		type: "text",
-		label: "Email Address",
-		placeholder: "user@example.com",
-	},
-	username: {
-		type: "text",
-		label: "Username",
-		placeholder: "username",
-		helpText: "At least 3 characters",
-	},
-	name: {
-		type: "text",
-		label: "Full Name",
-		placeholder: "John Doe",
-	},
-	avatar_url: {
-		type: "url",
-		label: "Avatar URL",
-	},
-	bio: {
-		type: "textarea",
-		label: "Bio",
-		rows: 3,
-	},
-	location: {
-		type: "text",
-		label: "Location",
-		placeholder: "City, Country",
-	},
-	twitter: {
-		type: "text",
-		label: "Twitter Username",
-		placeholder: "@username",
-	},
-	company: {
-		type: "text",
-		label: "Company",
-	},
-	website: {
-		type: "url",
-		label: "Website",
-	},
-	role: {
-		type: "select",
-		label: "Role",
-		options: [
-			{ value: 1, label: "User" },
-			{ value: 2, label: "Admin" },
-			{ value: 3, label: "Super Admin" },
-		],
-	},
-};
+	const columnQuery = db.prepare("SELECT * FROM pragma_table_info(?)");
 
-export const sponsorSchema = z.object({
-	name: z.string().min(1, "Name is required"),
-	description: z.string().optional(),
-	website: z.string().url().optional().or(z.literal("")),
-	logo_url: z.string().url().optional().or(z.literal("")),
-});
+	const columns = columnQuery.all([table]);
 
-export const sponsorFields = {
-	name: {
-		type: "text",
-		label: "Sponsor Name",
-		placeholder: "Company Name",
-	},
-	description: {
-		type: "textarea",
-		label: "Description",
-		rows: 3,
-	},
-	website: {
-		type: "url",
-		label: "Website URL",
-	},
-	logo_url: {
-		type: "url",
-		label: "Logo URL",
-	},
-};
+	const relationships = getTableRelationships(table);
 
-export const talkSchema = z.object({
-	conference_id: z.string().min(1, "Conference is required"),
-	title: z.string().min(1, "Title is required"),
-	slug: z
-		.string()
-		.min(1, "Slug is required")
-		.regex(
-			/^[a-z0-9-]+$/,
-			"Slug must contain only lowercase letters, numbers, and hyphens",
-		),
-	description: z.string().optional(),
-	abstract: z.string().optional(),
-	level: z.enum(["beginner", "intermediate", "advanced"]),
-	duration: z.number().int().positive().optional(),
-	scheduled_at: z.string().optional(),
-	room: z.string().optional(),
-	status: z.enum(["draft", "submitted", "accepted", "rejected", "confirmed"]),
-	slides_url: z.string().url().optional().or(z.literal("")),
-	recording_url: z.string().url().optional().or(z.literal("")),
-});
+	const schemaObject = {};
+	const formFields = {};
 
-export const talkFields = {
-	conference_id: {
-		type: "select",
-		label: "Conference",
-		options: [], // These would be populated dynamically
-	},
-	title: {
-		type: "text",
-		label: "Talk Title",
-		placeholder: "Enter talk title",
-	},
-	slug: {
-		type: "text",
-		label: "URL Slug",
-		placeholder: "talk-title",
-		helpText: "Used in the URL, must be lowercase with hyphens",
-	},
-	description: {
-		type: "textarea",
-		label: "Short Description",
-		rows: 2,
-		helpText: "Brief overview of the talk",
-	},
-	abstract: {
-		type: "textarea",
-		label: "Full Abstract",
-		rows: 4,
-		helpText: "Detailed description of the talk",
-	},
-	level: {
-		type: "select",
-		label: "Experience Level",
-		options: [
-			{ value: "beginner", label: "Beginner" },
-			{ value: "intermediate", label: "Intermediate" },
-			{ value: "advanced", label: "Advanced" },
-		],
-	},
-	duration: {
-		type: "number",
-		label: "Duration (minutes)",
-		min: 5,
-		step: 5,
-	},
-	scheduled_at: {
-		type: "date",
-		label: "Scheduled Date/Time",
-	},
-	room: {
-		type: "text",
-		label: "Room",
-		placeholder: "Main Hall",
-	},
-	status: {
-		type: "select",
-		label: "Status",
-		options: [
-			{ value: "draft", label: "Draft" },
-			{ value: "submitted", label: "Submitted" },
-			{ value: "accepted", label: "Accepted" },
-			{ value: "rejected", label: "Rejected" },
-			{ value: "confirmed", label: "Confirmed" },
-		],
-	},
-	slides_url: {
-		type: "url",
-		label: "Slides URL",
-	},
-	recording_url: {
-		type: "url",
-		label: "Recording URL",
-	},
-};
+	const userEditableColumns = columns.filter(
+		(column: ColumnInfo) => !shouldExcludeColumn(column, tableSQL),
+	);
+
+	for (const column of userEditableColumns) {
+		schemaObject[column.name] = getZodType(column, tableSQL);
+		formFields[column.name] = getFormField(column, tableSQL);
+	}
+
+	for (const rel of relationships) {
+		const relatedTable = rel.table1 === table ? rel.table2 : rel.table1;
+
+		// Get options from related table
+		const optionsQuery = db.prepare(
+			`SELECT id, name as label
+       FROM ${relatedTable}`,
+		);
+
+		const options = optionsQuery.all();
+
+		const fieldName = `${relatedTable}_ids`;
+
+		// Add to schema
+		schemaObject[fieldName] = z.array(z.string()).optional();
+
+		// Add to fields
+		formFields[fieldName] = {
+			type: "multiselect",
+			label: `${relatedTable.charAt(0).toUpperCase() + relatedTable.slice(1)}`,
+			options,
+		};
+	}
+
+	return {
+		schema: z.object(schemaObject),
+		formFields,
+	};
+}
+
+function extractEnumValues(sql: string, columnName: string): string[] | null {
+	const regex = new RegExp(
+		`${columnName}\\s+[^\\s]+\\s+CHECK\\s*\\(\\s*${columnName}\\s+IN\\s*\\(([^)]+)\\)\\)`,
+	);
+	const match = regex.exec(sql);
+	if (!match) return null;
+
+	return match[1]
+		.split(",")
+		.map((v) => v.trim().replace(/'/g, ""))
+		.filter(Boolean);
+}
+
+function getZodType(column: ColumnInfo, tableSql: string) {
+	let schema: any = z.any();
+
+	// Start with base type
+	switch (column.type.toLowerCase()) {
+		case "integer":
+			schema = z.number().int();
+			break;
+		case "text":
+			schema = z.string();
+			break;
+		case "boolean":
+			schema = z
+				.union([z.boolean(), z.number().min(0).max(1)])
+				.transform((val) => (typeof val === "boolean" ? (val ? 1 : 0) : val));
+			break;
+		case "date":
+			schema = z.string(); // Could be more specific with date validation
+			break;
+		case "decimal":
+			schema = z.number();
+			break;
+		default:
+			schema = z.string();
+	}
+
+	// Check for enums
+	const enumValues = extractEnumValues(tableSql, column.name);
+	if (enumValues) {
+		schema = z.enum(enumValues as [string, ...string[]]);
+	}
+
+	// Add constraints
+	if (column.notnull && !column.dflt_value) {
+		if (schema instanceof z.ZodString) {
+			schema = schema.min(1, `${column.name} is required`);
+		}
+	} else {
+		schema = schema.optional();
+	}
+
+	// Add defaults
+	if (column.dflt_value !== null) {
+		let defaultValue = column.dflt_value;
+		if (defaultValue === "true") defaultValue = true;
+		if (defaultValue === "false") defaultValue = false;
+		if (!isNaN(Number(defaultValue))) defaultValue = Number(defaultValue);
+		schema = schema.default(defaultValue);
+	}
+
+	return schema;
+}
+
+function getFormField(column: ColumnInfo, tableSql: string) {
+	const enumValues = extractEnumValues(tableSql, column.name);
+
+	const field: any = {
+		label: column.name
+			.split("_")
+			.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+			.join(" "),
+	};
+
+	if (enumValues) {
+		field.type = "select";
+		field.options = enumValues.map((value) => ({
+			value,
+			label: value
+				.split("_")
+				.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+				.join(" "),
+		}));
+	} else {
+		switch (column.type.toLowerCase()) {
+			case "boolean":
+				field.type = "checkbox";
+				break;
+			case "date":
+				field.type = "date";
+				break;
+			case "integer":
+			case "decimal":
+				field.type = "number";
+				break;
+			default:
+				field.type = "text";
+		}
+	}
+
+	if (field.type === "text" || field.type === "number") {
+		field.placeholder = `Enter ${field.label.toLowerCase()}`;
+	}
+
+	return field;
+}
+
+function shouldExcludeColumn(column: ColumnInfo, tableSql: string): boolean {
+	// Exclude primary keys
+	if (column.pk) return true;
+
+	// Exclude created_at/updated_at timestamps
+	if (["created_at", "updated_at"].includes(column.name)) return true;
+
+	// Exclude columns with CURRENT_TIMESTAMP default
+	if (column.dflt_value?.includes("CURRENT_TIMESTAMP")) return true;
+
+	// Exclude columns with randomblob default (like generated IDs)
+	if (
+		tableSql.includes(`${column.name} TEXT PRIMARY KEY DEFAULT (hex(randomblob`)
+	)
+		return true;
+
+	return false;
+}
 
 export const querySchema = z.object({
 	page: z.coerce.number().int().positive().default(1),
 	perPage: z.coerce.number().int().positive().max(100).default(10),
-	sort: z.string().optional(),
-	order: z.enum(["asc", "desc"]).default("asc"),
-	search: z.string().optional(),
+	sort: z.string().optional().default("created_at"),
+	order: z.enum(["asc", "desc"]).default("desc"),
+	search: z.string().trim().optional(),
 });
 
-export const roleSchema = z.object({
-	name: z.string().min(1),
-	value: z.string().min(1),
-	description: z.string().min(1),
-	active: z.boolean(),
-});
+export function getTableRelationships(tableName: string) {
+	const relationshipsQuery = db.prepare(
+		`SELECT
+      m.name as junction_table,
+      fk1.\"table\" as table1,
+      fk1.\"from\" as field1,
+      fk1.\"to\" as key1,
+      fk2.\"table\" as table2,
+      fk2.\"from\" as field2,
+      fk2.\"to\" as key2
+    FROM sqlite_master m
+    JOIN pragma_foreign_key_list(m.name) fk1
+    JOIN pragma_foreign_key_list(m.name) fk2
+    WHERE m.type = 'table'
+    AND m.name LIKE '%_%'  -- Junction tables have underscores
+    AND fk1.id < fk2.id    -- Only get each relationship once
+    AND (fk1.\"table\" = ? OR fk2.\"table\" = ?)`,
+	);
 
-export const roleFields = {
-	name: {
-		type: "text",
-		label: "Role Name",
-		placeholder: "Admin",
-	},
-	value: {
-		type: "text",
-		label: "Role Value",
-		placeholder: "admin",
-		helpText: "Unique identifier for the role",
-	},
-	description: {
-		type: "textarea",
-		label: "Description",
-		rows: 2,
-	},
-	active: {
-		type: "select",
-		label: "Status",
-		options: [
-			{ value: true, label: "Active" },
-			{ value: false, label: "Inactive" },
-		],
-	},
-};
+	return relationshipsQuery.all([tableName, tableName]);
+}
 
-export const tableDefinitions = {
-	users: { schema: userSchema, fields: userFields },
-	conferences: { schema: conferenceSchema, fields: conferenceFields },
-	talks: { schema: talkSchema, fields: talkFields },
-	sponsors: { schema: sponsorSchema, fields: sponsorFields },
-	roles: { schema: roleSchema, fields: roleFields },
-};
+function getJunctionTableInfo(junctionTable: string) {
+	// Get column order from table info
+	const columnsQuery = db.prepare(`SELECT * FROM pragma_table_info(?)`);
+	const columns = columnsQuery.all([junctionTable]);
+
+	// Get foreign key information
+	const foreignKeysQuery = db.prepare(
+		`SELECT * FROM pragma_foreign_key_list(?)`,
+	);
+
+	const foreignKeys = foreignKeysQuery.all([junctionTable]);
+
+	return {
+		columns: columns.map((c) => c.name),
+		foreignKeys: foreignKeys.map((fk) => ({
+			from: fk.from, // column in junction table
+			to: fk.to, // column in referenced table (usually 'id')
+			table: fk.table, // referenced table name
+		})),
+	};
+}
+
+/**
+ * Get correct order of values for junction table insert
+ */
+export function getJunctionInsertOrder(
+	junctionTable: string,
+	mainTable: string,
+	mainId: string,
+	relatedId: string,
+) {
+	const { foreignKeys } = getJunctionTableInfo(junctionTable);
+
+	// Find which foreign key corresponds to our main table
+	const mainFk = foreignKeys.find((fk) => fk.table === mainTable);
+
+	if (!mainFk) {
+		throw new Error(
+			`No foreign key found for ${mainTable} in ${junctionTable}`,
+		);
+	}
+
+	// The column referring to main table goes with mainId
+	// The other column goes with relatedId
+	const values = foreignKeys.map((fk) => {
+		if (fk.table === mainTable) {
+			return mainId;
+		}
+		return relatedId;
+	});
+
+	return {
+		columns: foreignKeys.map((fk) => fk.from),
+		values,
+	};
+}
