@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS conference_sponsors (
     conferences_id TEXT NOT NULL REFERENCES conferences(id),
     sponsors_id TEXT NOT NULL REFERENCES sponsors(id),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (conference_id, sponsor_id)
+    PRIMARY KEY (conferences_id, sponsors_id)
 );
 CREATE TABLE IF NOT EXISTS roles (
     id INTEGER PRIMARY KEY AUTOINCREMENT,

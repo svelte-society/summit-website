@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+/* Icons */
+
+i {
+	font-size:18px;
+	border-radius:50px;
+	margin-right:5px;
+}
+
+i.larger {
+	font-size:20px;
+	padding:3px 5px;
+}
+
+i.largest {
+	font-size:24px;
+}
+
+i.orange-1 {
+	background-color:#FFF480;
+	padding:4px 6px;
+}
+
+i.orange-3 {
+	background-color:#000;
+	padding:4px 6px;
+}
+

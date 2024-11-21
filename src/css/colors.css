@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+/* Colors */
+
+.black {
+	color:#000000;
+}
+
+.orange-1 {
+	color:#E7820E;
+}
+
+.orange-2 {
+	color:#EF6C15;
+}
+
+.orange-3 {
+	color:#F7A649;
+}
+
+.white {
+	color:#ffffff;
+}
+
+.lt-yellow {
+	color:#FFF480;
+}

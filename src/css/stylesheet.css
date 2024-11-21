@@ -1,0 +1,353 @@
+@charset "utf-8";
+
+@import url("colors.css");
+@import url("spacing.css");
+@import url("text.css");
+@import url("icons.css");
+@import url("layout.css");
+@import url("slider.css");
+
+
+body {
+	background:#E7820E;
+	font-size:18px;
+}
+
+a {
+  	margin: 0 -.25rem;
+  	padding: 0 .25rem;
+  	transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+	text-decoration:none;
+}
+
+#social-media a {
+	box-shadow: inset 0 0 0 0 #FFF480;
+	color: #FFF480;
+}
+
+#social-media a:hover {
+  	box-shadow: inset 500px 0 0 0 #FFF480;
+}
+
+#links a { 
+	box-shadow: inset 0 0 0 0 #000000;
+	color: #000000;
+}
+
+#links a:hover {
+	box-shadow: inset 500px 0 0 0 #000000;
+}
+
+#organizers a { 
+	box-shadow: inset 0 0 0 0 #FFFFFF;
+	color: #FFF;
+}
+
+#organizers a:hover {
+	box-shadow: inset 500px 0 0 0 #FFFFFF;
+}
+
+a:hover h3 {
+	color:#E7820E;
+	text-decoration:none !important;
+	
+}
+
+#hero-image #main-image {
+	position:relative;
+	left: 0px;
+	top:-50px;
+	border-radius:50px;
+	margin-left:6rem;
+	z-index:1
+}
+
+@media (max-width:999px) {
+	#hero-image #main-image {
+		top:0px;
+		margin-left:0;
+	}
+}
+
+@media (min-width:1920px) {
+	#hero-image #main-image {
+		top:-100px;
+	}
+}
+
+#hero-image p {
+	padding:4px 10px 2px 10px;
+	background-color:white;
+	border-radius:15px;
+	z-index: 5;
+	position:relative;
+	left:50px;
+	top:50px;
+	width:18rem;
+	text-align:center;
+	font-weight:500;
+	filter: drop-shadow(10px 10px 10px rgba(120, 10, 10, 0.35));
+	margin-top:0;
+	display:inherit;
+}
+
+@media (max-width:999px) {
+	#hero-image p {
+		display:none;
+	}
+}
+
+#hero-image img:not(#main-image) {
+	position:relative;
+	width:15vw;
+	z-index:5;
+	top:-300px;
+	margin-bottom:-200px;
+	display:inherit;
+}
+
+@media (max-width:999px) {
+	#hero-image img:not(#main-image) {
+		width:30vw;
+		top:-33vw;
+		right:10px;
+		display:none;		
+	}
+}
+
+button {
+	background-color:#000;
+	border:none;
+	padding:20px 35px;
+	margin-bottom:0;
+	border-radius:50px;
+	box-shadow: 10px 30px 50px 0px rgba(120, 10, 10, 0.35);
+	transition: all 0.4s;
+}
+
+button:hover, button:active {
+	background-color:#FFFFFF;
+	scale: 1.1;
+	box-shadow: 10px 30px 10px 0px rgba(120, 10, 10, 0.35);
+	transition: all 0.2s ease-in-out;
+}
+
+button h3 {
+	color:#FFF480;	
+	transition: all 0.4s;
+}
+
+button:hover h3, button:active h3 {
+	color:#000;
+	transition: all 0.2s ease-in-out;
+}
+
+@media (max-width:999px) {
+	#hero button {
+		margin-bottom:3rem;
+	}
+}
+
+img.responsive {
+	max-width: 100%;
+	height: auto;
+}
+
+img.img-speaker {
+	width:50%;
+	max-width:150px;
+}
+
+img#two-dots {
+	width:126px;
+	height:auto;
+}
+
+
+@media (max-width:999px) {
+	img#two-dots {
+		width:20%;
+		height:auto;
+	}
+}
+
+#hero, #conference-info {
+	padding-left:0;
+	padding-right:0;
+}
+
+@media (max-width:999px) {
+	#hero {
+		padding-left:5vw;
+		padding-right:5vw;
+	}
+}
+
+
+#invited-speaker, #past-speakers, #social-media, #organizers {
+	display:block;
+	margin:70px 8.33vw;
+	border-radius:50px;
+	padding:5rem;
+}
+
+@media (max-width:999px) {
+	#invited-speaker, #past-speakers, #social-media, #organizers {
+		margin:70px 5vw;
+		padding:2rem;
+	}
+}
+
+#invited-speaker {
+	background-color:#F7CF4A;
+	background-image: url( '../images/backgrounds/grid.svg');
+	background-position:center right;
+	background-repeat:no-repeat;
+	filter: drop-shadow(10px 30px 50px rgba(120, 10, 10, 0.23));
+}
+
+@media (max-width:999px) {
+	#invited-speaker {
+		background-image:none;
+	}
+}
+
+#invited-speaker .row {
+	flex-direction:column;
+}
+
+#social-media {
+	border:solid 2px #FFF480;
+	padding:5rem;
+	background-image: url( '../images/backgrounds/dots.svg');
+	background-position:top left;
+	background-repeat:no-repeat;
+}
+
+@media (max-width:999px) {
+	#social-media {
+		padding:2rem 0;
+		background-image:none;
+	}
+}
+
+#social-media .link, #links .link {
+	padding:0 2rem;
+}
+
+@media (max-width:999px) {
+	#social-media .link, #links .link{
+		padding:1rem 0;
+	}
+}
+
+#social-media h3, #links h3 {
+	text-decoration: underline;
+}
+
+#invited-speaker h2, #past-speakers h2, #social-media h2, #organizers h2 {
+	text-align:right;
+	padding-right:2rem;
+	padding-bottom:0;
+}
+
+@media (max-width:999px) {
+	#invited-speaker h2, #past-speakers h2, #social-media h2, #organizers h2 {
+		text-align:center;
+		padding-right:0;
+		padding-bottom:2rem;
+}
+}
+
+#venue, #community, #buy-tickets, #links {
+	display:block;
+	padding:70px 10vw;
+}
+
+@media (max-width:999px) {
+	#venue, #community, #buy-tickets, #links {
+		padding:2rem 0;
+		margin:0 5vw;
+	}
+}
+#venue img, #community img {
+	border-radius: 50px;
+}
+
+#venue .text, #community .text {
+	padding:0 2rem 0 0;
+}
+
+@media (max-width:999px) {
+	#venue .text, #community .text {
+		padding:2rem 0 0 0;
+	}
+}
+
+#venue .photo, #community .photo {
+	padding:0 0 0 2rem;
+}
+
+@media (max-width:999px) {
+	#venue .photo, #community .photo {
+		padding:0;
+	}
+}
+
+#buy-tickets {
+	text-align:center;
+}
+
+#organizers {
+	background-color:#F7A649;
+}
+
+#organizers #mainmatter {
+	width: clamp(150px, 40%, 260px);
+}
+
+#organizers .column {
+	justify-content:start;
+}
+
+@media (max-width:999px) {
+	#organizers .column {
+		justify-content: center;
+	}
+}
+
+#past-speakers h2 {
+	padding-top:20px;
+}
+
+#past-speakers .container {
+	align-items:start;
+}
+
+@media (max-width:999px) {
+	#past-speakers .container {
+		align-items:center;
+	}
+}
+
+#social-media .container, #links .container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+@media (max-width:999px) {
+	#social-media .container, #links .container {
+		flex-direction:column;
+	}
+}
+
+.speaker-info {
+	padding-left:2rem;
+}
+
+@media (max-width:999px) {
+	.speaker-info {
+		padding-left:1rem;
+	}
+}
