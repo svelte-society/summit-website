@@ -8,6 +8,7 @@
 	import venue from '$images/venue.jpg';
 	import mainmatter_logo from '$images/maimatter.svg';
 	import Speaker from '$lib/components/Speaker.svelte';
+	import Link from '$lib/components/Link.svelte';
 </script>
 
 <svelte:head>
@@ -49,7 +50,7 @@
 						</div>
 					</div>
 					<div class="column">
-						<div class="inline-flex">
+						<div class="inline-flex items-start">
 							<i class="bi bi-geo-alt-fill orange-1 larger"></i>
 							<h3 class="white no-caps">Barcelona &amp; online</h3>
 						</div>
@@ -101,8 +102,11 @@
 		<div class="link">
 			<div class="inline-flex">
 				<i class="bi bi-envelope-open-fill orange-1 mr-half"></i>
-				<a href="https://marketing.sveltesociety.dev/forms/nfrm_weLJnLY5" target="_blank"
-					><h3 class="lt-yellow no-caps">Sign up to our newsletter</h3></a
+				<Link
+					bg="var(--orange)"
+					fg="var(--yellow)"
+					href="https://marketing.sveltesociety.dev/forms/nfrm_weLJnLY5"
+					target="_blank"><h3 class="no-caps">Sign up to our newsletter</h3></Link
 				>
 			</div>
 		</div>
@@ -199,8 +203,11 @@
 	<div class="lg-row vertical-center">
 		<h2 class="white column">Organizers</h2>
 		<div class="column inline-flex">
-			<a href="https://www.sveltesociety.dev/" target="_blank"
-				><h3 class="white">Svelte&nbsp;Society</h3></a
+			<Link
+				fg="var(--white)"
+				bg="var(--orange-3)"
+				href="https://www.sveltesociety.dev/"
+				target="_blank"><h3>Svelte&nbsp;Society</h3></Link
 			>
 			<img class="pl-2 responsive" src={mainmatter_logo} id="mainmatter" alt="mainmatter logo" />
 		</div>
@@ -211,24 +218,24 @@
 		<div class="link">
 			<div class="inline-flex">
 				<i class="bi bi-question-lg orange-3 mr-half"></i>
-				<a href="https://www.wikipedia.org" target="_blank"
-					><h3 class="black no-caps">Frequently asked questions</h3></a
+				<Link bg="var(--orange)" fg="var(--black)" href="https://www.wikipedia.org" target="_blank"
+					><h3 class="no-caps">Frequently asked questions</h3></Link
 				>
 			</div>
 		</div>
 		<div class="link">
 			<div class="inline-flex">
 				<i class="bi bi-chat-heart-fill orange-3 mr-half"></i>
-				<a href="https://www.wikipedia.org" target="_blank"
-					><h3 class="black no-caps">Become a sponsor</h3></a
+				<Link bg="var(--orange)" fg="var(--black)" href="https://www.wikipedia.org" target="_blank"
+					><h3 class="no-caps">Become a sponsor</h3></Link
 				>
 			</div>
 		</div>
 		<div class="link">
 			<div class="inline-flex">
 				<i class="bi bi-megaphone-fill orange-3 mr-half"></i>
-				<a href="https://www.wikipedia.org" target="_blank"
-					><h3 class="black no-caps">Submit a talk</h3></a
+				<Link bg="var(--orange)" fg="var(--black)" href="https://www.wikipedia.org" target="_blank"
+					><h3 class="no-caps">Submit a talk</h3></Link
 				>
 			</div>
 		</div>

@@ -19,11 +19,17 @@ i.largest {
 
 i.orange-1 {
 	background-color:#FFF480;
-	padding:4px 6px;
+    aspect-ratio: 1;
+    width: 40px;
+    display: grid;
+    place-items: center;
 }
 
 i.orange-3 {
 	background-color:#000;
-	padding:4px 6px;
+    aspect-ratio: 1;
+    width: 40px;
+    display: grid;
+    place-items: center;
 }
 

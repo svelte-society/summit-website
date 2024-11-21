@@ -2,6 +2,15 @@
 
 /* Colors */
 
+:root{
+	--black: #000;
+	--orange:#E7820E;
+	--orange-2:#EF6C15;
+	--orange-3:#F7A649;
+	--yellow:#FFF480;
+	--white: #fff;
+}
+
 .black {
 	color:#000000;
 }
