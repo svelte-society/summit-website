@@ -1,141 +1,154 @@
 <script>
-    import yellow_dots from '../images/backgrounds/yellow-dots.svg';
-    import favicon from '../images/favicon.svg';
-    import hero from '../images/hero.jpg';
-    import svelte_barcelona from '../images/svelte-barcelona.png';
-    import speaker_rich from '../images/past-speakers/rich.png';
-    import speaker_paolo from '../images/past-speakers/paolo.png';
-    import venue from '../images/venue.jpg';
-    import mainmatter_logo from '../images/maimatter.svg';
+	import yellow_dots from '$images/backgrounds/yellow-dots.svg';
+	import favicon from '$images/favicon.svg';
+	import hero from '$images/hero.jpg';
+	import svelte_barcelona from '$images/svelte-barcelona.png';
+	import speaker_rich from '$images/past-speakers/rich.png';
+	import speaker_paolo from '$images/past-speakers/paolo.png';
+	import venue from '$images/venue.jpg';
+	import mainmatter_logo from '$images/maimatter.svg';
+	import Speaker from '$lib/components/Speaker.svelte';
 </script>
+
 <svelte:head>
-<meta charset="utf-8">
-<title>Svelte Summit Spring 2025: Barcelona and online</title>
-<link rel="icon" type="image/x-icon" href={favicon}>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<meta charset="utf-8" />
+	<title>Svelte Summit Spring 2025: Barcelona and online</title>
+	<link rel="icon" type="image/x-icon" href={favicon} />
 </svelte:head>
 
-	<section id="hero" class="pt-5">
-		<div class="row-reverse">
-			<div class="column" id="hero-image">
-				<p>The 10th Svelte-only conference</p>
-				<img id="main-image" src={hero} class="responsive" alt="Photo of a previous Svelte summit, with audience members listening to a talk" />
-				<img src={yellow_dots}>
-			</div>
-			<div class="column center" id="conference-info">
-				<div>
-					<div class="pb-3">	
-						<div class="inline-flex pb-1">
-							<h2 class="white">Svelte Summit</h2>
-							<img id="two-dots" src={svelte_barcelona}>
+<section id="hero" class="pt-5">
+	<div class="row-reverse">
+		<div class="column" id="hero-image">
+			<p>The 10th Svelte-only conference</p>
+			<img
+				id="main-image"
+				src={hero}
+				class="responsive"
+				alt="previous Svelte summit, with audience members listening to a talk"
+			/>
+			<img src={yellow_dots} alt="" />
+		</div>
+		<div class="column center" id="conference-info">
+			<div>
+				<div class="pb-3">
+					<div class="inline-flex pb-1">
+						<h2 class="white">Svelte Summit</h2>
+						<img
+							id="two-dots"
+							src={svelte_barcelona}
+							alt="a dot with the svelte logo and a dot with the sagrada familia"
+						/>
+					</div>
+					<h1 class="lt-yellow">Spring 2025</h1>
+				</div>
+				<div class="row pb-3">
+					<div class="column pb-2">
+						<div class="inline-flex">
+							<i class="bi bi-calendar-fill orange-1"></i>
+							<h3 class="white no-caps">May 8 &amp; 9, 2025</h3>
 						</div>
-						<h1 class="lt-yellow">Spring 2025</h1>
 					</div>
-					<div class="row pb-3">
-						<div class="column pb-2">
-							<div class="inline-flex">
-								<i class="bi bi-calendar-fill orange-1"></i>
-								<h3 class="white no-caps">May 8 &amp; 9, 2025</h3>
-							</div>
-						</div>
-						<div class="column">
-							<div class="inline-flex">
-								<i class="bi bi-geo-alt-fill orange-1 larger"></i>
-								<h3 class="white no-caps">Barcelona &amp; online</h3>
-							</div>
+					<div class="column">
+						<div class="inline-flex">
+							<i class="bi bi-geo-alt-fill orange-1 larger"></i>
+							<h3 class="white no-caps">Barcelona &amp; online</h3>
 						</div>
 					</div>
-					<button><h3 class="lt-yellow">Buy Tickets</h3></button>
 				</div>
+				<button><h3 class="lt-yellow">Buy Tickets</h3></button>
 			</div>
 		</div>
-	</section>
-	<section id="invited-speaker">
-		<div class="lg-row vertical-center">
-			<h2 class="orange-2 column">Invited speaker</h2>
-			<div class="inline-flex column">
-				<img src={speaker_rich} alt="Rich Harris" class="img-speaker">
-				<div class="speaker-info">
-					<h3 class="orange-2">Rich Harris</h3>
-					<h4 class="black mb-half">Creator of Svelte</h4>
-					<i class="bi bi-github black largest pt-2"></i>
-				</div>
+	</div>
+</section>
+<section id="invited-speaker">
+	<div class="lg-row vertical-center">
+		<h2 class="orange-2 column">Invited speaker</h2>
+		<Speaker
+			img={speaker_rich}
+			name="Rich Harris"
+			description="Creator of Svelte"
+			variant="invited"
+		/>
+	</div>
+</section>
+<section id="past-speakers">
+	<div class="lg-row container">
+		<h2 class="lt-yellow column">Past speakers</h2>
+		<div class="column gap-10">
+			<Speaker
+				img={speaker_paolo}
+				name="Paolo Ricciuti"
+				description="Creator of Svelte in his dreams"
+				variant="past"
+			/>
+			<Speaker
+				img={speaker_paolo}
+				name="Paolo Ricciuti"
+				description="Creator of Svelte in his dreams"
+				variant="past"
+			/>
+			<Speaker
+				img={speaker_paolo}
+				name="Paolo Ricciuti"
+				description="Creator of Svelte in his dreams"
+				variant="past"
+			/>
+		</div>
+	</div>
+</section>
+<section id="social-media" class="orange-1">
+	<div class="container justify-center">
+		<div class="link">
+			<div class="inline-flex">
+				<i class="bi bi-envelope-open-fill orange-1 mr-half"></i>
+				<a href="https://marketing.sveltesociety.dev/forms/nfrm_weLJnLY5" target="_blank"
+					><h3 class="lt-yellow no-caps">Sign up to our newsletter</h3></a
+				>
 			</div>
 		</div>
-	</section>
-	<section id="past-speakers">
-		<div class="lg-row container">
-			<h2 class="lt-yellow column">Past speakers</h2>
-			<div class="column">
-				<div class="inline-flex pb-3">
-					<img src={speaker_paolo} class="img-speaker" alt="Rich Harris">
-					<div class="speaker-info">
-						<h3 class="lt-yellow">Rich Harris</h3>
-						<h4 class="black mb-half">Creator of Svelte</h4>
-						<i class="bi bi-github black largest pt-2"></i>
-					</div>
-				</div>
-				<div class="inline-flex pb-3">
-					<img src={speaker_paolo} class="img-speaker" alt="Rich Harris">
-					<div class="speaker-info">
-						<h3 class="lt-yellow">Rich Harris</h3>
-						<h4 class="black mb-half">Creator of Svelte</h4>
-						<i class="bi bi-github black largest pt-2"></i>
-					</div>
-				</div>
-				<div class="inline-flex">
-					<img src={speaker_paolo} class="img-speaker" alt="Rich Harris">
-					<div class="speaker-info">
-						<h3 class="lt-yellow">Rich Harris</h3>
-						<h4 class="black mb-half">Creator of Svelte</h4>
-						<i class="bi bi-github black largest pt-2"></i>
-					</div>
-				</div>
-			</div>
-			
-		</div>
-	</section>
-	<section id="social-media" class="orange-1">
-		<div class="container justify-center">
-			<div class="link">
-				<div class="inline-flex">
-					<i class="bi bi-envelope-open-fill orange-1 mr-half"></i>
-					<a href="https://marketing.sveltesociety.dev/forms/nfrm_weLJnLY5" target="_blank"><h3 class="lt-yellow no-caps">Sign up to our newsletter</h3></a>
-				</div>
-			</div>
-			<div class="link">
-				<div class="inline-flex">
-					<i class="bi bi-mastodon orange-1 mr-half"></i>
-					<h3 class="lt-yellow no-caps">Mastodon</h3>
-				</div>
-			</div>
-			<div class="link">
-				<div class="inline-flex">
-					<i class="bi bi-twitter-x orange-1 mr-half"></i>
-					<h3 class="lt-yellow no-caps">Twitter</h3>
-				</div>
-			</div>				
-		</div>			
-	</section>
-	<section id="venue">
-		<div class="container row-reverse vertical-center">
-			<div class="column text">
-				<h2 class="white">Conference venue</h2>
-				<p class="white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis lacus ac mi vestibulum, ac rhoncus erat lobortis. Pellentesque sed lorem eget tortor tincidunt pellentesque non id leo. Ut at odio eget felis pulvinar mattis commodo quis elit. Nunc sit amet efficitur diam. Donec vitae nunc porta, feugiat ex et, varius ipsum. Proin mattis nec sem vitae hendrerit. Morbi convallis erat sit amet lacus tincidunt consectetur ut sit amet nibh. </p>
-			</div>
-			<div class="column photo">
-				<img src={venue} class="responsive">
+		<div class="link">
+			<div class="inline-flex">
+				<i class="bi bi-mastodon orange-1 mr-half"></i>
+				<h3 class="lt-yellow no-caps">Mastodon</h3>
 			</div>
 		</div>
-	</section>
-	<section id="community">
-		<div class="container row-reverse vertical-center">
-			<div class="column text">
-				<h2 class="lt-yellow">Meet the Svelte community</h2>
-				<p class="lt-yellow">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis lacus ac mi vestibulum, ac rhoncus erat lobortis. Pellentesque sed lorem eget tortor tincidunt </p>
+		<div class="link">
+			<div class="inline-flex">
+				<i class="bi bi-twitter-x orange-1 mr-half"></i>
+				<h3 class="lt-yellow no-caps">Twitter</h3>
 			</div>
-			<div class="column photo">
-				<!-- <div class="slideshow-container">
+		</div>
+	</div>
+</section>
+<section id="venue">
+	<div class="container row-reverse vertical-center">
+		<div class="column text">
+			<h2 class="white">Conference venue</h2>
+			<p class="white">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis lacus ac mi
+				vestibulum, ac rhoncus erat lobortis. Pellentesque sed lorem eget tortor tincidunt
+				pellentesque non id leo. Ut at odio eget felis pulvinar mattis commodo quis elit. Nunc sit
+				amet efficitur diam. Donec vitae nunc porta, feugiat ex et, varius ipsum. Proin mattis nec
+				sem vitae hendrerit. Morbi convallis erat sit amet lacus tincidunt consectetur ut sit amet
+				nibh.
+			</p>
+		</div>
+		<div class="column photo">
+			<img src={venue} class="responsive" alt="our venue" />
+		</div>
+	</div>
+</section>
+<section id="community">
+	<div class="container row-reverse vertical-center">
+		<div class="column text">
+			<h2 class="lt-yellow">Meet the Svelte community</h2>
+			<p class="lt-yellow">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis lacus ac mi
+				vestibulum, ac rhoncus erat lobortis. Pellentesque sed lorem eget tortor tincidunt
+			</p>
+		</div>
+		<div class="column photo">
+			<!-- <div class="slideshow-container">
 					<div class="mySlides fade">
 						<img src="./images/community-1.jpg" class="responsive">
 				  	</div>
@@ -176,38 +189,48 @@
 				</script>
 			</div> 
 		</div> -->
-	</section>
-	<section id="buy-tickets">
-		<button><h3 class="lt-yellow">Buy Tickets</h3></button>
-	</section>
-	<section id="organizers">
-		<div class="lg-row vertical-center">
-			<h2 class="white column">Organizers</h2>
-			<div class="column inline-flex">
-				<a href="https://www.sveltesociety.dev/" target="_blank"><h3 class="white">Svelte&nbsp;Society</h3></a>
-				<img class="pl-2 responsive" src={mainmatter_logo} id="mainmatter">
+		</div>
+	</div>
+</section>
+<section id="buy-tickets">
+	<button><h3 class="lt-yellow">Buy Tickets</h3></button>
+</section>
+<section id="organizers">
+	<div class="lg-row vertical-center">
+		<h2 class="white column">Organizers</h2>
+		<div class="column inline-flex">
+			<a href="https://www.sveltesociety.dev/" target="_blank"
+				><h3 class="white">Svelte&nbsp;Society</h3></a
+			>
+			<img class="pl-2 responsive" src={mainmatter_logo} id="mainmatter" alt="mainmatter logo" />
+		</div>
+	</div>
+</section>
+<section id="links">
+	<div class="container justify-center">
+		<div class="link">
+			<div class="inline-flex">
+				<i class="bi bi-question-lg orange-3 mr-half"></i>
+				<a href="https://www.wikipedia.org" target="_blank"
+					><h3 class="black no-caps">Frequently asked questions</h3></a
+				>
 			</div>
 		</div>
-	</section>
-	<section id="links">
-		<div class="container justify-center">
-			<div class="link">
-				<div class="inline-flex">
-					<i class="bi bi-question-lg orange-3 mr-half"></i>
-					<a href="https://www.wikipedia.org" target="_blank"><h3 class="black no-caps">Frequently asked questions</h3></a>
-				</div>
+		<div class="link">
+			<div class="inline-flex">
+				<i class="bi bi-chat-heart-fill orange-3 mr-half"></i>
+				<a href="https://www.wikipedia.org" target="_blank"
+					><h3 class="black no-caps">Become a sponsor</h3></a
+				>
 			</div>
-			<div class="link">
-				<div class="inline-flex">
-					<i class="bi bi-chat-heart-fill orange-3 mr-half"></i>
-					<a href="https://www.wikipedia.org" target="_blank"><h3 class="black no-caps">Become a sponsor</h3></a>
-				</div>
+		</div>
+		<div class="link">
+			<div class="inline-flex">
+				<i class="bi bi-megaphone-fill orange-3 mr-half"></i>
+				<a href="https://www.wikipedia.org" target="_blank"
+					><h3 class="black no-caps">Submit a talk</h3></a
+				>
 			</div>
-			<div class="link">
-				<div class="inline-flex">
-					<i class="bi bi-megaphone-fill orange-3 mr-half"></i>
-					<a href="https://www.wikipedia.org" target="_blank"><h3 class="black no-caps">Submit a talk</h3></a>
-				</div>
-			</div>				
-		</div>	
-	</section>
+		</div>
+	</div>
+</section>

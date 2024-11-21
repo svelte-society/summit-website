@@ -342,12 +342,3 @@ img#two-dots {
 	}
 }
 
-.speaker-info {
-	padding-left:2rem;
-}
-
-@media (max-width:999px) {
-	.speaker-info {
-		padding-left:1rem;
-	}
-}
