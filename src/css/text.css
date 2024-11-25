@@ -63,7 +63,7 @@ h2 {
 
 h3 {
 	/* 30px */
-	font-size:clamp(20px, 2.08vw, 50px);
+	font-size:clamp(20px, 2vw, 50px);
 }
 
 @media (max-width:999px) {
