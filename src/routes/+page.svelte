@@ -1,4 +1,5 @@
 <script>
+	import og_image from '$images/og_image.png';
 	import yellow_dots from '$images/backgrounds/yellow-dots.svg';
 	import favicon from '$images/favicon.svg';
 	import hero from '$images/hero.jpg';
@@ -15,6 +16,9 @@
 	<meta charset="utf-8" />
 	<title>Svelte Summit Spring 2025: Barcelona and online</title>
 	<link rel="icon" type="image/x-icon" href={favicon} />
+	<meta property="og:title" content="Svelte Summit Spring 2025: Barcelona & online" />
+	<meta property="og:description" content="The world's largest Svelte conference" />
+	<meta property="og:image" content={og_image} />
 </svelte:head>
 
 <section id="hero" class="pt-5">
