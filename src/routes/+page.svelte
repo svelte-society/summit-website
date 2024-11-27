@@ -9,6 +9,7 @@
 	import speaker_jacob from '$images/past-speakers/jacob.png';
 	import speaker_ben from '$images/past-speakers/ben.png';
 	import venue from '$images/venue.jpg';
+	import svelte_society_logo from '$images/svelte-society-logo.svg';
 	import mainmatter_logo from '$images/maimatter.svg';
 	import Speaker from '$lib/components/Speaker.svelte';
 	import Link from '$lib/components/Link.svelte';
@@ -80,7 +81,7 @@
 	</div>
 </section>
 <section id="past-speakers">
-	<div class="lg-row container">
+	<div class="lg-row container mx-auto">
 		<h2 class="lt-yellow column">Past speakers</h2>
 		<div class="column gap-10">
 			<Speaker
@@ -108,7 +109,7 @@
 	</div>
 </section>
 <section id="social-media" class="orange-1">
-	<div class="container justify-center">
+	<div class="container justify-center mx-auto">
 		<div class="link">
 			<div class="inline-flex">
 				<i class="bi bi-envelope-open-fill orange-1 mr-half"></i>
@@ -145,7 +146,7 @@
 	</div>
 </section>
 <section id="venue">
-	<div class="container row-reverse vertical-center">
+	<div class="container row-reverse vertical-center mx-auto">
 		<div class="column text">
 			<h2 class="white">Conference venue</h2>
 			<p class="white">
@@ -163,7 +164,7 @@
 	</div>
 </section>
 <section id="community">
-	<div class="container row-reverse vertical-center">
+	<div class="container row-reverse vertical-center mx-auto">
 		<div class="column text">
 			<h2 class="lt-yellow">Meet the Svelte community</h2>
 			<p class="lt-yellow">
@@ -220,21 +221,26 @@
 	<button><h3 class="lt-yellow">Buy Tickets</h3></button>
 </section>
 <section id="organizers">
-	<div class="lg-row vertical-center">
+	<div class="lg-row vertical-center container">
 		<h2 class="white column">Organizers</h2>
-		<div class="column inline-flex">
-			<Link
-				fg="var(--white)"
-				bg="var(--orange-3)"
-				href="https://www.sveltesociety.dev/"
-				target="_blank"><h3>Svelte&nbsp;Society</h3></Link
-			>
-			<img class="pl-2 responsive" src={mainmatter_logo} id="mainmatter" alt="mainmatter logo" />
+		<div class="column container">
+			<div class="ml-2 image-link">
+				<Link
+					href="https://www.sveltesociety.dev/"
+					target="_blank"><img class="responsive" id="svelte-society" src={svelte_society_logo} alt="svelte society logo" /></Link
+				>
+			</div>
+			<div class="ml-2 image-link">
+				<Link
+					href="https://www.mainmatter.com/"
+					target="_blank"><img class="responsive" src={mainmatter_logo} id="mainmatter" alt="mainmatter logo" /></Link
+				>
+			</div>
 		</div>
 	</div>
 </section>
 <section id="links">
-	<div class="container justify-center">
+	<div class="container justify-center mx-auto">
 		<div class="link">
 			<div class="inline-flex">
 				<i class="bi bi-question-lg orange-3 mr-half"></i>

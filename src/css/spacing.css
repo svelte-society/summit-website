@@ -37,6 +37,10 @@
 	}
 }
 
+.ml-2 {
+	margin-left:2rem;
+}
+
 .mr-half {
 	margin-right:.5rem;
 }
@@ -47,4 +51,8 @@
 
 .mb-half {
 	margin-bottom:.5rem;
+}
+
+.mx-auto {
+	margin:inherit auto;
 }

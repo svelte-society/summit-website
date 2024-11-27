@@ -19,6 +19,18 @@ a {
  	text-decoration:none;
 }
 
+.image-link {
+	scale:1;
+	transition: all 0.2s ease-in-out;
+}
+
+
+.image-link:hover, .image-link:active {
+	scale:1.05;
+	transition: all 0.2s ease-in-out;
+}
+
+
 #hero-image #main-image {
 	position:relative;
 	left: 0px;
@@ -92,14 +104,14 @@ button {
 }
 
 button:hover, button:active {
-	background-color:#FFFFFF;
+	background-color:white;
 	scale: 1.1;
 	box-shadow: 10px 30px 10px 0px rgba(120, 10, 10, 0.35);
 	transition: all 0.2s ease-in-out;
 }
 
 button h3 {
-	color:#FFF480;	
+	color:yellow;	
 	transition: all 0.4s;
 }
 
@@ -280,7 +292,11 @@ img#two-dots {
 }
 
 #organizers #mainmatter {
-	width: clamp(150px, 40%, 260px);
+	width: clamp(200px, 50%, 260px);
+}
+
+#organizers #svelte-society {
+	width:clamp(120px, 9vw, 150px);
 }
 
 #organizers .column {
@@ -290,6 +306,16 @@ img#two-dots {
 @media (max-width:999px) {
 	#organizers .column {
 		justify-content: center;
+	}
+}
+
+#organizers a {
+	padding:inherit;
+}
+
+@media (max-width:999px) {
+	#organizers a{
+		padding:1rem 0 1rem 0;
 	}
 }
 
@@ -307,14 +333,14 @@ img#two-dots {
 	}
 }
 
-#social-media .container, #links .container {
+#social-media .container, #links .container, #organizers .container {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 }
 
 @media (max-width:999px) {
-	#social-media .container, #links .container {
+	#social-media .container, #links .container, #organizers .container {
 		flex-direction:column;
 	}
 }
