@@ -217,6 +217,11 @@ img#two-dots {
 	text-decoration-color: var(--black);
 }
 
+#social-media h3:hover,
+#links h3:hover{
+	text-decoration:none;
+}
+
 #invited-speaker h2, #past-speakers h2, #social-media h2, #organizers h2 {
 	text-align:right;
 	padding-right:2rem;
