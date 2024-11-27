@@ -161,6 +161,9 @@ img#two-dots {
 	}
 }
 
+.speaker-info {
+	max-width:60%;
+}
 
 #invited-speaker, #past-speakers, #social-media, #organizers {
 	display:block;
