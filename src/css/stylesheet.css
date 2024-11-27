@@ -165,7 +165,7 @@ img#two-dots {
 	max-width:60%;
 }
 
-#invited-speaker, #past-speakers, #social-media, #organizers {
+#invited-speaker, #past-speakers, #social-media, #organizers, #faq {
 	display:block;
 	margin:70px 8.33vw;
 	border-radius:50px;
@@ -173,7 +173,7 @@ img#two-dots {
 }
 
 @media (max-width:999px) {
-	#invited-speaker, #past-speakers, #social-media, #organizers {
+	#invited-speaker, #past-speakers, #social-media, #organizers, #faq {
 		margin:70px 5vw;
 		padding:2rem;
 	}
@@ -347,4 +347,9 @@ img#two-dots {
 		flex-direction:column;
 	}
 }
+
+#page-header #logo {
+	width:clamp(200px, 25vw, 400px);
+}
+
 
