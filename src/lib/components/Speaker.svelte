@@ -6,8 +6,9 @@
 		name: string;
 		description: string;
 		variant: 'invited' | 'past';
+		url: string;
 	};
-	let { img, name, description, variant }: Props = $props();
+	let { img, name, description, variant, url }: Props = $props();
 </script>
 
 <div class="inline-flex column">
@@ -15,7 +16,7 @@
 	<div class="speaker-info">
 		<h3 class:orange-2={variant === 'invited'} class:lt-yellow={variant === 'past'}>{name}</h3>
 		<h4 class="black mb-half">{description}</h4>
-		<img class="github" src={github} alt="github logo" />
+		<a href={url} target="_blank"><img class="github" src={github} alt="github logo" /></a>
 	</div>
 </div>
 
@@ -26,6 +27,10 @@
 
 	.speaker-info {
 		padding-left: 2rem;
+	}
+
+	.speaker-info a{
+		display:block;
 	}
 
 	@media (max-width: 999px) {

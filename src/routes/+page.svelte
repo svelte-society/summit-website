@@ -6,6 +6,8 @@
 	import svelte_barcelona from '$images/svelte-barcelona.png';
 	import speaker_rich from '$images/past-speakers/rich.png';
 	import speaker_paolo from '$images/past-speakers/paolo.png';
+	import speaker_jacob from '$images/past-speakers/jacob.png';
+	import speaker_ben from '$images/past-speakers/ben.png';
 	import venue from '$images/venue.jpg';
 	import mainmatter_logo from '$images/maimatter.svg';
 	import Speaker from '$lib/components/Speaker.svelte';
@@ -73,6 +75,7 @@
 			name="Rich Harris"
 			description="Creator of Svelte"
 			variant="invited"
+			url="https://github.com/Rich-Harris"
 		/>
 	</div>
 </section>
@@ -81,22 +84,25 @@
 		<h2 class="lt-yellow column">Past speakers</h2>
 		<div class="column gap-10">
 			<Speaker
-				img={speaker_paolo}
-				name="Paolo Ricciuti"
-				description="Creator of Svelte in his dreams"
+				img={speaker_ben}
+				name="Ben McCann"
+				description="SvelteKit maintainer"
 				variant="past"
+				url="https://github.com/benmccann"
 			/>
 			<Speaker
 				img={speaker_paolo}
 				name="Paolo Ricciuti"
-				description="Creator of Svelte in his dreams"
+				description="SSE at @mainmatter"
 				variant="past"
+				url="https://github.com/paoloricciuti"
 			/>
 			<Speaker
-				img={speaker_paolo}
-				name="Paolo Ricciuti"
-				description="Creator of Svelte in his dreams"
+				img={speaker_jacob}
+				name="Jacob Bowdoin"
+				description="Polylingual Development, i18n, JavaScript, Svelte, Linguistics"
 				variant="past"
+				url="https://github.com/jacob-8"
 			/>
 		</div>
 	</div>
