@@ -122,14 +122,24 @@
 		</div>
 		<div class="link">
 			<div class="inline-flex">
-				<i class="bi bi-mastodon orange-1 mr-half"></i>
-				<h3 class="lt-yellow no-caps">Mastodon</h3>
+				<i class="bi bi-discord orange-1 mr-half"></i>
+				<Link
+					bg="var(--orange)"
+					fg="var(--yellow)"
+					href="https://discord.com/invite/svelte"
+					target="_blank"><h3 class="no-caps">Discord</h3></Link
+				>
 			</div>
 		</div>
 		<div class="link">
 			<div class="inline-flex">
 				<i class="bi bi-twitter-x orange-1 mr-half"></i>
-				<h3 class="lt-yellow no-caps">Twitter</h3>
+				<Link
+					bg="var(--orange)"
+					fg="var(--yellow)"
+					href="https://x.com/sveltesociety"
+					target="_blank"><h3 class="no-caps">Twitter</h3></Link
+					>
 			</div>
 		</div>
 	</div>
