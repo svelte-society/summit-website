@@ -7,6 +7,10 @@
 @import url("layout.css");
 @import url("slider.css");
 
+:root{
+	scroll-behavior: smooth;
+	scroll-padding: 2rem 0;
+}
 
 body {
 	background:#E7820E;

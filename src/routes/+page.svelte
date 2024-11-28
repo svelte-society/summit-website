@@ -8,11 +8,13 @@
 	import speaker_paolo from '$images/past-speakers/paolo.png';
 	import speaker_jacob from '$images/past-speakers/jacob.png';
 	import speaker_ben from '$images/past-speakers/ben.png';
+	import community_1 from '$images/community-1.jpg';
 	import venue from '$images/venue.jpg';
 	import svelte_society_logo from '$images/svelte-society-logo.svg';
 	import mainmatter_logo from '$images/maimatter.svg';
 	import Speaker from '$lib/components/Speaker.svelte';
 	import Link from '$lib/components/Link.svelte';
+	import Carousel from '$lib/components/Carousel.svelte';
 </script>
 
 <svelte:head>
@@ -140,7 +142,7 @@
 					fg="var(--yellow)"
 					href="https://x.com/sveltesociety"
 					target="_blank"><h3 class="no-caps">Twitter</h3></Link
-					>
+				>
 			</div>
 		</div>
 	</div>
@@ -173,6 +175,24 @@
 			</p>
 		</div>
 		<div class="column photo">
+			<Carousel
+				width="100%"
+				height="100%"
+				imgs={[
+					{
+						src: community_1,
+						alt: 'community'
+					},
+					{
+						src: venue,
+						alt: 'the venue'
+					},
+					{
+						src: venue,
+						alt: 'the venue again'
+					}
+				]}
+			/>
 			<!-- <div class="slideshow-container">
 					<div class="mySlides fade">
 						<img src="./images/community-1.jpg" class="responsive">
@@ -225,19 +245,23 @@
 		<h2 class="white column">Organizers</h2>
 		<div class="column container">
 			<div class="ml-2 image-link">
-				<Link
-					bg=none
-					fg=none
-					href="https://www.sveltesociety.dev/"
-					target="_blank"><img class="responsive" id="svelte-society" src={svelte_society_logo} alt="svelte society logo" /></Link
+				<Link bg="none" fg="none" href="https://www.sveltesociety.dev/" target="_blank"
+					><img
+						class="responsive"
+						id="svelte-society"
+						src={svelte_society_logo}
+						alt="svelte society logo"
+					/></Link
 				>
 			</div>
 			<div class="ml-2 image-link">
-				<Link
-					bg=none
-					fg=none
-					href="https://www.mainmatter.com/"
-					target="_blank"><img class="responsive" src={mainmatter_logo} id="mainmatter" alt="mainmatter logo" /></Link
+				<Link bg="none" fg="none" href="https://www.mainmatter.com/" target="_blank"
+					><img
+						class="responsive"
+						src={mainmatter_logo}
+						id="mainmatter"
+						alt="mainmatter logo"
+					/></Link
 				>
 			</div>
 		</div>
