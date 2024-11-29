@@ -8,7 +8,10 @@
 	import speaker_paolo from '$images/past-speakers/paolo.png';
 	import speaker_jacob from '$images/past-speakers/jacob.png';
 	import speaker_ben from '$images/past-speakers/ben.png';
-	import community_1 from '$images/community-1.jpg';
+	import slider_1 from '$images/slider/1.jpg';
+	import slider_2 from '$images/slider/2.jpg';
+	import slider_3 from '$images/slider/3.jpg';
+	import slider_4 from '$images/slider/4.jpg';
 	import venue from '$images/venue.jpg';
 	import svelte_society_logo from '$images/svelte-society-logo.svg';
 	import mainmatter_logo from '$images/maimatter.svg';
@@ -180,60 +183,23 @@
 				height="100%"
 				imgs={[
 					{
-						src: community_1,
-						alt: 'community'
+						src: slider_1,
+						alt: 'Post-conference dinner'
 					},
 					{
-						src: venue,
-						alt: 'the venue'
+						src: slider_2,
+						alt: 'Lunch during the conference'
 					},
 					{
-						src: venue,
-						alt: 'the venue again'
+						src: slider_3,
+						alt: 'Bar outing'
+					},
+					{
+						src: slider_4,
+						alt: 'Group photo of the attendees'
 					}
 				]}
 			/>
-			<!-- <div class="slideshow-container">
-					<div class="mySlides fade">
-						<img src="./images/community-1.jpg" class="responsive">
-				  	</div>
-					<div class="mySlides fade">
-						<img src="./images/venue.jpg" class="responsive">
-					</div>
-					<div class="mySlides fade">
-						<img src="./images/venue.jpg" class="responsive">
-					</div>
-					<br>
-					
-					<div style="text-align:center">
-						<span class="dot" onclick="currentSlide(1)"></span>
-						<span class="dot" onclick="currentSlide(2)"></span>
-						<span class="dot" onclick="currentSlide(3)"></span>
-					</div>
-				</div>
-				<script>
-					let slideIndex = 0;
-					showSlides();
-
-					function showSlides() {
-					  let i;
-					  let slides = document.getElementsByClassName("mySlides");
-					  let dots = document.getElementsByClassName("dot");
-					  for (i = 0; i < slides.length; i++) {
-						slides[i].style.display = "none";  
-					  }
-					  slideIndex++;
-					  if (slideIndex > slides.length) {slideIndex = 1}    
-					  for (i = 0; i < dots.length; i++) {
-						dots[i].className = dots[i].className.replace(" active", "");
-					  }
-					  slides[slideIndex-1].style.display = "block";  
-					  dots[slideIndex-1].className += " active";
-					  setTimeout(showSlides, 2000); // Change image every 2 seconds
-					}
-				</script>
-			</div> 
-		</div> -->
 		</div>
 	</div>
 </section>
