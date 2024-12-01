@@ -72,7 +72,9 @@
 	</div>
 	<div class="text-center">
 		<div class="button">
-			<h3 class="lt-yellow">Become a sponsor</h3>
+			<a href="mailto:sponsorship@sveltesummit.org" class="m-0 p-0">
+				<h3 class="lt-yellow">Become a sponsor</h3>
+			</a>
 		</div>
 	</div>
 
@@ -166,7 +168,9 @@
 
 	<div class="text-center pt-7 pb-10">
 		<div class="button">
-			<h3 class="lt-yellow">Become a sponsor</h3>
+			<a href="mailto:sponsorship@sveltesummit.org" class="m-0 p-0">
+				<h3 class="lt-yellow">Become a sponsor</h3>
+			</a>
 		</div>
 	</div>
 </section>
