@@ -248,7 +248,7 @@
 		<div class="link">
 			<div class="inline-flex">
 				<i class="bi bi-question-lg orange-3 mr-half"></i>
-				<Link bg="var(--orange)" fg="var(--black)" href="/faq" target="_blank"
+				<Link bg="var(--orange)" fg="var(--black)" href="/faq" target="_self"
 					><h3 class="no-caps">Frequently asked questions</h3></Link
 				>
 			</div>
@@ -256,7 +256,7 @@
 		<div class="link">
 			<div class="inline-flex">
 				<i class="bi bi-chat-heart-fill orange-3 mr-half"></i>
-				<Link bg="var(--orange)" fg="var(--black)" href="https://www.wikipedia.org" target="_blank"
+				<Link bg="var(--orange)" fg="var(--black)" href="/sponsors" target="_self"
 					><h3 class="no-caps">Become a sponsor</h3></Link
 				>
 			</div>
@@ -264,7 +264,7 @@
 		<div class="link">
 			<div class="inline-flex">
 				<i class="bi bi-megaphone-fill orange-3 mr-half"></i>
-				<Link bg="var(--orange)" fg="var(--black)" href="https://www.wikipedia.org" target="_blank"
+				<Link bg="var(--orange)" fg="var(--black)" href="" target="_blank"
 					><h3 class="no-caps">Submit a talk</h3></Link
 				>
 			</div>
