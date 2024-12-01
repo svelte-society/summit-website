@@ -68,7 +68,9 @@
 						</div>
 					</div>
 				</div>
-				<button><h3 class="lt-yellow">Buy Tickets</h3></button>
+				<div class="button">
+					<h3 class="lt-yellow">Buy Tickets</h3>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -210,7 +212,9 @@
 	</div>
 </section>
 <section id="buy-tickets">
-	<button><h3 class="lt-yellow">Buy Tickets</h3></button>
+	<div class="button">
+		<h3 class="lt-yellow">Buy Tickets</h3>
+	</div>
 </section>
 <section id="organizers">
 	<div class="lg-row vertical-center container">

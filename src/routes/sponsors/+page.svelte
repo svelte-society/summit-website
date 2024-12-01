@@ -71,9 +71,9 @@
 		</div>
 	</div>
 	<div class="text-center">
-		<button>
+		<div class="button">
 			<h3 class="lt-yellow">Become a sponsor</h3>
-		</button>
+		</div>
 	</div>
 
 	<h2 class="pb-3 pt-7 white text-center">Why Sponsor?</h2>
@@ -165,9 +165,9 @@
 	</div>
 
 	<div class="text-center pt-7 pb-10">
-		<button>
+		<div class="button">
 			<h3 class="lt-yellow">Become a sponsor</h3>
-		</button>
+		</div>
 	</div>
 </section>
 
