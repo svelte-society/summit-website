@@ -236,8 +236,14 @@ img#two-dots {
 	text-decoration-color: var(--black);
 }
 
+#venue h3{
+	text-decoration: underline;
+	text-decoration-color: var(--white);
+}
+
 #social-media h3:hover,
-#links h3:hover{
+#links h3:hover,
+#venue h3:hover {
 	text-decoration:none;
 }
 

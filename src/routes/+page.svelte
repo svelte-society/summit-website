@@ -153,15 +153,22 @@
 <section id="venue">
 	<div class="container row-reverse vertical-center mx-auto">
 		<div class="column text">
-			<h2 class="white pb-2">Conference venue</h2>
-			<p class="white">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis lacus ac mi
-				vestibulum, ac rhoncus erat lobortis. Pellentesque sed lorem eget tortor tincidunt
-				pellentesque non id leo. Ut at odio eget felis pulvinar mattis commodo quis elit. Nunc sit
-				amet efficitur diam. Donec vitae nunc porta, feugiat ex et, varius ipsum. Proin mattis nec
-				sem vitae hendrerit. Morbi convallis erat sit amet lacus tincidunt consectetur ut sit amet
-				nibh.
+			<h2 class="white pb-2">Summit venue</h2>
+			<p class="white pb-2">
+				The spring 2025 Svelte Summit will take place in the charming and light-filled event space of Casa Ruis, Carrer d'Enric Granados, 97, L'Eixample, 08008 Barcelona, Spain. The location is fully wheelchair-accessible.
 			</p>
+			<div class="link">
+				<div class="inline-flex">
+					<i class="bi bi-geo-alt-fill white mr-half"></i>
+					<Link
+						bg="var(--orange)"
+						fg="var(--white)"
+						href="https://maps.app.goo.gl/S5dG2EJdQkWa5bqN9"
+						target="_blank"><h3 class="no-caps">See location on Google Maps</h3></Link
+					>
+				</div>
+			</div>
+
 		</div>
 		<div class="column photo">
 			<img src={venue} class="responsive" alt="our venue" />
