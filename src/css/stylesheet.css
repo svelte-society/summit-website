@@ -183,6 +183,22 @@ img#two-dots {
 	}
 }
 
+#sponsors {
+	display:block;
+	margin-left:16.33vw;
+	margin-right:16.33vw;
+	border-radius:50px;
+}
+
+@media (max-width:999px) {
+	#sponsors {
+		margin-left:5vw;
+		margin-right:5vw;
+		padding-left:2rem;
+		padding-right:2rem;
+	}
+}
+
 #invited-speaker {
 	background-color:#F7CF4A;
 	background-image: url( '../images/backgrounds/grid.svg');
@@ -362,4 +378,106 @@ img#two-dots {
 	width:clamp(200px, 25vw, 400px);
 }
 
+#sponsors li {
+	list-style: inside;
+}
 
+#social-media-stats {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+	text-align: center;
+}
+
+.stats-cell {
+	padding:40px 0;
+}
+
+@media (max-width:799px)  {
+	#social-media-stats .stats-cell {
+		grid-column: 1 / span 3;
+	}
+}
+
+.stats-cell {
+	border-radius: 50px;
+}
+
+.stats-cell:nth-child(odd) {
+	color:var(--white);
+	border:var(--white) 2px solid;
+}
+
+.stats-cell:nth-child(even) {
+	color:var(--yellow);
+	border:var(--yellow) 2px solid;
+}
+
+.stats-cell:last-child {
+	color:var(--yellow);
+	border:var(--yellow) 2px solid;
+}
+
+@media (max-width:799px) {
+	.stats-cell:last-child {
+		color:var(--white);
+		border:var(--white) 2px solid;
+	}
+}
+
+.stats-7 {
+	grid-column:2;
+}
+
+.sponsor-package p, .sponsor-package ul{
+	text-align:left;
+	padding:1rem 6vw;
+}
+
+.sponsor-package img {
+	max-width:75px;
+}
+
+.sponsor-package:nth-child(even) {
+	background-color:#F7CF4A;
+	border-radius: 50px;
+	color:var(--black);
+}
+
+#sponsor-diamond {
+	background-image: url( '../images/backgrounds/grid.svg');
+	background-position:100% 50px;
+	background-repeat:no-repeat;
+}
+
+#sponsor-podcast {
+	background-image: url( '../images/backgrounds/orange-dots.svg');
+	background-position:-10px 0;
+	background-repeat:no-repeat;
+}
+
+#sponsor-coffee {
+	background-image: url( '../images/backgrounds/yellow-dots.svg');
+	background-position:110% center;
+	background-repeat:no-repeat;
+}
+
+#sponsor-other {
+	background-image: url( '../images/backgrounds/yellow-grid.svg');
+	background-position:-10px 5px;
+	background-repeat:no-repeat;
+}
+
+@media (max-width:999px) {
+	.sponsor-package:nth-child(even) {
+		background-image:none;
+	}
+}
+
+.sponsor-package:nth-child(odd){
+	background-color:var(--orange);
+	border:solid 2px var(--white);
+	filter: drop-shadow(10px 30px 50px rgba(120, 10, 10, 0.23));
+	border-radius: 50px;
+	color:var(--white);
+}
