@@ -153,7 +153,7 @@
 <section id="venue">
 	<div class="container row-reverse vertical-center mx-auto">
 		<div class="column text">
-			<h2 class="white">Conference venue</h2>
+			<h2 class="white pb-2">Conference venue</h2>
 			<p class="white">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis lacus ac mi
 				vestibulum, ac rhoncus erat lobortis. Pellentesque sed lorem eget tortor tincidunt
@@ -171,7 +171,7 @@
 <section id="community">
 	<div class="container row-reverse vertical-center mx-auto">
 		<div class="column text">
-			<h2 class="lt-yellow">Meet the Svelte community</h2>
+			<h2 class="lt-yellow pb-2">Meet the Svelte community</h2>
 			<p class="lt-yellow">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis lacus ac mi
 				vestibulum, ac rhoncus erat lobortis. Pellentesque sed lorem eget tortor tincidunt
