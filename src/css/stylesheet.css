@@ -97,7 +97,7 @@ a {
 	}
 }
 
-button {
+:is(button,.button) {
 	background-color:#000;
 	border:none;
 	padding:20px 35px;
@@ -105,27 +105,29 @@ button {
 	border-radius:50px;
 	box-shadow: 10px 30px 50px 0px rgba(120, 10, 10, 0.35);
 	transition: all 0.4s;
+	display: inline-block;
+	color: white;
 }
 
-button:hover, button:active {
+:is(button,.button):hover, :is(button,.button):active {
 	background-color:white;
 	scale: 1.1;
 	box-shadow: 10px 30px 10px 0px rgba(120, 10, 10, 0.35);
 	transition: all 0.2s ease-in-out;
 }
 
-button h3 {
+:is(button,.button) h3 {
 	color:yellow;	
 	transition: all 0.4s;
 }
 
-button:hover h3, button:active h3 {
+:is(button,.button):hover h3, :is(button,.button):active h3 {
 	color:#000;
 	transition: all 0.2s ease-in-out;
 }
 
 @media (max-width:999px) {
-	#hero button {
+	#hero :is(button,.button) {
 		margin-bottom:3rem;
 	}
 }
