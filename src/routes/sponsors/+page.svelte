@@ -102,6 +102,7 @@
 		</p>
 		<ul>
 			<li>Large logo on the event website before, during and after the event</li>
+			<li>Short introduction before one of the talks. 2-3 minute slot.</li>
 			<li>
 				Large (~3x size of Gold table) table with 2 roll-ups where you can present your company in
 				the lounge area during the event
@@ -214,7 +215,7 @@
 	</div>
 
 	<div class="text-center pt-7 pb-10">
-		<a class="button m-0 p-0" href="mailto:sponsorship@sveltesummit.org">
+		<a class="button m-0 p-0" href="mailto:sponsors@sveltesummit.org">
 			<h3 class="lt-yellow">Become a sponsor</h3>
 		</a>
 	</div>
