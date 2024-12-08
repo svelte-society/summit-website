@@ -36,6 +36,7 @@
 		"bootstrap-icons": "^1.11.3",
 		"pocketbase": "^0.22.1",
 		"super-sitemap": "^1.0.3",
-		"svelte-bootstrap-icons": "^3.1.1"
+		"svelte-bootstrap-icons": "^3.1.1",
+		"tailwindcss-elevation": "^2.0.0"
 	}
 }

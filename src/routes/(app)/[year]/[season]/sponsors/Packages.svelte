@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Package from './Package.svelte';
 
-	type Package = {
+	type PackageType = {
 		title: string;
 		value: number;
 		prose: string;
@@ -9,7 +9,7 @@
 		type: string;
 	};
 
-	export let packages: Package[];
+	export let packages: PackageType[];
 </script>
 
 <article id="intro" class="bg-gray-800 text-gray-100 py-16">
