@@ -36,13 +36,13 @@
 
 <section id="sponsors" class="pt-5 mx-auto">
 	<h2 class="lt-yellow pb-3 text-center">SPONSORSHIP OPPORTUNITIES</h2>
-	<p class="lt-yellow pb-1">
+	<p class="white pb-1">
 		We held the first Svelte conference on April 26, 2019. It gathered over 1000 highly enthusiastic
 		developers from across the globe. Since then, we've hosted and organised nine more events. Each
 		time, the number of attendees dramatically increases. In contrast to most other events we take
 		pride in keeping it joyfli and fun, much like how people feel when they decide to use Svelte.
 	</p>
-	<p class="lt-yellow pb-3">
+	<p class="white pb-3">
 		Below you'll find some stats on earlier events as well as our social media accounts.
 	</p>
 	<div id="social-media-stats" class="pb-3">

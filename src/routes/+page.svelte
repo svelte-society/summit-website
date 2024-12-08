@@ -179,7 +179,7 @@
 	<div class="container row-reverse vertical-center mx-auto">
 		<div class="column text">
 			<h2 class="lt-yellow pb-2">Meet the Svelte community</h2>
-			<p class="lt-yellow">
+			<p class="white">
 				Others enjoy working with Svelte as much as you do. Meet peers, make lasting friendships, and find out about new career opportunities at the Svelte Summit.
 			</p>
 		</div>
