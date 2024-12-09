@@ -2,34 +2,35 @@
 
 /* Icons */
 
-i {
-	font-size:18px;
-	border-radius:50px;
-	margin-right:5px;
-}
+.landing {
+    i {
+        font-size: 18px;
+        border-radius: 50px;
+        margin-right: 5px;
+    }
 
-i.larger {
-	font-size:20px;
-	padding:3px 5px;
-}
+    i.larger {
+        font-size: 20px;
+        padding: 3px 5px;
+    }
 
-i.largest {
-	font-size:24px;
-}
+    i.largest {
+        font-size: 24px;
+    }
 
-i.orange-1 {
-	background-color:#FFF480;
-    aspect-ratio: 1;
-    width: 40px;
-    display: grid;
-    place-items: center;
-}
+    i.orange-1 {
+        background-color: #fff480;
+        aspect-ratio: 1;
+        width: 40px;
+        display: grid;
+        place-items: center;
+    }
 
-i.orange-3 {
-	background-color:#000;
-    aspect-ratio: 1;
-    width: 40px;
-    display: grid;
-    place-items: center;
+    i.orange-3 {
+        background-color: #000;
+        aspect-ratio: 1;
+        width: 40px;
+        display: grid;
+        place-items: center;
+    }
 }
-

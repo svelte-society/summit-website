@@ -29,241 +29,245 @@
 	<meta property="og:image" content={og_image} />
 </svelte:head>
 
-<section id="hero" class="pt-5">
-	<div class="row-reverse">
-		<div class="column" id="hero-image">
-			<p>The 10th Svelte-only conference</p>
-			<img
-				id="main-image"
-				src={hero}
-				class="responsive"
-				alt="previous Svelte summit, with audience members listening to a talk"
-			/>
-			<img src={yellow_dots} alt="" />
-		</div>
-		<div class="column center" id="conference-info">
-			<div>
-				<div class="pb-3">
-					<div class="inline-flex pb-1">
-						<h2 class="white">Svelte Summit</h2>
-						<img
-							id="two-dots"
-							src={svelte_barcelona}
-							alt="a dot with the svelte logo and a dot with the sagrada familia"
-						/>
+<div class="landing">
+	<section id="hero" class="pt-5">
+		<div class="row-reverse">
+			<div class="column" id="hero-image">
+				<p>The 10th Svelte-only conference</p>
+				<img
+					id="main-image"
+					src={hero}
+					class="responsive"
+					alt="previous Svelte summit, with audience members listening to a talk"
+				/>
+				<img src={yellow_dots} alt="" />
+			</div>
+			<div class="column center" id="conference-info">
+				<div>
+					<div class="pb-3">
+						<div class="inline-flex pb-1">
+							<h2 class="white">Svelte Summit</h2>
+							<img
+								id="two-dots"
+								src={svelte_barcelona}
+								alt="a dot with the svelte logo and a dot with the sagrada familia"
+							/>
+						</div>
+						<h1 class="lt-yellow">Spring 2025</h1>
 					</div>
-					<h1 class="lt-yellow">Spring 2025</h1>
-				</div>
-				<div class="row pb-3">
-					<div class="column pb-2">
-						<div class="inline-flex">
-							<i class="bi bi-calendar-fill orange-1"></i>
-							<h3 class="white no-caps">May 8 &amp; 9, 2025</h3>
+					<div class="row pb-3">
+						<div class="column pb-2">
+							<div class="inline-flex">
+								<i class="bi bi-calendar-fill orange-1"></i>
+								<h3 class="white no-caps">May 8 &amp; 9, 2025</h3>
+							</div>
+						</div>
+						<div class="column">
+							<div class="inline-flex items-start">
+								<i class="bi bi-geo-alt-fill orange-1 larger"></i>
+								<h3 class="white no-caps">Barcelona &amp; online</h3>
+							</div>
 						</div>
 					</div>
-					<div class="column">
-						<div class="inline-flex items-start">
-							<i class="bi bi-geo-alt-fill orange-1 larger"></i>
-							<h3 class="white no-caps">Barcelona &amp; online</h3>
-						</div>
-					</div>
+					<button><h3 class="lt-yellow">Buy Tickets</h3></button>
 				</div>
-				<button><h3 class="lt-yellow">Buy Tickets</h3></button>
 			</div>
 		</div>
-	</div>
-</section>
-<section id="invited-speaker">
-	<div class="lg-row vertical-center">
-		<h2 class="orange-2 column">Invited speaker</h2>
-		<Speaker
-			img={speaker_rich}
-			name="Rich Harris"
-			description="Creator of Svelte"
-			variant="invited"
-			url="https://github.com/Rich-Harris"
-		/>
-	</div>
-</section>
-<section id="past-speakers">
-	<div class="lg-row container mx-auto">
-		<h2 class="lt-yellow column">Past speakers</h2>
-		<div class="column gap-10">
+	</section>
+	<section id="invited-speaker">
+		<div class="lg-row vertical-center">
+			<h2 class="orange-2 column">Invited speaker</h2>
 			<Speaker
-				img={speaker_ben}
-				name="Ben McCann"
-				description="SvelteKit maintainer"
-				variant="past"
-				url="https://github.com/benmccann"
-			/>
-			<Speaker
-				img={speaker_paolo}
-				name="Paolo Ricciuti"
-				description="SSE at @mainmatter"
-				variant="past"
-				url="https://github.com/paoloricciuti"
-			/>
-			<Speaker
-				img={speaker_jacob}
-				name="Jacob Bowdoin"
-				description="Polylingual Development, i18n, JavaScript, Svelte, Linguistics"
-				variant="past"
-				url="https://github.com/jacob-8"
+				img={speaker_rich}
+				name="Rich Harris"
+				description="Creator of Svelte"
+				variant="invited"
+				url="https://github.com/Rich-Harris"
 			/>
 		</div>
-	</div>
-</section>
-<section id="social-media" class="orange-1">
-	<div class="container justify-center mx-auto">
-		<div class="link">
-			<div class="inline-flex">
-				<i class="bi bi-envelope-open-fill orange-1 mr-half"></i>
-				<Link
-					bg="var(--orange)"
-					fg="var(--yellow)"
-					href="https://marketing.sveltesociety.dev/forms/nfrm_weLJnLY5"
-					target="_blank"><h3 class="no-caps">Sign up to our newsletter</h3></Link
-				>
+	</section>
+	<section id="past-speakers">
+		<div class="lg-row container mx-auto">
+			<h2 class="lt-yellow column">Past speakers</h2>
+			<div class="column gap-10">
+				<Speaker
+					img={speaker_ben}
+					name="Ben McCann"
+					description="SvelteKit maintainer"
+					variant="past"
+					url="https://github.com/benmccann"
+				/>
+				<Speaker
+					img={speaker_paolo}
+					name="Paolo Ricciuti"
+					description="SSE at @mainmatter"
+					variant="past"
+					url="https://github.com/paoloricciuti"
+				/>
+				<Speaker
+					img={speaker_jacob}
+					name="Jacob Bowdoin"
+					description="Polylingual Development, i18n, JavaScript, Svelte, Linguistics"
+					variant="past"
+					url="https://github.com/jacob-8"
+				/>
 			</div>
 		</div>
-		<div class="link">
-			<div class="inline-flex">
-				<i class="bi bi-discord orange-1 mr-half"></i>
-				<Link
-					bg="var(--orange)"
-					fg="var(--yellow)"
-					href="https://discord.com/invite/svelte"
-					target="_blank"><h3 class="no-caps">Discord</h3></Link
-				>
-			</div>
-		</div>
-		<div class="link">
-			<div class="inline-flex">
-				<i class="bi bi-twitter-x orange-1 mr-half"></i>
-				<Link
-					bg="var(--orange)"
-					fg="var(--yellow)"
-					href="https://x.com/sveltesociety"
-					target="_blank"><h3 class="no-caps">Twitter</h3></Link
-				>
-			</div>
-		</div>
-	</div>
-</section>
-<section id="venue">
-	<div class="container row-reverse vertical-center mx-auto">
-		<div class="column text">
-			<h2 class="white pb-2">Summit venue</h2>
-			<p class="white pb-2">
-				The spring 2025 Svelte Summit will take place in the charming and light-filled event space of Casa Ruis, Carrer d'Enric Granados, 97, L'Eixample, 08008 Barcelona, Spain. The location is fully wheelchair-accessible.
-			</p>
+	</section>
+	<section id="social-media" class="orange-1">
+		<div class="container justify-center mx-auto">
 			<div class="link">
 				<div class="inline-flex">
-					<i class="bi bi-geo-alt-fill white mr-half"></i>
+					<i class="bi bi-envelope-open-fill orange-1 mr-half"></i>
 					<Link
 						bg="var(--orange)"
-						fg="var(--white)"
-						href="https://maps.app.goo.gl/S5dG2EJdQkWa5bqN9"
-						target="_blank"><h3 class="no-caps">See location on Google Maps</h3></Link
+						fg="var(--yellow)"
+						href="https://marketing.sveltesociety.dev/forms/nfrm_weLJnLY5"
+						target="_blank"><h3 class="no-caps">Sign up to our newsletter</h3></Link
 					>
 				</div>
 			</div>
-
-		</div>
-		<div class="column photo">
-			<img src={venue} class="responsive" alt="our venue" />
-		</div>
-	</div>
-</section>
-<section id="community">
-	<div class="container row-reverse vertical-center mx-auto">
-		<div class="column text">
-			<h2 class="lt-yellow pb-2">Meet the Svelte community</h2>
-			<p class="white">
-				Others enjoy working with Svelte as much as you do. Meet peers, make lasting friendships, and find out about new career opportunities at the Svelte Summit.
-			</p>
-		</div>
-		<div class="column photo">
-			<Carousel
-				width="100%"
-				height="100%"
-				imgs={[
-					{
-						src: slider_1,
-						alt: 'Post-conference dinner'
-					},
-					{
-						src: slider_2,
-						alt: 'Lunch during the conference'
-					},
-					{
-						src: slider_3,
-						alt: 'Bar outing'
-					},
-					{
-						src: slider_4,
-						alt: 'Group photo of the attendees'
-					}
-				]}
-			/>
-		</div>
-	</div>
-</section>
-<section id="buy-tickets">
-	<button><h3 class="lt-yellow">Buy Tickets</h3></button>
-</section>
-<section id="organizers">
-	<div class="lg-row vertical-center container">
-		<h2 class="white column">Organizers</h2>
-		<div class="column container">
-			<div class="ml-2 image-link">
-				<Link bg="none" fg="none" href="https://www.sveltesociety.dev/" target="_blank"
-					><img
-						class="responsive"
-						id="svelte-society"
-						src={svelte_society_logo}
-						alt="svelte society logo"
-					/></Link
-				>
+			<div class="link">
+				<div class="inline-flex">
+					<i class="bi bi-discord orange-1 mr-half"></i>
+					<Link
+						bg="var(--orange)"
+						fg="var(--yellow)"
+						href="https://discord.com/invite/svelte"
+						target="_blank"><h3 class="no-caps">Discord</h3></Link
+					>
+				</div>
 			</div>
-			<div class="ml-2 image-link">
-				<Link bg="none" fg="none" href="https://www.mainmatter.com/" target="_blank"
-					><img
-						class="responsive"
-						src={mainmatter_logo}
-						id="mainmatter"
-						alt="mainmatter logo"
-					/></Link
-				>
+			<div class="link">
+				<div class="inline-flex">
+					<i class="bi bi-twitter-x orange-1 mr-half"></i>
+					<Link
+						bg="var(--orange)"
+						fg="var(--yellow)"
+						href="https://x.com/sveltesociety"
+						target="_blank"><h3 class="no-caps">Twitter</h3></Link
+					>
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
-<section id="links">
-	<div class="container justify-center mx-auto">
-		<div class="link">
-			<div class="inline-flex">
-				<i class="bi bi-question-lg orange-3 mr-half"></i>
-				<Link bg="var(--orange)" fg="var(--black)" href="/faq" target="_self"
-					><h3 class="no-caps">Frequently asked questions</h3></Link
-				>
+	</section>
+	<section id="venue">
+		<div class="container row-reverse vertical-center mx-auto">
+			<div class="column text">
+				<h2 class="white pb-2">Summit venue</h2>
+				<p class="white pb-2">
+					The spring 2025 Svelte Summit will take place in the charming and light-filled event space
+					of Casa Ruis, Carrer d'Enric Granados, 97, L'Eixample, 08008 Barcelona, Spain. The
+					location is fully wheelchair-accessible.
+				</p>
+				<div class="link">
+					<div class="inline-flex">
+						<i class="bi bi-geo-alt-fill white mr-half"></i>
+						<Link
+							bg="var(--orange)"
+							fg="var(--white)"
+							href="https://maps.app.goo.gl/S5dG2EJdQkWa5bqN9"
+							target="_blank"><h3 class="no-caps">See location on Google Maps</h3></Link
+						>
+					</div>
+				</div>
+			</div>
+			<div class="column photo">
+				<img src={venue} class="responsive" alt="our venue" />
 			</div>
 		</div>
-		<div class="link">
-			<div class="inline-flex">
-				<i class="bi bi-chat-heart-fill orange-3 mr-half"></i>
-				<Link bg="var(--orange)" fg="var(--black)" href="/sponsors" target="_self"
-					><h3 class="no-caps">Become a sponsor</h3></Link
-				>
+	</section>
+	<section id="community">
+		<div class="container row-reverse vertical-center mx-auto">
+			<div class="column text">
+				<h2 class="lt-yellow pb-2">Meet the Svelte community</h2>
+				<p class="white">
+					Others enjoy working with Svelte as much as you do. Meet peers, make lasting friendships,
+					and find out about new career opportunities at the Svelte Summit.
+				</p>
+			</div>
+			<div class="column photo">
+				<Carousel
+					width="100%"
+					height="100%"
+					imgs={[
+						{
+							src: slider_1,
+							alt: 'Post-conference dinner'
+						},
+						{
+							src: slider_2,
+							alt: 'Lunch during the conference'
+						},
+						{
+							src: slider_3,
+							alt: 'Bar outing'
+						},
+						{
+							src: slider_4,
+							alt: 'Group photo of the attendees'
+						}
+					]}
+				/>
 			</div>
 		</div>
-		<div class="link">
-			<div class="inline-flex">
-				<i class="bi bi-megaphone-fill orange-3 mr-half"></i>
-				<Link bg="var(--orange)" fg="var(--black)" href="" target="_blank"
-					><h3 class="no-caps">Submit a talk</h3></Link
-				>
+	</section>
+	<section id="buy-tickets">
+		<button><h3 class="lt-yellow">Buy Tickets</h3></button>
+	</section>
+	<section id="organizers">
+		<div class="lg-row vertical-center container">
+			<h2 class="white column">Organizers</h2>
+			<div class="column container">
+				<div class="ml-2 image-link">
+					<Link bg="none" fg="none" href="https://www.sveltesociety.dev/" target="_blank"
+						><img
+							class="responsive"
+							id="svelte-society"
+							src={svelte_society_logo}
+							alt="svelte society logo"
+						/></Link
+					>
+				</div>
+				<div class="ml-2 image-link">
+					<Link bg="none" fg="none" href="https://www.mainmatter.com/" target="_blank"
+						><img
+							class="responsive"
+							src={mainmatter_logo}
+							id="mainmatter"
+							alt="mainmatter logo"
+						/></Link
+					>
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
+	<section id="links">
+		<div class="container justify-center mx-auto">
+			<div class="link">
+				<div class="inline-flex">
+					<i class="bi bi-question-lg orange-3 mr-half"></i>
+					<Link bg="var(--orange)" fg="var(--black)" href="/faq" target="_self"
+						><h3 class="no-caps">Frequently asked questions</h3></Link
+					>
+				</div>
+			</div>
+			<div class="link">
+				<div class="inline-flex">
+					<i class="bi bi-chat-heart-fill orange-3 mr-half"></i>
+					<Link bg="var(--orange)" fg="var(--black)" href="/sponsors" target="_self"
+						><h3 class="no-caps">Become a sponsor</h3></Link
+					>
+				</div>
+			</div>
+			<div class="link">
+				<div class="inline-flex">
+					<i class="bi bi-megaphone-fill orange-3 mr-half"></i>
+					<Link bg="var(--orange)" fg="var(--black)" href="" target="_blank"
+						><h3 class="no-caps">Submit a talk</h3></Link
+					>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

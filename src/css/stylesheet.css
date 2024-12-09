@@ -17,35 +17,37 @@ body {
 	font-size:18px;
 }
 
-a {
-  	margin: 0 -.25rem;
+.landing {
+
+	a {
+		margin: 0 -.25rem;
   	padding: 0 .25rem;
- 	text-decoration:none;
-}
+		text-decoration:none;
+	}
 
-.image-link {
-	scale:1;
-	transition: all 0.2s ease-in-out;
-}
-
-
-.image-link:hover, .image-link:active {
-	scale:1.05;
-	transition: all 0.2s ease-in-out;
-}
+	.image-link {
+		scale:1;
+		transition: all 0.2s ease-in-out;
+	}
 
 
-#hero-image #main-image {
-	position:relative;
-	left: 0px;
-	top:-50px;
-	border-radius:50px;
-	margin-left:6rem;
-	z-index:1
-}
+	.image-link:hover, .image-link:active {
+		scale:1.05;
+		transition: all 0.2s ease-in-out;
+	}
 
-@media (max-width:999px) {
+
 	#hero-image #main-image {
+		position:relative;
+		left: 0px;
+		top:-50px;
+		border-radius:50px;
+		margin-left:6rem;
+		z-index:1
+	}
+
+	@media (max-width:999px) {
+		#hero-image #main-image {
 		top:0px;
 		margin-left:0;
 	}
@@ -93,7 +95,7 @@ a {
 		width:30vw;
 		top:-33vw;
 		right:10px;
-		display:none;		
+		display:none;
 	}
 }
 
@@ -117,7 +119,7 @@ a {
 }
 
 :is(button,.button) h3 {
-	color:yellow;	
+	color:yellow;
 	transition: all 0.4s;
 }
 
@@ -276,7 +278,7 @@ img#two-dots {
 		text-align:center;
 		padding-right:0;
 		padding-bottom:2rem;
-}
+	}
 }
 
 #venue, #community, #buy-tickets, #links {
@@ -482,4 +484,6 @@ img#two-dots {
 	filter: drop-shadow(10px 30px 50px rgba(120, 10, 10, 0.23));
 	border-radius: 50px;
 	color:var(--white);
+}
+
 }
