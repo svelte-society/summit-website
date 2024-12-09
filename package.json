@@ -15,6 +15,7 @@
 		"@biomejs/biome": "^1.9.4",
 		"@playwright/test": "^1.45.3",
 		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/adapter-vercel": "^5.5.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
 		"@tailwindcss/aspect-ratio": "^0.4.2",
@@ -34,7 +35,7 @@
 		"@fontsource-variable/overpass": "^5.1.1",
 		"@fontsource/anton": "^5.1.0",
 		"bootstrap-icons": "^1.11.3",
-		"pocketbase": "^0.22.1",
+		"pocketbase": "^0.21.1",
 		"super-sitemap": "^1.0.3",
 		"svelte-bootstrap-icons": "^3.1.1",
 		"tailwindcss-elevation": "^2.0.0"
