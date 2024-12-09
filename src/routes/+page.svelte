@@ -29,7 +29,7 @@
 	<meta property="og:image" content={og_image} />
 </svelte:head>
 
-<div class="landing">
+<div class="css-2025">
 	<section id="hero" class="pt-5">
 		<div class="row-reverse">
 			<div class="column" id="hero-image">
