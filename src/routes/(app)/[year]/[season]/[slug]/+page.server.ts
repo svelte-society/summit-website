@@ -1,6 +1,7 @@
 import { POCKETBASE_PASSWORD, POCKETBASE_USERNAME } from '$env/static/private';
 
-export const prerender = true
+// TODO: add back when we link to those pages
+//export const prerender = true
 
 export const load = (async ({ params, locals }) => {
     const { slug } = params

@@ -3,7 +3,8 @@ import { z } from 'zod';
 import { superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 
-export const prerender = true
+// TODO: add back when we link to those pages
+// export const prerender = true
 
 const emailSchema = z.object({
     email: z.string().email()
