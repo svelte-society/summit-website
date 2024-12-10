@@ -184,7 +184,7 @@
 	<section id="venue">
 		<div class="container row-reverse vertical-center mx-auto">
 			<div class="column text">
-				<h2 class="white pb-2">Summit venue</h2>
+				<h2 class="lt-yellow pb-2">Summit venue</h2>
 				<p class="white pb-2">
 					The spring 2025 Svelte Summit will take place in the charming and light-filled event space
 					of Casa Ruis, Carrer d'Enric Granados, 97, L'Eixample, 08008 Barcelona, Spain. The
