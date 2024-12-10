@@ -74,7 +74,7 @@ h3 {
 }
 
 button h3 {
-	font-size:clamp(30px, 2.08vw, 50px);
+	font-size:clamp(20px, 2.08vw, 50px);
 }
 
 h4 {

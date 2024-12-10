@@ -100,10 +100,9 @@ body {
 }
 
 :is(button,.button) {
-	background-color:#000;
-	border:none;
+	background-color:var(--black);
+	border:solid 2px var(--black);
 	padding:20px 35px;
-	margin-bottom:0;
 	border-radius:50px;
 	box-shadow: 10px 30px 50px 0px rgba(120, 10, 10, 0.35);
 	transition: all 0.4s;
@@ -111,25 +110,34 @@ body {
 	color: white;
 }
 
+
+:is(button.secondary) {
+	background-color:var(--orange);
+	border:solid 2px var(--yellow);
+	box-shadow:none;
+}
+
 :is(button,.button):hover, :is(button,.button):active {
-	background-color:white;
+	background-color:var(--white);
 	scale: 1.1;
 	box-shadow: 10px 30px 10px 0px rgba(120, 10, 10, 0.35);
 	transition: all 0.2s ease-in-out;
+	border:none;
+	border:solid 2px var(--white);
 }
 
 :is(button,.button) h3 {
-	color:yellow;
+	color:var(--yellow);
 	transition: all 0.4s;
 }
 
 :is(button,.button):hover h3, :is(button,.button):active h3 {
-	color:#000;
+	color:var(--black);
 	transition: all 0.2s ease-in-out;
 }
 
 @media (max-width:999px) {
-	#hero :is(button,.button) {
+	#hero :is(button.secondary) {
 		margin-bottom:3rem;
 	}
 }
@@ -175,7 +183,7 @@ img#two-dots {
 
 @media (max-width:999px) {
 	#conference-info p {
-		width: clamp(300px,100%, 750px);
+		width: clamp(300px, 100%, 500px);
 	}
 }
 

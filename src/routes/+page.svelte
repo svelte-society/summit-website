@@ -70,7 +70,8 @@
 						</div>
 					</div>
 					<p class="white pb-3">Svelte Summit is an event dedicated to Svelte and everything that is happening in the community. Don't miss it! It's going to be an absolute&nbsp;blast.</p>
-					<button><h3 class="lt-yellow">Buy Tickets</h3></button>
+					<button class="mr-1 mb-1"><h3 class="lt-yellow">Buy Tickets</h3></button>
+					<button class="secondary"><h3 class="lt-yellow">Submit a talk</h3></button>
 				</div>
 			</div>
 		</div>
@@ -214,7 +215,8 @@
 		</div>
 	</section>
 	<section id="buy-tickets">
-		<button><h3 class="lt-yellow">Buy Tickets</h3></button>
+		<button class="mr-1 mb-1"><h3 class="lt-yellow">Buy Tickets</h3></button>
+		<button class="secondary"><h3 class="lt-yellow">Submit a talk</h3></button>
 	</section>
 	<section id="organizers">
 		<div class="lg-row vertical-center container">
