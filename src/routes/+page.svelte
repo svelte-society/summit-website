@@ -6,9 +6,11 @@
 	import svelte_barcelona from '$images/svelte-barcelona.png';
 	import icon_bluesky from '$images/icons/bluesky.svg';
 	import speaker_rich from '$images/past-speakers/rich.png';
+	import speaker_scott from '$images/past-speakers/scott.png';
+	import speaker_swyx from '$images/past-speakers/swyx.png';
+	import speaker_samuel from '$images/past-speakers/samuel.png';
+	import speaker_andreas from '$images/past-speakers/andreas.png';
 	import speaker_paolo from '$images/past-speakers/paolo.png';
-	import speaker_jacob from '$images/past-speakers/jacob.png';
-	import speaker_ben from '$images/past-speakers/ben.png';
 	import slider_1 from '$images/slider/1.jpg';
 	import slider_2 from '$images/slider/2.jpg';
 	import slider_3 from '$images/slider/3.jpg';
@@ -94,11 +96,32 @@
 			<h2 class="lt-yellow column">Past speakers</h2>
 			<div class="column gap-10">
 				<Speaker
-					img={speaker_ben}
-					name="Ben McCann"
-					description="SvelteKit maintainer"
+					img={speaker_scott}
+					name="Scott Tolinski"
+					description="Creator of Level Up Tutorials, Co-host of Syntax.fm"
 					variant="past"
-					url="https://github.com/benmccann"
+					url="https://github.com/stolinski"
+				/>
+				<Speaker
+					img={speaker_swyx}
+					name="Swyx"
+					description="Writer and Cohost of the Latent Space AI newsletter/podcast"
+					variant="past"
+					url="https://github.com/swyxio"
+				/>
+				<Speaker
+					img={speaker_samuel}
+					name="Samuel Stroschein"
+					description="Creator of Inlang"
+					variant="past"
+					url="https://github.com/samuelstroschein"
+				/>
+				<Speaker
+					img={speaker_andreas}
+					name="Andreas Söderlund"
+					description="Creator of sveltekit-superforms"
+					variant="past"
+					url="https://github.com/ciscoheat"
 				/>
 				<Speaker
 					img={speaker_paolo}
@@ -106,13 +129,6 @@
 					description="SSE at @mainmatter"
 					variant="past"
 					url="https://github.com/paoloricciuti"
-				/>
-				<Speaker
-					img={speaker_jacob}
-					name="Jacob Bowdoin"
-					description="Polylingual Development, i18n, JavaScript, Svelte, Linguistics"
-					variant="past"
-					url="https://github.com/jacob-8"
 				/>
 			</div>
 		</div>
