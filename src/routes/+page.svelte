@@ -32,7 +32,7 @@
 <div class="css-2025">
 	<section id="hero" class="pt-5">
 		<div class="row-reverse">
-			<div class="column" id="hero-image">
+			<div class="column pt-2" id="hero-image">
 				<p>The 10th Svelte-only conference</p>
 				<img
 					id="main-image"
@@ -44,7 +44,7 @@
 			</div>
 			<div class="column center" id="conference-info">
 				<div>
-					<div class="pb-3">
+					<div class="pb-1">
 						<div class="inline-flex pb-1">
 							<h2 class="white">Svelte Summit</h2>
 							<img
@@ -55,7 +55,7 @@
 						</div>
 						<h1 class="lt-yellow">Spring 2025</h1>
 					</div>
-					<div class="row pb-3">
+					<div class="row pb-1">
 						<div class="column pb-2">
 							<div class="inline-flex">
 								<i class="bi bi-calendar-fill orange-1"></i>
@@ -69,6 +69,7 @@
 							</div>
 						</div>
 					</div>
+					<p class="white pb-3">Svelte Summit is an event dedicated to Svelte and everything that is happening in the community. Don't miss it! It's going to be an absolute&nbsp;blast.</p>
 					<button><h3 class="lt-yellow">Buy Tickets</h3></button>
 				</div>
 			</div>
