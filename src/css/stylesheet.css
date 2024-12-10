@@ -347,7 +347,7 @@ img#two-dots {
 }
 
 #organizers #svelte-society {
-	width:clamp(120px, 9vw, 150px);
+	width:110px;
 }
 
 #organizers .column {

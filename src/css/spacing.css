@@ -78,6 +78,12 @@
 	margin-left:2rem;
 }
 
+@media (max-width:999px) {
+	.ml-xs-0 {
+		margin-left:0;
+	}
+}
+
 .mr-half {
 	margin-right:.5rem;
 }

@@ -250,7 +250,7 @@
 		<div class="lg-row vertical-center container">
 			<h2 class="white column">Organizers</h2>
 			<div class="column container">
-				<div class="ml-2 image-link">
+				<div class="ml-2 ml-xs-0 image-link">
 					<Link bg="none" fg="none" href="https://www.sveltesociety.dev/" target="_blank"
 						><img
 							class="responsive"
@@ -260,7 +260,7 @@
 						/></Link
 					>
 				</div>
-				<div class="ml-2 image-link">
+				<div class="ml-2 ml-xs-0 image-link">
 					<Link bg="none" fg="none" href="https://www.mainmatter.com/" target="_blank"
 						><img
 							class="responsive"
