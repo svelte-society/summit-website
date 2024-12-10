@@ -549,12 +549,16 @@ img#two-dots {
 	}
 }
 
-.sponsor-package:nth-child(odd){
+.sponsor-package:nth-child(odd) {
 	background-color:var(--orange);
 	border:solid 2px var(--white);
 	filter: drop-shadow(10px 30px 50px rgba(120, 10, 10, 0.23));
 	border-radius: 50px;
 	color:var(--white);
+}
+
+#footer h4 {
+	text-decoration:underline;
 }
 
 }

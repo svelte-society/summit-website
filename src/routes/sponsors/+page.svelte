@@ -10,6 +10,7 @@
 	import sponsorhip_lanyard from '$images/sponsorship/lanyards.png';
 	import sponsorhip_other from '$images/sponsorship/other.png';
 	import Link from '$lib/components/Link.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 </script>
 
 <svelte:head>
@@ -223,4 +224,5 @@
 			</a>
 		</div>
 	</section>
+	<Footer></Footer>
 </div>

@@ -25,6 +25,7 @@
 	import Speaker from '$lib/components/Speaker.svelte';
 	import Link from '$lib/components/Link.svelte';
 	import Carousel from '$lib/components/Carousel.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 </script>
 
 <svelte:head>
@@ -322,4 +323,5 @@
 			</div>
 		</div>
 	</section>
+	<Footer></Footer>
 </div>

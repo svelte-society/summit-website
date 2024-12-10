@@ -3,6 +3,7 @@
 	import logo_header from '$images/logo-header.png';
 	import favicon from '$images/favicon.svg';
 	import Link from '$lib/components/Link.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 </script>
 
 <svelte:head>
@@ -55,4 +56,5 @@
 			Not yet. As we get closer to the day of the conference we will release a schedule.
 		</p>
 	</section>
+	<Footer></Footer>
 </div>
