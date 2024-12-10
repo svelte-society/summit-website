@@ -26,6 +26,12 @@
         place-items: center;
     }
 
+    img.orange-1 {
+        width:40px;
+        display:grid;
+        place-items: center;
+    }
+
     i.orange-3 {
         background-color: #000;
         aspect-ratio: 1;

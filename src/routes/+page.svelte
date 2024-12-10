@@ -4,6 +4,7 @@
 	import favicon from '$images/favicon.svg';
 	import hero from '$images/hero.jpg';
 	import svelte_barcelona from '$images/svelte-barcelona.png';
+	import icon_bluesky from '$images/icons/bluesky.svg';
 	import speaker_rich from '$images/past-speakers/rich.png';
 	import speaker_paolo from '$images/past-speakers/paolo.png';
 	import speaker_jacob from '$images/past-speakers/jacob.png';
@@ -148,6 +149,17 @@
 						fg="var(--yellow)"
 						href="https://x.com/sveltesociety"
 						target="_blank"><h3 class="no-caps">Twitter</h3></Link
+					>
+				</div>
+			</div>
+			<div class="link">
+				<div class="inline-flex">
+					<img class="orange-1 mr-half" src={icon_bluesky} alt="bluesky logo" />
+					<Link
+						bg="var(--orange)"
+						fg="var(--yellow)"
+						href="https://bsky.app/profile/sveltesociety.dev"
+						target="_blank"><h3 class="no-caps">Bluesky</h3></Link
 					>
 				</div>
 			</div>
