@@ -388,6 +388,10 @@ img#two-dots {
 	text-align:center;
 }
 
+#buy-tickets button {
+	margin:.5rem;
+}
+
 #organizers {
 	background-color:#F7A649;
 }

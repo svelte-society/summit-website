@@ -265,7 +265,7 @@
 		</div>
 	</section>
 	<section id="buy-tickets">
-		<button class="mr-1 mb-1"><h3 class="lt-yellow">Buy Tickets</h3></button>
+		<button class="mb-1"><h3 class="lt-yellow">Buy Tickets</h3></button>
 		<button class="secondary"><h3 class="lt-yellow">Submit a talk</h3></button>
 	</section>
 	<section id="organizers">
