@@ -192,7 +192,7 @@ img#two-dots {
 }
 
 .speaker-info {
-	max-width:60%;
+	width:clamp(100px, 60vw, 300px);
 }
 
 #invited-speaker, #sponsor-section, #past-speakers, #social-media, #organizers, #faq {
@@ -555,10 +555,6 @@ img#two-dots {
 	filter: drop-shadow(10px 30px 50px rgba(120, 10, 10, 0.23));
 	border-radius: 50px;
 	color:var(--white);
-}
-
-#footer h4 {
-	text-decoration:underline;
 }
 
 }
