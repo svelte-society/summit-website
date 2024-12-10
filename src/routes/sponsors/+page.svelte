@@ -83,7 +83,7 @@
 			</a>
 		</div>
 
-		<h2 class="pb-3 pt-7 white text-center">Why Sponsor?</h2>
+		<h2 class="pb-3 pt-7 lt-yellow text-center">Why Sponsor?</h2>
 		<p class="pb-1 white">
 			Svelte is growing like crazy. Numbers are up manyfold on the Community discord, Reddit as well
 			as on a number of other platforms. Developers love Svelte. So much so that they quit their

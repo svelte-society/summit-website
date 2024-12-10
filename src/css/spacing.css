@@ -15,13 +15,19 @@
 		padding-top:5rem;
 	}
 
+	@media (max-width:999px) {
+		.pt-5 {
+			padding-top:2.5rem;
+		}
+	}
+
 	.pt-7 {
 		padding-top:7rem;
 	}
 
 	@media (max-width:999px) {
 		.pt-7 {
-			padding-top:4.5rem;
+			padding-top:3.5rem;
 		}
 	}
 
