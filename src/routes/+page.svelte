@@ -6,6 +6,10 @@
 	import svelte_barcelona from '$images/svelte-barcelona.png';
 	import icon_bluesky from '$images/icons/bluesky.svg';
 	import speaker_rich from '$images/past-speakers/rich.png';
+	import logo_reepolee from '$images/sponsors/reepolee.svg';
+	import logo_appwrite from '$images/sponsors/appwrite.svg';
+	import logo_monogram from '$images/sponsors/monogram.svg';
+	import logo_prismic from '$images/sponsors/prismic.svg';
 	import speaker_scott from '$images/past-speakers/scott.png';
 	import speaker_swyx from '$images/past-speakers/swyx.png';
 	import speaker_samuel from '$images/past-speakers/samuel.png';
@@ -17,7 +21,7 @@
 	import slider_4 from '$images/slider/4.jpg';
 	import venue from '$images/venue.jpg';
 	import svelte_society_logo from '$images/svelte-society-logo.svg';
-	import mainmatter_logo from '$images/maimatter.svg';
+	import logo_mainmatter from '$images/mainmatter.svg';
 	import Speaker from '$lib/components/Speaker.svelte';
 	import Link from '$lib/components/Link.svelte';
 	import Carousel from '$lib/components/Carousel.svelte';
@@ -89,6 +93,23 @@
 				variant="invited"
 				url="https://github.com/Rich-Harris"
 			/>
+		</div>
+	</section>
+	<section id="sponsor-section">
+		<div class="lg-row vertical-top">
+			<h2 class="white column">Past sponsors</h2>
+			<div class="column">
+				<div id="sponsor-grid">
+					<img src={logo_reepolee} class="responsive" alt="reepolee logo">
+					<img src={logo_appwrite} class="responsive" alt="appwrite logo">
+					<img src={logo_mainmatter} class="responsive" alt="mainmatter logo">
+					<img src={logo_monogram} class="responsive" alt="monogram logo">
+					<img src={logo_prismic} class="responsive" alt="prismic logo">
+				</div>
+				<div id="sponsor-button" class="pt-3 pt-xs-5">
+					<button class="white-text"><h3>Become a sponsor</h3></button>
+				</div>
+			</div>
 		</div>
 	</section>
 	<section id="past-speakers">
@@ -264,7 +285,7 @@
 					<Link bg="none" fg="none" href="https://www.mainmatter.com/" target="_blank"
 						><img
 							class="responsive"
-							src={mainmatter_logo}
+							src={logo_mainmatter}
 							id="mainmatter"
 							alt="mainmatter logo"
 						/></Link

@@ -11,6 +11,22 @@
 		padding-right:2rem;
 	}
 
+	.pt-3 {
+		padding-top:3rem;
+	}
+
+	@media (max-width:999px) {
+		.pt-3 {
+			padding-top:2rem;
+		}
+	}
+
+	@media (max-width:999px) {
+		.pt-xs-5 {
+			padding-top:2.5rem;
+		}
+	}
+
 	.pt-5 {
 		padding-top:5rem;
 	}

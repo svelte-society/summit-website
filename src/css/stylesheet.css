@@ -110,7 +110,6 @@ body {
 	color: white;
 }
 
-
 :is(button.secondary) {
 	background-color:var(--orange);
 	border:solid 2px var(--yellow);
@@ -128,6 +127,11 @@ body {
 
 :is(button,.button) h3 {
 	color:var(--yellow);
+	transition: all 0.4s;
+}
+
+:is(button.white-text) h3 {
+	color:var(--white);
 	transition: all 0.4s;
 }
 
@@ -191,7 +195,7 @@ img#two-dots {
 	max-width:60%;
 }
 
-#invited-speaker, #past-speakers, #social-media, #organizers, #faq {
+#invited-speaker, #sponsor-section, #past-speakers, #social-media, #organizers, #faq {
 	display:block;
 	margin:70px 8.33vw;
 	border-radius:50px;
@@ -199,6 +203,11 @@ img#two-dots {
 }
 
 @media (max-width:999px) {
+	#sponsor-section {
+		margin:70px 5vw;
+		padding:2rem 2rem 5rem 2rem;
+	}
+
 	#invited-speaker, #past-speakers, #social-media, #organizers, #faq {
 		margin:70px 5vw;
 		padding:2rem;
@@ -239,8 +248,49 @@ img#two-dots {
 	flex-direction:column;
 }
 
+#sponsor-section {
+	background-color:var(--orange);
+	border:solid 2px var(--white);
+}
+
+@media (max-width: 999px) {
+	#sponsor-button {
+	text-align: center;
+	}
+}
+
+#sponsor-grid {
+	display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px 10px;
+    text-align: center;
+}
+
+@media (max-width: 999px) {
+    #sponsor-grid {
+      grid-template-columns:repeat(2, 1fr);
+	  gap:10px;
+	  margin:0 6vw;
+	}
+}
+
+#sponsor-grid img {
+	margin:0 auto;
+}
+
+@media (max-width: 999px) {
+	#sponsor-grid img {
+		width:clamp(120px, calc(100% - 5vw), 200px);
+	}
+
+	#sponsor-grid img:last-child{
+		grid-column: 1 / span 2;
+		width:clamp(120px, calc(50% - 2.5vw), 200px);
+	}
+}
+
 #social-media {
-	border:solid 2px #FFF480;
+	border:solid 2px var(--yellow);
 	padding:5rem;
 	background-image: url( '../images/backgrounds/dots.svg');
 	background-position:top left;
@@ -285,14 +335,14 @@ img#two-dots {
 	text-decoration:none;
 }
 
-#invited-speaker h2, #past-speakers h2, #social-media h2, #organizers h2 {
+#invited-speaker h2, #sponsor-section h2,  #past-speakers h2, #social-media h2, #organizers h2 {
 	text-align:right;
 	padding-right:2rem;
 	padding-bottom:0;
 }
 
 @media (max-width:999px) {
-	#invited-speaker h2, #past-speakers h2, #social-media h2, #organizers h2 {
+	#invited-speaker h2, #sponsor-section h2, #past-speakers h2, #social-media h2, #organizers h2 {
 		text-align:center;
 		padding-right:0;
 		padding-bottom:2rem;
