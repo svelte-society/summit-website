@@ -19,7 +19,7 @@
 				target="_blank"><h4 class="no-caps">Privacy policy</h4></Link
 			>
 		</div>
-		<div class="column ul">
+		<ul class="column">
 			<li>
 				<h4 class="no-caps orange-1 pb-2 text-decor-none">Previous summits:</h4>
 			</li>
@@ -55,7 +55,7 @@
 				target="_blank"><h4 class="no-caps">Spring 2023</h4></Link
 				>
 			</li>
-		</div>
+		</ul>
 	</div>
 </section>
 
@@ -85,6 +85,12 @@
 
 	.text-decor-none {
 		text-decoration:none !important;
+	}
+
+	#footer ul {
+		list-style-type: none;
+  		margin: 0;
+  		padding: 0;
 	}
 
 </style>
