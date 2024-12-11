@@ -34,10 +34,21 @@
 <svelte:head>
 	<meta charset="utf-8" />
 	<title>Svelte Summit Spring 2025: Barcelona and online</title>
+	<meta name="description" content="The world's largest Svelte conference" />
 	<link rel="icon" type="image/x-icon" href={favicon} />
+
+	<!-- Facebook Meta Tags -->
+	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Svelte Summit Spring 2025: Barcelona & online" />
 	<meta property="og:description" content="The world's largest Svelte conference" />
 	<meta property="og:image" content={og_image} />
+
+	<!-- Twitter Meta Tags -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta property="twitter:domain" content="svelte-summit-git-2025-sveltesociety.vercel.app" />
+	<meta name="twitter:title" content="Svelte Summit Spring 2025: Barcelona & online" />
+	<meta name="twitter:description" content="The world's largest Svelte conference" />
+	<meta name="twitter:image" content={og_image} />
 </svelte:head>
 
 <div class="css-2025">
