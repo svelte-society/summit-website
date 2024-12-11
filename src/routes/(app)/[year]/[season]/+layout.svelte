@@ -32,6 +32,7 @@
 	style:--color-text={data.text_color}
 	class="bg-primary text-crystal-50 font-body min-h-screen"
 >
+	<!--
 	<nav class="fixed inset-x-0 w-full bg-black/75 p-6 z-50 text-white">
 		<ul
 			class="w-full flex flex-wrap flex-row place-content-center place-items-center gap-5 md:gap-5 center"
@@ -43,17 +44,20 @@
 			{/each}
 			<ConferencePicker conferences={data.conferences} />
 			{#if data.speaker_status === 'cfp_open'}
-				<Button href="/{$page.params.year}/{$page.params.season}/submit" secondary thin
-					>Submit Talk</Button
-				>
+				<Button href="/{$page.params.year}/{$page.params.season}/submit" secondary thin>
+					Submit Talk
+				</Button>
 			{/if}
 		</ul>
 	</nav>
+	-->
+
 	<main class="pt-32"><slot /></main>
+
 	<footer class="bg-primary text-white py-4 text-center">
-		Svelte Summit is a conference made possible by <span class="font-semibold"
-			>Svelte School AB</span
-		>
+		Svelte Summit is a conference made possible by <span class="font-semibold">
+			Svelte School AB
+		</span>
 		and <a class="font-semibold underline" href="https://sveltesociety.dev">Svelte Society</a>.
 	</footer>
 </div>
