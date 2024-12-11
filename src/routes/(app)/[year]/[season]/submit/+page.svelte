@@ -15,10 +15,10 @@
 		submitting: deleteSubmitting
 	} = superForm(data.deleteForm);
 
-	const deadline = new Date();
+	const today = new Date();
 </script>
 
-{#if deadline.getMonth() >= 8 && deadline.getDate() >= 15}
+{#if (today.getMonth() == 8 && today.getDate() >= 15) || today.getMonth() > 8}
 	<div class="space-y-2">
 		<h2 class="text-3xl font-bold">Submissions closed</h2>
 	</div>
@@ -26,6 +26,7 @@
 	<div class="space-y-2">
 		<h2 class="text-3xl font-bold">Submit a Talk</h2>
 		<p class="text-zinc-600">Fill out the form below to submit your talk proposal.</p>
+
 		<p class="text-zinc-600">Talks can be submitted until <span class="font-bold text-zinc-900">September 14th</span></p>
 	</div>
 	{#if data.user}
