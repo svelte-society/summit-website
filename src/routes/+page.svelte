@@ -28,7 +28,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 
 	const ticket_url = 'https://www.tickettailor.com/events/sveltesummit/1485857';
-	const proposal_url = 'https://www.sveltesummit.com/2025/spring/submit';
+	const proposal_url = '/2025/spring/submit';
 </script>
 
 <svelte:head>
@@ -333,17 +333,17 @@
 			<div class="link">
 				<div class="inline-flex">
 					<i class="bi bi-chat-heart-fill orange-3 mr-half"></i>
-					<Link bg="var(--orange)" fg="var(--black)" href="/sponsors" target="_self"
-						><h3 class="no-caps">Become a sponsor</h3></Link
-					>
+					<Link bg="var(--orange)" fg="var(--black)" href="/sponsors" target="_self">
+						<h3 class="no-caps">Become a sponsor</h3>
+					</Link>
 				</div>
 			</div>
 			<div class="link">
 				<div class="inline-flex">
 					<i class="bi bi-megaphone-fill orange-3 mr-half"></i>
-					<Link bg="var(--orange)" fg="var(--black)" href="" target="_blank"
-						><h3 class="no-caps">Submit a Talk</h3></Link
-					>
+					<Link bg="var(--orange)" fg="var(--black)" href={proposal_url} target="_blank">
+						<h3 class="no-caps">Submit a Talk</h3>
+					</Link>
 				</div>
 			</div>
 		</div>
