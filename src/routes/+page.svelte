@@ -28,7 +28,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 
 	const ticket_url = 'https://www.tickettailor.com/events/sveltesummit/1485857';
-	const proposal_url = '';
+	const proposal_url = 'https://www.sveltesummit.com/2025/spring/submit';
 </script>
 
 <svelte:head>
@@ -130,35 +130,39 @@
 					name="Scott Tolinski"
 					description="Creator of Level Up Tutorials, Co-host of Syntax.fm"
 					variant="past"
-					url="https://github.com/stolinski"
+					github_url="https://github.com/stolinski"
+					bluesky_url="https://bsky.app/profile/tolin.ski"
 				/>
 				<Speaker
 					img={speaker_swyx}
 					name="Swyx"
 					description="Writer and Cohost of the Latent Space AI newsletter/podcast"
 					variant="past"
-					url="https://github.com/swyxio"
+					github_url="https://github.com/swyxio"
+					bluesky_url="https://bsky.app/profile/swyx.io"
 				/>
 				<Speaker
 					img={speaker_samuel}
 					name="Samuel Stroschein"
 					description="Creator of Inlang"
 					variant="past"
-					url="https://github.com/samuelstroschein"
+					github_url="https://github.com/samuelstroschein"
 				/>
 				<Speaker
 					img={speaker_andreas}
 					name="Andreas Söderlund"
 					description="Creator of sveltekit-superforms"
 					variant="past"
-					url="https://github.com/ciscoheat"
+					github_url="https://github.com/ciscoheat"
+					bluesky_url="https://bsky.app/profile/ciscoheat.bsky.social"
 				/>
 				<Speaker
 					img={speaker_paolo}
 					name="Paolo Ricciuti"
 					description="SSE at @mainmatter"
 					variant="past"
-					url="https://github.com/paoloricciuti"
+					github_url="https://github.com/paoloricciuti"
+					bluesky_url="https://bsky.app/profile/paolo.ricciuti.me"
 				/>
 			</div>
 		</div>
