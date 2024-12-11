@@ -137,7 +137,7 @@ body {
 	transition: all 0.4s;
 }
 
-.btn.--lg:hover, .btn.--lg:active {
+.btn:hover, .btn:active {
 	color:var(--black);
 	transition: all 0.2s ease-in-out;
 }

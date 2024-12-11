@@ -136,7 +136,7 @@
 					<img src={logo_prismic} class="responsive" alt="prismic logo" />
 				</div>
 				<div id="sponsor-button" class="pt-3 pt-xs-5">
-					<button class="white-text"><h3>Become a sponsor</h3></button>
+					<a class="btn" href="/sponsor">Become a Sponsor</a>
 				</div>
 			</div>
 		</div>
