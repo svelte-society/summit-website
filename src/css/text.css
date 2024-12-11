@@ -3,25 +3,12 @@
 /* Text */
 
 .css-2025 {
-
 	p, li {
 		font-family:"Overpass", sans-serif;
-  	font-optical-sizing:auto;
-  	font-weight:200;
-  	font-style:normal;
-		font-size:clamp(16px, 1.25vw, 18px);
-	}
-
-	@media (max-width:999px) {
-		p, li {
-			font-size:15px;
-		}
-	}
-
-	@media (min-width:1920px) {
-		p {
-			font-size:25px;
-		}
+		font-optical-sizing:auto;
+		font-weight:200;
+		font-style:normal;
+		font-size:clamp(20px, 1.5vw, 26px);
 	}
 
 	h1, h2, h3, h4, a {
@@ -33,21 +20,21 @@
 	}
 
 	.no-caps {
-	text-transform:none;
-}
-
-h1 {
-	/* 110px */
-	font-size:clamp(80px, 7.6vw, 200px);
-	line-height:clamp(80px, 7.6vw, 200px);
-}
-
-@media (max-width:999px) {
-	h1 {
-		font-size:clamp(65px, 17.15vw, 110px);
-		line-height:clamp(65px, 17.15vw, 110px);
+		text-transform:none;
 	}
-}
+
+	h1 {
+		/* 110px */
+		font-size:clamp(80px, 7.6vw, 200px);
+		line-height:clamp(80px, 7.6vw, 200px);
+	}
+
+	@media (max-width:999px) {
+		h1 {
+			font-size:clamp(65px, 17.15vw, 110px);
+			line-height:clamp(65px, 17.15vw, 110px);
+		}
+	}
 
 h2 {
 	/* 70px */
