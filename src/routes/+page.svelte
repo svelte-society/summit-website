@@ -309,7 +309,6 @@
 				<div class="ml-2 ml-xs-0 image-link">
 					<Link bg="none" fg="none" href="https://www.sveltesociety.dev/" target="_blank"
 						><img
-							class="responsive"
 							id="svelte-society"
 							src={svelte_society_logo}
 							alt="svelte society logo"
@@ -319,7 +318,6 @@
 				<div class="ml-2 ml-xs-0 image-link">
 					<Link bg="none" fg="none" href="https://www.mainmatter.com/" target="_blank"
 						><img
-							class="responsive"
 							src={logo_mainmatter}
 							id="mainmatter"
 							alt="mainmatter logo"

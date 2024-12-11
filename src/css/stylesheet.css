@@ -409,7 +409,7 @@ img#two-dots {
 }
 
 #organizers #mainmatter {
-	width: clamp(200px, 50%, 260px);
+	width: 220px
 }
 
 #organizers #svelte-society {
