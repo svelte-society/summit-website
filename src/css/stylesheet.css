@@ -99,7 +99,9 @@ body {
 	}
 }
 
-:is(button,.button) {
+.btn {
+	font-size:clamp(20px, 2vw, 50px);
+	text-align: center;
 	background-color:var(--black);
 	border:solid 2px var(--black);
 	padding:20px 35px;
@@ -110,13 +112,13 @@ body {
 	color: white;
 }
 
-:is(button.secondary) {
+.btn.--secondary {
 	background-color:var(--orange);
 	border:solid 2px var(--yellow);
 	box-shadow:none;
 }
 
-:is(button,.button):hover, :is(button,.button):active {
+.btn:hover, .btn:active {
 	background-color:var(--white);
 	scale: 1.1;
 	box-shadow: 10px 30px 10px 0px rgba(120, 10, 10, 0.35);
@@ -125,19 +127,37 @@ body {
 	border:solid 2px var(--white);
 }
 
-:is(button,.button) h3 {
+.btn.--lg {
 	color:var(--yellow);
 	transition: all 0.4s;
 }
 
-:is(button.white-text) h3 {
+.btn.--lg.white-text {
 	color:var(--white);
 	transition: all 0.4s;
 }
 
-:is(button,.button):hover h3, :is(button,.button):active h3 {
+.btn.--lg:hover, .btn.--lg:active {
 	color:var(--black);
 	transition: all 0.2s ease-in-out;
+}
+
+.btn-group {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+}
+
+@media (max-width:700px) {
+	.btn-group {
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.btn-group > * {
+		width: 100%;
+	}
 }
 
 @media (max-width:999px) {
@@ -382,14 +402,6 @@ img#two-dots {
 	#venue .photo, #community .photo {
 		padding:0;
 	}
-}
-
-#buy-tickets {
-	text-align:center;
-}
-
-#buy-tickets button {
-	margin:.5rem;
 }
 
 #organizers {

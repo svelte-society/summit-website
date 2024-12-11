@@ -26,6 +26,9 @@
 	import Link from '$lib/components/Link.svelte';
 	import Carousel from '$lib/components/Carousel.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+
+	const ticket_url = 'https://www.tickettailor.com/events/sveltesummit/1485857';
+	const proposal_url = '';
 </script>
 
 <svelte:head>
@@ -77,9 +80,14 @@
 							</div>
 						</div>
 					</div>
-					<p class="white pb-3">Svelte Summit is an event dedicated to Svelte and everything that is happening in the community. Don't miss it! It's going to be an absolute&nbsp;blast.</p>
-					<button class="mr-1 mb-1"><h3 class="lt-yellow">Buy Tickets</h3></button>
-					<button class="secondary"><h3 class="lt-yellow">Submit a talk</h3></button>
+					<p class="white pb-3">
+						Svelte Summit is an event dedicated to Svelte and everything that is happening in the
+						community. Don't miss it! It's going to be an absolute&nbsp;blast.
+					</p>
+					<div class="btn-group" style="margin-block-end: 2rem;">
+						<a href={ticket_url} target="_blank" class="btn --lg">Buy Tickets</a>
+						<a href={proposal_url} target="_blank" class="btn --lg --secondary">Submit a Talk </a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -101,11 +109,11 @@
 			<h2 class="white column">Past sponsors</h2>
 			<div class="column">
 				<div id="sponsor-grid">
-					<img src={logo_reepolee} class="responsive" alt="reepolee logo">
-					<img src={logo_appwrite} class="responsive" alt="appwrite logo">
-					<img src={logo_mainmatter} class="responsive" alt="mainmatter logo">
-					<img src={logo_monogram} class="responsive" alt="monogram logo">
-					<img src={logo_prismic} class="responsive" alt="prismic logo">
+					<img src={logo_reepolee} class="responsive" alt="reepolee logo" />
+					<img src={logo_appwrite} class="responsive" alt="appwrite logo" />
+					<img src={logo_mainmatter} class="responsive" alt="mainmatter logo" />
+					<img src={logo_monogram} class="responsive" alt="monogram logo" />
+					<img src={logo_prismic} class="responsive" alt="prismic logo" />
 				</div>
 				<div id="sponsor-button" class="pt-3 pt-xs-5">
 					<button class="white-text"><h3>Become a sponsor</h3></button>
@@ -265,8 +273,10 @@
 		</div>
 	</section>
 	<section id="buy-tickets">
-		<button class="mb-1"><h3 class="lt-yellow">Buy Tickets</h3></button>
-		<button class="secondary"><h3 class="lt-yellow">Submit a talk</h3></button>
+		<div class="btn-group">
+			<a href={ticket_url} target="_blank" class="btn --lg">Buy Tickets</a>
+			<a href={proposal_url} target="_blank" class="btn --lg --secondary">Submit a Talk</a>
+		</div>
 	</section>
 	<section id="organizers">
 		<div class="lg-row vertical-center container">
@@ -317,7 +327,7 @@
 				<div class="inline-flex">
 					<i class="bi bi-megaphone-fill orange-3 mr-half"></i>
 					<Link bg="var(--orange)" fg="var(--black)" href="" target="_blank"
-						><h3 class="no-caps">Submit a talk</h3></Link
+						><h3 class="no-caps">Submit a Talk</h3></Link
 					>
 				</div>
 			</div>
