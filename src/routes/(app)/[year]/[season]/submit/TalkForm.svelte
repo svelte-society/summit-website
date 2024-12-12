@@ -15,7 +15,6 @@
 <div class="space-y-4">
 	<div class="space-y-4 -ml-8 p-4 pl-8 rounded-md rounded-l-none bg-red-200 font-md">
 		<h2 class="text-xl font-semibold">Instructions</h2>
-		<p>For the virtual Svelte Summit your talk should be pre-recorded. This is NOT a live talk.</p>
 		<p>
 			You can submit at most two talks. You can edit your talk after submitting it but once the CFP
 			is closed you won't be able to make any changes.
@@ -23,6 +22,9 @@
 		<p>
 			Once the CFP closes we will review the talks and decide which ones get to selected. Expect an
 			email a week or so after the CFP is closed.
+		</p>
+		<p>
+			As a speaker you will get a free ticket, flights and accommodation paid for.
 		</p>
 	</div>
 	<form method="POST" {action} use:enhance class="space-y-8">
@@ -76,9 +78,7 @@
 					for="format">Format</label
 				>
 				<p class="text-sm" id="format_description">
-					The format of your talk. A regular talk is 25 minutes long and a lightning talk is 10
-					minutes long. The ratio of regular to lightning talks is about 1:2. You have a bigger
-					chance of getting accepted if you submit a lightning talk.
+					The format of your talk. A regular talk is 30 minutes long.
 				</p>
 				<select
 					class="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
@@ -90,7 +90,6 @@
 				>
 					<option value="" disabled>Select the level of your talk</option>
 					<option value="regular">Regular</option>
-					<option value="lightning">Lightning</option>
 				</select>
 			</div>
 			<div class="space-y-2 grid">
