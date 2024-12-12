@@ -23,9 +23,7 @@
 			Once the CFP closes we will review the talks and decide which ones get to selected. Expect an
 			email a week or so after the CFP is closed.
 		</p>
-		<p>
-			As a speaker you will get a free ticket, flights and accommodation paid for.
-		</p>
+		<p>As a speaker you will get a free ticket, flights and accommodation paid for.</p>
 	</div>
 	<form method="POST" {action} use:enhance class="space-y-8">
 		<div class="space-y-8">
@@ -139,6 +137,7 @@
 			<input hidden name="conference" type="text" value={$page.data.id} />
 			<button
 				disabled={$submitting}
+				style:--color-secondary={$page.data.secondary_color}
 				class="text-white inline-flex items-center justify-center rounded-md text-sm font-bold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-primary-foreground hover:bg-secondary/90 h-10 px-4 py-2 w-full"
 				type="submit"
 			>
@@ -147,3 +146,9 @@
 		</div>
 	</form>
 </div>
+
+<style>
+	button {
+		background-color: var(--color-secondary);
+	}
+</style>
