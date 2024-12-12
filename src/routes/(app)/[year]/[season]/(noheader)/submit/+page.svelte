@@ -18,7 +18,7 @@
 	const today = new Date();
 </script>
 
-{#if (today.getMonth() == 8 && today.getDate() >= 15) || today.getMonth() > 8}
+{#if (today.getFullYear() === 2025 && today.getMonth() === 0 && today.getDate() >= 13) || (today.getFullYear() === 2025 && today.getMonth() > 0)}
 	<div class="space-y-2">
 		<h2 class="text-3xl font-bold">Submissions closed</h2>
 	</div>
@@ -27,7 +27,9 @@
 		<h2 class="text-3xl font-bold">Submit a Talk</h2>
 		<p class="text-zinc-600">Fill out the form below to submit your talk proposal.</p>
 
-		<p class="text-zinc-600">Talks can be submitted until <span class="font-bold text-zinc-900">January 13th</span></p>
+		<p class="text-zinc-600">
+			Talks can be submitted until <span class="font-bold text-zinc-900">January 13th</span>
+		</p>
 	</div>
 	{#if data.user}
 		<div class="flex items-start space-x-8 mt-4">
