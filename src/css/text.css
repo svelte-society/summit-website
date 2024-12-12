@@ -1,0 +1,89 @@
+@charset "utf-8";
+
+/* Text */
+
+.css-2025 {
+	p, li {
+		font-family:"Overpass", sans-serif;
+		font-optical-sizing:auto;
+		font-weight:200;
+		font-style:normal;
+		font-size:clamp(20px, 1.5vw, 26px);
+	}
+
+	h1, h2, h3, h4, a, strong {
+		font-family:"Anton", sans-serif;
+		font-weight:400;
+		font-style:normal;
+		margin:0;
+		text-transform:uppercase;
+	}
+
+	.no-caps {
+		text-transform:none;
+	}
+
+	h1 {
+		/* 110px */
+		font-size:clamp(80px, 7.6vw, 200px);
+		line-height:clamp(80px, 7.6vw, 200px);
+	}
+
+	@media (max-width:999px) {
+		h1 {
+			font-size:clamp(65px, 17.15vw, 110px);
+			line-height:clamp(65px, 17.15vw, 110px);
+		}
+	}
+
+h2 {
+	/* 70px */
+	font-size:clamp(48px, 4.86vw, 100px);
+	line-height:clamp(50px, 5vw, 105px);
+}
+
+@media (max-width:999px) {
+	h2 {
+		font-size:clamp(38px, 10.55vw, 70px);
+		line-height:clamp(43px, 10.55vw, 70px);
+	}
+}
+
+h3 {
+	/* 30px */
+	font-size:clamp(20px, 2vw, 50px);
+}
+
+@media (max-width:999px) {
+	h3 {
+		font-size:20px;
+	}
+}
+
+button h3 {
+	font-size:clamp(20px, 2.08vw, 50px);
+}
+
+h4 {
+	font-size:1.38vw;
+}
+
+@media (max-width:999px) {
+	h4 {
+		font-size:16px;
+		line-height:16px;
+	}
+}
+
+.text-right {
+	text-align:right;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.underline {
+	text-decoration: underline;
+}
+}

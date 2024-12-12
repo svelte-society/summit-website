@@ -1,35 +1,63 @@
 <script>
-const tables = [
-	{ name: "Users", path: "/admin/users", icon: "faUser" },
-	{ name: "Conferences", path: "/admin/conferences", icon: "faCalendar" },
-	{ name: "Talks", path: "/admin/talks", icon: "faMicrochip" },
-	{ name: "Sponsors", path: "/admin/sponsors", icon: "faBuilding" },
-	{ name: "Roles", path: "/admin/roles", icon: "faShield" },
-];
+	import { page } from '$app/stores';
+	import MenuItem from './MenuItem.svelte';
 
-let { data, children } = $props();
+	const { data } = $props();
 </script>
 
-<div class="flex h-screen bg-gray-100">
-  <!-- Sidebar -->
-  <aside class="w-64 bg-gray-800">
-    <div class="p-4">
-      <h1 class="text-white text-xl font-semibold">Admin Panel</h1>
-    </div>
-    <nav class="mt-4">
-      {#each data.tables as table}
-        <a
-          href="/admin/{table}"
-          class="px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white flex items-center"
-        >
-          <span class=capitalize>{table}</span>
-        </a>
-      {/each}
-    </nav>
-  </aside>
-
-  <!-- Main content -->
-  <main class="flex-1 p-8 overflow-auto">
-    {@render children()}
-  </main>
+<div class="flex h-screen">
+	<aside class="w-64 bg-gray-800 text-white flex flex-col justify-between">
+		<div>
+			<div class="flex items-center justify-center h-20 bg-slate-700">
+				<h1 class="text-xl font-semibold">Admin</h1>
+			</div>
+			<nav class="flex flex-col p-4 space-y-2">
+				<MenuItem href="/admin" text="Dashboard" active={$page.url.href.endsWith('/admin')} />
+				<MenuItem
+					href="/admin/conferences"
+					text="Conferences"
+					active={$page.url.href.includes('/conference')}
+				>
+					<MenuItem
+						href="/admin/conferences/new"
+						text="New"
+						active={$page.url.href.endsWith('/admin/conferences/new')}
+					/>
+					<MenuItem
+						href="/admin/conferences/edit"
+						text="Edit"
+						active={$page.url.href.endsWith('/admin/conferences/edit')}
+					/>
+				</MenuItem>
+				<MenuItem href="/admin/talks" text="Talks" active={$page.url.href.includes('/talks')} />
+				<MenuItem
+					href="/admin/analytics"
+					text="Analytics"
+					active={$page.url.href.includes('/analytics')}
+				/>
+			</nav>
+		</div>
+		<div>
+			<div class="flex flex-col p-4 space-y-2">
+				<MenuItem href="#" text="My Account" />
+				<MenuItem href="#" text="Settings" />
+			</div>
+			<div class="flex items-center p-4 bg-slate-700">
+				<span class="relative flex shrink-0 overflow-hidden rounded-full h-9 w-9">
+					<span class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+						>JD</span
+					>
+				</span>
+				<div class="ml-4">
+					<div class="text-sm font-medium">John Doe</div>
+					<div class="text-xs text-gray-400">johndoe@example.com</div>
+				</div>
+			</div>
+		</div>
+	</aside>
+	<main
+		class="flex-1 bg-gray-100 p-8 overflow-auto grid grid-cols-2 gap-4 grid-flow-dense content-start"
+	>
+		<slot />
+	</main>
 </div>
