@@ -91,7 +91,7 @@
 			Speakers will get a free ticket and flights and accommodation paid for.
 		</p>
 		<h3 class="lt-yellow" id="i-have-another-question-or-feedback">
-			<a href="#I have another question or feedback">
+			<a href="#i-have-another-question-or-feedback">
 				I have another question or feedback. Where can I ask?
 			</a>
 		</h3>
