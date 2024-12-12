@@ -146,3 +146,9 @@
 		</div>
 	</form>
 </div>
+
+<style>
+	button {
+		background-color: var(--color-secondary);
+	}
+</style>
