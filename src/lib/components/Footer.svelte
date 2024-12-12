@@ -1,5 +1,8 @@
 <script lang="ts">
 	import Link from '$lib/components/Link.svelte';
+
+	const privacy_policy_url =
+		'https://www.tickettailor.com/promoter/privacy-policy/link/sveltesummit?widget=true&modal_widget=true';
 </script>
 
 <section id="footer" class="text-center">
@@ -12,9 +15,9 @@
 				href="https://www.sveltesociety.dev/"
 				target="_blank"><h4 class="no-caps">Svelte Society</h4></Link
 			>
-			<Link bg="var(--black)" fg="var(--orange)" href="" target="_blank"
-				><h4 class="no-caps">Privacy policy</h4></Link
-			>
+			<Link bg="var(--black)" fg="var(--orange)" href={privacy_policy_url} target="_blank">
+				<h4 class="no-caps">Privacy policy</h4>
+			</Link>
 		</div>
 		<ul class="column">
 			<li>
