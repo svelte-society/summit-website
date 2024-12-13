@@ -70,7 +70,11 @@
 			<a href="#where-can-i-buy-tickets">Where can I buy tickets?</a>
 		</h3>
 		<p class="white pb-3">
-			You can buy tickets <a href="https://www.tickettailor.com/events/sveltesummit/1485857" target="_blank">here</a>.
+			You can buy tickets <a
+				href="https://www.tickettailor.com/events/sveltesummit/1485857"
+				target="_blank">here</a
+			>. Until December 31st, 2024 you can get an extra 20% off by using the code
+			<strong>sveltmas2024</strong> at checkout.
 		</p>
 		<h3 class="lt-yellow" id="do-you-offer-group-tickets">
 			<a href="#do-you-offer-group-tickets">Do you offer group tickets?</a>

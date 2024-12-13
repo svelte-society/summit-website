@@ -109,12 +109,10 @@
 							<a href={ticket_url} target="_blank" class="btn --lg">Buy Tickets</a>
 							<a href={proposal_url} target="_blank" class="btn --lg --secondary">Submit a Talk </a>
 						</div>
-						<p class="white" style="margin-block-start:1rem; text-align:center">
-							For group tickets or payment by invoice send us an email to <a
-								href="mailto:groups@sveltesummit.com"
-							>
-								groups@sveltesummit.com
-							</a>
+						<p class="white" style="margin-block-start:1rem">
+							Use the code <strong>sveltmas2024</strong> at checkout for a 20% discount until
+							December 31st. For group tickets or payment by invoice send us an email to
+							<a href="mailto:groups@sveltesummit.com"> groups@sveltesummit.com </a>
 						</p>
 					</div>
 				</div>
@@ -311,12 +309,10 @@
 				<a href={ticket_url} target="_blank" class="btn --lg">Buy Tickets</a>
 				<a href={proposal_url} target="_blank" class="btn --lg --secondary">Submit a Talk</a>
 			</div>
-			<p class="white" style="margin-block-start:1rem; text-align:center">
-				For group tickets or payment by invoice send us an email to <a
-					href="mailto:groups@sveltesummit.com"
-				>
-					groups@sveltesummit.com
-				</a>
+			<p class="white" style="margin-block-start:1rem">
+				Use the code <strong>sveltmas2024</strong> at checkout for a 20% discount until December
+				31st. For group tickets or payment by invoice send us an email to
+				<a href="mailto:groups@sveltesummit.com"> groups@sveltesummit.com </a>
 			</p>
 		</div>
 	</section>
