@@ -326,7 +326,7 @@
 					>
 				</div>
 				<div class="ml-2 ml-xs-0 image-link">
-					<Link bg="none" fg="none" href="https://www.mainmatter.com/" target="_blank"
+					<Link bg="none" fg="none" href="https://mainmatter.com/svelte-consulting/?utm_source=Svelte+Summit" target="_blank"
 						><img src={logo_mainmatter} id="mainmatter" alt="mainmatter logo" /></Link
 					>
 				</div>
