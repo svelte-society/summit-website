@@ -148,7 +148,7 @@
 		<div id="sponsor-podcast" class="sponsor-package pt-5 pb-3 mt-5 text-center">
 			<img src={sponsorhip_podcast} alt="Podcast icon" class="responsive mx-auto pb-2" />
 			<h2 class="text-center pl-2 pr-2">Podcast & Twitter</h2>
-			<h3 class="pb-5 text-center">€15.000</h3>
+			<h3 class="pb-5 text-center">€15,000</h3>
 			<p>
 				You think the Svelte community is awesome and want to make sure it thrives. This is a
 				package that is designed to give you an opportunity to repeatedly keep the name of your
@@ -172,7 +172,7 @@
 		<div id="sponsor-dinner" class="sponsor-package pt-5 pb-3 mt-5 text-center">
 			<img src={sponsorhip_dinner} alt="Salad icon" class="responsive mx-auto pb-2" />
 			<h2 class="text-center pl-2 pr-2">Dinner & Lunch</h2>
-			<h3 class="pb-5 text-center">€8.000</h3>
+			<h3 class="pb-5 text-center">€8,000</h3>
 			<p>
 				You like food. And Svelte! This is your chance to get the venue branded with your company
 				during the lunches and dinners.
@@ -186,7 +186,7 @@
 		<div id="sponsor-coffee" class="sponsor-package pt-5 pb-3 mt-5 text-center">
 			<img src={sponsorhip_coffee} alt="Coffee icon" class="responsive mx-auto pb-2" />
 			<h2 class="text-center pl-2 pr-2">Coffee Sponsor</h2>
-			<h3 class="pb-5 text-center">€3.000</h3>
+			<h3 class="pb-5 text-center">€3,000</h3>
 			<p>We all need coffee. It's the life essence of a developer.</p>
 			<ul>
 				<li>Logo on the coffee cups</li>
@@ -196,7 +196,7 @@
 		<div id="sponsor-lanyard" class="sponsor-package pt-5 pb-3 mt-5 text-center">
 			<img src={sponsorhip_lanyard} alt="Lanyard icon" class="responsive mx-auto pb-2" />
 			<h2 class="text-center pl-2 pr-2">Lanyard Sponsor</h2>
-			<h3 class="pb-5 text-center">€3.000</h3>
+			<h3 class="pb-5 text-center">€3,000</h3>
 			<p>
 				The lanyard is something people often keep after an event. It's a fun way to get exposure.
 			</p>
