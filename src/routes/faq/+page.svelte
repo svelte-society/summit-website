@@ -50,7 +50,7 @@
 		</h3>
 		<p class="white pb-3">
 			May 8th and 9th, 2025. The summit will last for about 5-6 hours each day (including breaks).
-			It starts at 3PM CET
+			It starts at 10 AM.
 		</p>
 		<h3 class="lt-yellow" id="i-want-to-sponsor-the-event">
 			<a href="#i-want-to-sponsor-the-event">I want to sponsor the event! How do I do that?</a>

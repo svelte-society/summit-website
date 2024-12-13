@@ -98,7 +98,7 @@
 		<div id="sponsor-diamond" class="sponsor-package pt-5 pb-3">
 			<img src={sponsorhip_diamond} alt="Diamond icon" class="responsive mx-auto pb-2" />
 			<h2 class="text-center pl-2 pr-2">Diamond</h2>
-			<h3 class="text-center pb-5">€8.000</h3>
+			<h3 class="text-center pb-5">€8,000</h3>
 			<p>
 				This is the package for companies that really want to show their love for Svelte and the
 				Svelte community. You'll get the largest size logo on the website and an above the fold logo
@@ -125,7 +125,7 @@
 		<div id="sponsor-gold" class="sponsor-package pt-5 pb-3 mt-5 text-center">
 			<img src={sponsorhip_gold} alt="Gold bars icon" class="responsive mx-auto pb-2" />
 			<h2 class="text-center pl-2 pr-2">Gold</h2>
-			<h3 class="pb-5 text-center">€5.000</h3>
+			<h3 class="pb-5 text-center">€5,000</h3>
 			<p>
 				You like Svelte a lot. And you want there to be more conferences. This is the package for
 				you. You'll also be eternalised in the separate videos that will be uploaded after the event
