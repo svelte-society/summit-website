@@ -6,6 +6,7 @@
 	import svelte_barcelona from '$images/svelte-barcelona.png';
 	import icon_bluesky from '$images/icons/bluesky.svg';
 	import speaker_rich from '$images/past-speakers/rich.png';
+	import speaker_patak from '$images/past-speakers/patak.jpg';
 	import logo_reepolee from '$images/sponsors/reepolee.svg';
 	import logo_appwrite from '$images/sponsors/appwrite.svg';
 	import logo_monogram from '$images/sponsors/monogram.svg';
@@ -127,8 +128,19 @@
 				name="Rich Harris"
 				description="Creator of Svelte"
 				variant="invited"
-				url="https://github.com/Rich-Harris"
+				github_url="https://github.com/Rich-Harris"
+				bluesky_url="https://bsky.app/profile/rich-harris.dev"
 			/>
+			<!--
+			<Speaker
+				img={speaker_patak}
+				name="Matias Capeletto (patak)"
+				description="Vite core team"
+				variant="invited"
+				github_url="https://github.com/patak-dev"
+				bluesky_url="https://bsky.app/profile/patak.dev"
+			/>
+			-->
 		</div>
 	</section>
 	<section id="sponsor-section">
@@ -326,7 +338,11 @@
 					>
 				</div>
 				<div class="ml-2 ml-xs-0 image-link">
-					<Link bg="none" fg="none" href="https://mainmatter.com/svelte-consulting/?utm_source=Svelte+Summit" target="_blank"
+					<Link
+						bg="none"
+						fg="none"
+						href="https://mainmatter.com/svelte-consulting/?utm_source=Svelte+Summit"
+						target="_blank"
 						><img src={logo_mainmatter} id="mainmatter" alt="mainmatter logo" /></Link
 					>
 				</div>
