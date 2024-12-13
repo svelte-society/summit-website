@@ -110,7 +110,9 @@
 							<a href={proposal_url} target="_blank" class="btn --lg --secondary">Submit a Talk </a>
 						</div>
 						<p class="white" style="margin-block-start:1rem; text-align:center">
-							For group tickets send us an email to <a href="mailto:groups@sveltesummit.com">
+							For group tickets or payment by invoice send us an email to <a
+								href="mailto:groups@sveltesummit.com"
+							>
 								groups@sveltesummit.com
 							</a>
 						</p>
@@ -310,7 +312,9 @@
 				<a href={proposal_url} target="_blank" class="btn --lg --secondary">Submit a Talk</a>
 			</div>
 			<p class="white" style="margin-block-start:1rem; text-align:center">
-				For group tickets send us an email to <a href="mailto:groups@sveltesummit.com">
+				For group tickets or payment by invoice send us an email to <a
+					href="mailto:groups@sveltesummit.com"
+				>
 					groups@sveltesummit.com
 				</a>
 			</p>

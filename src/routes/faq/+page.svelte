@@ -79,6 +79,13 @@
 			Yes, send us an email to <a href="mailto:groups@sveltesociety.dev">groups@sveltesociety.dev</a
 			>
 		</p>
+		<h3 class="lt-yellow" id="can-i-pay-by-invoice">
+			<a href="#can-i-pay-by-invoice">Can I pay by invoice?</a>
+		</h3>
+		<p class="white pb-3">
+			Yes, send us an email to <a href="mailto:groups@sveltesociety.dev">groups@sveltesociety.dev</a
+			>
+		</p>
 		<h3 class="lt-yellow" id="how-can-i-become-a-speaker">
 			<a href="#how-can-i-become-a-speaker"> How can I become a speaker? </a>
 		</h3>
