@@ -104,9 +104,16 @@
 						Svelte Summit is an event dedicated to Svelte and everything that is happening in the
 						community. Don't miss it! It's going to be an absolute&nbsp;blast.
 					</p>
-					<div class="btn-group" style="margin-block-end: 2rem;">
-						<a href={ticket_url} target="_blank" class="btn --lg">Buy Tickets</a>
-						<a href={proposal_url} target="_blank" class="btn --lg --secondary">Submit a Talk </a>
+					<div style="margin-block-end: 2rem;">
+						<div class="btn-group">
+							<a href={ticket_url} target="_blank" class="btn --lg">Buy Tickets</a>
+							<a href={proposal_url} target="_blank" class="btn --lg --secondary">Submit a Talk </a>
+						</div>
+						<p class="white" style="margin-block-start:1rem; text-align:center">
+							For group tickets send us an email to <a href="mailto:groups@sveltesummit.com">
+								groups@sveltesummit.com
+							</a>
+						</p>
 					</div>
 				</div>
 			</div>
@@ -297,9 +304,16 @@
 		</div>
 	</section>
 	<section id="buy-tickets">
-		<div class="btn-group">
-			<a href={ticket_url} target="_blank" class="btn --lg">Buy Tickets</a>
-			<a href={proposal_url} target="_blank" class="btn --lg --secondary">Submit a Talk</a>
+		<div>
+			<div class="btn-group">
+				<a href={ticket_url} target="_blank" class="btn --lg">Buy Tickets</a>
+				<a href={proposal_url} target="_blank" class="btn --lg --secondary">Submit a Talk</a>
+			</div>
+			<p class="white" style="margin-block-start:1rem; text-align:center">
+				For group tickets send us an email to <a href="mailto:groups@sveltesummit.com">
+					groups@sveltesummit.com
+				</a>
+			</p>
 		</div>
 	</section>
 	<section id="organizers">
@@ -308,20 +322,12 @@
 			<div class="column container">
 				<div class="ml-2 ml-xs-0 image-link">
 					<Link bg="none" fg="none" href="https://www.sveltesociety.dev/" target="_blank"
-						><img
-							id="svelte-society"
-							src={svelte_society_logo}
-							alt="svelte society logo"
-						/></Link
+						><img id="svelte-society" src={svelte_society_logo} alt="svelte society logo" /></Link
 					>
 				</div>
 				<div class="ml-2 ml-xs-0 image-link">
 					<Link bg="none" fg="none" href="https://www.mainmatter.com/" target="_blank"
-						><img
-							src={logo_mainmatter}
-							id="mainmatter"
-							alt="mainmatter logo"
-						/></Link
+						><img src={logo_mainmatter} id="mainmatter" alt="mainmatter logo" /></Link
 					>
 				</div>
 			</div>
