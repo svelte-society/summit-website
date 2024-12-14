@@ -105,13 +105,13 @@
 						Svelte Summit is an event dedicated to Svelte and everything that is happening in the
 						community. Don't miss it! It's going to be an absolute&nbsp;blast.
 					</p>
-					<div style="margin-block-end: 2rem;">
-						<div class="btn-group">
-							<a href={ticket_url} target="_blank" class="btn --lg">Buy Tickets</a>
+					<div class="mb-2">
+						<div class="btn-group pb-2">
+							<a href={ticket_url} target="_blank" class="btn --lg">Buy Tickets<sup>*</sup></a>
 							<a href={proposal_url} target="_blank" class="btn --lg --secondary">Submit a Talk </a>
 						</div>
-						<p class="white" style="margin-block-start:1rem">
-							Use the code <strong>sveltmas2024</strong> at checkout for a 20% discount until
+						<p class="white small-paragraph" style="margin-block-start:1rem">
+							<sup>*</sup>Use the code <strong>sveltmas2024</strong> at checkout for a 20% discount until
 							December 31st. For group tickets or payment by invoice send us an email to
 							<a href="mailto:groups@sveltesummit.com"> groups@sveltesummit.com </a>
 						</p>
@@ -317,12 +317,12 @@
 	</section>
 	<section id="buy-tickets">
 		<div>
-			<div class="btn-group">
-				<a href={ticket_url} target="_blank" class="btn --lg">Buy Tickets</a>
+			<div class="btn-group pb-2">
+				<a href={ticket_url} target="_blank" class="btn --lg">Buy Tickets<sup>*</sup></a>
 				<a href={proposal_url} target="_blank" class="btn --lg --secondary">Submit a Talk</a>
 			</div>
-			<p class="white" style="margin-block-start:1rem">
-				Use the code <strong>sveltmas2024</strong> at checkout for a 20% discount until December
+			<p class="white small-paragraph">
+				<sup>*</sup>Use the code <strong>sveltmas2024</strong> at checkout for a 20% discount until December
 				31st. For group tickets or payment by invoice send us an email to
 				<a href="mailto:groups@sveltesummit.com"> groups@sveltesummit.com </a>
 			</p>

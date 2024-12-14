@@ -116,6 +116,10 @@
 		margin-bottom:1rem;
 	};
 
+	.mb-2 {
+		margin-bottom:2rem;
+	}
+
 	.mx-auto {
 		margin:inherit auto;
 	}

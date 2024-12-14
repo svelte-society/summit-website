@@ -380,6 +380,19 @@ img#two-dots {
 		margin:0 5vw;
 	}
 }
+
+#buy-tickets p {
+	width:60%;
+	max-width:800px;
+	margin:0 auto;
+}
+
+@media (max-width:799px) {
+	#buy-tickets p {
+		width:100%;
+	}
+}
+
 #venue img, #community img {
 	border-radius: 50px;
 }
