@@ -65,7 +65,7 @@
 	<section id="hero" class="pt-5">
 		<div class="row-reverse">
 			<div class="column pt-2" id="hero-image">
-				<p>The 10th Svelte-only conference</p>
+				<p class="small-paragraph">The 10th Svelte-only conference</p>
 				<img
 					id="main-image"
 					src={hero}

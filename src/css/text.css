@@ -11,6 +11,10 @@
 		font-size:clamp(20px, 1.5vw, 26px);
 	}
 
+	p.small-paragraph {
+		font-size:clamp(16px, 1.2vw, 20.8px)
+	}
+
 	h1, h2, h3, h4, a, strong {
 		font-family:"Anton", sans-serif;
 		font-weight:400;
