@@ -52,11 +52,13 @@ h2 {
 h3 {
 	/* 30px */
 	font-size:clamp(20px, 2vw, 50px);
+	line-height: clamp(25px, 2.5vw, 62.5px);
 }
 
 @media (max-width:999px) {
 	h3 {
 		font-size:20px;
+		line-height: 25px;
 	}
 }
 

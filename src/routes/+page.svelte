@@ -6,7 +6,7 @@
 	import svelte_barcelona from '$images/svelte-barcelona.png';
 	import icon_bluesky from '$images/icons/bluesky.svg';
 	import speaker_rich from '$images/past-speakers/rich.png';
-	import speaker_patak from '$images/past-speakers/patak.jpg';
+	import speaker_patak from '$images/past-speakers/patak.png';
 	import logo_reepolee from '$images/sponsors/reepolee.svg';
 	import logo_appwrite from '$images/sponsors/appwrite.svg';
 	import logo_monogram from '$images/sponsors/monogram.svg';
@@ -121,26 +121,26 @@
 		</div>
 	</section>
 	<section id="invited-speaker">
-		<div class="lg-row vertical-center">
-			<h2 class="orange-2 column">Invited speaker</h2>
-			<Speaker
-				img={speaker_rich}
-				name="Rich Harris"
-				description="Creator of Svelte"
-				variant="invited"
-				github_url="https://github.com/Rich-Harris"
-				bluesky_url="https://bsky.app/profile/rich-harris.dev"
-			/>
-			<!--
-			<Speaker
-				img={speaker_patak}
-				name="Matias Capeletto (patak)"
-				description="Vite core team"
-				variant="invited"
-				github_url="https://github.com/patak-dev"
-				bluesky_url="https://bsky.app/profile/patak.dev"
-			/>
-			-->
+		<div class="lg-row vertical-top container mx-auto">
+			<h2 class="orange-2 column">Invited speakers</h2>
+			<div class="column gap-10">
+				<Speaker
+					img={speaker_rich}
+					name="Rich Harris"
+					description="Creator of Svelte"
+					variant="invited"
+					github_url="https://github.com/Rich-Harris"
+					bluesky_url="https://bsky.app/profile/rich-harris.dev"
+				/>
+				<Speaker
+					img={speaker_patak}
+					name="Matias Capeletto (patak)"
+					description="Vite core team"
+					variant="invited"
+					github_url="https://github.com/patak-dev"
+					bluesky_url="https://bsky.app/profile/patak.dev"
+				/>
+			</div>
 		</div>
 	</section>
 	<section id="sponsor-section">

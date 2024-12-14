@@ -436,15 +436,18 @@ img#two-dots {
 	}
 }
 
+#invited-speaker h2,
 #past-speakers h2 {
 	padding-top:20px;
 }
 
+#invited-speaker .container,
 #past-speakers .container {
 	align-items:start;
 }
 
 @media (max-width:999px) {
+	#invited-speaker .container,
 	#past-speakers .container {
 		align-items:center;
 	}
