@@ -64,7 +64,7 @@
 	#footer {
 		background: var(--black);
 		display: block;
-		padding: 5rem 25rem;
+		padding: 5rem 25rem 3rem 25rem;
 	}
 
 	@media (max-width: 999px) {
@@ -95,8 +95,8 @@
 	}
 	.copyright {
 		font-weight: 600;
-		margin-block-start: 2rem;
+		margin-block-start: 4rem;
 		font-size: 1rem;
-		color: white;
+		color: var(--orange-3);
 	}
 </style>
