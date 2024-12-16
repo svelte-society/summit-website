@@ -79,9 +79,11 @@
 			</div>
 		</div>
 		<div class="text-center">
-			<a class="m-0 p-0 button" href="mailto:sponsorship@sveltesummit.org">
-				<h3 class="lt-yellow">Become a sponsor</h3>
-			</a>
+			<div class="btn-group">
+				<a class="btn --lg m-0 p-0" href="mailto:sponsors@sveltesummit.org">
+					Become a sponsor
+				</a>
+			</div>
 		</div>
 
 		<h2 class="pb-3 pt-7 lt-yellow text-center">Why Sponsor?</h2>
@@ -219,9 +221,11 @@
 		</div>
 
 		<div class="text-center pt-7 pb-10">
-			<a class="button m-0 p-0" href="mailto:sponsors@sveltesummit.org">
-				<h3 class="lt-yellow">Become a sponsor</h3>
-			</a>
+			<div class="btn-group">
+				<a class="btn --lg m-0 p-0" href="mailto:sponsors@sveltesummit.org">
+					Become a sponsor
+				</a>
+			</div>
 		</div>
 	</section>
 	<Footer></Footer>
