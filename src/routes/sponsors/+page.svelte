@@ -80,7 +80,7 @@
 		</div>
 		<div class="text-center">
 			<div class="btn-group">
-				<a class="btn --lg m-0 p-0" href="mailto:sponsors@sveltesummit.org">
+				<a class="btn --lg m-0 p-0" href="mailto:sponsors@sveltesummit.coms">
 					Become a sponsor
 				</a>
 			</div>
@@ -222,7 +222,7 @@
 
 		<div class="text-center pt-7 pb-10">
 			<div class="btn-group">
-				<a class="btn --lg m-0 p-0" href="mailto:sponsors@sveltesummit.org">
+				<a class="btn --lg m-0 p-0" href="mailto:sponsors@sveltesummit.coms">
 					Become a sponsor
 				</a>
 			</div>
